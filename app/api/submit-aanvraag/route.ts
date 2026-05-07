@@ -72,7 +72,7 @@ async function getAccessToken(email: string, privateKey: string): Promise<string
 
 async function appendToSheets(sheetId: string, token: string, row: string[]): Promise<void> {
   const tab   = process.env.GOOGLE_SHEETS_TAB ?? 'Aanvragen'
-  const range = encodeURIComponent(`${tab}!A:K`)
+  const range = encodeURIComponent(`${tab}!A:Q`)
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`
   const res = await fetch(url, {
     method: 'POST',
@@ -132,18 +132,26 @@ export async function POST(request: NextRequest) {
   const { naam, email, telefoon, address, eigendomstype, opleveringsdatum, offerte } = body
 
   // Build the CRM row
-  const adres = formatAdres(address)
-  const type  = eigendomstype === 'huur' ? 'Huurwoning' : eigendomstype === 'koop' ? 'Koopwoning' : ''
-  const prijsMin = formatBedrag(offerte.totaalMin)
-  const prijsMax = formatBedrag(offerte.totaalMax)
+  const adres       = formatAdres(address)
+  const prijsMin    = formatBedrag(offerte.totaalMin)
+  const prijsMax    = formatBedrag(offerte.totaalMax)
+  const bedragRange = `${prijsMin} - ${prijsMax}`
+  const vandaag     = datumVandaag()
+  const plusDrie    = new Date(Date.now() + 3 * 86400000)
+    .toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' })
+
+  // A=naam, B=email, C="Particulier", D="01 - Nieuw", E="", F=opleveringsdatum,
+  // G=vandaag, H=vandaag, I=+3dagen, J="Analyse tool", K=bedragMinMax,
+  // L="", M=referentie, N="", O=volledigAdres, P="", Q=telefoon
   const row: string[] = [
-    naam, email, telefoon, adres, type, opleveringsdatum,
-    prijsMin, prijsMax, offerte.referentie, datumVandaag(), '01 - Nieuw',
+    naam, email, 'Particulier', '01 - Nieuw', '', opleveringsdatum,
+    vandaag, vandaag, plusDrie, 'Analyse tool', bedragRange,
+    '', offerte.referentie, '', adres, '', telefoon,
   ]
   const firestoreData: Record<string, string> = {
-    naam, email, telefoon, adres, eigendomstype: type, opleveringsdatum,
-    prijsMin, prijsMax, referentie: offerte.referentie,
-    datumAanvraag: datumVandaag(), fase: '01 - Nieuw',
+    naam, email, telefoon, adres, opleveringsdatum,
+    bedragRange, referentie: offerte.referentie,
+    datumAanvraag: vandaag, fase: '01 - Nieuw',
   }
 
   const sheetId    = process.env.GOOGLE_SHEETS_ID
