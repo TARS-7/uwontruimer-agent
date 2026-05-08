@@ -349,9 +349,9 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
       </div>
 
       <p className="text-center text-xs text-slate-400">
-        Vragen? Bel ons op{' '}
+        {'Vragen? Bel ons op '}
         <a href="tel:+31202442400" className="text-blue-600 hover:underline">
-          020 - 244 2400
+          {'020 - 244 2400'}
         </a>
       </p>
     </div>
