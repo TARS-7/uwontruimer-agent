@@ -15,6 +15,80 @@ interface SubmitInput {
   offerte: Offerte
 }
 
+// ─── Rate limiting (in-memory, per serverless instance) ───────────────────────
+
+const MAX_REQUESTS_PER_HOUR = 5
+const WINDOW_MS = 60 * 60 * 1000
+
+const rateLimitMap = new Map<string, number[]>()
+
+function getClientIp(request: NextRequest): string {
+  return (
+    request.headers.get('x-forwarded-for')?.split(',')[0].trim() ??
+    request.headers.get('x-real-ip') ??
+    'unknown'
+  )
+}
+
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
+  const now = Date.now()
+  const timestamps = (rateLimitMap.get(ip) ?? []).filter((t) => now - t < WINDOW_MS)
+  if (timestamps.length >= MAX_REQUESTS_PER_HOUR) {
+    return { allowed: false, remaining: 0 }
+  }
+  timestamps.push(now)
+  rateLimitMap.set(ip, timestamps)
+  return { allowed: true, remaining: MAX_REQUESTS_PER_HOUR - timestamps.length }
+}
+
+// ─── Input validation ─────────────────────────────────────────────────────────
+
+function validateBody(body: unknown): string | null {
+  if (!body || typeof body !== 'object') return 'Ongeldig verzoek'
+  const b = body as Record<string, unknown>
+
+  if (!b.naam || typeof b.naam !== 'string' || !b.naam.trim())
+    return 'Naam is verplicht'
+  if (!b.email || typeof b.email !== 'string' || !b.email.includes('@'))
+    return 'Geldig e-mailadres is verplicht'
+  if (!b.telefoon || typeof b.telefoon !== 'string' || !b.telefoon.trim())
+    return 'Telefoonnummer is verplicht'
+  if (!b.opleveringsdatum || typeof b.opleveringsdatum !== 'string' || !b.opleveringsdatum.trim())
+    return 'Opleveringsdatum is verplicht'
+  if (!b.address || typeof b.address !== 'object')
+    return 'Adresgegevens zijn verplicht'
+
+  const addr = b.address as Record<string, unknown>
+  if (!addr.straat || !addr.huisnummer || !addr.postcode || !addr.woonplaats)
+    return 'Adresgegevens zijn onvolledig'
+
+  if (!b.offerte || typeof b.offerte !== 'object')
+    return 'Offertegegevens zijn verplicht'
+
+  const off = b.offerte as Record<string, unknown>
+  if (!off.referentie || typeof off.referentie !== 'string')
+    return 'Offertereferentie is verplicht'
+  if (typeof off.totaalMin !== 'number' || typeof off.totaalMax !== 'number')
+    return 'Offertebedragen zijn verplicht'
+
+  return null
+}
+
+// ─── File validation ──────────────────────────────────────────────────────────
+
+const MAX_FOTO_SIZE  = 10 * 1024 * 1024 // 10 MB
+const MAX_FOTO_COUNT = 10
+
+function validateFotos(fotos: File[]): string | null {
+  if (fotos.length > MAX_FOTO_COUNT)
+    return `Maximaal ${MAX_FOTO_COUNT} foto's per aanvraag`
+  for (let i = 0; i < fotos.length; i++) {
+    if (fotos[i].size > MAX_FOTO_SIZE)
+      return `Foto ${i + 1} is te groot (max 10 MB per foto)`
+  }
+  return null
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const fmt = new Intl.NumberFormat('nl-NL', {
@@ -160,7 +234,17 @@ async function saveToFirestore(data: Record<string, string>): Promise<void> {
 // ─── Route handler ────────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
-  // Parse multipart FormData (contains JSON `data` field + optional `foto-N` files)
+  // 1 — Rate limit
+  const ip = getClientIp(request)
+  const { allowed, remaining } = checkRateLimit(ip)
+  if (!allowed) {
+    return Response.json(
+      { error: 'Te veel aanvragen. Probeer het over een uur opnieuw.' },
+      { status: 429, headers: { 'Retry-After': '3600', 'X-RateLimit-Remaining': '0' } },
+    )
+  }
+
+  // 2 — Parse multipart FormData (contains JSON `data` field + optional `foto-N` files)
   let formData: FormData
   try {
     formData = await request.formData()
@@ -175,12 +259,24 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: 'Ongeldig verzoek' }, { status: 400 })
   }
 
-  // Collect uploaded photos
+  // 3 — Validate required fields
+  const validationError = validateBody(body)
+  if (validationError) {
+    return Response.json({ error: validationError }, { status: 422 })
+  }
+
+  // 4 — Collect uploaded photos
   const fotos: File[] = []
   for (let i = 0; ; i++) {
     const f = formData.get(`foto-${i}`)
     if (!f || !(f instanceof File)) break
     fotos.push(f)
+  }
+
+  // 5 — Validate photo count and size
+  const fotoError = validateFotos(fotos)
+  if (fotoError) {
+    return Response.json({ error: fotoError }, { status: 422 })
   }
 
   const { naam, email, telefoon, address, eigendomstype, opleveringsdatum, offerte } = body
