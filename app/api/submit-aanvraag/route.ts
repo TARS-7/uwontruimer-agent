@@ -32,35 +32,30 @@ function datumVandaag(): string {
   return new Date().toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' })
 }
 
-// ─── Google Sheets auth (service account JWT) ─────────────────────────────────
+// ─── Google service account JWT ───────────────────────────────────────────────
 
 function b64url(buf: Buffer): string {
   return buf.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
 }
 
-function makeJWT(email: string, privateKey: string): string {
+function makeJWT(email: string, privateKey: string, scope: string): string {
   const now = Math.floor(Date.now() / 1000)
   const header  = b64url(Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })))
   const payload = b64url(Buffer.from(JSON.stringify({
-    iss: email,
-    scope: 'https://www.googleapis.com/auth/spreadsheets',
-    aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600,
+    iss: email, scope, aud: 'https://oauth2.googleapis.com/token', iat: now, exp: now + 3600,
   })))
   const sign = createSign('RSA-SHA256')
   sign.update(`${header}.${payload}`)
-  const sig = b64url(sign.sign(privateKey))
-  return `${header}.${payload}.${sig}`
+  return `${header}.${payload}.${b64url(sign.sign(privateKey))}`
 }
 
-async function getAccessToken(email: string, privateKey: string): Promise<string> {
+async function getAccessToken(email: string, privateKey: string, scope: string): Promise<string> {
   const res = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: makeJWT(email, privateKey),
+      assertion: makeJWT(email, privateKey, scope),
     }),
   })
   const data = await res.json()
@@ -68,11 +63,54 @@ async function getAccessToken(email: string, privateKey: string): Promise<string
   return data.access_token
 }
 
+// ─── Firebase Storage upload ──────────────────────────────────────────────────
+
+async function uploadPhotos(fotos: File[], referentie: string): Promise<string[]> {
+  const bucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
+  if (!bucket || !apiKey || fotos.length === 0) return []
+
+  const urls: string[] = []
+
+  for (let i = 0; i < fotos.length; i++) {
+    const foto = fotos[i]
+    const ext  = foto.type === 'image/png' ? 'png' : foto.type === 'image/webp' ? 'webp' : 'jpg'
+    const path = `aanvragen/${referentie}/foto-${i}.${ext}`
+    const fileBuffer = Buffer.from(await foto.arrayBuffer())
+
+    try {
+      const res = await fetch(
+        `https://firebasestorage.googleapis.com/v0/b/${encodeURIComponent(bucket)}/o?uploadType=media&name=${encodeURIComponent(path)}&key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': foto.type },
+          body: fileBuffer,
+        }
+      )
+      if (res.ok) {
+        const data = await res.json() as { downloadTokens?: string; name?: string }
+        const downloadToken = data.downloadTokens
+        if (downloadToken) {
+          urls.push(
+            `https://firebasestorage.googleapis.com/v0/b/${encodeURIComponent(bucket)}/o/${encodeURIComponent(path)}?alt=media&token=${downloadToken}`
+          )
+        }
+      } else {
+        console.error(`[submit-aanvraag] Storage upload foto ${i} mislukt:`, res.status, await res.text())
+      }
+    } catch (err) {
+      console.error(`[submit-aanvraag] Storage upload foto ${i} exception:`, err)
+    }
+  }
+
+  return urls
+}
+
 // ─── Google Sheets append ─────────────────────────────────────────────────────
 
 async function appendToSheets(sheetId: string, token: string, row: string[]): Promise<void> {
   const tab   = process.env.GOOGLE_SHEETS_TAB ?? 'Aanvragen'
-  const range = encodeURIComponent(`${tab}!A:Q`)
+  const range = encodeURIComponent(`${tab}!A:R`)
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`
   const res = await fetch(url, {
     method: 'POST',
@@ -122,16 +160,31 @@ async function saveToFirestore(data: Record<string, string>): Promise<void> {
 // ─── Route handler ────────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
-  let body: SubmitInput
+  // Parse multipart FormData (contains JSON `data` field + optional `foto-N` files)
+  let formData: FormData
   try {
-    body = await request.json()
+    formData = await request.formData()
   } catch {
     return Response.json({ error: 'Ongeldig verzoek' }, { status: 400 })
   }
 
+  let body: SubmitInput
+  try {
+    body = JSON.parse(formData.get('data') as string)
+  } catch {
+    return Response.json({ error: 'Ongeldig verzoek' }, { status: 400 })
+  }
+
+  // Collect uploaded photos
+  const fotos: File[] = []
+  for (let i = 0; ; i++) {
+    const f = formData.get(`foto-${i}`)
+    if (!f || !(f instanceof File)) break
+    fotos.push(f)
+  }
+
   const { naam, email, telefoon, address, eigendomstype, opleveringsdatum, offerte } = body
 
-  // Build the CRM row
   const adres       = formatAdres(address)
   const prijsMin    = formatBedrag(offerte.totaalMin)
   const prijsMax    = formatBedrag(offerte.totaalMax)
@@ -140,33 +193,37 @@ export async function POST(request: NextRequest) {
   const plusDrie    = new Date(Date.now() + 3 * 86400000)
     .toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' })
 
-  // A=naam, B=email, C="Particulier", D="01 - Nieuw", E="", F=opleveringsdatum,
-  // G=vandaag, H=vandaag, I=+3dagen, J="Analyse tool", K=bedragMinMax,
-  // L="", M=referentie, N="", O=volledigAdres, P="", Q=telefoon
-  const row: string[] = [
-    naam, email, 'Particulier', '01 - Nieuw', '', opleveringsdatum,
-    vandaag, vandaag, plusDrie, 'Analyse tool', bedragRange,
-    '', offerte.referentie, '', adres, '', telefoon,
-  ]
-  const firestoreData: Record<string, string> = {
-    naam, email, telefoon, adres, opleveringsdatum,
-    bedragRange, referentie: offerte.referentie,
-    datumAanvraag: vandaag, fase: '01 - Nieuw',
-  }
-
-  const sheetId    = process.env.GOOGLE_SHEETS_ID
-  const saEmail    = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
-  const saKey      = process.env.GOOGLE_SERVICE_ACCOUNT_KEY?.replace(/\\n/g, '\n')
+  const sheetId = process.env.GOOGLE_SHEETS_ID
+  const saEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
+  const saKey   = process.env.GOOGLE_SERVICE_ACCOUNT_KEY?.replace(/\\n/g, '\n')
 
   const sheetsConfigured = !!(sheetId && saEmail && saKey)
-  let sheetsOk = false
+  let sheetsOk    = false
   let firestoreOk = false
   const errors: string[] = []
 
-  // 1 — Try Google Sheets
+  // 1 — Try Google Sheets (+ Storage upload)
   if (sheetsConfigured) {
     try {
-      const token = await getAccessToken(saEmail!, saKey!)
+      const token = await getAccessToken(
+        saEmail!,
+        saKey!,
+        'https://www.googleapis.com/auth/spreadsheets',
+      )
+
+      // Upload photos to Firebase Storage (API key auth, no OAuth needed)
+      const fotoUrls = await uploadPhotos(fotos, offerte.referentie)
+
+      // A=naam, B=email, C="Particulier", D="01 - Nieuw", E="", F=opleveringsdatum,
+      // G=vandaag, H=vandaag, I=+3dagen, J="Analyse tool", K=bedragMinMax,
+      // L="", M=referentie, N="", O=volledigAdres, P="", Q=telefoon, R=fotoUrls
+      const row: string[] = [
+        naam, email, 'Particulier', '01 - Nieuw', '', opleveringsdatum,
+        vandaag, vandaag, plusDrie, 'Analyse tool', bedragRange,
+        '', offerte.referentie, '', adres, '', telefoon,
+        fotoUrls.join('\n'),
+      ]
+
       await appendToSheets(sheetId!, token, row)
       sheetsOk = true
     } catch (err) {
@@ -175,10 +232,14 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  // 2 — Firestore fallback (always try when Sheets failed or not configured)
+  // 2 — Firestore fallback
   if (!sheetsOk) {
     try {
-      await saveToFirestore(firestoreData)
+      await saveToFirestore({
+        naam, email, telefoon, adres, opleveringsdatum,
+        bedragRange, referentie: offerte.referentie,
+        datumAanvraag: vandaag, fase: '01 - Nieuw',
+      })
       firestoreOk = true
     } catch (err) {
       console.error('[submit-aanvraag] Firestore fout:', err)
@@ -190,8 +251,5 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: 'Opslaan mislukt. Probeer opnieuw.', details: errors }, { status: 500 })
   }
 
-  return Response.json({
-    ok: true,
-    opgeslagenIn: sheetsOk ? 'sheets' : 'firestore',
-  })
+  return Response.json({ ok: true, opgeslagenIn: sheetsOk ? 'sheets' : 'firestore' })
 }
