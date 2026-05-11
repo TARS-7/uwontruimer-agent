@@ -53,7 +53,7 @@ export default function Page() {
   }
 
   function handleStep4Complete(result: Step4Result) {
-    setState((s) => ({ ...s, fotos: result.fotos, step: 6 }))
+    setState((s) => ({ ...s, fotos: result.fotos, fotosWaardevol: result.fotosWaardevol, step: 6 }))
   }
 
   function handleStep5ContactComplete(result: Step5ContactResult) {
@@ -125,7 +125,7 @@ export default function Page() {
 
             {state.step === 5 && (
               <Step4Fotos
-                initialData={{ fotos: state.fotos }}
+                initialData={{ fotos: state.fotos, fotosWaardevol: state.fotosWaardevol }}
                 onComplete={handleStep4Complete}
                 onBack={() => setState((s) => ({
                   ...s,
@@ -159,6 +159,7 @@ export default function Page() {
                   email: state.email,
                   telefoon: state.telefoon,
                   fotos: state.fotos,
+                  fotosWaardevol: state.fotosWaardevol,
                 }}
                 initialOfferte={state.offerte}
                 onBack={() => setState((s) => ({ ...s, step: 6 }))}

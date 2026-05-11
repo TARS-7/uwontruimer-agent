@@ -139,7 +139,7 @@ async function getAccessToken(email: string, privateKey: string, scope: string):
 
 // ─── Firebase Storage upload ──────────────────────────────────────────────────
 
-async function uploadPhotos(fotos: File[], referentie: string): Promise<string[]> {
+async function uploadPhotos(fotos: File[], referentie: string, subpad: string): Promise<string[]> {
   const bucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
   const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
   if (!bucket || !apiKey || fotos.length === 0) return []
@@ -149,7 +149,7 @@ async function uploadPhotos(fotos: File[], referentie: string): Promise<string[]
   for (let i = 0; i < fotos.length; i++) {
     const foto = fotos[i]
     const ext  = foto.type === 'image/png' ? 'png' : foto.type === 'image/webp' ? 'webp' : 'jpg'
-    const path = `aanvragen/${referentie}/foto-${i}.${ext}`
+    const path = `aanvragen/${referentie}/${subpad}foto-${i}.${ext}`
     const fileBuffer = Buffer.from(await foto.arrayBuffer())
 
     try {
@@ -184,7 +184,7 @@ async function uploadPhotos(fotos: File[], referentie: string): Promise<string[]
 
 async function appendToSheets(sheetId: string, token: string, row: string[]): Promise<void> {
   const tab   = process.env.GOOGLE_SHEETS_TAB ?? 'Aanvragen'
-  const range = encodeURIComponent(`${tab}!A:R`)
+  const range = encodeURIComponent(`${tab}!A:S`)
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`
   const res = await fetch(url, {
     method: 'POST',
@@ -273,8 +273,15 @@ export async function POST(request: NextRequest) {
     fotos.push(f)
   }
 
+  const fotosWaardevol: File[] = []
+  for (let i = 0; ; i++) {
+    const f = formData.get(`foto-waardevol-${i}`)
+    if (!f || !(f instanceof File)) break
+    fotosWaardevol.push(f)
+  }
+
   // 5 — Validate photo count and size
-  const fotoError = validateFotos(fotos)
+  const fotoError = validateFotos(fotos) ?? validateFotos(fotosWaardevol)
   if (fotoError) {
     return Response.json({ error: fotoError }, { status: 422 })
   }
@@ -308,16 +315,21 @@ export async function POST(request: NextRequest) {
       )
 
       // Upload photos to Firebase Storage (API key auth, no OAuth needed)
-      const fotoUrls = await uploadPhotos(fotos, offerte.referentie)
+      const [fotoUrls, fotoWaardevollUrls] = await Promise.all([
+        uploadPhotos(fotos, offerte.referentie, ''),
+        uploadPhotos(fotosWaardevol, offerte.referentie, 'waardevol/'),
+      ])
 
       // A=naam, B=email, C="Particulier", D="01 - Nieuw", E="", F=opleveringsdatum,
       // G=vandaag, H=vandaag, I=+3dagen, J="Analyse tool", K=bedragMinMax,
-      // L="", M=referentie, N="", O=volledigAdres, P="", Q=telefoon, R=fotoUrls
+      // L="", M=referentie, N="", O=volledigAdres, P="", Q=telefoon,
+      // R=fotoUrls, S=fotoWaardevollUrls
       const row: string[] = [
         naam, email, 'Particulier', '01 - Nieuw', '', opleveringsdatum,
         vandaag, vandaag, plusDrie, 'Analyse tool', bedragRange,
         '', offerte.referentie, '', adres, '', telefoon,
         fotoUrls.join('\n'),
+        fotoWaardevollUrls.join('\n'),
       ]
 
       await appendToSheets(sheetId!, token, row)

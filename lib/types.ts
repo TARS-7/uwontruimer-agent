@@ -51,6 +51,7 @@ export interface WizardState {
 
   // Step 5 – photos
   fotos: File[]
+  fotosWaardevol: File[]
 
   // Step 5
   offerte: Offerte | null
@@ -72,6 +73,7 @@ export const initialWizardState: WizardState = {
   inspectieWerkzaamheden: [],
   geselecteerdeWerkzaamheden: [],
   fotos: [],
+  fotosWaardevol: [],
   offerte: null,
   naam: '',
   email: '',

@@ -20,6 +20,7 @@ export interface Step6Input {
   telefoon: string
   // Foto's
   fotos: File[]
+  fotosWaardevol: File[]
 }
 
 interface Props {
@@ -141,6 +142,7 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
           offerte: generatedOfferte,
         }))
         data.fotos.forEach((foto, i) => fd.append(`foto-${i}`, foto))
+        data.fotosWaardevol.forEach((foto, i) => fd.append(`foto-waardevol-${i}`, foto))
         fetch('/api/submit-aanvraag', { method: 'POST', body: fd }).catch((err) => {
           console.error('[Step6Offerte] CRM submit fout:', err)
         })
