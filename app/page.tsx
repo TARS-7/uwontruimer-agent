@@ -158,6 +158,7 @@ export default function Page() {
                   naam: state.naam,
                   email: state.email,
                   telefoon: state.telefoon,
+                  fotos: state.fotos,
                 }}
                 initialOfferte={state.offerte}
                 onBack={() => setState((s) => ({ ...s, step: 6 }))}
