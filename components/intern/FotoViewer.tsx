@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface Props {
   urls: string[]
@@ -69,13 +70,14 @@ export default function FotoViewer({ urls, naam }: Props) {
                 </button>
               )}
 
-              <div className="flex-1 overflow-hidden rounded-xl bg-black/50 max-h-[75vh]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="relative flex-1 overflow-hidden rounded-xl bg-black/50 h-[75vh]">
+                <Image
                   key={urls[index]}
                   src={urls[index]}
                   alt={`Foto ${index + 1} van ${naam}`}
-                  className="block h-full w-full object-contain"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 896px) 100vw, 896px"
                 />
               </div>
 
