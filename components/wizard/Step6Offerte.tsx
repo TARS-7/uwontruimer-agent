@@ -18,9 +18,9 @@ export interface Step6Input {
   naam: string
   email: string
   telefoon: string
-  // Foto's
-  fotos: File[]
-  fotosWaardevol: File[]
+  // Foto's (pre-uploaded Storage URLs)
+  fotoUrls: string[]
+  fotosWaardevollUrls: string[]
 }
 
 interface Props {
@@ -130,20 +130,22 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
         setPhase('result')
 
         // Write to CRM in the background — don't block the confirmation screen
-        const fd = new FormData()
-        fd.append('data', JSON.stringify({
-          naam: data.naam,
-          email: data.email,
-          telefoon: data.telefoon,
-          address: data.address,
-          eigendomstype: data.eigendomstype,
-          opleveringsdatum: data.opleveringsdatum,
-          inspectieWerkzaamheden: data.inspectieWerkzaamheden,
-          offerte: generatedOfferte,
-        }))
-        data.fotos.forEach((foto, i) => fd.append(`foto-${i}`, foto))
-        data.fotosWaardevol.forEach((foto, i) => fd.append(`foto-waardevol-${i}`, foto))
-        fetch('/api/submit-aanvraag', { method: 'POST', body: fd }).catch((err) => {
+        fetch('/api/submit-aanvraag', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            naam: data.naam,
+            email: data.email,
+            telefoon: data.telefoon,
+            address: data.address,
+            eigendomstype: data.eigendomstype,
+            opleveringsdatum: data.opleveringsdatum,
+            inspectieWerkzaamheden: data.inspectieWerkzaamheden,
+            offerte: generatedOfferte,
+            fotoUrls: data.fotoUrls,
+            fotosWaardevollUrls: data.fotosWaardevollUrls,
+          }),
+        }).catch((err) => {
           console.error('[Step6Offerte] CRM submit fout:', err)
         })
       } catch (err) {

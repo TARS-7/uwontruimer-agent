@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import Button from '@/components/ui/Button'
+import { uploadFotos, generateUploadId } from '@/lib/firebase-upload'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -9,6 +10,7 @@ interface FotoItem { id: string; file: File; url: string }
 
 export interface Step4Result {
   fotos: File[]
+  fotoUrls: string[]
 }
 
 interface Props {
@@ -24,12 +26,14 @@ function uid() { return Math.random().toString(36).slice(2, 10) }
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
-  const [fotos, setFotos] = useState<FotoItem[]>(() =>
+  const [fotos, setFotos]       = useState<FotoItem[]>(() =>
     initialData.fotos.map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
   )
   const [dragOver, setDragOver] = useState(false)
   const [error, setError]       = useState<string | null>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
+  const [uploading, setUploading] = useState(false)
+  const inputRef    = useRef<HTMLInputElement>(null)
+  const uploadIdRef = useRef(generateUploadId())
 
   function addFiles(files: FileList | null) {
     if (!files) return
@@ -40,12 +44,23 @@ export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
     setError(null)
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (fotos.length === 0) {
       setError("Upload minimaal één foto voordat je verdergaat. Je mag ook overslaan als je geen foto's hebt.")
       return
     }
-    onComplete({ fotos: fotos.map((f) => f.file) })
+    setUploading(true)
+    setError(null)
+    try {
+      const files  = fotos.map((f) => f.file)
+      const subpad = `aanvragen/${uploadIdRef.current}`
+      const fotoUrls = await uploadFotos(files, subpad)
+      onComplete({ fotos: files, fotoUrls })
+    } catch {
+      setError('Upload mislukt. Controleer je verbinding en probeer opnieuw.')
+    } finally {
+      setUploading(false)
+    }
   }
 
   return (
@@ -146,14 +161,14 @@ export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
           {fotos.length === 0 && (
             <button
               type="button"
-              onClick={() => onComplete({ fotos: [] })}
+              onClick={() => onComplete({ fotos: [], fotoUrls: [] })}
               className="rounded-xl px-3 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 transition-colors"
             >
               Overslaan
             </button>
           )}
-          <Button size="lg" onClick={handleSubmit}>
-            Volgende stap
+          <Button size="lg" onClick={handleSubmit} disabled={uploading}>
+            {uploading ? 'Uploaden…' : 'Volgende stap'}
             <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>

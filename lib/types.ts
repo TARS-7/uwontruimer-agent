@@ -49,9 +49,12 @@ export interface WizardState {
   // Step 3b – handmatige werkzaamheden (alleen als geen inspectierapport)
   geselecteerdeWerkzaamheden: string[]
 
-  // Step 5 – photos
+  // Step 5 – photos (File[] voor thumbnails bij terug-navigatie)
   fotos: File[]
   fotosWaardevol: File[]
+  // geüploade Storage URLs
+  fotoUrls: string[]
+  fotosWaardevollUrls: string[]
 
   // Step 5
   offerte: Offerte | null
@@ -74,6 +77,8 @@ export const initialWizardState: WizardState = {
   geselecteerdeWerkzaamheden: [],
   fotos: [],
   fotosWaardevol: [],
+  fotoUrls: [],
+  fotosWaardevollUrls: [],
   offerte: null,
   naam: '',
   email: '',

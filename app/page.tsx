@@ -54,11 +54,11 @@ export default function Page() {
   }
 
   function handleStep4Complete(result: Step4Result) {
-    setState((s) => ({ ...s, fotos: result.fotos, step: 6 }))
+    setState((s) => ({ ...s, fotos: result.fotos, fotoUrls: result.fotoUrls, step: 6 }))
   }
 
   function handleStep5WaardevollComplete(result: Step5WaardevollResult) {
-    setState((s) => ({ ...s, fotosWaardevol: result.fotosWaardevol, step: 7 }))
+    setState((s) => ({ ...s, fotosWaardevol: result.fotosWaardevol, fotosWaardevollUrls: result.fotosWaardevollUrls, step: 7 }))
   }
 
   function handleStep6ContactComplete(result: Step5ContactResult) {
@@ -171,8 +171,8 @@ export default function Page() {
                   naam: state.naam,
                   email: state.email,
                   telefoon: state.telefoon,
-                  fotos: state.fotos,
-                  fotosWaardevol: state.fotosWaardevol,
+                  fotoUrls: state.fotoUrls,
+                  fotosWaardevollUrls: state.fotosWaardevollUrls,
                 }}
                 initialOfferte={state.offerte}
                 onBack={() => setState((s) => ({ ...s, step: 7 }))}

@@ -13,6 +13,8 @@ interface SubmitInput {
   opleveringsdatum: string
   inspectieWerkzaamheden: string[]
   offerte: Offerte
+  fotoUrls: string[]
+  fotosWaardevollUrls: string[]
 }
 
 // ─── Rate limiting (in-memory, per serverless instance) ───────────────────────
@@ -74,21 +76,6 @@ function validateBody(body: unknown): string | null {
   return null
 }
 
-// ─── File validation ──────────────────────────────────────────────────────────
-
-const MAX_FOTO_SIZE  = 10 * 1024 * 1024 // 10 MB
-const MAX_FOTO_COUNT = 10
-
-function validateFotos(fotos: File[]): string | null {
-  if (fotos.length > MAX_FOTO_COUNT)
-    return `Maximaal ${MAX_FOTO_COUNT} foto's per aanvraag`
-  for (let i = 0; i < fotos.length; i++) {
-    if (fotos[i].size > MAX_FOTO_SIZE)
-      return `Foto ${i + 1} is te groot (max 10 MB per foto)`
-  }
-  return null
-}
-
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const fmt = new Intl.NumberFormat('nl-NL', {
@@ -135,49 +122,6 @@ async function getAccessToken(email: string, privateKey: string, scope: string):
   const data = await res.json()
   if (!data.access_token) throw new Error(`Google auth mislukt: ${data.error_description ?? data.error}`)
   return data.access_token
-}
-
-// ─── Firebase Storage upload ──────────────────────────────────────────────────
-
-async function uploadPhotos(fotos: File[], referentie: string, subpad: string): Promise<string[]> {
-  const bucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-  const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
-  if (!bucket || !apiKey || fotos.length === 0) return []
-
-  const urls: string[] = []
-
-  for (let i = 0; i < fotos.length; i++) {
-    const foto = fotos[i]
-    const ext  = foto.type === 'image/png' ? 'png' : foto.type === 'image/webp' ? 'webp' : 'jpg'
-    const path = `aanvragen/${referentie}/${subpad}foto-${i}.${ext}`
-    const fileBuffer = Buffer.from(await foto.arrayBuffer())
-
-    try {
-      const res = await fetch(
-        `https://firebasestorage.googleapis.com/v0/b/${encodeURIComponent(bucket)}/o?uploadType=media&name=${encodeURIComponent(path)}&key=${apiKey}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': foto.type },
-          body: fileBuffer,
-        }
-      )
-      if (res.ok) {
-        const data = await res.json() as { downloadTokens?: string; name?: string }
-        const downloadToken = data.downloadTokens
-        if (downloadToken) {
-          urls.push(
-            `https://firebasestorage.googleapis.com/v0/b/${encodeURIComponent(bucket)}/o/${encodeURIComponent(path)}?alt=media&token=${downloadToken}`
-          )
-        }
-      } else {
-        console.error(`[submit-aanvraag] Storage upload foto ${i} mislukt:`, res.status, await res.text())
-      }
-    } catch (err) {
-      console.error(`[submit-aanvraag] Storage upload foto ${i} exception:`, err)
-    }
-  }
-
-  return urls
 }
 
 // ─── Google Sheets append ─────────────────────────────────────────────────────
@@ -244,17 +188,10 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // 2 — Parse multipart FormData (contains JSON `data` field + optional `foto-N` files)
-  let formData: FormData
-  try {
-    formData = await request.formData()
-  } catch {
-    return Response.json({ error: 'Ongeldig verzoek' }, { status: 400 })
-  }
-
+  // 2 — Parse JSON body
   let body: SubmitInput
   try {
-    body = JSON.parse(formData.get('data') as string)
+    body = await request.json()
   } catch {
     return Response.json({ error: 'Ongeldig verzoek' }, { status: 400 })
   }
@@ -265,28 +202,9 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: validationError }, { status: 422 })
   }
 
-  // 4 — Collect uploaded photos
-  const fotos: File[] = []
-  for (let i = 0; ; i++) {
-    const f = formData.get(`foto-${i}`)
-    if (!f || !(f instanceof File)) break
-    fotos.push(f)
-  }
-
-  const fotosWaardevol: File[] = []
-  for (let i = 0; ; i++) {
-    const f = formData.get(`foto-waardevol-${i}`)
-    if (!f || !(f instanceof File)) break
-    fotosWaardevol.push(f)
-  }
-
-  // 5 — Validate photo count and size
-  const fotoError = validateFotos(fotos) ?? validateFotos(fotosWaardevol)
-  if (fotoError) {
-    return Response.json({ error: fotoError }, { status: 422 })
-  }
-
   const { naam, email, telefoon, address, eigendomstype, opleveringsdatum, offerte } = body
+  const fotoUrls           = Array.isArray(body.fotoUrls)           ? body.fotoUrls           : []
+  const fotosWaardevollUrls = Array.isArray(body.fotosWaardevollUrls) ? body.fotosWaardevollUrls : []
 
   const adres       = formatAdres(address)
   const prijsMin    = formatBedrag(offerte.totaalMin)
@@ -305,7 +223,7 @@ export async function POST(request: NextRequest) {
   let firestoreOk = false
   const errors: string[] = []
 
-  // 1 — Try Google Sheets (+ Storage upload)
+  // 1 — Try Google Sheets
   if (sheetsConfigured) {
     try {
       const token = await getAccessToken(
@@ -313,12 +231,6 @@ export async function POST(request: NextRequest) {
         saKey!,
         'https://www.googleapis.com/auth/spreadsheets',
       )
-
-      // Upload photos to Firebase Storage (API key auth, no OAuth needed)
-      const [fotoUrls, fotoWaardevollUrls] = await Promise.all([
-        uploadPhotos(fotos, offerte.referentie, ''),
-        uploadPhotos(fotosWaardevol, offerte.referentie, 'waardevol/'),
-      ])
 
       // A=naam, B=email, C="Particulier", D="01 - Nieuw", E="", F=opleveringsdatum,
       // G=vandaag, H=vandaag, I=+3dagen, J="Analyse tool", K=bedragMinMax,
@@ -329,7 +241,7 @@ export async function POST(request: NextRequest) {
         vandaag, vandaag, plusDrie, 'Analyse tool', bedragRange,
         '', offerte.referentie, '', adres, '', telefoon,
         fotoUrls.join('\n'),
-        fotoWaardevollUrls.join('\n'),
+        fotosWaardevollUrls.join('\n'),
       ]
 
       await appendToSheets(sheetId!, token, row)

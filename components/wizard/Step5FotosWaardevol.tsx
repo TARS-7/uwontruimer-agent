@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import Button from '@/components/ui/Button'
+import { uploadFotos, generateUploadId } from '@/lib/firebase-upload'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -9,6 +10,7 @@ interface FotoItem { id: string; file: File; url: string }
 
 export interface Step5WaardevollResult {
   fotosWaardevol: File[]
+  fotosWaardevollUrls: string[]
 }
 
 interface Props {
@@ -24,11 +26,14 @@ function uid() { return Math.random().toString(36).slice(2, 10) }
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Step5FotosWaardevol({ initialData, onComplete, onBack }: Props) {
-  const [fotos, setFotos] = useState<FotoItem[]>(() =>
+  const [fotos, setFotos]         = useState<FotoItem[]>(() =>
     initialData.fotosWaardevol.map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
   )
-  const [dragOver, setDragOver] = useState(false)
-  const inputRef = useRef<HTMLInputElement>(null)
+  const [dragOver, setDragOver]   = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const [error, setError]         = useState<string | null>(null)
+  const inputRef    = useRef<HTMLInputElement>(null)
+  const uploadIdRef = useRef(generateUploadId())
 
   function addFiles(files: FileList | null) {
     if (!files) return
@@ -38,8 +43,23 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
     setFotos((prev) => [...prev, ...nieuw])
   }
 
-  function handleComplete(withFotos: boolean) {
-    onComplete({ fotosWaardevol: withFotos ? fotos.map((f) => f.file) : [] })
+  async function handleComplete(withFotos: boolean) {
+    if (!withFotos) {
+      onComplete({ fotosWaardevol: [], fotosWaardevollUrls: [] })
+      return
+    }
+    setUploading(true)
+    setError(null)
+    try {
+      const files  = fotos.map((f) => f.file)
+      const subpad = `aanvragen/${uploadIdRef.current}/waardevol`
+      const fotosWaardevollUrls = await uploadFotos(files, subpad)
+      onComplete({ fotosWaardevol: files, fotosWaardevollUrls })
+    } catch {
+      setError('Upload mislukt. Controleer je verbinding en probeer opnieuw.')
+    } finally {
+      setUploading(false)
+    }
   }
 
   return (
@@ -126,9 +146,11 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
         </div>
       )}
 
+      {error && <p className="text-sm text-red-500">{error}</p>}
+
       {/* Navigation */}
       <div className="flex items-center justify-between border-t border-slate-100 pt-4">
-        <Button variant="ghost" onClick={onBack}>
+        <Button variant="ghost" onClick={onBack} disabled={uploading}>
           <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
           </svg>
@@ -139,16 +161,19 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
           <button
             type="button"
             onClick={() => handleComplete(false)}
-            className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+            disabled={uploading}
+            className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors disabled:opacity-50"
           >
             Geen waardevolle spullen — overslaan
           </button>
           {fotos.length > 0 && (
-            <Button size="lg" onClick={() => handleComplete(true)}>
-              Volgende stap
-              <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+            <Button size="lg" onClick={() => handleComplete(true)} disabled={uploading}>
+              {uploading ? 'Uploaden…' : 'Volgende stap'}
+              {!uploading && (
+                <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              )}
             </Button>
           )}
         </div>
