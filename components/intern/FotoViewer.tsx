@@ -69,12 +69,13 @@ export default function FotoViewer({ urls, naam }: Props) {
                 </button>
               )}
 
-              <div className="flex-1 overflow-hidden rounded-xl bg-black/50">
+              <div className="flex-1 overflow-hidden rounded-xl bg-black/50 max-h-[75vh]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+                  key={urls[index]}
                   src={urls[index]}
                   alt={`Foto ${index + 1} van ${naam}`}
-                  className="max-h-[75vh] w-full object-contain"
+                  className="block h-full w-full object-contain"
                 />
               </div>
 
