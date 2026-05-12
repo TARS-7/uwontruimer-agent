@@ -89,6 +89,15 @@ export default function Step1Address({ onComplete }: Step1AddressProps) {
         </p>
       </div>
 
+      {/* Tip */}
+      <div className="flex items-start gap-2.5 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3">
+        <span className="mt-px text-base leading-none">💡</span>
+        <p className="text-xs text-blue-700 leading-relaxed">
+          <span className="font-semibold">Tip:</span>{' '}
+          Zet alvast foto&apos;s van de woning en eventueel waardevolle items (kunst, antiek, sieraden) klaar — u kunt deze later in het formulier uploaden.
+        </p>
+      </div>
+
       {/* Form */}
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-[1fr_120px_100px]">

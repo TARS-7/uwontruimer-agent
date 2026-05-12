@@ -7,6 +7,7 @@ import Step2WoningInfo, { type Step2Result } from '@/components/wizard/Step2Woni
 import Step3Inspectie, { type Step3Result } from '@/components/wizard/Step3Inspectie'
 import Step3bWerkzaamheden, { type Step3bResult } from '@/components/wizard/Step3bWerkzaamheden'
 import Step4Fotos, { type Step4Result } from '@/components/wizard/Step4Fotos'
+import Step5FotosWaardevol, { type Step5WaardevollResult } from '@/components/wizard/Step5FotosWaardevol'
 import Step5Contact, { type Step5ContactResult } from '@/components/wizard/Step5Contact'
 import Step6Offerte from '@/components/wizard/Step6Offerte'
 import type { WizardState, AddressData } from '@/lib/types'
@@ -14,7 +15,7 @@ import { initialWizardState } from '@/lib/types'
 
 function getGroepNaam(step: number): string {
   if (step <= 4) return 'Woning'
-  if (step === 5) return "Foto's"
+  if (step <= 6) return "Foto's"
   return 'Offerte'
 }
 
@@ -53,11 +54,15 @@ export default function Page() {
   }
 
   function handleStep4Complete(result: Step4Result) {
-    setState((s) => ({ ...s, fotos: result.fotos, fotosWaardevol: result.fotosWaardevol, step: 6 }))
+    setState((s) => ({ ...s, fotos: result.fotos, step: 6 }))
   }
 
-  function handleStep5ContactComplete(result: Step5ContactResult) {
-    setState((s) => ({ ...s, naam: result.naam, email: result.email, telefoon: result.telefoon, step: 7 }))
+  function handleStep5WaardevollComplete(result: Step5WaardevollResult) {
+    setState((s) => ({ ...s, fotosWaardevol: result.fotosWaardevol, step: 7 }))
+  }
+
+  function handleStep6ContactComplete(result: Step5ContactResult) {
+    setState((s) => ({ ...s, naam: result.naam, email: result.email, telefoon: result.telefoon, step: 8 }))
   }
 
   return (
@@ -125,7 +130,7 @@ export default function Page() {
 
             {state.step === 5 && (
               <Step4Fotos
-                initialData={{ fotos: state.fotos, fotosWaardevol: state.fotosWaardevol }}
+                initialData={{ fotos: state.fotos }}
                 onComplete={handleStep4Complete}
                 onBack={() => setState((s) => ({
                   ...s,
@@ -136,14 +141,22 @@ export default function Page() {
             )}
 
             {state.step === 6 && (
-              <Step5Contact
-                initialData={{ naam: state.naam, email: state.email, telefoon: state.telefoon }}
-                onComplete={handleStep5ContactComplete}
+              <Step5FotosWaardevol
+                initialData={{ fotosWaardevol: state.fotosWaardevol }}
+                onComplete={handleStep5WaardevollComplete}
                 onBack={() => setState((s) => ({ ...s, step: 5 }))}
               />
             )}
 
-            {state.step === 7 && state.address && (
+            {state.step === 7 && (
+              <Step5Contact
+                initialData={{ naam: state.naam, email: state.email, telefoon: state.telefoon }}
+                onComplete={handleStep6ContactComplete}
+                onBack={() => setState((s) => ({ ...s, step: 6 }))}
+              />
+            )}
+
+            {state.step === 8 && state.address && (
               <Step6Offerte
                 data={{
                   address: state.address,
@@ -162,7 +175,7 @@ export default function Page() {
                   fotosWaardevol: state.fotosWaardevol,
                 }}
                 initialOfferte={state.offerte}
-                onBack={() => setState((s) => ({ ...s, step: 6 }))}
+                onBack={() => setState((s) => ({ ...s, step: 7 }))}
               />
             )}
           </div>

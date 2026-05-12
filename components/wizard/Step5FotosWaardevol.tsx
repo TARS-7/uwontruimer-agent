@@ -7,13 +7,13 @@ import Button from '@/components/ui/Button'
 
 interface FotoItem { id: string; file: File; url: string }
 
-export interface Step4Result {
-  fotos: File[]
+export interface Step5WaardevollResult {
+  fotosWaardevol: File[]
 }
 
 interface Props {
-  initialData: { fotos: File[] }
-  onComplete: (result: Step4Result) => void
+  initialData: { fotosWaardevol: File[] }
+  onComplete: (result: Step5WaardevollResult) => void
   onBack: () => void
 }
 
@@ -23,12 +23,11 @@ function uid() { return Math.random().toString(36).slice(2, 10) }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
+export default function Step5FotosWaardevol({ initialData, onComplete, onBack }: Props) {
   const [fotos, setFotos] = useState<FotoItem[]>(() =>
-    initialData.fotos.map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
+    initialData.fotosWaardevol.map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
   )
   const [dragOver, setDragOver] = useState(false)
-  const [error, setError]       = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   function addFiles(files: FileList | null) {
@@ -37,23 +36,19 @@ export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
       .filter((f) => f.type.startsWith('image/'))
       .map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
     setFotos((prev) => [...prev, ...nieuw])
-    setError(null)
   }
 
-  function handleSubmit() {
-    if (fotos.length === 0) {
-      setError("Upload minimaal één foto voordat je verdergaat. Je mag ook overslaan als je geen foto's hebt.")
-      return
-    }
-    onComplete({ fotos: fotos.map((f) => f.file) })
+  function handleComplete(withFotos: boolean) {
+    onComplete({ fotosWaardevol: withFotos ? fotos.map((f) => f.file) : [] })
   }
 
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h2 className="text-xl font-semibold text-slate-900">Foto&apos;s van de woning</h2>
+        <h2 className="text-xl font-semibold text-slate-900">Waardevolle spullen</h2>
         <p className="mt-1 text-sm text-slate-500">
-          Upload foto&apos;s van de te ontruimen ruimtes. Hoe meer foto&apos;s, hoe nauwkeuriger de offerte.
+          Heeft u kunst, antiek, sieraden, design of andere bijzondere items in de inboedel?
+          Upload hier foto&apos;s van.
         </p>
       </div>
 
@@ -94,7 +89,7 @@ export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
         onChange={(e) => { addFiles(e.target.files); (e.target as HTMLInputElement).value = '' }}
       />
 
-      {/* Thumbnail grid */}
+      {/* Thumbnails */}
       {fotos.length > 0 && (
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
@@ -131,8 +126,6 @@ export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
         </div>
       )}
 
-      {error && <p className="text-sm text-red-500">{error}</p>}
-
       {/* Navigation */}
       <div className="flex items-center justify-between border-t border-slate-100 pt-4">
         <Button variant="ghost" onClick={onBack}>
@@ -142,22 +135,22 @@ export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
           Terug
         </Button>
 
-        <div className="flex items-center gap-2">
-          {fotos.length === 0 && (
-            <button
-              type="button"
-              onClick={() => onComplete({ fotos: [] })}
-              className="rounded-xl px-3 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 transition-colors"
-            >
-              Overslaan
-            </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => handleComplete(false)}
+            className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors"
+          >
+            Geen waardevolle spullen — overslaan
+          </button>
+          {fotos.length > 0 && (
+            <Button size="lg" onClick={() => handleComplete(true)}>
+              Volgende stap
+              <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </Button>
           )}
-          <Button size="lg" onClick={handleSubmit}>
-            Volgende stap
-            <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </Button>
         </div>
       </div>
     </div>
