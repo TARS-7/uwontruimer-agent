@@ -141,17 +141,60 @@ async function appendToSheets(sheetId: string, token: string, row: string[]): Pr
   }
 }
 
-// ─── Firestore fallback (REST API) ────────────────────────────────────────────
+// ─── Firestore (REST API) ─────────────────────────────────────────────────────
 
-async function saveToFirestore(data: Record<string, string>): Promise<void> {
+type FirestoreValue =
+  | { stringValue: string }
+  | { integerValue: string }
+  | { arrayValue: { values: { stringValue: string }[] } }
+
+interface FirestoreDoc {
+  naam: string
+  email: string
+  telefoon: string
+  adres: string
+  eigendomstype: string
+  opleveringsdatum: string
+  referentie: string
+  bedragMin: number
+  bedragMax: number
+  fotoUrls: string[]
+  fotosWaardevollUrls: string[]
+  werkzaamheden: string[]
+  aanvraagDatum: string
+}
+
+function toFirestoreFields(doc: FirestoreDoc): Record<string, FirestoreValue> {
+  function str(v: string): { stringValue: string }        { return { stringValue: v } }
+  function int(v: number): { integerValue: string }        { return { integerValue: String(Math.round(v)) } }
+  function arr(v: string[]): { arrayValue: { values: { stringValue: string }[] } } {
+    return { arrayValue: { values: v.map((s) => ({ stringValue: s })) } }
+  }
+
+  return {
+    naam:                str(doc.naam),
+    email:               str(doc.email),
+    telefoon:            str(doc.telefoon),
+    adres:               str(doc.adres),
+    eigendomstype:       str(doc.eigendomstype ?? ''),
+    opleveringsdatum:    str(doc.opleveringsdatum),
+    referentie:          str(doc.referentie),
+    bedragMin:           int(doc.bedragMin),
+    bedragMax:           int(doc.bedragMax),
+    fotoUrls:            arr(doc.fotoUrls),
+    fotosWaardevollUrls: arr(doc.fotosWaardevollUrls),
+    werkzaamheden:       arr(doc.werkzaamheden),
+    aanvraagDatum:       str(doc.aanvraagDatum),
+    fase:                str('01 - Nieuw'),
+    bron:                str('Analyse tool'),
+    aangemaaktOp:        str(new Date().toISOString()),
+  }
+}
+
+async function saveToFirestore(doc: FirestoreDoc): Promise<void> {
   const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
   const apiKey    = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
   if (!projectId || !apiKey) throw new Error('Firebase project niet geconfigureerd')
-
-  const fields: Record<string, { stringValue: string }> = {}
-  for (const [k, v] of Object.entries({ ...data, aangemaaktOp: new Date().toISOString() })) {
-    fields[k] = { stringValue: v }
-  }
 
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), 8000)
@@ -162,7 +205,7 @@ async function saveToFirestore(data: Record<string, string>): Promise<void> {
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fields }),
+        body: JSON.stringify({ fields: toFirestoreFields(doc) }),
         signal: controller.signal,
       }
     )
@@ -219,57 +262,65 @@ export async function POST(request: NextRequest) {
   const saKey   = process.env.GOOGLE_SERVICE_ACCOUNT_KEY?.replace(/\\n/g, '\n')
 
   const sheetsConfigured = !!(sheetId && saEmail && saKey)
-  let sheetsOk    = false
-  let firestoreOk = false
-  const errors: string[] = []
 
-  // 1 — Try Google Sheets
-  if (sheetsConfigured) {
-    try {
-      const token = await getAccessToken(
-        saEmail!,
-        saKey!,
-        'https://www.googleapis.com/auth/spreadsheets',
-      )
-
-      // A=naam, B=email, C="Particulier", D="01 - Nieuw", E="", F=opleveringsdatum,
-      // G=vandaag, H=vandaag, I=+3dagen, J="Analyse tool", K=bedragMinMax,
-      // L="", M=referentie, N="", O=volledigAdres, P="", Q=telefoon,
-      // R=fotoUrls, S=fotoWaardevollUrls
-      const row: string[] = [
-        naam, email, 'Particulier', '01 - Nieuw', '', opleveringsdatum,
-        vandaag, vandaag, plusDrie, 'Analyse tool', bedragRange,
-        '', offerte.referentie, '', adres, '', telefoon,
-        fotoUrls.join('\n'),
-        fotosWaardevollUrls.join('\n'),
-      ]
-
-      await appendToSheets(sheetId!, token, row)
-      sheetsOk = true
-    } catch (err) {
-      console.error('[submit-aanvraag] Sheets fout:', err)
-      errors.push('Google Sheets: ' + (err instanceof Error ? err.message : String(err)))
-    }
+  // Firestore document — altijd aangemaakt
+  const firestoreDoc: FirestoreDoc = {
+    naam, email, telefoon,
+    adres,
+    eigendomstype:       eigendomstype ?? '',
+    opleveringsdatum,
+    referentie:          offerte.referentie,
+    bedragMin:           offerte.totaalMin,
+    bedragMax:           offerte.totaalMax,
+    fotoUrls,
+    fotosWaardevollUrls,
+    werkzaamheden:       body.inspectieWerkzaamheden ?? [],
+    aanvraagDatum:       vandaag,
   }
 
-  // 2 — Firestore fallback
+  // Sheets rij
+  async function doSheets(): Promise<void> {
+    const token = await getAccessToken(saEmail!, saKey!, 'https://www.googleapis.com/auth/spreadsheets')
+    // A=naam, B=email, C="Particulier", D="01 - Nieuw", E="", F=opleveringsdatum,
+    // G=vandaag, H=vandaag, I=+3dagen, J="Analyse tool", K=bedragMinMax,
+    // L="", M=referentie, N="", O=volledigAdres, P="", Q=telefoon,
+    // R=fotoUrls, S=fotosWaardevollUrls
+    const row: string[] = [
+      naam, email, 'Particulier', '01 - Nieuw', '', opleveringsdatum,
+      vandaag, vandaag, plusDrie, 'Analyse tool', bedragRange,
+      '', offerte.referentie, '', adres, '', telefoon,
+      fotoUrls.join('\n'),
+      fotosWaardevollUrls.join('\n'),
+    ]
+    await appendToSheets(sheetId!, token, row)
+  }
+
+  // Run both in parallel
+  const [sheetsResult, firestoreResult] = await Promise.allSettled([
+    sheetsConfigured ? doSheets() : Promise.reject(new Error('Sheets niet geconfigureerd')),
+    saveToFirestore(firestoreDoc),
+  ])
+
+  const sheetsOk    = sheetsResult.status === 'fulfilled'
+  const firestoreOk = firestoreResult.status === 'fulfilled'
+
   if (!sheetsOk) {
-    try {
-      await saveToFirestore({
-        naam, email, telefoon, adres, opleveringsdatum,
-        bedragRange, referentie: offerte.referentie,
-        datumAanvraag: vandaag, fase: '01 - Nieuw',
-      })
-      firestoreOk = true
-    } catch (err) {
-      console.error('[submit-aanvraag] Firestore fout:', err)
-      errors.push('Firestore: ' + (err instanceof Error ? err.message : String(err)))
-    }
+    const msg = sheetsResult.status === 'rejected'
+      ? (sheetsResult.reason instanceof Error ? sheetsResult.reason.message : String(sheetsResult.reason))
+      : ''
+    console.error('[submit-aanvraag] Sheets fout:', msg)
+  }
+  if (!firestoreOk) {
+    const msg = firestoreResult.status === 'rejected'
+      ? (firestoreResult.reason instanceof Error ? firestoreResult.reason.message : String(firestoreResult.reason))
+      : ''
+    console.error('[submit-aanvraag] Firestore fout:', msg)
   }
 
   if (!sheetsOk && !firestoreOk) {
-    return Response.json({ error: 'Opslaan mislukt. Probeer opnieuw.', details: errors }, { status: 500 })
+    return Response.json({ error: 'Opslaan mislukt. Probeer opnieuw.' }, { status: 500 })
   }
 
-  return Response.json({ ok: true, opgeslagenIn: sheetsOk ? 'sheets' : 'firestore' })
+  const opgeslagenIn = [sheetsOk && 'sheets', firestoreOk && 'firestore'].filter(Boolean)
+  return Response.json({ ok: true, opgeslagenIn })
 }
