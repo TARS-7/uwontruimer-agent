@@ -92,19 +92,27 @@ export default function FotoViewer({ urls, naam }: Props) {
               )}
             </div>
 
-            {/* Dot indicators */}
+            {/* Thumbnail grid */}
             {urls.length > 1 && (
-              <div className="mt-4 flex justify-center gap-2">
-                {urls.map((_, i) => (
+              <div className="mt-4 grid grid-cols-3 gap-2">
+                {urls.map((url, i) => (
                   <button
                     key={i}
                     onClick={() => setIndex(i)}
-                    className="h-1.5 rounded-full transition-all"
+                    className="relative aspect-square overflow-hidden rounded-lg transition-all"
                     style={{
-                      width: i === index ? '1.5rem' : '0.375rem',
-                      backgroundColor: i === index ? '#f4a01c' : 'rgba(255,255,255,0.3)',
+                      outline: i === index ? '2px solid #f4a01c' : '2px solid transparent',
+                      outlineOffset: '2px',
+                      opacity: i === index ? 1 : 0.55,
                     }}
-                  />
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={url}
+                      alt={`Thumbnail ${i + 1}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </button>
                 ))}
               </div>
             )}
