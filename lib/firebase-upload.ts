@@ -1,18 +1,67 @@
 const BUCKET  = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
 const API_KEY = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
 
-export function fotoExtensie(file: File): string {
-  if (file.type === 'image/png')  return 'png'
-  if (file.type === 'image/webp') return 'webp'
-  if (file.type === 'image/gif')  return 'gif'
-  return 'jpg'
-}
+const MAX_DIM      = 1200
+const JPEG_QUALITY = 0.82
 
 export function generateUploadId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
 }
 
-export async function uploadFoto(file: File, pad: string): Promise<string | null> {
+// ─── Compression ──────────────────────────────────────────────────────────────
+
+// Resize to MAX_DIM and convert to JPEG. GIFs are passed through unchanged
+// (animated GIFs would lose all frames on canvas).
+async function compressImage(file: File): Promise<Blob> {
+  if (file.type === 'image/gif') return file
+
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    const objectUrl = URL.createObjectURL(file)
+
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl)
+
+      let { width, height } = img
+      if (width > MAX_DIM || height > MAX_DIM) {
+        if (width >= height) {
+          height = Math.round(height * MAX_DIM / width)
+          width  = MAX_DIM
+        } else {
+          width  = Math.round(width * MAX_DIM / height)
+          height = MAX_DIM
+        }
+      }
+
+      const canvas = document.createElement('canvas')
+      canvas.width  = width
+      canvas.height = height
+      const ctx = canvas.getContext('2d')
+      if (!ctx) { reject(new Error('canvas context niet beschikbaar')); return }
+      ctx.drawImage(img, 0, 0, width, height)
+
+      canvas.toBlob(
+        (blob) => {
+          if (blob) resolve(blob)
+          else reject(new Error('canvas.toBlob mislukt'))
+        },
+        'image/jpeg',
+        JPEG_QUALITY,
+      )
+    }
+
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl)
+      reject(new Error('Afbeelding laden mislukt'))
+    }
+
+    img.src = objectUrl
+  })
+}
+
+// ─── Upload ───────────────────────────────────────────────────────────────────
+
+async function uploadBlob(blob: Blob, pad: string): Promise<string | null> {
   if (!BUCKET || !API_KEY) return null
 
   const url = [
@@ -24,8 +73,8 @@ export async function uploadFoto(file: File, pad: string): Promise<string | null
 
   const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': file.type || 'image/jpeg' },
-    body: file,
+    headers: { 'Content-Type': blob.type || 'image/jpeg' },
+    body: blob,
   })
 
   if (!res.ok) {
@@ -43,15 +92,30 @@ export async function uploadFoto(file: File, pad: string): Promise<string | null
   ].join('')
 }
 
+export async function uploadFoto(file: File, pad: string): Promise<string | null> {
+  let blob: Blob
+  try {
+    blob = await compressImage(file)
+  } catch (err) {
+    console.warn('[firebase-upload] Compressie mislukt, origineel gebruikt:', err)
+    blob = file
+  }
+
+  // Pad altijd .jpg behalve voor GIFs (die blijven ongewijzigd)
+  const effectiefPad = file.type === 'image/gif' ? pad : pad.replace(/\.[^.]+$/, '.jpg')
+  return uploadBlob(blob, effectiefPad)
+}
+
 export async function uploadFotos(
   files: File[],
   subpad: string,
 ): Promise<string[]> {
   const urls: string[] = []
   for (let i = 0; i < files.length; i++) {
-    const ext = fotoExtensie(files[i])
-    const pad = `${subpad}/foto-${i}.${ext}`
-    const url = await uploadFoto(files[i], pad)
+    const isGif = files[i].type === 'image/gif'
+    const ext   = isGif ? 'gif' : 'jpg'
+    const pad   = `${subpad}/foto-${i}.${ext}`
+    const url   = await uploadFoto(files[i], pad)
     if (url) urls.push(url)
   }
   return urls
