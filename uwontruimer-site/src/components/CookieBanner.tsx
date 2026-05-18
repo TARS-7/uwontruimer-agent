@@ -1,11 +1,12 @@
 "use client";
 import { useEffect } from "react";
+import "vanilla-cookieconsent/dist/cookieconsent.css";
 
 export default function CookieBanner() {
   useEffect(() => {
     import("vanilla-cookieconsent").then((cc) => {
       cc.run({
-        guiOptions: { consentModal: { layout: "bar", position: "bottom" } },
+        guiOptions: { consentModal: { layout: "bar", position: "bottom center" } },
         categories: {
           necessary: { enabled: true, readOnly: true },
           analytics: {},
