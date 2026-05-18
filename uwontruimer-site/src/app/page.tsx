@@ -92,6 +92,52 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* WERKGEBIED */}
+      <section className="bg-slate-50 py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <div>
+              <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkgebied</p>
+              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Actief in heel Nederland</h2>
+              <p className="text-slate-500 font-light text-sm max-w-md leading-relaxed">Wij verzorgen woningontruimingen in de regio&apos;s Utrecht, Noord-Holland en Zuid-Holland. Snel ter plaatse, ook voor spoedopdrachten.</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {[
+              { slug: "amsterdam", name: "Amsterdam" },
+              { slug: "amstelveen", name: "Amstelveen" },
+              { slug: "haarlem", name: "Haarlem" },
+              { slug: "rotterdam", name: "Rotterdam" },
+              { slug: "utrecht", name: "Utrecht" },
+              { slug: "den-haag", name: "Den Haag" },
+              { slug: "leiden", name: "Leiden" },
+              { slug: "hoofddorp", name: "Hoofddorp" },
+              { slug: "zaandam", name: "Zaandam" },
+              { slug: "purmerend", name: "Purmerend" },
+              { slug: "alkmaar", name: "Alkmaar" },
+              { slug: "hoorn", name: "Hoorn" },
+              { slug: "hilversum", name: "Hilversum" },
+              { slug: "amersfoort", name: "Amersfoort" },
+              { slug: "zoetermeer", name: "Zoetermeer" },
+              { slug: "delft", name: "Delft" },
+              { slug: "gouda", name: "Gouda" },
+              { slug: "schiedam", name: "Schiedam" },
+              { slug: "vlaardingen", name: "Vlaardingen" },
+              { slug: "capelle-aan-den-ijssel", name: "Capelle aan den IJssel" },
+            ].map((stad) => (
+              <Link
+                key={stad.slug}
+                href={`/${stad.slug}`}
+                className="group flex items-center justify-between bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 hover:bg-blue-50 hover:shadow-sm transition-all duration-200"
+              >
+                <span className="text-sm font-medium text-slate-700 group-hover:text-blue-700 transition-colors">{stad.name}</span>
+                <svg className="w-3.5 h-3.5 text-slate-300 group-hover:text-blue-400 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FOTO GRID */}
       <div className="grid grid-cols-3 grid-rows-2" style={{ height: "560px" }}>
         <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
