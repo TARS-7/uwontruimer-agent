@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Inboedel opkopen | UwOntruimer.nl",
-  description: "Uw Ontruimer koopt vintage, antiek en kunst inboedel op naar eerlijke handelsprijs. 10+ jaar ervaring. Bel 085-303 58 94.",
+  title: "Inboedel opkopen - Voor een eerlijke prijs | Uwontruimer.nl",
+  description: "Uw Ontruimer kan uw inboedel opkopen naar waarde ✓Actief in héél Nederland ✓ Ervaren taxateurs ✓ Een eerlijke handelsprijs voor uw inboedel!",
 };
 
 export default function Page() {

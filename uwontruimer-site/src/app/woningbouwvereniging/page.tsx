@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Ontruiming voor woningcorporaties",
-  description: "Vaste ontruimingspartner voor woningcorporaties. Snelle doorlooptijden, vaste prijsafspraken. Bel 085-303 58 94.",
+  title: "Woningbouwvereniging - Woning laten voldoen aan opleveringseisen",
+  description: "Is de huurder niet in staat de ontruiming zelf uit te voeren? Uw Ontruimer levert de woning op naar opleveringseisen.",
 };
 
 export default function Page() {

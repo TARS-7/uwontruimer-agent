@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Huis laten ontruimen",
-  description: "Uw huis laten ontruimen door professionals. Vaste prijs, geen verborgen kosten, schriftelijke opleveringsgarantie. Bel 085-303 58 94.",
+  title: "Huis laten ontruimen | UwOntruimer.nl",
+  description: "Huis leegmaken of laten ontruimen? Uw Ontruimer kan u hierbij snel en discreet helpen. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Snel beschikbaar.",
 };
 
 export default function Page() {

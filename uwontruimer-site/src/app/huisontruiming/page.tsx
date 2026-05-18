@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Huisontruiming",
-  description: "Professionele huisontruiming in heel Nederland. Snel, discreet en met opleveringsgarantie. Bel 085-303 58 94.",
+  title: "Huisontruiming | UwOntruimer.nl | Al 15 jaar dé specialist",
+  description: "Huisontruiming nodig? Uw Ontruimer werkt discreet, snel en met een opleveringsgarantie. Al meer dan 15 jaar de ontruimingspecialist van Nederland.",
 };
 
 export default function Page() {

@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Inboedel veilen | UwOntruimer.nl",
-  description: "Laat uw inboedel veilen via erkende veilinghuizen. Al meer dan 10 jaar ervaring. Discreet, duurzaam en met opleveringsgarantie. Bel 085-303 58 94.",
+  title: "Inboedel veilen - Meer dan 10 jaar ervaring!",
+  description: "Inboedel of waardevolle objecten veilen? Uw Ontruimer werkt met gerenommeerde veilinghuizen en taxateurs. Van A tot Z geregeld.",
 };
 
 export default function Page() {

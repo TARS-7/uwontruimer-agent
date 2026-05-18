@@ -6,8 +6,8 @@ import CTASection from "@/components/CTASection";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Over ons",
-  description: "Meer dan 15 jaar ervaring in professionele ontruiming. Leer ons team en onze werkwijze kennen. UwOntruimer.nl",
+  title: "Over ons - Maak kennis met Uw Ontruimer",
+  description: "Met meer dan 15 jaar ervaring is Uw Ontruimer gespecialiseerd in diverse ontruimingsdiensten. Lees meer over onze belangen en werkwijze.",
 };
 
 export default function Page() {

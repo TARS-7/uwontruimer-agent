@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Verhuizen | UwOntruimer.nl",
-  description: "Verhuizen van groot naar klein of seniorenverhuizing. Eigen verhuislift, persoonlijke begeleiding. Bel 085-303 58 94.",
+  title: "Seniorenverhuizing - Compleet ontzorgd met Uw Ontruimer",
+  description: "Wij ontzorgen u op alle gebieden tijdens de verhuizing ✓ Professioneel en discreet ✓ Eigen verhuislift ✓ Persoonlijke begeleiding ✓ Actief in héél NL.",
 };
 
 export default function Page() {

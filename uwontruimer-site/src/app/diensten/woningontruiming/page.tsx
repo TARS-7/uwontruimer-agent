@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Woningontruiming | UwOntruimer.nl",
-  description: "Woningontruiming nodig? Uw Ontruimer is dé specialist op het gebied van woning ontruimen. 15+ jaar ervaring, discreet en met opleveringsgarantie. Bel 085-303 58 94.",
+  title: "Woningontruiming door experts - 15+ jaar ervaring",
+  description: "Woningontruiming van A tot Z door ervaren vakmensen. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld ✓ Hoge klantbeoordeling.",
 };
 
 export default function Page() {

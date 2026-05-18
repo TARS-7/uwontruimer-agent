@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Vloerverwijdering | UwOntruimer.nl",
-  description: "Vloer verwijderen door experts. Vloerenstrippers, schrapmessen en stootijzers voor alle soorten vloerbedekking. Bel 085-303 58 94.",
+  title: "Vloerverwijdering | Snel uw vloer laten verwijderen? - Uw Ontruimer",
+  description: "Wij verwijderen uw vloer op een professionele manier. ✓ Vloerverwijdering specialist ✓ Ruim 10 jaar ervaring ✓ Duurzaam ✓ Actief in héél NL.",
 };
 
 export default function Page() {

@@ -5,7 +5,7 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Ontruiming voor notarissen",
+  title: "Notaris - Meer dan alleen een ontruiming",
   description: "Betrouwbare ontruimingspartner voor notarissen bij nalatenschappen en boedelontruimingen. Discreet en juridisch correct. Bel 085-303 58 94.",
 };
 

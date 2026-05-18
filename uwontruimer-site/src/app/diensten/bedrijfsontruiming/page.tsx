@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Bedrijfsontruiming | UwOntruimer.nl",
-  description: "Bedrijfsontruiming: snel en vakkundig ontruimd door Uw Ontruimer. Inclusief archiefvernietiging, vloerverwijdering en schoonmaak. Bel 085-303 58 94.",
+  title: "Bedrijfsontruiming - Al meer dan 15 jaar ervaring",
+  description: "Op zoek naar een expert voor het ontruimen van uw bedrijfspand? Bekijk dan de mogelijkheden bij Uw Ontruimer. Duurzaam en discreet.",
 };
 
 export default function Page() {

@@ -10,8 +10,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "UwOntruimer.nl – Professionele Woningontruiming",
-  description: "Professionele ontruiming van woningen en bedrijfspanden in heel Nederland. Betrouwbaar, discreet en met schriftelijke opleveringsgarantie.",
+  title: "UwOntruimer.nl | Bedrijfs- en woningontruiming in heel NL",
+  description: "Snel een woningontruiming nodig? Bel Uw Ontruimer! ✓ Voor particulier en verhuurder ✓ Spoed? Binnen 24 uur geholpen ✓ Wij werken duurzaam en ontzorgend",
 };
 
 export default function HomePage() {

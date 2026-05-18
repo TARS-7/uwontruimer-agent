@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Taxatie inboedel | UwOntruimer.nl",
-  description: "Vraag een taxatie aan voor een prijsbepaling van uw object of inboedel. Ervaren en erkende taxateurs volgens richtlijnen Federatie TMV. Bel 085-303 58 94.",
+  title: "Taxatie - Kom achter de waarde van uw inboedel | Uw Ontruimer",
+  description: "Benieuwd naar de waarde van uw inboedel? Uw Ontruimer helpt u ✓ Ervaren en erkende taxateurs ✓ Professioneel & Discreet ✓ Actief in héél Nederland",
 };
 
 export default function Page() {

@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Ontruiming voor bewindvoerders",
-  description: "Professionele ontruimingspartner voor bewindvoerders. Transparante tarieven, snelle uitvoering. Bel 085-303 58 94.",
+  title: "Woningontruiming nodig als bewindvoerder? Kom in contact",
+  description: "Heeft u de taak om een ontruiming te regelen voor uw cliënt? Bij Uw Ontruimer bent u aan het juiste adres. Het kan spoedig en duurzaam. 15+ jaar ervaring",
 };
 
 export default function Page() {

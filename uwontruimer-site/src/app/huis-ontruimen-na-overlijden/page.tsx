@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Huis ontruimen na overlijden",
-  description: "Respectvolle en discrete ontruiming na overlijden. Wij ontzorgen u volledig tijdens een moeilijke periode. Bel 085-303 58 94.",
+  title: "Huis ontruimen na overlijden | UwOntruimer.nl",
+  description: "Huis laten ontruimen na een overlijden? Bel Uw Ontruimer op 085-303 58 94 ✓15+ jaar ervaring ✓Volledig ontzorgd ✓Snel beschikbaar!",
 };
 
 export default function Page() {

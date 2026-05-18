@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Ontruiming voor makelaars",
-  description: "Panden snel verkoopklaar laten maken? UwOntruimer is de ontruimingspartner voor makelaars. Bel 085-303 58 94.",
+  title: "Makelaar | Uw Ontruimer - Ontruimingspartner voor makelaars",
+  description: "Als makelaar samenwerken met een ontruimingsbedrijf? Bij Uw Ontruimer kan het. We bespreken graag de mogelijkheden.",
 };
 
 export default function Page() {
