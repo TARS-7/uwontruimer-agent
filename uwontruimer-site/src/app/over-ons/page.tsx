@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Over ons",
@@ -17,7 +18,19 @@ export default function Page() {
         <div className="bg-white py-20 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Over ons</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Wie is UwOntruimer?</h1>
+            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-8">Wie is UwOntruimer?</h1>
+
+            {/* Teamfoto */}
+            <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
+              <Image
+                src="/Uw-Ontruimer.jpg"
+                alt="Het team van UwOntruimer"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
             <p className="text-slate-500 font-light leading-relaxed mb-6">UwOntruimer is een gespecialiseerd ontruimingsbedrijf met meer dan 15 jaar ervaring in de branche. Wij helpen particulieren en professionals bij de volledige ontruiming van woningen, appartementen en bedrijfspanden door heel Nederland.</p>
             <p className="text-slate-500 font-light leading-relaxed mb-6">Wij geloven dat een ontruiming meer is dan het afvoeren van spullen. Veel van onze opdrachten vinden plaats in emotioneel beladen situaties — bij overlijden, scheiding of uitzetting. Ons team werkt altijd met respect, discretie en aandacht voor de mens achter de situatie.</p>
             <p className="text-slate-500 font-light leading-relaxed mb-10">Ons bedrijf is erkend, verzekerd en werkt met vaste, transparante tarieven. Wij staan voor kwaliteit en leveren elke opdracht af met een schriftelijke opleveringsgarantie.</p>

@@ -42,7 +42,7 @@ export default function HomePage() {
         </div>
         {/* HERO IMAGE */}
         <div className="relative overflow-hidden min-h-[400px] lg:min-h-0">
-          <Image src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80" alt="Woningontruiming" fill className="object-cover" priority />
+          <Image src="/uw-ontruimer-0414_075042732_iOS (1).jpg" alt="Professionele woningontruiming door UwOntruimer" fill className="object-cover" priority />
           <div className="absolute bottom-8 left-6 bg-white rounded-2xl p-4 flex items-center gap-3 border border-slate-100 shadow-lg">
             <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -106,7 +106,7 @@ export default function HomePage() {
           <p className="text-blue-100 font-light text-sm leading-relaxed">Jaar ervaring in professionele ontruiming door heel Nederland</p>
         </div>
         <div className="overflow-hidden foto-zoom relative"><Image src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=75" fill className="object-cover" alt="" /></div>
-        <div className="overflow-hidden foto-zoom relative"><Image src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=700&q=75" fill className="object-cover" alt="" /></div>
+        <div className="overflow-hidden foto-zoom relative"><Image src="/Gemini_Generated_Image_73a62s73a62s73a6_cleanup.jpg" fill className="object-cover" alt="Ontruiming resultaat" /></div>
         <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
           <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Duurzaam</p>
           <h3 className="text-lg font-semibold text-slate-900 mb-2">Verantwoord verwerkt</h3>
