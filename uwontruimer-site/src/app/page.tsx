@@ -8,6 +8,7 @@ import CTASection from "@/components/CTASection";
 import HeroTunnels from "@/components/HeroTunnels";
 import Image from "next/image";
 import Link from "next/link";
+import WerkgebiedSearch from "@/components/WerkgebiedSearch";
 
 export const metadata: Metadata = {
   title: "UwOntruimer.nl | Bedrijfs- en woningontruiming in heel NL",
@@ -95,112 +96,12 @@ export default function HomePage() {
       {/* WERKGEBIED */}
       <section className="bg-slate-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-            <div>
-              <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkgebied</p>
-              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Actief in heel Nederland</h2>
-              <p className="text-slate-500 font-light text-sm max-w-md leading-relaxed">Wij verzorgen woningontruimingen in de regio&apos;s Utrecht, Noord-Holland en Zuid-Holland. Snel ter plaatse, ook voor spoedopdrachten.</p>
-            </div>
+          <div className="mb-10">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkgebied</p>
+            <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Actief in heel Nederland</h2>
+            <p className="text-slate-500 font-light text-sm max-w-md leading-relaxed">Wij verzorgen woningontruimingen in de regio&apos;s Utrecht, Noord-Holland en Zuid-Holland. Snel ter plaatse, ook voor spoedopdrachten.</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {[
-              { slug: "amsterdam", name: "Amsterdam" },
-              { slug: "amstelveen", name: "Amstelveen" },
-              { slug: "haarlem", name: "Haarlem" },
-              { slug: "rotterdam", name: "Rotterdam" },
-              { slug: "utrecht", name: "Utrecht" },
-              { slug: "den-haag", name: "Den Haag" },
-              { slug: "leiden", name: "Leiden" },
-              { slug: "hoofddorp", name: "Hoofddorp" },
-              { slug: "zaandam", name: "Zaandam" },
-              { slug: "purmerend", name: "Purmerend" },
-              { slug: "alkmaar", name: "Alkmaar" },
-              { slug: "hoorn", name: "Hoorn" },
-              { slug: "hilversum", name: "Hilversum" },
-              { slug: "amersfoort", name: "Amersfoort" },
-              { slug: "zoetermeer", name: "Zoetermeer" },
-              { slug: "delft", name: "Delft" },
-              { slug: "gouda", name: "Gouda" },
-              { slug: "schiedam", name: "Schiedam" },
-              { slug: "vlaardingen", name: "Vlaardingen" },
-              { slug: "capelle-aan-den-ijssel", name: "Capelle aan den IJssel" },
-              { slug: "aalsmeer", name: "Aalsmeer" },
-              { slug: "aerdenhout", name: "Aerdenhout" },
-              { slug: "alphen-aan-den-rijn", name: "Alphen aan den Rijn" },
-              { slug: "baarn", name: "Baarn" },
-              { slug: "badhoevedorp", name: "Badhoevedorp" },
-              { slug: "barendrecht", name: "Barendrecht" },
-              { slug: "bergen", name: "Bergen" },
-              { slug: "beverwijk", name: "Beverwijk" },
-              { slug: "blaricum", name: "Blaricum" },
-              { slug: "bloemendaal", name: "Bloemendaal" },
-              { slug: "bodegraven", name: "Bodegraven" },
-              { slug: "bunnik", name: "Bunnik" },
-              { slug: "bussum", name: "Bussum" },
-              { slug: "castricum", name: "Castricum" },
-              { slug: "culemborg", name: "Culemborg" },
-              { slug: "den-helder", name: "Den Helder" },
-              { slug: "diemen", name: "Diemen" },
-              { slug: "drechterland", name: "Drechterland" },
-              { slug: "edam-volendam", name: "Edam-Volendam" },
-              { slug: "eemnes", name: "Eemnes" },
-              { slug: "enkhuizen", name: "Enkhuizen" },
-              { slug: "gooi-en-vechtstreek", name: "Gooi- en Vechtstreek" },
-              { slug: "gooise-meren", name: "Gooise Meren" },
-              { slug: "graft-de-rijp", name: "Graft-De Rijp" },
-              { slug: "haarlemmerliede", name: "Haarlemmerliede" },
-              { slug: "haarlemmermeer", name: "Haarlemmermeer" },
-              { slug: "heemskerk", name: "Heemskerk" },
-              { slug: "heemstede", name: "Heemstede" },
-              { slug: "heiloo", name: "Heiloo" },
-              { slug: "hillegom", name: "Hillegom" },
-              { slug: "hollands-kroon", name: "Hollands Kroon" },
-              { slug: "houten", name: "Houten" },
-              { slug: "huizen", name: "Huizen" },
-              { slug: "ijsselstein", name: "IJsselstein" },
-              { slug: "katwijk", name: "Katwijk" },
-              { slug: "landsmeer", name: "Landsmeer" },
-              { slug: "laren", name: "Laren" },
-              { slug: "leiderdorp", name: "Leiderdorp" },
-              { slug: "leidschendam", name: "Leidschendam" },
-              { slug: "leusden", name: "Leusden" },
-              { slug: "lisse", name: "Lisse" },
-              { slug: "maassluis", name: "Maassluis" },
-              { slug: "naarden", name: "Naarden" },
-              { slug: "nieuw-vennep", name: "Nieuw-Vennep" },
-              { slug: "nieuwegein", name: "Nieuwegein" },
-              { slug: "noord-holland", name: "Noord-Holland" },
-              { slug: "noordwijk", name: "Noordwijk" },
-              { slug: "nootdorp", name: "Nootdorp" },
-              { slug: "oegstgeest", name: "Oegstgeest" },
-              { slug: "pijnacker", name: "Pijnacker" },
-              { slug: "ridderkerk", name: "Ridderkerk" },
-              { slug: "roelofarendsveen", name: "Roelofarendsveen" },
-              { slug: "schagen", name: "Schagen" },
-              { slug: "soest", name: "Soest" },
-              { slug: "stichtse-vecht", name: "Stichtse Vecht" },
-              { slug: "uithoorn", name: "Uithoorn" },
-              { slug: "veenendaal", name: "Veenendaal" },
-              { slug: "vianen", name: "Vianen" },
-              { slug: "vijfheerenlanden", name: "Vijfheerenlanden" },
-              { slug: "voorburg", name: "Voorburg" },
-              { slug: "voorschoten", name: "Voorschoten" },
-              { slug: "wassenaar", name: "Wassenaar" },
-              { slug: "woerden", name: "Woerden" },
-              { slug: "zaanstad", name: "Zaanstad" },
-              { slug: "zeist", name: "Zeist" },
-              { slug: "zuid-holland", name: "Zuid-Holland" },
-            ].map((stad) => (
-              <Link
-                key={stad.slug}
-                href={`/${stad.slug}`}
-                className="group flex items-center justify-between bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 hover:bg-blue-50 hover:shadow-sm transition-all duration-200"
-              >
-                <span className="text-sm font-medium text-slate-700 group-hover:text-blue-700 transition-colors">{stad.name}</span>
-                <svg className="w-3.5 h-3.5 text-slate-300 group-hover:text-blue-400 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
-              </Link>
-            ))}
-          </div>
+          <WerkgebiedSearch />
         </div>
       </section>
 
