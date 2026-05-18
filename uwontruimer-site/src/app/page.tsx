@@ -19,7 +19,7 @@ export default function HomePage() {
     <>
       <Header />
       {/* HERO */}
-      <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
+      <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-104px)]">
         <div className="bg-white flex flex-col justify-center px-8 lg:px-16 py-16">
           <div className="fade-1 inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-xs font-medium px-3 py-1.5 rounded-full w-fit mb-8">
             <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
@@ -55,9 +55,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      <WizardUSP />
       <TrustBar />
       <ReviewTicker />
-      <WizardUSP />
 
       {/* DIENSTEN */}
       <section className="bg-white py-20 px-6">

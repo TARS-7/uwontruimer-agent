@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import CookieBanner from "@/components/CookieBanner";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -38,7 +39,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
       </head>
       <body className="bg-slate-50 text-slate-900 antialiased">
-        {children}
+        <AnnouncementBar />
+        <div className="pt-10">{children}</div>
         <CookieBanner />
         <Analytics />
         <SpeedInsights />

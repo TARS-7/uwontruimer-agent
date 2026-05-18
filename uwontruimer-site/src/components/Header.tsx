@@ -51,7 +51,7 @@ function Dropdown({ label, items }: { label: string; items: { label: string; hre
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 h-16">
+    <header className="fixed top-10 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 h-16">
       <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
