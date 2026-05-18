@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UwOntruimer.nl – Professionele Woningontruiming</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['DM Sans', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.fade-1 { animation: fadeUp 0.5s ease 0.1s forwards; opacity:0; }
+.fade-2 { animation: fadeUp 0.5s ease 0.2s forwards; opacity:0; }
+.fade-3 { animation: fadeUp 0.5s ease 0.3s forwards; opacity:0; }
+.fade-4 { animation: fadeUp 0.5s ease 0.4s forwards; opacity:0; }
+.fade-5 { animation: fadeUp 0.5s ease 0.5s forwards; opacity:0; }
+.foto-zoom img { transition: transform 0.5s ease; }
+.foto-zoom:hover img { transform: scale(1.04); }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 h-16">
+  <div class="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+        <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+      <span class="font-semibold text-slate-900 text-[15px]">Uw Ontruimer</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7">
+      <a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Diensten</a>
+      <a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Zakelijk</a>
+      <a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werkwijze</a>
+      <a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">Over ons</a>
+      <a href="#" class="text-sm text-slate-500 hover:text-slate-900 transition-colors">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <span class="hidden sm:block text-sm font-medium text-slate-700">085-303 58 94</span>
+      <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">Gratis offerte</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="mt-16 grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
+  <div class="bg-white flex flex-col justify-center px-8 lg:px-16 py-16">
+    <div class="fade-1 inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-xs font-medium px-3 py-1.5 rounded-full w-fit mb-8">
+      <span class="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
+      15+ jaar ervaring · heel Nederland
+    </div>
+    <h1 class="fade-2 text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight tracking-tight mb-5">
+      Professionele ontruiming,<br>uitgevoerd met zorg
+    </h1>
+    <p class="fade-3 text-slate-500 text-base font-light leading-relaxed max-w-md mb-10">
+      Wij ontzorgen particulieren en professionals bij de volledige ontruiming van woningen en bedrijfspanden. Discreet, betrouwbaar en met schriftelijke opleveringsgarantie.
+    </p>
+
+    <!-- TWEE TUNNELS -->
+    <div class="fade-4 flex flex-col gap-3 mb-12">
+      <!-- Tunnel 1: Wizard -->
+      <a href="https://analyse.uwontruimer.nl" class="flex items-center justify-between bg-blue-600 hover:bg-blue-700 rounded-xl px-5 py-4 transition-colors group">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div>
+            <div class="text-sm font-medium text-white">Offerte aanvragen</div>
+            <div class="text-xs text-white/70 mt-0.5">Prijsindicatie binnen 5 minuten · geen gesprek nodig</div>
+          </div>
+        </div>
+        <div class="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <!-- Tunnel 2: Bellen -->
+      <a href="tel:0853035894" class="flex items-center justify-between bg-slate-50 hover:bg-white border border-slate-200 hover:border-blue-600 rounded-xl px-5 py-4 transition-all group">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm font-medium text-slate-900">Liever direct bellen?</div>
+            <div class="text-xs text-slate-400 mt-0.5">085-303 58 94 · ma-za 8:00–18:00</div>
+          </div>
+        </div>
+        <div class="w-7 h-7 bg-slate-200 group-hover:bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+          <svg class="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- TRUST STATS -->
+    <div class="fade-5 flex flex-wrap gap-8 pt-8 border-t border-slate-100">
+      <div><div class="text-xl font-semibold text-slate-900 leading-none mb-1">2.500+</div><div class="text-xs text-slate-400 uppercase tracking-wide">Families geholpen</div></div>
+      <div><div class="text-xl font-semibold text-slate-900 leading-none mb-1">5,0 ★</div><div class="text-xs text-slate-400 uppercase tracking-wide">Google beoordeling</div></div>
+      <div><div class="text-xl font-semibold text-slate-900 leading-none mb-1">24u</div><div class="text-xs text-slate-400 uppercase tracking-wide">Spoedservice</div></div>
+      <div><div class="text-xl font-semibold text-slate-900 leading-none mb-1">100%</div><div class="text-xs text-slate-400 uppercase tracking-wide">Opleveringsgarantie</div></div>
+    </div>
+  </div>
+
+  <!-- HERO FOTO -->
+  <div class="relative overflow-hidden min-h-[400px] lg:min-h-0">
+    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80" alt="Woningontruiming" class="w-full h-full object-cover">
+    <div class="absolute bottom-8 left-6 bg-white rounded-2xl p-4 flex items-center gap-3 border border-slate-100 shadow-lg">
+      <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div>
+        <div class="text-sm font-medium text-slate-900">Opleveringsgarantie</div>
+        <div class="text-xs text-slate-400">Schriftelijk vastgelegd</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="flex flex-wrap justify-center gap-8 px-6 py-4 bg-white border-y border-slate-100">
+  <div class="flex items-center gap-2 text-xs text-slate-500"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Veilig en vertrouwelijk</div>
+  <div class="flex items-center gap-2 text-xs text-slate-500"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Binnen 24u beschikbaar</div>
+  <div class="flex items-center gap-2 text-xs text-slate-500"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>Erkend & verzekerd</div>
+  <div class="flex items-center gap-2 text-xs text-slate-500"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>Gratis en vrijblijvend</div>
+</div>
+
+<!-- DIENSTEN -->
+<section class="bg-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+      <div>
+        <p class="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat wij doen</p>
+        <h2 class="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Onze diensten</h2>
+        <p class="text-slate-500 font-light text-sm max-w-md leading-relaxed">Van volledige woningontruiming tot spoedopdrachten — wij regelen het voor u.</p>
+      </div>
+      <a href="#" class="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">Alle diensten <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="#" class="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
+        <div class="overflow-hidden h-32 foto-zoom"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=70" class="w-full h-full object-cover" alt=""></div>
+        <div class="p-4"><div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mb-3"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><div class="text-sm font-medium text-slate-900 mb-1">Woningontruiming</div><div class="text-xs text-slate-400 font-light leading-relaxed">Complete ontruiming van woningen en appartementen.</div></div>
+      </a>
+      <a href="#" class="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
+        <div class="overflow-hidden h-32 foto-zoom"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=70" class="w-full h-full object-cover" alt=""></div>
+        <div class="p-4"><div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mb-3"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div><div class="text-sm font-medium text-slate-900 mb-1">Bedrijfsontruiming</div><div class="text-xs text-slate-400 font-light leading-relaxed">Kantoren, winkels en magazijnen. Minimale overlast.</div></div>
+      </a>
+      <a href="#" class="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
+        <div class="overflow-hidden h-32 foto-zoom"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=70" class="w-full h-full object-cover" alt=""></div>
+        <div class="p-4"><div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mb-3"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="text-sm font-medium text-slate-900 mb-1">Spoedontruiming</div><div class="text-xs text-slate-400 font-light leading-relaxed">Urgente ontruiming binnen 24 uur, 7 dagen per week.</div></div>
+      </a>
+      <a href="#" class="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
+        <div class="overflow-hidden h-32 foto-zoom"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=70" class="w-full h-full object-cover" alt=""></div>
+        <div class="p-4"><div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mb-3"><svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="text-sm font-medium text-slate-900 mb-1">Opkopen inboedel</div><div class="text-xs text-slate-400 font-light leading-relaxed">Waardevolle spullen verrekend met de kosten.</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOTO GRID -->
+<div class="grid grid-cols-3 grid-rows-2" style="height:560px">
+  <div class="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
+    <p class="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Onze aanpak</p>
+    <h2 class="text-2xl font-semibold text-slate-900 tracking-tight mb-3">Respect voor mensen en hun bezittingen</h2>
+    <p class="text-slate-500 font-light text-sm leading-relaxed mb-6">Veel ontruimingen vinden plaats in emotioneel beladen situaties. Wij werken altijd met discretie en begrip.</p>
+    <a href="#" class="inline-flex bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors w-fit">Meer over ons</a>
+  </div>
+  <div class="overflow-hidden foto-zoom"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=75" class="w-full h-full object-cover" alt=""></div>
+  <div class="bg-blue-600 flex flex-col justify-center p-12">
+    <div class="text-6xl font-semibold text-white leading-none mb-3">15+</div>
+    <p class="text-blue-100 font-light text-sm leading-relaxed">Jaar ervaring in professionele ontruiming door heel Nederland</p>
+  </div>
+  <div class="overflow-hidden foto-zoom"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=75" class="w-full h-full object-cover" alt=""></div>
+  <div class="overflow-hidden foto-zoom"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=700&q=75" class="w-full h-full object-cover" alt=""></div>
+  <div class="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
+    <p class="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Duurzaam</p>
+    <h3 class="text-lg font-semibold text-slate-900 mb-2">Verantwoord verwerkt</h3>
+    <p class="text-slate-500 font-light text-sm leading-relaxed">Bruikbare spullen gaan naar hergebruik. Wat resteert wordt milieuvriendelijk verwerkt.</p>
+  </div>
+</div>
+
+<!-- WERKWIJZE -->
+<section class="bg-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Hoe het werkt</p>
+    <h2 class="text-3xl font-semibold text-slate-900 tracking-tight mb-14">Werkwijze in 4 stappen</h2>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="relative pt-6 border-t-2 border-slate-100"><div class="absolute top-[-2px] left-0 w-10 h-[3px] bg-blue-600 rounded-full"></div><div class="text-4xl font-semibold text-slate-200 leading-none mb-4">01</div><div class="text-sm font-medium text-slate-900 mb-2">Gratis offerte</div><div class="text-xs text-slate-400 font-light leading-relaxed">U vraagt een offerte aan. Wij plannen een bezichtiging op uw moment.</div></div>
+      <div class="relative pt-6 border-t-2 border-slate-100"><div class="absolute top-[-2px] left-0 w-10 h-[3px] bg-blue-600 rounded-full"></div><div class="text-4xl font-semibold text-slate-200 leading-none mb-4">02</div><div class="text-sm font-medium text-slate-900 mb-2">Helder voorstel</div><div class="text-xs text-slate-400 font-light leading-relaxed">Vaste prijs, geen verborgen kosten. Na goedkeuring plannen we de datum.</div></div>
+      <div class="relative pt-6 border-t-2 border-slate-100"><div class="absolute top-[-2px] left-0 w-10 h-[3px] bg-blue-600 rounded-full"></div><div class="text-4xl font-semibold text-slate-200 leading-none mb-4">03</div><div class="text-sm font-medium text-slate-900 mb-2">Ontruiming</div><div class="text-xs text-slate-400 font-light leading-relaxed">Ons team voert de ontruiming professioneel en zorgvuldig uit.</div></div>
+      <div class="relative pt-6 border-t-2 border-slate-100"><div class="absolute top-[-2px] left-0 w-10 h-[3px] bg-blue-600 rounded-full"></div><div class="text-4xl font-semibold text-slate-200 leading-none mb-4">04</div><div class="text-sm font-medium text-slate-900 mb-2">Oplevering</div><div class="text-xs text-slate-400 font-light leading-relaxed">Schoon en leeg opgeleverd, met schriftelijke opleveringsgarantie.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- B2B -->
+<section class="bg-slate-50 py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Zakelijke partners</p>
+    <h2 class="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Vaste partner voor professionals</h2>
+    <p class="text-slate-500 font-light text-sm max-w-lg leading-relaxed mb-12">Notarissen, makelaars en woningcorporaties vertrouwen al jaren op UwOntruimer.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <a href="#" class="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style="grid-template-columns:160px 1fr">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&q=70" class="w-full h-full object-cover" alt="">
+        <div class="p-5"><span class="text-[10px] font-medium text-blue-600 uppercase tracking-widest mb-2 block">Notarissen</span><div class="text-sm font-medium text-slate-900 mb-1">Nalatenschappen & boedelontruimingen</div><div class="text-xs text-slate-400 font-light leading-relaxed">Discreet, snel en juridisch correct.</div></div>
+      </a>
+      <a href="#" class="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style="grid-template-columns:160px 1fr">
+        <img src="https://images.unsplash.com/photo-1582407947304-fd86f28320be?w=320&q=70" class="w-full h-full object-cover" alt="">
+        <div class="p-5"><span class="text-[10px] font-medium text-blue-600 uppercase tracking-widest mb-2 block">Makelaars</span><div class="text-sm font-medium text-slate-900 mb-1">Pand verkoopklaar maken</div><div class="text-xs text-slate-400 font-light leading-relaxed">Snelle ontruiming voor bezichtiging of overdracht.</div></div>
+      </a>
+      <a href="#" class="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style="grid-template-columns:160px 1fr">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=320&q=70" class="w-full h-full object-cover" alt="">
+        <div class="p-5"><span class="text-[10px] font-medium text-blue-600 uppercase tracking-widest mb-2 block">Woningcorporaties</span><div class="text-sm font-medium text-slate-900 mb-1">Vaste partner bij huisuitzettingen</div><div class="text-xs text-slate-400 font-light leading-relaxed">Snelle doorlooptijden en vaste prijsafspraken.</div></div>
+      </a>
+      <a href="#" class="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style="grid-template-columns:160px 1fr">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70" class="w-full h-full object-cover" alt="">
+        <div class="p-5"><span class="text-[10px] font-medium text-blue-600 uppercase tracking-widest mb-2 block">Bewindvoerders</span><div class="text-sm font-medium text-slate-900 mb-1">Ontruimingen binnen bewindvoering</div><div class="text-xs text-slate-400 font-light leading-relaxed">Professionele samenwerking bij budgetbeheer.</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="bg-slate-50 py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-end justify-between mb-10">
+      <div><p class="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat klanten zeggen</p><h2 class="text-3xl font-semibold text-slate-900 tracking-tight">Beoordeeld met 5 sterren</h2></div>
+      <div class="text-right"><div class="text-yellow-400 text-lg tracking-widest mb-1">★★★★★</div><div class="text-xs text-slate-400">5,0 op Google Reviews</div></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white border border-slate-100 rounded-2xl p-6"><div class="text-yellow-400 text-sm tracking-widest mb-4">★★★★★</div><p class="text-slate-500 font-light text-sm leading-relaxed italic mb-5">"Na het overlijden van mijn moeder heeft UwOntruimer de woning volledig ontruimd. Ze waren bijzonder begripvol en professioneel."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-xs font-medium text-blue-600">S</div><div><div class="text-sm font-medium text-slate-900">Sandra de Vries</div><div class="text-xs text-slate-400">Amsterdam</div></div></div></div>
+      <div class="bg-white border border-slate-100 rounded-2xl p-6"><div class="text-yellow-400 text-sm tracking-widest mb-4">★★★★★</div><p class="text-slate-500 font-light text-sm leading-relaxed italic mb-5">"Spoedontruiming aangevraagd en ze stonden de volgende ochtend al voor de deur. Geweldige service en perfecte oplevering."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-xs font-medium text-blue-600">P</div><div><div class="text-sm font-medium text-slate-900">Peter Smits</div><div class="text-xs text-slate-400">Haarlem</div></div></div></div>
+      <div class="bg-white border border-slate-100 rounded-2xl p-6"><div class="text-yellow-400 text-sm tracking-widest mb-4">★★★★★</div><p class="text-slate-500 font-light text-sm leading-relaxed italic mb-5">"Als makelaar schakel ik UwOntruimer regelmatig in. Betrouwbaar, snel en altijd op tijd. De samenwerking verloopt altijd soepel."</p><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-xs font-medium text-blue-600">E</div><div><div class="text-sm font-medium text-slate-900">Ellen Bakker</div><div class="text-xs text-slate-400">Utrecht · Makelaar</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-white py-24 px-6 text-center">
+  <div class="max-w-xl mx-auto">
+    <p class="text-xs font-medium text-blue-600 uppercase tracking-widest mb-4">Aan de slag</p>
+    <h2 class="text-3xl font-semibold text-slate-900 tracking-tight mb-4">Klaar voor de volgende stap?</h2>
+    <p class="text-slate-500 font-light text-sm leading-relaxed mb-10">Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie.</p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href="https://analyse.uwontruimer.nl" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors text-sm">Gratis offerte aanvragen</a>
+      <a href="https://analyse.uwontruimer.nl" class="border border-slate-200 hover:border-slate-300 text-slate-600 hover:text-slate-900 font-medium px-6 py-3 rounded-lg transition-colors text-sm bg-white">Prijsindicatie berekenen</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-50 border-t border-slate-100 px-6 pt-14 pb-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center"><svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
+          <span class="font-semibold text-slate-900 text-sm">Uw Ontruimer</span>
+        </div>
+        <p class="text-xs text-slate-400 font-light leading-relaxed max-w-[200px] mb-4">Professionele ontruiming van woningen en bedrijven in heel Nederland.</p>
+        <a href="tel:0853035894" class="text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">085-303 58 94</a>
+      </div>
+      <div><h4 class="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Diensten</h4><ul class="space-y-2"><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Woningontruiming</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Bedrijfsontruiming</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Spoedontruiming</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Vloerverwijdering</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Opkopen inboedel</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Taxatie</a></li></ul></div>
+      <div><h4 class="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Zakelijk</h4><ul class="space-y-2"><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Voor notarissen</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Voor makelaars</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Bewindvoerders</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Woningcorporaties</a></li></ul></div>
+      <div><h4 class="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Over ons</h4><ul class="space-y-2"><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Over ons</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Werkwijze</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Opleveringsgarantie</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Duurzaam</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">FAQ</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Blog</a></li><li><a href="#" class="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">Contact</a></li></ul></div>
+    </div>
+    <div class="border-t border-slate-200 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+      <p class="text-xs text-slate-400">© 2026 uwontruimer.nl — Alle rechten voorbehouden</p>
+      <p class="text-xs text-slate-400">KVK 12345678 · BTW NL123456789B01</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

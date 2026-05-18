@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Aanvragen: alleen aanmaken toegestaan (geen lezen/schrijven/verwijderen)
+    match /aanvragen/{document} {
+      allow create: if true;
+    }
+  }
+}
