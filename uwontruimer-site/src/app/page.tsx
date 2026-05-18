@@ -42,7 +42,7 @@ export default function HomePage() {
         </div>
         {/* HERO IMAGE */}
         <div className="relative overflow-hidden min-h-[400px] lg:min-h-0">
-          <Image src="/uw-ontruimer-0414_075042732_iOS (1).jpg" alt="Professionele woningontruiming door UwOntruimer" fill className="object-cover" priority />
+          <Image src="/uw-ontruimer-0414_075042732_iOS (1).jpg" alt="Professionele woningontruiming door UwOntruimer" fill className="object-cover object-center" priority quality={90} />
           <div className="absolute bottom-8 left-6 bg-white rounded-2xl p-4 flex items-center gap-3 border border-slate-100 shadow-lg">
             <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -147,7 +147,7 @@ export default function HomePage() {
             {[
               { href: "/notaris", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&q=70", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
               { href: "/makelaar", img: "https://images.unsplash.com/photo-1582407947304-fd86f28320be?w=320&q=70", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
-              { href: "/woningbouwvereniging", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=320&q=70", label: "Woningcorporaties", title: "Vaste partner bij huisuitzettingen", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
+              { href: "/woningbouwvereniging", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=320&q=70", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
               { href: "/bewindvoerder", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style={{ gridTemplateColumns: "160px 1fr" }}>
