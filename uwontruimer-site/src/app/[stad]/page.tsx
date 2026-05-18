@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
+import { stadContent } from "@/data/stad-content";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
@@ -114,6 +115,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
   const { stad } = await params;
   const city = steden.find((s) => s.slug === stad);
   const name = city?.name ?? stad;
+  const paragraphs = stadContent[stad] ?? null;
 
   return (
     <>
@@ -122,9 +124,19 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         <div className="bg-white py-20 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkgebied</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Ontruiming {name}</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-6">UwOntruimer is actief in {name} en omstreken. Wij verzorgen de volledige ontruiming van woningen, appartementen en bedrijfspanden — snel, discreet en met een schriftelijke opleveringsgarantie.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-6">Of u nu een woning wilt laten ontruimen na een overlijden, een verhuizing plant of een spoedontruiming nodig heeft: ons team staat voor u klaar in {name}. Wij hanteren vaste, transparante prijzen zonder verborgen kosten.</p>
+            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Woningontruiming {name}</h1>
+
+            {paragraphs ? (
+              paragraphs.map((p, i) => (
+                <p key={i} className="text-slate-500 font-light leading-relaxed mb-6">{p}</p>
+              ))
+            ) : (
+              <>
+                <p className="text-slate-500 font-light leading-relaxed mb-6">UwOntruimer is actief in {name} en omstreken. Wij verzorgen de volledige ontruiming van woningen, appartementen en bedrijfspanden — snel, discreet en met een schriftelijke opleveringsgarantie.</p>
+                <p className="text-slate-500 font-light leading-relaxed mb-6">Of u nu een woning wilt laten ontruimen na een overlijden, een verhuizing plant of een spoedontruiming nodig heeft: ons team staat voor u klaar in {name}. Wij hanteren vaste, transparante prijzen zonder verborgen kosten.</p>
+              </>
+            )}
+
             <p className="text-slate-500 font-light leading-relaxed">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
           </div>
         </div>
