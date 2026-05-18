@@ -41,8 +41,14 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
-          <p className="text-xs text-slate-400">© 2026 uwontruimer.nl — Alle rechten voorbehouden</p>
-          <p className="text-xs text-slate-400">KVK 12345678 · BTW NL123456789B01</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <p className="text-xs text-slate-400">© 2026 uwontruimer.nl — Alle rechten voorbehouden</p>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="text-xs text-slate-400 hover:text-slate-900 transition-colors">Privacyverklaring</Link>
+              <Link href="/algemene-voorwaarden" className="text-xs text-slate-400 hover:text-slate-900 transition-colors">Algemene voorwaarden</Link>
+            </div>
+          </div>
+          <p className="text-xs text-slate-400">KVK 84981393 · BTW NL863451159B01</p>
         </div>
       </div>
     </footer>

@@ -17,15 +17,32 @@ export const metadata: Metadata = {
   description: "Professionele ontruiming van woningen en bedrijfspanden in heel Nederland. Betrouwbaar, discreet en met schriftelijke opleveringsgarantie.",
 };
 
+// Google Consent Mode v2 — default alles denied vóór gtag laadt
+const consentDefault = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="nl" className={dmSans.className}>
+      <head>
+        {/* Consent Mode v2 default — moet vóór gtag script staan */}
+        <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
+      </head>
       <body className="bg-slate-50 text-slate-900 antialiased">
         {children}
         <CookieBanner />
         <Analytics />
         <SpeedInsights />
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        <GoogleAnalytics gaId="G-FK7P241P9Z" />
       </body>
     </html>
   );

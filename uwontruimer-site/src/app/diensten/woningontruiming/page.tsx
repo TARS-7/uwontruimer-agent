@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
+import WizardCallout from "@/components/WizardCallout";
 
 export const metadata: Metadata = {
   title: "Woningontruiming",
@@ -23,6 +24,7 @@ export default function Page() {
             <p className="text-slate-500 font-light leading-relaxed">Bel ons op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> voor een gratis en vrijblijvende offerte.</p>
           </div>
         </div>
+        <WizardCallout />
         <TrustBar />
         <CTASection />
       </main>

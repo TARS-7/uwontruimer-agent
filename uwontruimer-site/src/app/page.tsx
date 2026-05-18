@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import ReviewTicker from "@/components/ReviewTicker";
+import WizardUSP from "@/components/WizardUSP";
 import CTASection from "@/components/CTASection";
 import HeroTunnels from "@/components/HeroTunnels";
 import Image from "next/image";
@@ -56,6 +57,7 @@ export default function HomePage() {
 
       <TrustBar />
       <ReviewTicker />
+      <WizardUSP />
 
       {/* DIENSTEN */}
       <section className="bg-white py-20 px-6">
