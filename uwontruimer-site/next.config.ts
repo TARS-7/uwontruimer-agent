@@ -4,6 +4,18 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
   },
+  async headers() {
+    return [
+      // Prevent search engines from indexing preview and staging deployments.
+      // next.config headers run before redirects and middleware, so this fires on every
+      // response — including the 308 redirect response itself — for *.vercel.app hosts.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: ".*\\.vercel\\.app" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+    ];
+  },
   async redirects() {
     return [
       // Redirect all *.vercel.app requests (staging alias + preview URLs) to the canonical domain.
