@@ -169,9 +169,9 @@ export default function WerkgebiedSearch() {
         )
       ) : (
         /* Provincie-indeling */
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 divide-y divide-slate-100 md:divide-y-0">
           {provincies.map((provincie) => (
-            <div key={provincie.slug}>
+            <div key={provincie.slug} className="pt-6 first:pt-0 md:pt-0">
               <Link
                 href={`/woningontruiming-${provincie.slug}`}
                 className="inline-flex items-center gap-1.5 text-base font-semibold text-blue-600 hover:text-blue-800 transition-colors mb-4"
@@ -181,7 +181,7 @@ export default function WerkgebiedSearch() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                 </svg>
               </Link>
-              <ul className="space-y-1.5">
+              <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-1.5">
                 {provincie.steden.map((stad) => (
                   <li key={stad.slug}>
                     <Link
