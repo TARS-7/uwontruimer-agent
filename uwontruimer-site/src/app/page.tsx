@@ -9,6 +9,15 @@ import HeroTunnels from "@/components/HeroTunnels";
 import Image from "next/image";
 import Link from "next/link";
 import WerkgebiedSearch from "@/components/WerkgebiedSearch";
+import { blogPosts } from "@/data/blog-posts";
+
+const blogImages: Record<string, string> = {
+  "na-de-ontruiming":                      "/Ontruimers.png",
+  "zelf-woning-ontruimen-of-uitbesteden":  "/appartement-leeg.png",
+  "wat-te-doen-bij-een-woningontruiming":  "/hero-truck.png",
+  "vloer-verwijderen-kosten":              "/bedrijfsontruiming.png",
+  "wat-is-het-stappenplan-bij-een-woningontruiming": "/Ontruimers.png",
+};
 
 export const metadata: Metadata = {
   title: "Uw Ontruimer | Bedrijfs- en woningontruiming in heel NL",
@@ -102,6 +111,50 @@ export default function HomePage() {
             <p className="text-slate-500 font-light text-sm max-w-md leading-relaxed">Wij verzorgen woningontruimingen in de regio&apos;s Utrecht, Noord-Holland en Zuid-Holland. Snel ter plaatse, ook voor spoedopdrachten.</p>
           </div>
           <WerkgebiedSearch />
+        </div>
+      </section>
+
+      {/* VRAGEN EN TIPS */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <div>
+              <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Blog</p>
+              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Vragen en tips</h2>
+              <p className="text-slate-500 font-light text-sm max-w-md leading-relaxed">Praktische informatie over woningontruiming, nalatenschappen en meer.</p>
+            </div>
+            <Link href="/blog" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">
+              Alle artikelen
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={blogImages[post.slug] ?? "/Ontruimers.png"}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <time className="text-xs text-slate-400 mb-3 block" dateTime={post.date}>{post.dateDisplay}</time>
+                  <h3 className="text-base font-semibold text-[#2563eb] leading-snug mb-3 group-hover:text-blue-800 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 font-light leading-relaxed">
+                    {post.excerpt.slice(0, 120)}{post.excerpt.length > 120 ? "…" : ""}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
