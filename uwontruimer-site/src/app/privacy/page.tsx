@@ -3,8 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacyverklaring",
-  description: "Privacyverklaring van UwOntruimer.nl — hoe wij omgaan met uw persoonsgegevens conform de AVG.",
+  title: "Privacybeleid | UwOntruimer.nl",
+  description: "Lees het privacybeleid van UwOntruimer.nl. Wij gaan zorgvuldig om met uw persoonsgegevens.",
 };
 
 export default function Page() {
@@ -14,93 +14,49 @@ export default function Page() {
       <main className="mt-16">
         <div className="bg-white py-20 px-6">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Juridisch</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-2">Privacyverklaring</h1>
-            <p className="text-xs text-slate-400 mb-10">Laatste update: mei 2026</p>
-
-            <div className="prose-sm space-y-8 text-slate-500 font-light leading-relaxed">
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">1. Wie zijn wij?</h2>
-                <p>UwOntruimer.nl wordt geëxploiteerd door Uw Ontruimer, gevestigd in Amstelveen, Nederland. KVK-nummer: 84981393. BTW-nummer: NL863451159B01.</p>
-                <p className="mt-2">Contactgegevens: <a href="mailto:info@uwontruimer.nl" className="text-blue-600">info@uwontruimer.nl</a> · <a href="tel:0853035894" className="text-blue-600">085-303 58 94</a></p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">2. Welke persoonsgegevens verwerken wij?</h2>
-                <p>Wij verwerken alleen persoonsgegevens die u actief aan ons verstrekt of die automatisch worden gegenereerd bij gebruik van onze website:</p>
-                <ul className="list-disc pl-5 mt-3 space-y-1.5">
-                  <li><strong className="text-slate-700">Contactgegevens:</strong> naam, telefoonnummer, e-mailadres — alleen als u contact met ons opneemt.</li>
-                  <li><strong className="text-slate-700">Offertegegevens:</strong> adres, omschrijving van de ontruiming, foto's van het pand — via onze analysetool (analyse.uwontruimer.nl).</li>
-                  <li><strong className="text-slate-700">Analytische gegevens:</strong> geanonimiseerde gebruiksdata via Google Analytics 4 (alleen na uw toestemming).</li>
-                  <li><strong className="text-slate-700">Technische gegevens:</strong> IP-adres, browsertype, bezochte pagina's — automatisch en geanonimiseerd.</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">3. Waarom verwerken wij uw gegevens?</h2>
-                <ul className="list-disc pl-5 space-y-1.5">
-                  <li><strong className="text-slate-700">Uitvoering van overeenkomst (art. 6 lid 1 sub b AVG):</strong> het verwerken van offerteaanvragen en het uitvoeren van ontruimingsopdrachten.</li>
-                  <li><strong className="text-slate-700">Gerechtvaardigd belang (art. 6 lid 1 sub f AVG):</strong> het verbeteren van onze dienstverlening en website.</li>
-                  <li><strong className="text-slate-700">Toestemming (art. 6 lid 1 sub a AVG):</strong> het plaatsen van analytische cookies na uw expliciete toestemming via de cookiebanner.</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">4. Hoe lang bewaren wij uw gegevens?</h2>
-                <p>Wij bewaren uw persoonsgegevens niet langer dan noodzakelijk:</p>
-                <ul className="list-disc pl-5 mt-3 space-y-1.5">
-                  <li>Offertegegevens: maximaal 2 jaar na laatste contact.</li>
-                  <li>Klantgegevens (bij opdracht): 7 jaar conform wettelijke bewaarplicht.</li>
-                  <li>Analytische data (Google Analytics): maximaal 14 maanden (ingesteld conform AVG).</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">5. Delen wij uw gegevens?</h2>
-                <p>Wij verkopen uw gegevens nooit. Wij delen gegevens alleen met:</p>
-                <ul className="list-disc pl-5 mt-3 space-y-1.5">
-                  <li><strong className="text-slate-700">Google LLC</strong> — voor Google Analytics 4, uitsluitend na uw toestemming. Google is gecertificeerd onder het EU–VS Data Privacy Framework.</li>
-                  <li><strong className="text-slate-700">Vercel Inc.</strong> — hostingprovider van onze website (VS, adequaatheidsbesluit/SCCs van toepassing).</li>
-                  <li>Overheidsinstanties, indien wettelijk verplicht.</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">6. Cookies</h2>
-                <p>Wij gebruiken twee soorten cookies:</p>
-                <ul className="list-disc pl-5 mt-3 space-y-1.5">
-                  <li><strong className="text-slate-700">Noodzakelijke cookies:</strong> vereist voor de werking van de website. Geen toestemming nodig.</li>
-                  <li><strong className="text-slate-700">Analytische cookies (Google Analytics 4):</strong> alleen met uw toestemming. U kunt uw voorkeur altijd aanpassen via de cookiebanner.</li>
-                </ul>
-                <p className="mt-3">Wij passen Google Consent Mode v2 toe: zonder uw toestemming worden geen analytische gegevens verzonden naar Google.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">7. Uw rechten</h2>
-                <p>Op grond van de AVG heeft u de volgende rechten:</p>
-                <ul className="list-disc pl-5 mt-3 space-y-1.5">
-                  <li><strong className="text-slate-700">Inzage:</strong> u kunt opvragen welke gegevens wij van u hebben.</li>
-                  <li><strong className="text-slate-700">Rectificatie:</strong> u kunt onjuiste gegevens laten corrigeren.</li>
-                  <li><strong className="text-slate-700">Verwijdering:</strong> u kunt vragen uw gegevens te wissen.</li>
-                  <li><strong className="text-slate-700">Beperking:</strong> u kunt de verwerking laten beperken.</li>
-                  <li><strong className="text-slate-700">Bezwaar:</strong> u kunt bezwaar maken tegen verwerking op basis van gerechtvaardigd belang.</li>
-                  <li><strong className="text-slate-700">Dataportabiliteit:</strong> u kunt uw gegevens opvragen in een gestructureerd formaat.</li>
-                </ul>
-                <p className="mt-3">Stuur uw verzoek naar <a href="mailto:info@uwontruimer.nl" className="text-blue-600">info@uwontruimer.nl</a>. Wij reageren binnen 30 dagen.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">8. Klachten</h2>
-                <p>Heeft u een klacht over de verwerking van uw persoonsgegevens? U kunt een klacht indienen bij de <strong className="text-slate-700">Autoriteit Persoonsgegevens</strong> via <a href="https://autoriteitpersoonsgegevens.nl" className="text-blue-600" target="_blank" rel="noopener noreferrer">autoriteitpersoonsgegevens.nl</a>.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">9. Wijzigingen</h2>
-                <p>Wij kunnen deze privacyverklaring aanpassen. De meest recente versie is altijd te vinden op uwontruimer.nl/privacy. Bij wezenlijke wijzigingen informeren wij u via de website.</p>
-              </section>
-
-            </div>
+            <h1 className="text-3xl font-semibold text-slate-900 tracking-tight mb-8">Privacybeleid</h1>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer, gevestigd aan Hoofdstraat 42c 2181ED Hillegom, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Contactgegevens:</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">https://uwontruimer.nl/</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Welnastraat 175</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">085-3035894</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Jurriën Kuijper is de Functionaris Gegevensbescherming van Uw Ontruimer Hij/zij is te bereiken via info@uwontruimer.nl</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Persoonsgegevens die wij verwerken</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer verwerkt uw persoonsgegevens doordat u gebruik maakt van onze diensten en/of omdat u deze zelf aan ons verstrekt.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Hieronder vindt u een overzicht van de persoonsgegevens die wij verwerken:</p>
+            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
+              <li>Voor- en achternaam</li>
+              <li>Adresgegevens</li>
+              <li>Telefoonnummer</li>
+              <li>E-mailadres</li>
+              <li>Bankrekeningnummer</li>
+            </ul>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Bijzondere en/of gevoelige persoonsgegevens die wij verwerken</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Onze website en/of dienst heeft niet de intentie gegevens te verzamelen over websitebezoekers die jonger zijn dan 16 jaar. Tenzij ze toestemming hebben van ouders of voogd. We kunnen echter niet controleren of een bezoeker ouder dan 16 is. Wij raden ouders dan ook aan betrokken te zijn bij de online activiteiten van hun kinderen, om zo te voorkomen dat er gegevens over kinderen verzameld worden zonder ouderlijke toestemming. Als u er van overtuigd bent dat wij zonder die toestemming persoonlijke gegevens hebben verzameld over een minderjarige, neem dan contact met ons op via info@uwontruimer.nl, dan verwijderen wij deze informatie.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Met welk doel en op basis van welke grondslag wij persoonsgegevens verwerken</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer verwerkt uw persoonsgegevens voor de volgende doelen:</p>
+            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
+              <li>U te kunnen bellen of e-mailen indien dit nodig is om onze dienstverlening uit te kunnen voeren</li>
+              <li>U te informeren over wijzigingen van onze diensten en producten</li>
+              <li>Om goederen en diensten bij u af te leveren</li>
+              <li>Uw Ontruimer verwerkt ook persoonsgegevens als wij hier wettelijk toe verplicht zijn, zoals gegevens die wij nodig hebben voor onze belastingaangifte.</li>
+            </ul>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Hoe lang we persoonsgegevens bewaren</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer bewaart uw persoonsgegevens niet langer dan strikt nodig is om de doelen te realiseren waarvoor uw gegevens worden verzameld.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Delen van persoonsgegevens met derden</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer verstrekt uitsluitend aan derden en alleen als dit nodig is voor de uitvoering van onze overeenkomst met u of om te voldoen aan een wettelijke verplichting.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Cookies, of vergelijkbare technieken, die wij gebruiken</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer gebruikt functionele, analytische en tracking cookies. Een cookie is een klein tekstbestand dat bij het eerste bezoek aan deze website wordt opgeslagen in de browser van uw computer, tablet of smartphone. Uw Ontruimer gebruikt cookies met een puur technische functionaliteit. Deze zorgen ervoor dat de website naar behoren werkt en dat bijvoorbeeld uw voorkeursinstellingen onthouden worden. Deze cookies worden ook gebruikt om de website goed te laten werken en deze te kunnen optimaliseren. Daarnaast plaatsen we cookies die uw surfgedrag bijhouden zodat we op maat gemaakte content en advertenties kunnen aanbieden.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Bij uw eerste bezoek aan onze website hebben wij u al geïnformeerd over deze cookies en toestemming gevraagd voor het plaatsen ervan.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">U kunt zich afmelden voor cookies door uw internetbrowser zo in te stellen dat deze geen cookies meer opslaat. Daarnaast kunt u ook alle informatie die eerder is opgeslagen via de instellingen van uw browser verwijderen.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Zie voor een toelichting: https://veiliginternetten.nl/themes/situatie/cookies-wat-zijn-het-en-wat-doe-ik-ermee/</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Gegevens inzien, aanpassen of verwijderen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">U heeft het recht om uw persoonsgegevens in te zien, te corrigeren of te verwijderen. Daarnaast heeft u het recht om uw eventuele toestemming voor de gegevensverwerking in te trekken of bezwaar te maken tegen de verwerking van uw persoonsgegevens door Uw Ontruimer en heeft u het recht op gegevensoverdraagbaarheid. Dat betekent dat u bij ons een verzoek kunt indienen om de persoonsgegevens die wij van u beschikken in een computerbestand naar u of een ander, door u genoemde organisatie, te sturen.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">U kunt een verzoek tot inzage, correctie, verwijdering, gegevensoverdraging van uw persoonsgegevens of verzoek tot intrekking van uw toestemming of bezwaar op de verwerking van uw persoonsgegevens sturen naar info@uwontruimer.nl.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Om er zeker van te zijn dat het verzoek tot inzage door u is gedaan, vragen wij u een kopie van uw identiteitsbewijs met het verzoek mee te sturen. Maak in deze kopie uw pasfoto, MRZ (machine readable zone, de strook met nummers onderaan het paspoort), paspoortnummer en Burgerservicenummer (BSN) zwart. Dit ter bescherming van uw privacy. We reageren zo snel mogelijk, maar binnen vier weken, op uw verzoek.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer wil u er tevens op wijzen dat u de mogelijkheid heeft om een klacht in te dienen bij de nationale toezichthouder, de Autoriteit Persoonsgegevens. Dat kan via de volgende link: https://autoriteitpersoonsgegevens.nl/nl/contact-met-de-autoriteit-persoonsgegevens/tip-ons</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Hoe wij persoonsgegevens beveiligen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer neemt de bescherming van uw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. Als u de indruk heeft dat uw gegevens niet goed beveiligd zijn of er aanwijzingen zijn van misbruik, neem dan contact op met onze klantenservice of via info@uwontruimer.nl</p>
           </div>
         </div>
       </main>

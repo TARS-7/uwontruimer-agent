@@ -67,7 +67,7 @@ export default function Page() {
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Overzicht</p>
             <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-4">Onze diensten</h1>
             <p className="text-slate-500 font-light leading-relaxed mb-12 max-w-xl">
-              Uw Ontruimer biedt een breed pakket aan ontruimings- en aanverwante diensten. Kies hieronder de dienst die bij uw situatie past.
+              Uw Ontruimer biedt een breed pakket aan ontruimings- en aanverwante diensten — van woningontruiming en spoedontruiming tot inboedel opkopen en verhuizen. Kies hieronder de dienst die bij uw situatie past.
             </p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

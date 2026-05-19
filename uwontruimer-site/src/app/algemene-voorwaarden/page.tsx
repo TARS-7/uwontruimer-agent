@@ -3,8 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Algemene Voorwaarden",
-  description: "Algemene voorwaarden van UwOntruimer.nl — van toepassing op alle diensten en overeenkomsten.",
+  title: "Algemene voorwaarden | UwOntruimer.nl",
+  description: "Lees de algemene voorwaarden van UwOntruimer.nl. KVK: 78362970.",
 };
 
 export default function Page() {
@@ -14,84 +14,61 @@ export default function Page() {
       <main className="mt-16">
         <div className="bg-white py-20 px-6">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Juridisch</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-2">Algemene Voorwaarden</h1>
-            <p className="text-xs text-slate-400 mb-10">Versie mei 2026 — van toepassing op alle diensten van Uw Ontruimer (KVK 84981393)</p>
-
-            <div className="prose-sm space-y-8 text-slate-500 font-light leading-relaxed">
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 1 — Definities</h2>
-                <ul className="list-disc pl-5 space-y-1.5">
-                  <li><strong className="text-slate-700">Opdrachtnemer:</strong> Uw Ontruimer, gevestigd te Amstelveen, KVK 84981393.</li>
-                  <li><strong className="text-slate-700">Opdrachtgever:</strong> de natuurlijke persoon of rechtspersoon die een overeenkomst sluit met Uw Ontruimer.</li>
-                  <li><strong className="text-slate-700">Diensten:</strong> alle door Uw Ontruimer aangeboden werkzaamheden, waaronder woningontruiming, bedrijfsontruiming, vloerverwijdering, taxatie en verkoop van inboedel.</li>
-                  <li><strong className="text-slate-700">Overeenkomst:</strong> de tussen partijen gesloten afspraak, vastgelegd in een offerte of opdrachtbevestiging.</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 2 — Toepasselijkheid</h2>
-                <p>Deze algemene voorwaarden zijn van toepassing op alle offertes, aanbiedingen en overeenkomsten tussen Uw Ontruimer en opdrachtgever. Afwijkingen zijn alleen geldig indien schriftelijk overeengekomen. De toepasselijkheid van eventuele inkoop- of andere voorwaarden van de opdrachtgever wordt uitdrukkelijk van de hand gewezen.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 3 — Offertes en totstandkoming</h2>
-                <p>Alle offertes zijn vrijblijvend en geldig gedurende 30 dagen, tenzij anders vermeld. Een overeenkomst komt tot stand na schriftelijke aanvaarding van de offerte door opdrachtgever, of na schriftelijke bevestiging door Uw Ontruimer van een mondeling gegeven opdracht.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibond text-slate-900 mb-3">Artikel 4 — Uitvoering van de diensten</h2>
-                <p>Uw Ontruimer voert de werkzaamheden uit naar beste inzicht en vermogen. De opgegeven uitvoerdata zijn indicatief, tenzij schriftelijk een fatale termijn is overeengekomen. Opdrachtgever zorgt voor vrije toegang tot het te ontruimen pand en stelt benodigde documenten tijdig beschikbaar.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 5 — Prijzen en betaling</h2>
-                <p>Alle prijzen zijn inclusief BTW tenzij anders vermeld. Betaling dient te geschieden binnen 14 dagen na factuurdatum, tenzij schriftelijk anders overeengekomen. Bij niet-tijdige betaling is de opdrachtgever van rechtswege in verzuim en is de wettelijke handelsrente verschuldigd. Uw Ontruimer behoudt het recht incassokosten in rekening te brengen.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 6 — Opkopen en verrekening inboedel</h2>
-                <p>Indien partijen overeenkomen dat Uw Ontruimer waardevolle goederen overneemt, wordt de overeengekomen waarde verrekend met de kosten van de ontruiming. De waardebepaling geschiedt door Uw Ontruimer op basis van actuele marktwaarden. Opdrachtgever dient rechthebbende te zijn van de betreffende goederen.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 7 — Opleveringsgarantie</h2>
-                <p>Uw Ontruimer biedt een schriftelijke opleveringsgarantie: het te ontruimen object wordt leeg, schoon en bezemschoon opgeleverd conform de overeengekomen specificaties. Eventuele gebreken dienen binnen 48 uur na oplevering schriftelijk te worden gemeld.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 8 — Aansprakelijkheid</h2>
-                <p>De aansprakelijkheid van Uw Ontruimer is beperkt tot het bedrag dat in het betreffende geval wordt uitbetaald door de bedrijfsaansprakelijkheidsverzekering. Uw Ontruimer is niet aansprakelijk voor indirecte schade, gevolgschade of gederfde winst. Opdrachtgever is verantwoordelijk voor het tijdig informeren over aanwezigheid van gevaarlijke stoffen of bijzondere objecten.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 9 — Annulering</h2>
-                <p>Bij annulering door opdrachtgever worden de volgende kosten in rekening gebracht:</p>
-                <ul className="list-disc pl-5 mt-3 space-y-1.5">
-                  <li>Meer dan 7 dagen voor uitvoering: geen kosten.</li>
-                  <li>2 tot 7 dagen voor uitvoering: 25% van de opdrachtsom.</li>
-                  <li>Minder dan 48 uur voor uitvoering: 50% van de opdrachtsom.</li>
-                  <li>Op de dag van uitvoering: 100% van de opdrachtsom.</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 10 — Overmacht</h2>
-                <p>Uw Ontruimer is niet gehouden tot nakoming van verplichtingen bij overmacht, waaronder extreme weersomstandigheden, stakingen, overheidsmaatregelen of andere omstandigheden buiten de controle van Yw Ontruimer. Partijen treden in overleg over een nieuwe uitvoerdatum.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 11 — Toepasselijk recht en geschillen</h2>
-                <p>Op alle overeenkomsten is uitsluitend Nederlands recht van toepassing. Geschillen worden bij voorkeur in goed overleg opgelost. Indien dit niet lukt, worden geschillen voorgelegd aan de bevoegde rechter in het arrondissement Amsterdam, tenzij dwingend recht anders bepaalt.</p>
-              </section>
-
-              <section>
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">Artikel 12 — Contact</h2>
-                <p>Voor vragen over deze algemene voorwaarden: <a href="mailto:info@uwontruimer.nl" className="text-blue-600">info@uwontruimer.nl</a> of <a href="tel:0853035894" className="text-blue-600">085-303 58 94</a>.</p>
-              </section>
-
-            </div>
+            <h1 className="text-3xl font-semibold text-slate-900 tracking-tight mb-8">Algemene voorwaarden</h1>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Algemene voorwaarden Uwontruimer.nl versie 20200107</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 1 Algemeen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer houdt kantoor aan de Welnastraat 175 1096 GJ te Amsterdam en is ingeschreven bij de kamer van koophandel Amsterdam.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">KVK- nummer 78362970</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">BTW- nummer NL 00333 04 43 B56</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Email: info@uwontruimer.nl</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 2 Toepasselijkheid en definities</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. In deze algemene voorwaarden wordt verstaan onder:</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Klant: de opdrachtgever</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Overeenkomst: een ondertekende offerte, schriftelijke goedkeuring of akkoord via e-mail.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Inboedel: alle roerende goederen die zich in de ruimte bevinden.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. Deze voorwaarden zijn van toepassing op iedere aanbieding, offerte en overeenkomst tussen Uwontruimer.nl en opdrachtgever.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">3. Uwontruimer.nl heeft het recht deze voorwaarden met regelmaat aan te passen. Klant draagt zelf zorg voor het bijhouden van de juiste voorwaarden. De voorwaarden op de website zijn leidend.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 3 Offerte</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. De offerte wordt schriftelijk of per e-mail verstrekt.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. In de offerte staan de werkzaamheden beschreven en de prijs.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 4 Verzekering</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. In geval van verhuizing is het transport verzekerd tot een bedrag van €1.500,-</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 5 Aansprakelijkheid</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. Uwontruimer.nl heeft een aansprakelijkheidsverzekering voor bedrijven ter hoogte van</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">€2.500.000 en dit bedrag is ten allen tijde leidend in geval van uitkering van een</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">schadebedrag.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. Uwontruimer.nl is niet aansprakelijk voor schade die is ontstaan doordat Uwontruimer.nl is</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">uitgegaan van onjuiste en/of onvolledige gegevens.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">3. Uwontruimer.nl is uitsluitend aansprakelijk voor directe schade.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 6 Betaling</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. Opdrachtgever dient binnen 14 dagen na verzending van de</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">factuur te betalen.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 7 Opzeggen en annuleren</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. De klant de overeenkomst opzeggen, dit dient schriftelijk of digitaal te gebeuren</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. Tot aan 7 dagen voor de uitvoerdatum zijn hier geen kosten aan verbonden. Als er binnen de termijn van 7 dagen voor de uitvoerdatum wordt opgezegd dan is de klant 30% van het offertebedrag verschuldigd.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 8 Overmacht</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. Uwontruimer.nl heeft geen enkele verplichting jegens klant als Uwontruimer.nl gehinderd</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">wordt als gevolg van overmacht.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. Overmacht is van toepassing indien de tekortkoming het gevolg is van buiten de macht van</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Uwontruimer.nl gelegen omstandigheden. Voorbeelden zijn: maatregelen van de</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">overheid, natuurrampen, slechte weersomstandigheden, brandgevaar en explosie.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">3. In een periode van aanhoudende overmacht kunnen beide partijen na 14 dagen de</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">overeenkomst ontbinden.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 9 Klachten en schade</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. Bij klachten en schade dient hiervan binnen 3 werkdagen melding van gemaakt te worden aan Uwontruimer.nl</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. Uwontruimer.nl heeft na het ontvangen van klachten of schade een redelijke termijn van 2 weken om dit op te lossen.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 10 Eigendom</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. Klant verklaart dat bij het verlenen van de overeenkomst aan Uwontruimer.nl dat de goederen in haar of zijn eigendom zijn.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. Bij het verlenen van de overeenkomst van klant aan Uwontruimer.nl doet de klant afstand van de door Uwontruimer.nl te ontruimen inboedel. Uwontruimer.nl wordt hierdoor de rechtmatige eigenaar van de (overgenomen) inboedel en behoudt zich het recht te bepalen</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">wat met de inboedel wordt gedaan.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">3. Het is de klant niet toegestaan om op of na het moment van uitbrengen van de offerte de gehele of gedeelten van de vastgestelde inboedel te verwijderen dan wel te vervangen.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">4. Voor het geval dat Uwontruimer.nl de in dit artikel aangeduide eigendomsrechten wil uitoefenen, geeft de klant bij voorbaat onvoorwaardelijke en niet herroepelijke toestemming</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">aan Uwontruimer.nl en door de Uwontruimer.nl aan te wijzen derden om al die plaatsen te</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">betreden waar de eigendommen van Uwontruimer.nl zich bevinden en deze te nemen.</p>
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 11 Toepasselijkheid</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. Op al onze opdrachten, orders, leveringen en consignatie zijn deze voorwaarden van</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">toepassing.</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">2. Op alle rechtsbetrekkingen waarbij Uwontruimer.nl partij is, is alleen het Nederlandse recht van toepassing.</p>
           </div>
         </div>
       </main>
