@@ -99,6 +99,8 @@ const steden = [
   { slug: "zuid-holland",           name: "Zuid-Holland",           title: "Woningontruiming Zuid-Holland | UwOntruimer.nl",                                desc: "Bel Uw Ontruimer via 085-303 58 94 en laat uw woningontruiming in Zuid-Holland over aan een professioneel ontruimingsbedrijf. ✓15+ jaar ervaring." },
 ];
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return steden.map((s) => ({ stad: s.slug }));
 }
