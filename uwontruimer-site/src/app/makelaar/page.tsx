@@ -16,8 +16,8 @@ export default function Page() {
       <Header />
       <main className="mt-16">
         {/* Hero */}
-        <div className="relative w-full h-64 sm:h-80 overflow-hidden">
-          <Image src="/appartement-makelaar.png" alt="Makelaar samenwerking — pand verkoopklaar" fill className="object-cover" priority />
+        <div className="relative w-full h-72 md:h-80 overflow-hidden">
+          <Image src="/appartement-makelaar.png" alt="Makelaar samenwerking — pand verkoopklaar" fill className="object-cover" style={{ objectPosition: "center center" }} priority />
           <div className="absolute inset-0 bg-slate-900/25" />
         </div>
 

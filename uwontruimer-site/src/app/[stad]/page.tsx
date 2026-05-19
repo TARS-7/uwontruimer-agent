@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 import { stadContent } from "@/data/stad-content";
+import Image from "next/image";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
@@ -121,7 +122,13 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     <>
       <Header />
       <main className="mt-16">
-        <div className="bg-white py-20 px-6">
+        {/* Hero */}
+        <div className="relative w-full h-72 md:h-80 overflow-hidden">
+          <Image src="/hero-truck.png" alt={`Woningontruiming ${name}`} fill className="object-cover" style={{ objectPosition: "center center" }} priority />
+          <div className="absolute inset-0 bg-slate-900/30" />
+        </div>
+
+        <div className="bg-white py-16 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkgebied</p>
             <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Woningontruiming {name}</h1>
