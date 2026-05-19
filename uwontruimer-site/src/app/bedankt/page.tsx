@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Bedankt | UwOntruimer.nl",
   description: "Bedankt voor uw bericht. We nemen zo spoedig mogelijk contact met u op.",
   robots: { index: false, follow: false },
-  alternates: { canonical: "/bedankt" },
+  alternates: { canonical: "/bedankt/" },
 };
 
 export default function Page() {

@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Een woningontruiming in Aalsmeer van a tot z geregeld. | UwOntruimer.nl",
   description: "Woningontruiming in Aalsmeer vakkundig uitgevoerd door ervaren ontruimers. U zoekt een professionele partner voor uw ontruiming? Wij komen graag persoonlij",
-  alternates: { canonical: "/huis-laten-ontruimen" },
+  alternates: { canonical: "/huis-laten-ontruimen/" },
 };
 
 export default function Page() {

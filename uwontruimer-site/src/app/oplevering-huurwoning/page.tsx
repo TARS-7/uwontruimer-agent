@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Stap 1. Alle abonnementen moeten worden opgezegd. | UwOntruimer.nl",
   description: "Hoe moet je als huurder je oude huurwoning opleveren? Op deze pagina kunt u informatie, tips en adviezen lezen over het opleveren van een huurwoning.",
-  alternates: { canonical: "/oplevering-huurwoning" },
+  alternates: { canonical: "/oplevering-huurwoning/" },
 };
 
 export default function Page() {

@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Vervuilde woning laten ontruimen | UwOntruimer.nl",
   description: "Wilt u een (ernstig) vervuilde woning laten ontruimen? Laat dit dan over aan het team van Uw Ontruimer! Wij beschikken over jarenlange ervaring in het ontr",
-  alternates: { canonical: "/vervuilde-woning-ontruimen" },
+  alternates: { canonical: "/vervuilde-woning-ontruimen/" },
 };
 
 export default function Page() {

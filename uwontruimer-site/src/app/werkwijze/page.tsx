@@ -8,7 +8,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Werkwijze | Zo brengen wij uw ontruiming tot een succes | UwOntruimer.nl",
   description: "Hoe werkt UwOntruimer? Van gratis offerte tot schone oplevering. Transparant, betrouwbaar en met opleveringsgarantie.",
-  alternates: { canonical: "/werkwijze" },
+  alternates: { canonical: "/werkwijze/" },
 };
 
 const stappen = [

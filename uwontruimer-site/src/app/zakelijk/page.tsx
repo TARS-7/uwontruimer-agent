@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Uitgebreide zakelijke dienstverlening van Uw Ontruimer | UwOntruimer.nl",
   description: "Uw Ontruimer is een professionele partner op het gebied van ontruimen. Wij hebben namelijk al ruim 10 jaar ervaring in deze branche en een uitgebreide dien",
-  alternates: { canonical: "/zakelijk" },
+  alternates: { canonical: "/zakelijk/" },
 };
 
 export default function Page() {

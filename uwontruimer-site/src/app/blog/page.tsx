@@ -7,7 +7,7 @@ import { blogPosts } from "@/data/blog-posts";
 export const metadata: Metadata = {
   title: "Blog | Artikelen & tips over woningontruiming | UwOntruimer.nl",
   description: "Praktische informatie over woningontruiming, nalatenschappen, kosten en meer. Lees onze artikelen op het blog van UwOntruimer.nl.",
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "/blog/" },
 };
 
 export default function Page() {

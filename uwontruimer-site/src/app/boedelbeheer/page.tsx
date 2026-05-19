@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Boedelbeheer - Uw partner voor boedelbeheer",
   description: "De betrouwbare partner op het gebied van boedelbeheer. Al meer dan 10 jaar ervaring. Neem contact op voor de mogelijkheden",
-  alternates: { canonical: "/boedelbeheer" },
+  alternates: { canonical: "/boedelbeheer/" },
 };
 
 export default function Page() {

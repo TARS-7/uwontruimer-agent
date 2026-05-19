@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Professionele huisontruiming: laat uw huis ontruimen door experts | UwOntruimer.nl",
   description: "Huis ontruiming nodig? Uw Ontruimer is dé specialist op het gebied van huis ontruimen. We staan klaar voor bedrijven en particulieren zoals senioren. Of he",
-  alternates: { canonical: "/huisontruiming" },
+  alternates: { canonical: "/huisontruiming/" },
 };
 
 export default function Page() {

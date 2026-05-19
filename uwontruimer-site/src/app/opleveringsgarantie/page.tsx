@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Opleveringsgarantie | UwOntruimer.nl",
   description: "Uw Ontruimer is sinds 2010 een vooraanstaand dienstverlener van het leeghalen van woningen en bedrijfspanden. Het streven van de onderneming is het ontzorg",
-  alternates: { canonical: "/opleveringsgarantie" },
+  alternates: { canonical: "/opleveringsgarantie/" },
 };
 
 export default function Page() {

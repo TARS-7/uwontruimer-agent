@@ -9,7 +9,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Inboedel opkopen - Voor een eerlijke prijs | Uwontruimer.nl",
   description: "Uw Ontruimer kan uw inboedel opkopen naar waarde ✓Actief in héél Nederland ✓ Ervaren taxateurs ✓ Een eerlijke handelsprijs voor uw inboedel!",
-  alternates: { canonical: "/diensten/opkopen-inboedel" },
+  alternates: { canonical: "/diensten/opkopen-inboedel/" },
 };
 
 export default function Page() {

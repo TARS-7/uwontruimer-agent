@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Uw Ontruimer legt uit hoe u een huis kan leegmaken. | UwOntruimer.nl",
   description: "Bijvoorbeeld na overlijden of na verhuizen kan het voorkomen dat u een huis moet leegmaken.",
-  alternates: { canonical: "/huis-leegmaken" },
+  alternates: { canonical: "/huis-leegmaken/" },
 };
 
 export default function Page() {

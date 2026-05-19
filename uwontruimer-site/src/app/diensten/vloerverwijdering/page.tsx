@@ -9,7 +9,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Vloerverwijdering | Snel uw vloer laten verwijderen? - Uw Ontruimer",
   description: "Wij verwijderen uw vloer op een professionele manier. ✓ Vloerverwijdering specialist ✓ Ruim 10 jaar ervaring ✓ Duurzaam ✓ Actief in héél NL.",
-  alternates: { canonical: "/diensten/vloerverwijdering" },
+  alternates: { canonical: "/diensten/vloerverwijdering/" },
 };
 
 export default function Page() {

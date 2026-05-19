@@ -9,7 +9,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Spoedontruiming woning bij u in de buurt",
   description: "Moet een ontruiming binnen 24 geregeld zijn? Wij staan direct voor u klaar! Bel naar 085-303 58 94 of vul het contactformulier in.",
-  alternates: { canonical: "/diensten/spoedontruiming" },
+  alternates: { canonical: "/diensten/spoedontruiming/" },
 };
 
 export default function Page() {

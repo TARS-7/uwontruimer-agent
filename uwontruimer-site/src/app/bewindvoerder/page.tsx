@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Woningontruiming nodig als bewindvoerder? Kom in contact",
   description: "Heeft u de taak om een ontruiming te regelen voor uw cliënt? Bij Uw Ontruimer bent u aan het juiste adres. Het kan spoedig en duurzaam. 15+ jaar ervaring",
-  alternates: { canonical: "/bewindvoerder" },
+  alternates: { canonical: "/bewindvoerder/" },
 };
 
 export default function Page() {

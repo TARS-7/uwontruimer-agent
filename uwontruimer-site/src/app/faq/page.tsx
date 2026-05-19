@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Veelgestelde vragen | UwOntruimer.nl",
   description: "Antwoorden op veelgestelde vragen over woningontruiming, kosten, werkwijze en meer. UwOntruimer.nl",
-  alternates: { canonical: "/faq" },
+  alternates: { canonical: "/faq/" },
 };
 
 const faqs = [

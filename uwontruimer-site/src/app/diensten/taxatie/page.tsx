@@ -9,7 +9,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Taxatie - Kom achter de waarde van uw inboedel  Uw Ontruimer",
   description: "Benieuwd naar de waarde van uw inboedel Uw Ontruimer helpt u ✓ Ervaren en erkende taxateurs ✓ Professioneel Discreet ✓ Actief in héél Nederland",
-  alternates: { canonical: "/diensten/taxatie" },
+  alternates: { canonical: "/diensten/taxatie/" },
 };
 
 export default function Page() {
