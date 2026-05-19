@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Vacatures | UwOntruimer.nl",
   description: "Werken bij Uw Ontruimer? Bekijk onze vacatures of stuur een open sollicitatie. We zijn altijd op zoek naar enthousiaste ontruimers.",
+  alternates: { canonical: "/vacatures" },
 };
 
 export default function Page() {

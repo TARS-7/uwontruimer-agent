@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Notaris - Meer dan alleen een ontruiming",
   description: "Uw Ontruimer is een professionele en integere partner. Wij zijn namelijk al meer dan 10 jaar actief in het afhandelen van inboedels en nalatenschappen. Onz",
+  alternates: { canonical: "/notaris" },
 };
 
 export default function Page() {

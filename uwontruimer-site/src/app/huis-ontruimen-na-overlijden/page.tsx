@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Discreet een huis laten ontruimen na een overlijden | UwOntruimer.nl",
   description: "Wilt u een huis laten ontruimen na een overlijden? Laat dit dan over aan het professionele en toegewijde team van Uw Ontruimer! Wij zijn betrouwbaar, desku",
+  alternates: { canonical: "/huis-ontruimen-na-overlijden" },
 };
 
 export default function Page() {

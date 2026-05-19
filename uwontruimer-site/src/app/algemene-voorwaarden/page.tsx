@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Algemene voorwaarden | UwOntruimer.nl",
   description: "Lees de algemene voorwaarden van UwOntruimer.nl. KVK: 78362970.",
+  alternates: { canonical: "/algemene-voorwaarden" },
 };
 
 export default function Page() {

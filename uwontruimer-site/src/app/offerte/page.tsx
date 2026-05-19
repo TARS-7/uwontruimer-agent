@@ -6,6 +6,7 @@ import TrustBar from "@/components/TrustBar";
 export const metadata: Metadata = {
   title: "Gratis offerte aanvragen",
   description: "Vraag gratis een offerte aan voor uw ontruiming. Prijsindicatie binnen 5 minuten via onze analysetool.",
+  alternates: { canonical: "/offerte" },
 };
 
 export default function Page() {

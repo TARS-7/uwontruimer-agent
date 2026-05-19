@@ -7,6 +7,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Diensten woningontruimer",
   description: "Bent u benieuwd wat onze specialisaties als woningontruimer zijn? Neem dan gerust een kijkje op onze website.",
+  alternates: { canonical: "/diensten" },
 };
 
 const diensten = [

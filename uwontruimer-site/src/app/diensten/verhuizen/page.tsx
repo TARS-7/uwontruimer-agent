@@ -9,6 +9,7 @@ import WizardCallout from "@/components/WizardCallout";
 export const metadata: Metadata = {
   title: "Verhuizen van groot naar klein of seniorenverhuizing | UwOntruimer.nl",
   description: "Bij een seniorenverhuizing kunnen meestal niet alle spullen mee naar de nieuwe locatie of woning. Wij kunnen dan de gewenste goederen naar de nieuwe bestem",
+  alternates: { canonical: "/diensten/verhuizen" },
 };
 
 export default function Page() {

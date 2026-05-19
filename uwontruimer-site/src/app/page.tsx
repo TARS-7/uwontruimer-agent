@@ -22,6 +22,7 @@ const blogImages: Record<string, string> = {
 export const metadata: Metadata = {
   title: "Uw Ontruimer | Bedrijfs- en woningontruiming in heel NL",
   description: "Snel een woningontruiming nodig? Bel Uw Ontruimer! ✓ Voor particulier en verhuurder ✓ Spoed? Binnen 24 uur geholpen ✓ Wij werken duurzaam en ontzorgend",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

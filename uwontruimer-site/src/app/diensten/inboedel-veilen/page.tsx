@@ -9,6 +9,7 @@ import WizardCallout from "@/components/WizardCallout";
 export const metadata: Metadata = {
   title: "Inboedel veilen - Meer dan 10 jaar ervaring!",
   description: "Inboedel of waardevolle objecten veilen Uw Ontruimer werkt met gerenommeerde veilinghuizen en taxateurs Van A tot Z Geregeld",
+  alternates: { canonical: "/diensten/inboedel-veilen" },
 };
 
 export default function Page() {

@@ -8,6 +8,7 @@ import WizardCallout from "@/components/WizardCallout";
 export const metadata: Metadata = {
   title: "Traplift laten verwijderen | UwOntruimer.nl",
   description: "Moet er een traplift verwijderd worden? Dan bent u bij ons aan het juiste adres! Wij werken met ervaren monteurs. Onze vakmensen demonteren de traplift en ",
+  alternates: { canonical: "/diensten/traplift-verwijderen" },
 };
 
 export default function Page() {

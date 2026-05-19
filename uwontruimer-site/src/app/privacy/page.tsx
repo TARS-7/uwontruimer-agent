@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Privacybeleid | UwOntruimer.nl",
   description: "Lees het privacybeleid van UwOntruimer.nl. Wij gaan zorgvuldig om met uw persoonsgegevens.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function Page() {

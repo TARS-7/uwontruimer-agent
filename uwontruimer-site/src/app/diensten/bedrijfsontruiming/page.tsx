@@ -9,6 +9,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Bedrijfsontruiming - Al meer dan 15 jaar ervaring",
   description: "Op zoek naar een expert voor het ontruimen van uw bedrijfspand? Bekijk dan de mogelijkheden bij Uw Ontruimer. Duurzaam en discreet.",
+  alternates: { canonical: "/diensten/bedrijfsontruiming" },
 };
 
 export default function Page() {

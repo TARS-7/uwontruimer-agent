@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Woningbouwvereniging - Woning laten voldoen aan opleveringseisen",
   description: "Is de huurder niet in staat de ontruiming zelf uit te voeren Uw Ontruimer levert de woning op naar opleveringseisen",
+  alternates: { canonical: "/woningbouwvereniging" },
 };
 
 export default function Page() {

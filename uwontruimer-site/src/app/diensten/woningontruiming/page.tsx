@@ -9,6 +9,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Woningontruiming door experts - 15+ jaar ervaring",
   description: "Woningontruiming van A tot Z door ervaren vakmensen. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld ✓ Hoge klantbeoordeling.",
+  alternates: { canonical: "/diensten/woningontruiming" },
 };
 
 export default function Page() {

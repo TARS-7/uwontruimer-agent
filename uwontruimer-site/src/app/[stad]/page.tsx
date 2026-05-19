@@ -113,6 +113,7 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
   return {
     title: seo?.title || `Woningontruiming ${name} | Uw Ontruimer`,
     description: seo?.description || `Woningontruiming in ${name} nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Snel ter plaatse`,
+    alternates: { canonical: `/woningontruiming-${stad}` },
   };
 }
 

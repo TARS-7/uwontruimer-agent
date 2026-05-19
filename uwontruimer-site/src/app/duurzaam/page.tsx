@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Uw Ontruimer werkt mee aan een duurzame toekomst | UwOntruimer.nl",
   description: "Uw Ontruimer bouwt mee aan een duurzame toekomst. Het verduurzamen van de ontruimingssector ligt ons aan het hart. Wij streven ernaar om de complete inboed",
+  alternates: { canonical: "/duurzaam" },
 };
 
 export default function Page() {
