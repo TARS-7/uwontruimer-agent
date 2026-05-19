@@ -118,7 +118,7 @@ export default function HomePage() {
           <div className="text-6xl font-semibold text-white leading-none mb-3">15+</div>
           <p className="text-blue-100 font-light text-sm leading-relaxed">Jaar ervaring in professionele ontruiming door heel Nederland</p>
         </div>
-        <div className="overflow-hidden foto-zoom relative"><Image src="/truck-woningontruiming.png" fill className="object-cover" alt="Woningontruiming in uitvoering" /></div>
+        <div className="overflow-hidden foto-zoom relative"><Image src="/appartement-leeg.png" fill className="object-cover" alt="Leeg appartement na ontruiming" /></div>
         <div className="overflow-hidden foto-zoom relative"><Image src="/Gemini_Generated_Image_73a62s73a62s73a6_cleanup.jpg" fill className="object-cover" alt="Ontruiming resultaat" /></div>
         <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
           <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Duurzaam</p>
