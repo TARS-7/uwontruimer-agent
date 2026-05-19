@@ -104,7 +104,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ stad: string }> }): Promise<Metadata> {
-  const { stad } = await params;
+  const { stad: rawStad } = await params;
+  const stad = rawStad.replace(/^woningontruiming-/, "");
   const city = steden.find((s) => s.slug === stad);
   const name = city?.name ?? stad;
   const key = `woningontruiming-${stad}` as keyof typeof seoData;
@@ -116,7 +117,8 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
 }
 
 export default async function StadPage({ params }: { params: Promise<{ stad: string }> }) {
-  const { stad } = await params;
+  const { stad: rawStad } = await params;
+  const stad = rawStad.replace(/^woningontruiming-/, "");
   const city = steden.find((s) => s.slug === stad);
   const name = city?.name ?? stad;
   const paragraphs = stadContent[stad] ?? null;
