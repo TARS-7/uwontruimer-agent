@@ -148,17 +148,14 @@ export default function WerkgebiedSearch() {
       {/* Zoekresultaten */}
       {filtered !== null ? (
         filtered.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="flex flex-wrap gap-2">
             {filtered.map((stad) => (
               <Link
                 key={stad.slug}
                 href={`/woningontruiming-${stad.slug}`}
-                className="group flex items-center justify-between bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 hover:bg-blue-50 hover:shadow-sm transition-all duration-200"
+                className="inline-flex items-center px-3 py-1.5 rounded-full border border-slate-200 bg-white text-xs font-medium text-slate-600 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-150"
               >
-                <span className="text-sm font-medium text-slate-700 group-hover:text-blue-700 transition-colors">Woningontruiming {stad.name}</span>
-                <svg className="w-3.5 h-3.5 text-slate-300 group-hover:text-blue-400 transition-colors flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
+                {stad.name}
               </Link>
             ))}
           </div>
@@ -181,18 +178,17 @@ export default function WerkgebiedSearch() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                 </svg>
               </Link>
-              <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-1.5">
+              <div className="flex flex-wrap gap-2">
                 {provincie.steden.map((stad) => (
-                  <li key={stad.slug}>
-                    <Link
-                      href={`/woningontruiming-${stad.slug}`}
-                      className="text-sm text-slate-600 hover:text-blue-600 transition-colors"
-                    >
-                      Woningontruiming {stad.name}
-                    </Link>
-                  </li>
+                  <Link
+                    key={stad.slug}
+                    href={`/woningontruiming-${stad.slug}`}
+                    className="inline-flex items-center px-3 py-1.5 rounded-full border border-slate-200 bg-white text-xs font-medium text-slate-600 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-150"
+                  >
+                    {stad.name}
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
