@@ -137,7 +137,7 @@ export default function WerkgebiedSearch() {
           {filtered.map((stad) => (
             <Link
               key={stad.slug}
-              href={`/${stad.slug}`}
+              href={`/woningontruiming-${stad.slug}`}
               className="group flex items-center justify-between bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 hover:bg-blue-50 hover:shadow-sm transition-all duration-200"
             >
               <span className="text-sm font-medium text-slate-700 group-hover:text-blue-700 transition-colors">{stad.name}</span>

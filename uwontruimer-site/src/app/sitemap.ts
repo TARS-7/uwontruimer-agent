@@ -66,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const stadPages: MetadataRoute.Sitemap = steden.map((slug) => ({
-    url: `${BASE}/${slug}`,
+    url: `${BASE}/woningontruiming-${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
