@@ -7,8 +7,8 @@ import Image from "next/image";
 import WizardCallout from "@/components/WizardCallout";
 
 export const metadata: Metadata = {
-  title: "De voordelen van je inboedel veilen | UwOntruimer.nl",
-  description: "Heeft u mogelijk een waardevolle inboedel of object die u wilt laten veilen? Dan bent u bij Uw Ontruimer aan het juiste adres. Wij hebben ruim 10 jaar erva",
+  title: "Inboedel veilen - Meer dan 10 jaar ervaring!",
+  description: "Inboedel of waardevolle objecten veilen Uw Ontruimer werkt met gerenommeerde veilinghuizen en taxateurs Van A tot Z Geregeld",
 };
 
 export default function Page() {

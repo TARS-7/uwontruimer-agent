@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Spoed ontruiming | UwOntruimer.nl",
-  description: "Heeft u een ontruiming met spoed? Dan bent u bij Uw Ontruimer aan het juiste adres! Wij kunnen uw ontruiming namelijk binnen 24 uur uitvoeren. Onze ervaren",
+  title: "Spoedontruiming woning bij u in de buurt",
+  description: "Moet een ontruiming binnen 24 geregeld zijn? Wij staan direct voor u klaar! Bel naar 085-303 58 94 of vul het contactformulier in.",
 };
 
 export default function Page() {

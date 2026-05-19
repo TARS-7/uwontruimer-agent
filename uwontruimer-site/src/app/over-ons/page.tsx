@@ -6,8 +6,8 @@ import CTASection from "@/components/CTASection";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Over ons | Uw Ontruimer — dé specialist in ontruimingsdiensten",
-  description: "Met meer dan 15 jaar ervaring is Uw Ontruimer gespecialiseerd in diverse ontruimingsdiensten. Betrouwbaar, discreet en met opleveringsgarantie.",
+  title: "Over ons - Maak kennis met Uw Ontruimer",
+  description: "Met meer dan 15 jaar ervaring is Uw Ontruimer gespecialiseerd in diverse ontruimingsdiensten. Lees meer over onze belangen en werkwijze.",
 };
 
 const usps = ["Discreet", "Duurzaam", "Opleveringsgarantie", "15+ jaar ervaring", "Ontzorgt"];

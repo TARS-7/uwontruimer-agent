@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Woningbouwvereniging | UwOntruimer.nl",
-  description: "Het komt vaak voor dat een huurder niet in de gelegenheid is om de woning op te leveren. Uw Ontruimer heeft ruim 10 jaar ervaring als ontruimingsbedrijf. W",
+  title: "Woningbouwvereniging - Woning laten voldoen aan opleveringseisen",
+  description: "Is de huurder niet in staat de ontruiming zelf uit te voeren Uw Ontruimer levert de woning op naar opleveringseisen",
 };
 
 export default function Page() {

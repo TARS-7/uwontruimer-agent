@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Woning laten ontruimen? Wij kopen vintage, antiek en kunst inboedel | UwOntruimer.nl",
-  description: "Uw Ontruimer kan uw inboedel opkopen naar waarde. Wij hebben ruim 10 jaar ervaring in veilingen, internetverkopen en verkoop van roerende goederen. Daardoo",
+  title: "Inboedel opkopen - Voor een eerlijke prijs | Uwontruimer.nl",
+  description: "Uw Ontruimer kan uw inboedel opkopen naar waarde ✓Actief in héél Nederland ✓ Ervaren taxateurs ✓ Een eerlijke handelsprijs voor uw inboedel!",
 };
 
 export default function Page() {

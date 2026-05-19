@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Werkwijze | UwOntruimer.nl",
-  description: "Bedrijfsontruiming: snel en vakkundig ontruimd door uw ontruimer. Uw bedrijfspand dient leeg en conform de huurovereenkomst opgeleverd te worden. Wij lever",
+  title: "Bedrijfsontruiming - Al meer dan 15 jaar ervaring",
+  description: "Op zoek naar een expert voor het ontruimen van uw bedrijfspand? Bekijk dan de mogelijkheden bij Uw Ontruimer. Duurzaam en discreet.",
 };
 
 export default function Page() {

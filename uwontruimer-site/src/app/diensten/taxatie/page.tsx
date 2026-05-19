@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Vraag een taxatie aan voor een prijsbepaling van uw object of inboedel | UwOntruimer.nl",
-  description: "Benieuwd naar de waarde van uw inboedel? Dan biedt Uw Ontruimer uitkomst! Het kan gaan om een schilderij van een meester,  design meubel of een complete in",
+  title: "Taxatie - Kom achter de waarde van uw inboedel  Uw Ontruimer",
+  description: "Benieuwd naar de waarde van uw inboedel Uw Ontruimer helpt u ✓ Ervaren en erkende taxateurs ✓ Professioneel Discreet ✓ Actief in héél Nederland",
 };
 
 export default function Page() {

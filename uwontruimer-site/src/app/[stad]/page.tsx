@@ -5,6 +5,7 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
+import seoData from "@/data/seo-metadata.json";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
@@ -106,9 +107,11 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
   const { stad } = await params;
   const city = steden.find((s) => s.slug === stad);
   const name = city?.name ?? stad;
+  const key = `woningontruiming-${stad}` as keyof typeof seoData;
+  const seo = seoData[key];
   return {
-    title: city?.title || `Woningontruiming ${name} | UwOntruimer.nl`,
-    description: city?.desc || `Professionele woningontruiming in ${name}. Discreet, snel en met opleveringsgarantie. Bel 085-303 58 94.`,
+    title: seo?.title || `Woningontruiming ${name} | Uw Ontruimer`,
+    description: seo?.description || `Woningontruiming in ${name} nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Snel ter plaatse`,
   };
 }
 

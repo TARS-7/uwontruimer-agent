@@ -11,7 +11,7 @@ import Link from "next/link";
 import WerkgebiedSearch from "@/components/WerkgebiedSearch";
 
 export const metadata: Metadata = {
-  title: "UwOntruimer.nl | Bedrijfs- en woningontruiming in heel NL",
+  title: "Uw Ontruimer | Bedrijfs- en woningontruiming in heel NL",
   description: "Snel een woningontruiming nodig? Bel Uw Ontruimer! ✓ Voor particulier en verhuurder ✓ Spoed? Binnen 24 uur geholpen ✓ Wij werken duurzaam en ontzorgend",
 };
 

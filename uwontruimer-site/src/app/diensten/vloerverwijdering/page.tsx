@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Vloer verwijderen door experts | UwOntruimer.nl",
-  description: "Een vloer verwijderen kan een lastig klusje zijn. Zeker als u niet weet wat er onder uw huidige vloerbedekking ligt. Soms liggen er meerdere lagen over elk",
+  title: "Vloerverwijdering | Snel uw vloer laten verwijderen? - Uw Ontruimer",
+  description: "Wij verwijderen uw vloer op een professionele manier. ✓ Vloerverwijdering specialist ✓ Ruim 10 jaar ervaring ✓ Duurzaam ✓ Actief in héél NL.",
 };
 
 export default function Page() {

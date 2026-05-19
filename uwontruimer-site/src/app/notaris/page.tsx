@@ -5,7 +5,7 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Professionele partner voor het afwikkelen van een nalatenschap | UwOntruimer.nl",
+  title: "Notaris - Meer dan alleen een ontruiming",
   description: "Uw Ontruimer is een professionele en integere partner. Wij zijn namelijk al meer dan 10 jaar actief in het afhandelen van inboedels en nalatenschappen. Onz",
 };
 

@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Meer dan 10 jaar ervaring in boedelbeheer | UwOntruimer.nl",
-  description: "Bent u op zoek naar een betrouwbare en ervaren partner voor het afhandelen van een inboedel? Dan bent u bij Uw Ontruimer aan het juiste adres. Wij bieden n",
+  title: "Boedelbeheer - Uw partner voor boedelbeheer",
+  description: "De betrouwbare partner op het gebied van boedelbeheer. Al meer dan 10 jaar ervaring. Neem contact op voor de mogelijkheden",
 };
 
 export default function Page() {

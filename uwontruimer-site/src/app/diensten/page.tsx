@@ -5,8 +5,8 @@ import CTASection from "@/components/CTASection";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Diensten woningontruimer | UwOntruimer.nl",
-  description: "Bent u benieuwd wat onze specialisaties als woningontruimer zijn? Bekijk al onze diensten op UwOntruimer.nl. Bel 085-303 58 94 voor een offerte.",
+  title: "Diensten woningontruimer",
+  description: "Bent u benieuwd wat onze specialisaties als woningontruimer zijn? Neem dan gerust een kijkje op onze website.",
 };
 
 const diensten = [

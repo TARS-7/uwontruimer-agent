@@ -5,8 +5,8 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Uw Ontruimer voor bewindvoerders | UwOntruimer.nl",
-  description: "In uw taak als bewindvoerder zijnde kan het voorkomen dat een cliënt zijn of haar woning uit moet en dat de oude woning ontruimd dient te worden. Uw Ontrui",
+  title: "Woningontruiming nodig als bewindvoerder? Kom in contact",
+  description: "Heeft u de taak om een ontruiming te regelen voor uw cliënt? Bij Uw Ontruimer bent u aan het juiste adres. Het kan spoedig en duurzaam. 15+ jaar ervaring",
 };
 
 export default function Page() {

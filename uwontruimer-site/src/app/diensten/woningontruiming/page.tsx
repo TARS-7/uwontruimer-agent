@@ -7,8 +7,8 @@ import WizardCallout from "@/components/WizardCallout";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Woningontruiming voor iedereen - ontruiming door experts | UwOntruimer.nl",
-  description: "Woningontruiming nodig? Uw Ontruimer is dé specialist op het gebied van woning ontruimen. We staan klaar voor bedrijven en particulieren zoals senioren. Of",
+  title: "Woningontruiming door experts - 15+ jaar ervaring",
+  description: "Woningontruiming van A tot Z door ervaren vakmensen. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld ✓ Hoge klantbeoordeling.",
 };
 
 export default function Page() {
