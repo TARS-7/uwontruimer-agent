@@ -73,7 +73,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { href: "/diensten/woningontruiming", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=70", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
+              { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.png", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
               { href: "/diensten/bedrijfsontruiming", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=70", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
               { href: "/diensten/spoedontruiming", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=70", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
               { href: "/diensten/opkopen-inboedel", img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=70", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
