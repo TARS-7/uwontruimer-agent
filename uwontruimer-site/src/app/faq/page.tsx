@@ -5,19 +5,75 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Veelgestelde vragen",
+  title: "Veelgestelde vragen | UwOntruimer.nl",
   description: "Antwoorden op veelgestelde vragen over woningontruiming, kosten, werkwijze en meer. UwOntruimer.nl",
 };
 
 const faqs = [
-  { q: "Wat kost een woningontruiming?", a: "De kosten hangen af van de omvang van de ontruiming, de hoeveelheid inboedel en de locatie. Wij werken altijd met een vaste prijs na bezichtiging. Een kleine studio begint doorgaans rond €400, grotere woningen variëren. Waardevolle inboedel kan de netto kosten verlagen." },
-  { q: "Hoe snel kunnen jullie komen?", a: "Voor reguliere ontruimingen plannen wij doorgaans binnen 3–5 werkdagen. Bij spoedopdrachten zijn wij in de meeste gevallen binnen 24 uur beschikbaar, ook in het weekend." },
-  { q: "Wat houdt de opleveringsgarantie in?", a: "Na afronding van de ontruiming leveren wij het pand bezem­schoon op. Dit leggen wij schriftelijk vast in een opleveringsrapport dat u kunt overhandigen aan verhuurder, notaris of makelaar." },
-  { q: "Wat gebeurt er met de spullen?", a: "Bruikbare goederen worden aangeboden aan kringloopwinkels, goede doelen of via onze veilingpartners. Waardevolle items kunnen wij opkopen en de opbrengst verrekenen met de kosten. Wat overblijft wordt milieuvriendelijk verwerkt en afgevoerd." },
-  { q: "Moet ik aanwezig zijn tijdens de ontruiming?", a: "Dat is niet verplicht. U kunt de sleutels aan ons overdragen en wij regelen de rest. Na afloop ontvangt u een opleveringsbevestiging en kunnen wij de sleutels overdragen aan de partij van uw keuze." },
-  { q: "Werken jullie ook buiten kantooruren?", a: "Ja, voor spoedopdrachten zijn wij ook buiten de reguliere kantooruren bereikbaar. Bel 085-303 58 94 en leg uw situatie uit — wij denken altijd met u mee." },
-  { q: "Zijn jullie verzekerd?", a: "Ja, UwOntruimer is volledig aansprakelijkheidsverzekerd. Mocht er onverhoopt iets misgaan, dan bent u gedekt." },
-  { q: "Kunnen jullie ook bedrijfspanden ontruimen?", a: "Absoluut. Naast woningen ontruimen wij ook kantoren, winkels, magazijnen en andere bedrijfspanden. Neem contact op voor een offerte op maat." },
+  {
+    q: "Wat is een woningontruiming precies?",
+    a: "Een woningontruiming houdt in dat een woning volledig wordt leeggemaakt, inclusief het verwijderen van meubels, persoonlijke bezittingen en eventuele vloerbedekking. Dit gebeurt vaak bij overlijden, verhuizing naar een zorginstelling of bij een gedwongen uitzetting. Het doel is om de woning bezemschoon op te leveren voor de volgende bewoner of eigenaar.",
+  },
+  {
+    q: "Wat kost een woningontruiming?",
+    a: "De kosten van een woningontruiming variëren afhankelijk van de specifieke werkzaamheden. Elke ontruiming is uniek en vereist een specifieke aanpak. Uw Ontruimer biedt een vrijblijvende en gratis offerte aan na een bezoek op locatie. Waardevolle spullen uit de inboedel kunnen in mindering worden gebracht op het offertebedrag. Voorbeeldbedragen: zorgkamer €150–€500, appartement €350–€950, eengezinswoning €650–€1.450.",
+  },
+  {
+    q: "Hoe snel kan een woningontruiming plaatsvinden?",
+    a: "Wij hebben geen lange wachttijden. In geval van spoed kan een ontruiming binnen 24 uur worden uitgevoerd.",
+  },
+  {
+    q: "Kan een woningontruiming in het weekend worden uitgevoerd?",
+    a: "Ja, in overleg kunnen wij ook in het weekend een woningontruiming uitvoeren. Er is zelfs een spoedontruiming mogelijk.",
+  },
+  {
+    q: "Hoe lang duurt een woningontruiming?",
+    a: "De duur van een woningontruiming hangt af van de grootte van de woning en de hoeveelheid inboedel. Gemiddeld duurt het één tot drie dagen. Bij spoedgevallen kan het proces binnen 24 uur worden afgerond.",
+  },
+  {
+    q: "Wat gebeurt er met bruikbare spullen tijdens de ontruiming?",
+    a: "Bruikbare spullen worden zoveel mogelijk beschikbaar gesteld voor hergebruik. Wij werken hiervoor samen met diverse stichtingen en kringlooporganisaties om hergebruik te bevorderen.",
+  },
+  {
+    q: "Welke spullen koopt uwontruimer.nl op?",
+    a: "Roerende goederen en complete inboedels die nog een waarde vertegenwoordigen: antiek, vintage, design, kwaliteitsmeubels, bekende merken (Chesterfield, Pastoe, Rietveld, Gispen, Artifort), zilverwerk, porselein, schilderijen, aardewerk, glaswerk, sieraden, witgoed, perzen, kunst, gereedschap, verzamelingen, curiosa en kleding. Wij komen altijd bij u langs voor een taxatie, of u kunt een foto sturen naar info@uwontruimer.nl.",
+  },
+  {
+    q: "Hoe draagt Uw Ontruimer bij aan duurzaamheid?",
+    a: "Uw Ontruimer zet zich actief in voor een duurzame toekomst. We werken samen met diverse kringlooporganisaties en goede doelen om zoveel mogelijk van de boedel te hergebruiken. Afval wordt zoveel mogelijk apart gescheiden zodat het gerecycled kan worden.",
+  },
+  {
+    q: "Wat gebeurt er met persoonlijke documenten en foto's bij woningontruiming?",
+    a: "Persoonlijke documenten en foto's worden met zorg behandeld. Ze worden apart gehouden en aan de opdrachtgever overhandigd, zodat ze niet verloren gaan tijdens de ontruiming.",
+  },
+  {
+    q: "Moet ik aanwezig zijn tijdens de ontruiming?",
+    a: "Het is niet noodzakelijk om aanwezig te zijn tijdens de ontruiming. Voor veel mensen kan het een emotionele aangelegenheid zijn. Na het leegruimen van de woning zal Uw Ontruimer samen met u controleren of alles naar wens is verlopen.",
+  },
+  {
+    q: "Word er opleveringsgarantie gegeven?",
+    a: "Ja, wij garanderen dat de diensten volledig naar wens en tevredenheid worden uitgevoerd. Uw Ontruimer streeft naar 100% klanttevredenheid. Mocht u toch niet tevreden zijn, dan wordt samen naar een passende oplossing gezocht.",
+  },
+  {
+    q: "Kan Uw Ontruimer een woning opleveren aan de woningbouw of stichting?",
+    a: "Ja, dit is mogelijk. Wij kunnen de voor- en eindinspectie uit handen nemen.",
+  },
+  {
+    q: "Wie is verantwoordelijk voor woningontruiming na een overlijden?",
+    a: "In de meeste gevallen zijn de erfgenamen verantwoordelijk voor de woningontruiming na overlijden. Bij zuivere aanvaarding van de erfenis nemen zij ook de verplichting tot ontruiming op zich.",
+  },
+  {
+    q: "Welke aanvullende diensten biedt Uw Ontruimer aan?",
+    a: "Naast woningontruiming biedt Uw Ontruimer ook diensten zoals vloerverwijdering, spoedontruiming, bedrijfsontruiming, inboedel opkopen, traplift verwijderen, verhuizen en taxatie van inboedel.",
+  },
+  {
+    q: "Hoe kan ik een offerte aanvragen voor een woningontruiming?",
+    a: "U kunt eenvoudig een afspraak maken door te bellen naar 085-303 58 94 of het contactformulier in te vullen op onze website. U ontvangt dan een vrijblijvende offerte.",
+  },
+  {
+    q: "In welke regio's is Uw Ontruimer actief?",
+    a: "Uw Ontruimer is actief in heel Nederland, met name in de provincies Utrecht, Noord-Holland en Zuid-Holland.",
+  },
 ];
 
 export default function Page() {
@@ -28,8 +84,11 @@ export default function Page() {
         <div className="bg-white py-20 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">FAQ</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Veelgestelde vragen</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-12">Heeft u een andere vraag? Bel ons op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a>.</p>
+            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-4">Veelgestelde vragen</h1>
+            <p className="text-slate-500 font-light leading-relaxed mb-12">
+              Uw Ontruimer geeft antwoord op uw vragen. Staat uw vraag er niet tussen? Bel ons op{" "}
+              <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a>.
+            </p>
             <div className="space-y-6">
               {faqs.map((faq) => (
                 <div key={faq.q} className="border-b border-slate-100 pb-6">
