@@ -108,45 +108,34 @@ export default function Header() {
           className="fixed inset-0 z-40 bg-white flex flex-col overflow-y-auto"
           style={{ top: "64px" }}
         >
-          <nav className="flex-1 px-6 py-6 space-y-1">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Diensten</p>
-            {diensten.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={close}
-                className="block py-2.5 text-base text-slate-700 hover:text-blue-600 border-b border-slate-50 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mt-6 mb-2 pt-4">Zakelijk</p>
-            {zakelijk.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={close}
-                className="block py-2.5 text-base text-slate-700 hover:text-blue-600 border-b border-slate-50 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mt-6 mb-2 pt-4">Informatie</p>
+          <nav className="flex-1 px-6 py-4">
             {[
-              { label: "Werkwijze", href: "/werkwijze" },
-              { label: "Over ons", href: "/over-ons" },
-              { label: "FAQ", href: "/faq" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={close}
-                className="block py-2.5 text-base text-slate-700 hover:text-blue-600 border-b border-slate-50 transition-colors"
-              >
-                {item.label}
-              </Link>
+              { heading: "Diensten", items: diensten },
+              { heading: "Zakelijk", items: zakelijk },
+              {
+                heading: "Informatie",
+                items: [
+                  { label: "Werkwijze", href: "/werkwijze" },
+                  { label: "Over ons", href: "/over-ons" },
+                  { label: "FAQ", href: "/faq" },
+                ],
+              },
+            ].map(({ heading, items }) => (
+              <div key={heading} className="mb-6">
+                <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-1">{heading}</p>
+                <div className="divide-y divide-slate-100">
+                  {items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={close}
+                      className="flex items-center py-3 text-[15px] text-slate-800 hover:text-blue-600 transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </nav>
 
