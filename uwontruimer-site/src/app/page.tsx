@@ -74,9 +74,9 @@ export default function HomePage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.png", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
-              { href: "/diensten/bedrijfsontruiming", img: "/Dienst_Bedrijfsontruiming.jpg", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
+              { href: "/diensten/bedrijfsontruiming", img: "/bedrijfsontruiming.png", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
               { href: "/diensten/spoedontruiming", img: "/hero-truck.png", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
-              { href: "/diensten/opkopen-inboedel", img: "/Verhuizen.jpg", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
+              { href: "/diensten/opkopen-inboedel", img: "/inboedel opkopen.png", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
                 <div className="overflow-hidden h-32 foto-zoom relative"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
