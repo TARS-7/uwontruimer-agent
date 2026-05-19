@@ -158,10 +158,10 @@ export default function HomePage() {
           <p className="text-slate-500 font-light text-sm max-w-lg leading-relaxed mb-12">Notarissen, makelaars en woningcorporaties vertrouwen al jaren op UwOntruimer.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: "/notaris", img: "/Uw-Ontruimer.jpg", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
-              { href: "/makelaar", img: "/Verhuislift-diensten.png", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
-              { href: "/woningbouwvereniging", img: "/bedrijfsontruiming.png", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
-              { href: "/bewindvoerder", img: "/Verhuizen.jpg", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
+              { href: "/notaris", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&q=70", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
+              { href: "/makelaar", img: "https://images.unsplash.com/photo-1582407947304-fd86f28320be?w=320&q=70", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
+              { href: "/woningbouwvereniging", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=320&q=70", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
+              { href: "/bewindvoerder", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style={{ gridTemplateColumns: "160px 1fr" }}>
                 <div className="relative h-full min-h-[100px]"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
