@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
@@ -119,8 +118,7 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
 export default async function StadPage({ params }: { params: Promise<{ stad: string }> }) {
   const { stad } = await params;
   const city = steden.find((s) => s.slug === stad);
-  if (!city) notFound();
-  const name = city.name;
+  const name = city?.name ?? stad;
   const paragraphs = stadContent[stad] ?? null;
 
   return (
