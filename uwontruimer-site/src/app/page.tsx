@@ -113,7 +113,7 @@ export default function HomePage() {
           <p className="text-slate-500 font-light text-sm leading-relaxed mb-6">Veel ontruimingen vinden plaats in emotioneel beladen situaties. Wij werken altijd met discretie en begrip.</p>
           <Link href="/over-ons" className="inline-flex bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors w-fit">Meer over ons</Link>
         </div>
-        <div className="overflow-hidden foto-zoom relative"><Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=75" fill className="object-cover" alt="" /></div>
+        <div className="overflow-hidden foto-zoom relative"><Image src="/Ontruimers.png" fill className="object-cover" alt="Ontruimers aan het werk" /></div>
         <div className="bg-blue-600 flex flex-col justify-center p-12">
           <div className="text-6xl font-semibold text-white leading-none mb-3">15+</div>
           <p className="text-blue-100 font-light text-sm leading-relaxed">Jaar ervaring in professionele ontruiming door heel Nederland</p>
