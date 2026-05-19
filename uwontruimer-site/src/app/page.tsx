@@ -71,7 +71,7 @@ export default function HomePage() {
             </div>
             <Link href="/diensten/woningontruiming" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">Alle diensten <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.png", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
               { href: "/diensten/bedrijfsontruiming", img: "/bedrijfsontruiming.png", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
@@ -106,21 +106,21 @@ export default function HomePage() {
       </section>
 
       {/* FOTO GRID */}
-      <div className="grid grid-cols-3 grid-rows-2" style={{ height: "560px" }}>
-        <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:h-[560px]">
+        <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-8 md:p-12">
           <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Onze aanpak</p>
-          <h2 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3">Respect voor mensen en hun bezittingen</h2>
+          <h2 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3 max-w-full">Respect voor mensen en hun bezittingen</h2>
           <p className="text-slate-500 font-light text-sm leading-relaxed mb-6">Veel ontruimingen vinden plaats in emotioneel beladen situaties. Wij werken altijd met discretie en begrip.</p>
           <Link href="/over-ons" className="inline-flex bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors w-fit">Meer over ons</Link>
         </div>
-        <div className="overflow-hidden foto-zoom relative"><Image src="/Ontruimers.png" fill className="object-cover" alt="Ontruimers aan het werk" /></div>
-        <div className="bg-blue-600 flex flex-col justify-center p-12">
+        <div className="relative h-[240px] md:h-auto overflow-hidden foto-zoom"><Image src="/Ontruimers.png" fill className="object-cover" alt="Ontruimers aan het werk" /></div>
+        <div className="bg-blue-600 flex flex-col justify-center p-8 md:p-12">
           <div className="text-6xl font-semibold text-white leading-none mb-3">15+</div>
           <p className="text-blue-100 font-light text-sm leading-relaxed">Jaar ervaring in professionele ontruiming door heel Nederland</p>
         </div>
-        <div className="overflow-hidden foto-zoom relative"><Image src="/appartement-leeg.png" fill className="object-cover" alt="Leeg appartement na ontruiming" /></div>
-        <div className="overflow-hidden foto-zoom relative"><Image src="/Gemini_Generated_Image_73a62s73a62s73a6_cleanup.jpg" fill className="object-cover" alt="Ontruiming resultaat" /></div>
-        <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
+        <div className="relative h-[240px] md:h-auto overflow-hidden foto-zoom"><Image src="/appartement-leeg.png" fill className="object-cover" alt="Leeg appartement na ontruiming" /></div>
+        <div className="relative h-[240px] md:h-auto overflow-hidden foto-zoom"><Image src="/Gemini_Generated_Image_73a62s73a62s73a6_cleanup.jpg" fill className="object-cover" alt="Ontruiming resultaat" /></div>
+        <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-8 md:p-12">
           <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Duurzaam</p>
           <h3 className="text-lg font-semibold text-slate-900 mb-2">Verantwoord verwerkt</h3>
           <p className="text-slate-500 font-light text-sm leading-relaxed">Bruikbare spullen gaan naar hergebruik. Wat resteert wordt milieuvriendelijk verwerkt.</p>
@@ -132,7 +132,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Hoe het werkt</p>
           <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-14">Werkwijze in 4 stappen</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {[
               { n: "01", t: "Gratis offerte", d: "U vraagt een offerte aan. Wij plannen een bezichtiging op uw moment." },
               { n: "02", t: "Helder voorstel", d: "Vaste prijs, geen verborgen kosten. Na goedkeuring plannen we de datum." },
@@ -163,8 +163,8 @@ export default function HomePage() {
               { href: "/woningbouwvereniging", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=320&q=70", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
               { href: "/bewindvoerder", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
             ].map((s) => (
-              <Link key={s.href} href={s.href} className="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style={{ gridTemplateColumns: "160px 1fr" }}>
-                <div className="relative h-full min-h-[100px]"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
+              <Link key={s.href} href={s.href} className="bg-white border border-slate-100 rounded-2xl overflow-hidden flex flex-col sm:grid hover:shadow-md hover:border-transparent transition-all duration-300" style={{ gridTemplateColumns: "160px 1fr" }}>
+                <div className="relative h-[160px] sm:h-full sm:min-h-[100px]"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
                 <div className="p-5">
                   <span className="text-[10px] font-medium text-blue-600 uppercase tracking-widest mb-2 block">{s.label}</span>
                   <div className="text-sm font-medium text-slate-900 mb-1">{s.title}</div>
@@ -179,7 +179,7 @@ export default function HomePage() {
       {/* REVIEWS */}
       <section className="bg-slate-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-10">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
             <div>
               <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat klanten zeggen</p>
               <h2 className="text-3xl font-semibold text-slate-900 tracking-tight">Beoordeeld met 5 sterren</h2>
