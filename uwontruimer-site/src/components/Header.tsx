@@ -82,8 +82,13 @@ export default function Header() {
             <Link href="/faq" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">FAQ</Link>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <a href="tel:0853035894" className="hidden sm:block text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">085-303 58 94</a>
+          <div className="flex items-center gap-2">
+            {/* Phone icon — xs only (below sm) */}
+            <a href="tel:0853035894" className="sm:hidden flex items-center justify-center w-9 h-9 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors" aria-label="Bel ons">
+              <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </a>
+            {/* Phone text — sm and up, hidden on desktop */}
+            <a href="tel:0853035894" className="hidden sm:block md:hidden text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">085-303 58 94</a>
             <Link href="https://analyse.uwontruimer.nl" className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">Gratis AI-analyse</Link>
 
             {/* Hamburger — mobile only */}
