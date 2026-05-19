@@ -355,8 +355,8 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
 
       <p className="text-center text-xs text-slate-400">
         {'Vragen? Bel ons op '}
-        <a href="tel:+31202442400" className="text-blue-600 hover:underline">
-          {'020 - 244 2400'}
+        <a href="tel:+31853035894" className="text-blue-600 hover:underline">
+          {'085-303 58 94'}
         </a>
       </p>
     </div>
