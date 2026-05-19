@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
@@ -99,8 +100,6 @@ const steden = [
   { slug: "zuid-holland",           name: "Zuid-Holland",           title: "Woningontruiming Zuid-Holland | UwOntruimer.nl",                                desc: "Bel Uw Ontruimer via 085-303 58 94 en laat uw woningontruiming in Zuid-Holland over aan een professioneel ontruimingsbedrijf. ✓15+ jaar ervaring." },
 ];
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return steden.map((s) => ({ stad: s.slug }));
 }
@@ -120,7 +119,8 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
 export default async function StadPage({ params }: { params: Promise<{ stad: string }> }) {
   const { stad } = await params;
   const city = steden.find((s) => s.slug === stad);
-  const name = city?.name ?? stad;
+  if (!city) notFound();
+  const name = city.name;
   const paragraphs = stadContent[stad] ?? null;
 
   return (
