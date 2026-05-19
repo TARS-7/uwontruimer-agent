@@ -18,7 +18,7 @@ export default function Page() {
       <main className="mt-16">
         {/* Hero */}
         <div className="relative w-full overflow-hidden" style={{ height: '400px' }}>
-          <Image src="/inboedel opkopen.png" alt="Inboedel opkopen" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <Image src="/inboedel opkopen.png" alt="Inboedel opkopen" fill className="w-full h-full object-cover" style={{ objectPosition: "bottom center" }} priority />
           <div className="absolute inset-0 bg-slate-900/30" />
         </div>
 
