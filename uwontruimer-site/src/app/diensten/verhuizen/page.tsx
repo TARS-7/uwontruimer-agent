@@ -18,7 +18,7 @@ export default function Page() {
       <main className="mt-16">
         {/* Hero */}
         <div className="relative w-full overflow-hidden" style={{ height: '400px' }}>
-          <Image src="/Verhuizen.jpg" alt="Verhuizen van groot naar klein" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <Image src="/Verhuizen.jpg" alt="Verhuizen van groot naar klein" fill className="w-full h-full object-cover" style={{ objectPosition: "center 40%" }} priority />
           <div className="absolute inset-0 bg-slate-900/30" />
         </div>
         <div className="bg-white py-16 px-6">
