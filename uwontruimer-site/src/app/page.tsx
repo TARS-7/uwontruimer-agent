@@ -74,9 +74,9 @@ export default function HomePage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.png", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
-              { href: "/diensten/bedrijfsontruiming", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=70", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
-              { href: "/diensten/spoedontruiming", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=70", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
-              { href: "/diensten/opkopen-inboedel", img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=70", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
+              { href: "/diensten/bedrijfsontruiming", img: "/Dienst_Bedrijfsontruiming.jpg", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
+              { href: "/diensten/spoedontruiming", img: "/hero-truck.png", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
+              { href: "/diensten/opkopen-inboedel", img: "/Verhuizen.jpg", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
                 <div className="overflow-hidden h-32 foto-zoom relative"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
@@ -118,7 +118,7 @@ export default function HomePage() {
           <div className="text-6xl font-semibold text-white leading-none mb-3">15+</div>
           <p className="text-blue-100 font-light text-sm leading-relaxed">Jaar ervaring in professionele ontruiming door heel Nederland</p>
         </div>
-        <div className="overflow-hidden foto-zoom relative"><Image src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=75" fill className="object-cover" alt="" /></div>
+        <div className="overflow-hidden foto-zoom relative"><Image src="/truck-woningontruiming.png" fill className="object-cover" alt="Woningontruiming in uitvoering" /></div>
         <div className="overflow-hidden foto-zoom relative"><Image src="/Gemini_Generated_Image_73a62s73a62s73a6_cleanup.jpg" fill className="object-cover" alt="Ontruiming resultaat" /></div>
         <div className="bg-slate-50 border border-slate-100 flex flex-col justify-center p-12">
           <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Duurzaam</p>
@@ -158,10 +158,10 @@ export default function HomePage() {
           <p className="text-slate-500 font-light text-sm max-w-lg leading-relaxed mb-12">Notarissen, makelaars en woningcorporaties vertrouwen al jaren op UwOntruimer.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: "/notaris", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&q=70", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
-              { href: "/makelaar", img: "https://images.unsplash.com/photo-1582407947304-fd86f28320be?w=320&q=70", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
-              { href: "/woningbouwvereniging", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=320&q=70", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
-              { href: "/bewindvoerder", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
+              { href: "/notaris", img: "/Uw-Ontruimer.jpg", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
+              { href: "/makelaar", img: "/Verhuislift-diensten.png", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
+              { href: "/woningbouwvereniging", img: "/bedrijfsontruiming.png", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
+              { href: "/bewindvoerder", img: "/Verhuizen.jpg", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="bg-white border border-slate-100 rounded-2xl overflow-hidden grid hover:shadow-md hover:border-transparent transition-all duration-300" style={{ gridTemplateColumns: "160px 1fr" }}>
                 <div className="relative h-full min-h-[100px]"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
