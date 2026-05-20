@@ -25,9 +25,37 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Uw Ontruimer",
+  url: "https://www.uwontruimer.nl",
+  telephone: "+31853035894",
+  priceRange: "€€",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Welnastraat 175",
+    postalCode: "1096GJ",
+    addressLocality: "Amsterdam",
+    addressCountry: "NL",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <Header />
       {/* HERO */}
       <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
