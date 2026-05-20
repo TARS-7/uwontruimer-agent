@@ -32,6 +32,7 @@ const localBusinessSchema = {
   url: "https://www.uwontruimer.nl",
   telephone: "+31853035894",
   priceRange: "€€",
+  image: "https://www.uwontruimer.nl/hero-truck.png",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Welnastraat 175",
