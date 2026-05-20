@@ -24,6 +24,9 @@ export default function CookieBanner() {
     import("vanilla-cookieconsent").then((cc) => {
       cc.run({
         guiOptions: { consentModal: { layout: "bar", position: "bottom center" } },
+        onConsent: ({ cookie }) => {
+          updateConsent(cookie.categories.includes("analytics"));
+        },
         onFirstConsent: ({ cookie }) => {
           updateConsent(cookie.categories.includes("analytics"));
         },
