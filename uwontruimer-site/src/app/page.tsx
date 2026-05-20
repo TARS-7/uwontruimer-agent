@@ -20,9 +20,31 @@ const blogImages: Record<string, string> = {
 };
 
 export const metadata: Metadata = {
-  title: "Uw Ontruimer | Bedrijfs- en woningontruiming in heel NL",
-  description: "Snel een woningontruiming nodig? Bel Uw Ontruimer! ✓ Voor particulier en verhuurder ✓ Spoed? Binnen 24 uur geholpen ✓ Wij werken duurzaam en ontzorgend",
+  title: "Professionele Woningontruiming | Uw Ontruimer",
+  description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "Professionele Woningontruiming | Uw Ontruimer",
+    description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
+    url: "https://www.uwontruimer.nl/",
+    siteName: "UwOntruimer.nl",
+    locale: "nl_NL",
+    type: "website",
+    images: [
+      {
+        url: "https://www.uwontruimer.nl/hero-truck.png",
+        width: 1200,
+        height: 630,
+        alt: "Professionele Woningontruiming – UwOntruimer.nl",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Professionele Woningontruiming | Uw Ontruimer",
+    description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
+    images: ["https://www.uwontruimer.nl/hero-truck.png"],
+  },
 };
 
 const localBusinessSchema = {
