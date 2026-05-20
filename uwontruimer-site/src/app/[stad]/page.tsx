@@ -110,10 +110,34 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
   const name = city?.name ?? stad;
   const key = `woningontruiming-${stad}` as keyof typeof seoData;
   const seo = seoData[key];
+  const title = seo?.title || `Woningontruiming ${name} | Uw Ontruimer`;
+  const description = seo?.description || `Woningontruiming in ${name} nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Snel ter plaatse`;
   return {
-    title: seo?.title || `Woningontruiming ${name} | Uw Ontruimer`,
-    description: seo?.description || `Woningontruiming in ${name} nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Snel ter plaatse`,
+    title,
+    description,
     alternates: { canonical: `/woningontruiming-${stad}/` },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.uwontruimer.nl/woningontruiming-${stad}/`,
+      siteName: "UwOntruimer.nl",
+      locale: "nl_NL",
+      type: "website",
+      images: [
+        {
+          url: "/hero-truck.png",
+          width: 1200,
+          height: 630,
+          alt: `Woningontruiming ${name} – UwOntruimer.nl`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/hero-truck.png"],
+    },
   };
 }
 
@@ -124,8 +148,51 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
   const name = city?.name ?? stad;
   const paragraphs = stadContent[stad] ?? null;
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Wat kost een woningontruiming in ${name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `De kosten van een woningontruiming in ${name} zijn afhankelijk van de omvang van de klus, de hoeveelheid inboedel en eventuele bijzondere omstandigheden. Uw Ontruimer werkt altijd met een transparante, vaste offerte — zonder verborgen kosten. Bel 085-303 58 94 voor een gratis prijsopgave.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Hoe snel kan Uw Ontruimer in ${name} starten?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `In de meeste gevallen kunnen wij binnen 24 tot 48 uur na contact starten met de ontruiming in ${name}. Bij spoedgevallen kijken wij altijd naar de mogelijkheden voor een snellere inzet. Neem direct contact op via 085-303 58 94.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Moet ik zelf aanwezig zijn bij de woningontruiming in ${name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `U hoeft niet persoonlijk aanwezig te zijn. Uw Ontruimer werkt volledig zelfstandig en levert de woning bezemschoon op met een schriftelijke opleveringsgarantie. Wel heeft u kort contact nodig voor overdracht van sleutels en specifieke instructies.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Wat gebeurt er met de inboedel bij een ontruiming in ${name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Waardevolle spullen worden getaxeerd en kunnen worden afgekocht of verrekend met de ontruimingskosten. Herbruikbare goederen gaan naar de kringloopwinkel, de rest wordt op verantwoorde wijze afgevoerd en gesorteerd. Wij werken duurzaam en houden zo veel mogelijk materiaal uit de verbrandingsoven.`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
       <main className="mt-16">
         {/* Hero */}
