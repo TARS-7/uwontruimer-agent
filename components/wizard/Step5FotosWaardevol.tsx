@@ -32,8 +32,9 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
   const [dragOver, setDragOver]   = useState(false)
   const [uploading, setUploading] = useState(false)
   const [error, setError]         = useState<string | null>(null)
-  const inputRef    = useRef<HTMLInputElement>(null)
-  const uploadIdRef = useRef(generateUploadId())
+  const inputRef       = useRef<HTMLInputElement>(null)
+  const cameraInputRef = useRef<HTMLInputElement>(null)
+  const uploadIdRef    = useRef(generateUploadId())
 
   function addFiles(files: FileList | null) {
     if (!files) return
@@ -72,7 +73,31 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
         </p>
       </div>
 
-      {/* Drop zone */}
+      {/* Mobiel: twee knoppen (camera + bestand) */}
+      <div className="flex gap-3 md:hidden">
+        <button
+          type="button"
+          onClick={() => cameraInputRef.current?.click()}
+          className="flex flex-1 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 py-8 text-center transition-all hover:border-blue-300 hover:bg-blue-50/30"
+        >
+          <span className="text-3xl">📷</span>
+          <span className="text-sm font-medium text-slate-700">Foto nemen</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => inputRef.current?.click()}
+          className="flex flex-1 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 py-8 text-center transition-all hover:border-blue-300 hover:bg-blue-50/30"
+        >
+          <span className="text-3xl">📁</span>
+          <span className="text-sm font-medium text-slate-700">Bestand kiezen</span>
+        </button>
+      </div>
+
+      <p className="mt-1 text-xs text-blue-500 md:hidden">
+        📷 Op mobiel: tik om de camera te openen
+      </p>
+
+      {/* Desktop: drop zone */}
       <button
         type="button"
         onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
@@ -80,7 +105,7 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
         onDrop={(e) => { e.preventDefault(); setDragOver(false); addFiles(e.dataTransfer.files) }}
         onClick={() => inputRef.current?.click()}
         className={`
-          flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed py-10
+          hidden md:flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed py-10
           transition-all duration-150
           ${dragOver
             ? 'border-blue-400 bg-blue-50'
@@ -100,6 +125,17 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
           <p className="mt-0.5 text-xs text-slate-400">JPEG, PNG, WebP · meerdere tegelijk mogelijk</p>
         </div>
       </button>
+
+      {/* Hidden inputs */}
+      <input
+        ref={cameraInputRef}
+        type="file"
+        accept={ACCEPTED_TYPES}
+        multiple
+        capture="environment"
+        className="sr-only"
+        onChange={(e) => { addFiles(e.target.files); (e.target as HTMLInputElement).value = '' }}
+      />
       <input
         ref={inputRef}
         type="file"
