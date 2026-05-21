@@ -235,9 +235,11 @@ async function notifyAppsScript(payload: {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   })
+  const responseText = await res.text()
+  console.log('[webhook] status:', res.status)
+  console.log('[webhook] body:', responseText.slice(0, 500))
   if (!res.ok) {
-    const txt = await res.text()
-    throw new Error(`Apps Script webhook (${res.status}): ${txt.slice(0, 200)}`)
+    throw new Error(`Apps Script webhook (${res.status}): ${responseText.slice(0, 200)}`)
   }
 }
 
