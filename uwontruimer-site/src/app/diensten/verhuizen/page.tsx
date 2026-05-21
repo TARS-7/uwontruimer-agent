@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
-import WizardCallout from "@/components/WizardCallout";
 
 export const metadata: Metadata = {
   title: "Verhuizen van groot naar klein of seniorenverhuizing | UwOntruimer.nl",
@@ -12,75 +10,128 @@ export const metadata: Metadata = {
   alternates: { canonical: "/diensten/verhuizen/" },
 };
 
+const checkIcon = (
+  <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+    <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+const CtaBox = () => (
+  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+    <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+    <p className="text-slate-500 font-light text-sm mb-6">Ontvang binnen 2 minuten een vrijblijvende prijsindicatie, of bel direct voor een afspraak.</p>
+    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Start de AI-wizard →
+      </a>
+      <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl transition-colors text-base">
+        Bel 085-303 58 94
+      </a>
+    </div>
+    <div className="flex flex-wrap gap-x-6 gap-y-1">
+      {["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"].map((item) => (
+        <span key={item} className="text-xs text-slate-400 flex items-center gap-1">
+          <svg className="w-3 h-3 text-slate-300" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 export default function Page() {
   return (
     <>
       <Header />
       <main className="mt-16">
-        {/* Hero */}
-        <div className="relative w-full overflow-hidden" style={{ height: '400px' }}>
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
           <Image src="/Verhuizen.jpg" alt="Verhuizen van groot naar klein" fill className="w-full h-full object-cover" style={{ objectPosition: "center 40%" }} priority />
-          <div className="absolute inset-0 bg-slate-900/30" />
-        </div>
-        <div className="bg-white py-16 px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Diensten</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Verhuizen van groot naar klein of seniorenverhuizing</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">Bij een seniorenverhuizing kunnen meestal niet alle spullen mee naar de nieuwe locatie of woning. Wij kunnen dan de gewenste goederen naar de nieuwe bestemming brengen en de overige goederen uit de woning verwijderen. De goederen die u niet meeneemt worden beschikbaar gesteld aan kringlooporganisaties en andere goede doelen. Zoveel mogelijk van de restboedel wordt hergebruikt.</p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </span>
-                <span className="text-slate-600 font-light">Discreet</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </span>
-                <span className="text-slate-600 font-light">Duurzaam</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </span>
-                <span className="text-slate-600 font-light">Opleveringsgarantie</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </span>
-                <span className="text-slate-600 font-light">15+ jaar ervaring</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </span>
-                <span className="text-slate-600 font-light">Ontzorgt</span>
-              </li>
-            </ul>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Voordelen verhuizen met verhuislift</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">De voordelen van onze verhuisservice is groot. Zo hebben wij onze eigen verhuislift waarmee het een stuk makkelijker wordt. Bijvoorbeeld wanneer u in een appartementencomplex op de derde of vierde verdieping woont biedt de verhuislift een goede oplossing. Doordat uw meubels met de verhuislift worden verplaatst beschadigen deze ook niet. Daarnaast scheelt het gebruik van een dergelijke lift een hoop manuren die u anders kwijt bent aan het sjouwen op de trap. Deze pluspunten zult u ook merken aan uw portemonnee!</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Hulp bij Seniorenverhuizing</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Voor ouderen is een verhuizing net even wat ingrijpender. Een seniorenverhuizing vraagt om meer begeleiding en zorg. Desgewenst kunnen wij de verhuizing met begeleiding voor de oudere verzorgen. Dit houdt in dat u één aanspreekpunt krijgt toegewezen van ons. Deze persoon begeleidt u bij de gehele verhuizing. Onze medewerker neemt dan de tijd om u te helpen en te ondersteunen met het uitkiezen van de meubelen en huisraad om mee te verhuizen. En zorgt ervoor dat spullen die niet mee kunnen een goede nieuwe bestemming krijgen</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Vrijblijvende offerte</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">De prijzen van een seniorenverhuizing zijn afhankelijk van de werkzaamheden die uitgevoerd moeten worden. Neem contact op voor een persoonlijk gesprek en een vrijblijvende offerte.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Afspraak maken voor woning ontruimen</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Maak eenvoudig een afspraak met ons door te bellen naar: 085-303 58 94 of vul het contactformulier in op onze website. U ontvangt dan een vrijblijvende offerte</p>
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mt-10">
-          <p className="text-slate-700 font-medium mb-2">Hulp nodig?</p>
-          <p className="text-slate-500 font-light text-sm mb-4">
-            Bel Uw Ontruimer op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag vrijblijvend een offerte aan.
-          </p>
-          <a href="/offerte" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors">
-            Gratis offerte aanvragen
-          </a>
-        </div>
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Verhuizen:<br />Volledig ontzorgd van A tot Z
+              </h1>
+            </div>
           </div>
         </div>
-        <WizardCallout />
-        <TrustBar />
-        <CTASection />
+
+        <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
+          <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            {["15+ jaar ervaring", "Eigen verhuislift", "Persoonlijke begeleiding senioren"].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <GoogleReviewsBar />
+
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Diensten</p>
+
+            <div className="mb-10">
+              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+                Start de AI-wizard →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Voor wie is onze verhuisservice?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Uw Ontruimer specialiseert zich in verhuizingen waarbij meer nodig is dan alleen dozen sjouwen. Denk aan senioren die van een grote woning naar een appartement of verzorgingstehuis gaan, of situaties waarbij een deel van de inboedel mee moet en de rest geruimd of verkocht wordt.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Seniorenverhuizing van groot naar klein, met persoonlijke begeleiding",
+                "Verhuizing naar verzorgingstehuis of zorgwoning",
+                "Verhuizing gecombineerd met woningontruiming van resterende inboedel",
+                "Bedrijfsverhuizing inclusief demontage en opbouw kantoormeubilair",
+                "Spoedverhuizing bij calamiteiten of acute situaties",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Seniorenverhuizing met persoonlijke begeleiding</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Voor ouderen is een verhuizing ingrijpender dan een standaard move. Uw Ontruimer wijst u een vast aanspreekpunt toe dat u gedurende het hele proces begeleidt. Samen bepaalt u welke meubels en spullen meegaan, wat naar familie of goede doelen gaat, en wat uit de woning wordt verwijderd. Zo verloopt de overgang zo rustig en soepel mogelijk.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Één vast aanspreekpunt gedurende het hele traject",
+                "Hulp bij het selecteren van mee te nemen meubels",
+                "Resterende inboedel naar kringloop, familie of veiling",
+                "Woning bezemschoon opgeleverd na vertrek",
+                "Ook inpakservice en uitpakservice op nieuwe locatie beschikbaar",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Eigen verhuislift voor hogere verdiepingen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Woont u op de derde verdieping of hoger? Uw Ontruimer beschikt over een eigen verhuislift. Meubels worden veilig naar buiten geheven — geen trapschade, geen beschadigde muren en aanzienlijk minder manuren. Dit maakt de verhuizing niet alleen veiliger, maar ook goedkoper.
+            </p>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Verhuizen gecombineerd met ontruiming</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              In veel gevallen gaat een verhuizing hand in hand met een ontruiming. De spullen die niet meegaan worden gesorteerd: waardevolle objecten gaan naar opkoop of veiling, bruikbare spullen naar kringloopwinkels en de rest wordt verantwoord afgevoerd. Zo is de woning na afloop direct leeg en bezemschoon.
+            </p>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Duurzame verwerking van achtergelaten spullen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-8">
+              Spullen die niet meegaan of worden opgekocht stellen wij beschikbaar aan kringlooporganisaties en goede doelen in de regio. Zo krijgt uw inboedel een tweede leven en wordt zo min mogelijk weggegooid. Hergebruik en recycling staan bij Uw Ontruimer altijd voorop.
+            </p>
+
+            <CtaBox />
+          </div>
+        </div>
       </main>
       <Footer />
     </>
