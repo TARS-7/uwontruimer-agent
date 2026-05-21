@@ -54,15 +54,15 @@ export default function Page() {
         </div>
 
         {/* Trust bar */}
-        <div className="bg-slate-800 py-3 px-6">
+        <div className="py-3 px-6" style={{ backgroundColor: "#f8fafc" }}>
           <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
             {[
               "15+ jaar ervaring",
               "Schriftelijke opleveringsgarantie",
               "Binnen 24 uur beschikbaar",
             ].map((item) => (
-              <span key={item} className="flex items-center gap-2 text-sm text-slate-300">
-                <svg className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" viewBox="0 0 12 12" fill="none">
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none">
                   <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 {item}
