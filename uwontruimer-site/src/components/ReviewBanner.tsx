@@ -1,106 +1,71 @@
 "use client";
 import { useState, useEffect } from "react";
 
-interface Props {
-  name: string;
-}
-
-function buildReviews(name: string) {
-  return [
-    {
-      author: "M. de Vries",
-      text: `Uitstekende service in ${name}. Snel, netjes en bezemschoon opgeleverd. Echt een aanrader!`,
-    },
-    {
-      author: "J. Bakker",
-      text: `Na het overlijden van mijn vader professioneel en discreet geholpen in ${name}. Alles werd perfect geregeld.`,
-    },
-    {
-      author: "A. van den Berg",
-      text: `Binnen 24 uur in ${name} ter plaatse en een scherpe offerte. Zeer tevreden met het resultaat.`,
-    },
-  ];
-}
+const REVIEWS = [
+  {
+    text: "Jurriën en zijn team hebben onze moederswoning na haar overlijden volledig ontruimd. Discreet, snel en met veel respect.",
+    author: "Familie De Vries",
+  },
+  {
+    text: "Binnen 24 uur ter plaatse en de woning bezemschoon opgeleverd. Absolute aanrader.",
+    author: "Notariskantoor Van Dam",
+  },
+  {
+    text: "De AI-wizard gaf binnen 2 minuten een duidelijke prijsindicatie. Geen verrassingen achteraf.",
+    author: "M. Janssen, Amsterdam",
+  },
+];
 
 function Stars() {
   return (
-    <div className="flex gap-0.5">
+    <span className="flex gap-px justify-center mb-2" aria-hidden="true">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="#f59e0b">
+        <svg key={i} viewBox="0 0 24 24" width="14" height="14" fill="#f59e0b">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       ))}
-    </div>
+    </span>
   );
 }
 
-function GoogleLogo() {
-  return (
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-label="Google">
-      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-    </svg>
-  );
-}
-
-export default function ReviewBanner({ name }: Props) {
-  const reviews = buildReviews(name);
+export default function ReviewBanner() {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // fade out
       setVisible(false);
       setTimeout(() => {
-        setIndex((i) => (i + 1) % reviews.length);
-        // fade in
+        setIndex((i) => (i + 1) % REVIEWS.length);
         setVisible(true);
       }, 500);
-    }, 4500);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [reviews.length]);
+  }, []);
 
-  const review = reviews[index];
+  const review = REVIEWS[index];
 
   return (
-    <div className="bg-white border-b border-slate-100 py-5 px-6">
-      <div className="max-w-3xl mx-auto">
-        {/* Statistieken */}
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-4">
-          <div className="flex items-center gap-2">
-            <GoogleLogo />
-            <div className="flex flex-col">
-              <Stars />
-              <span className="text-xs text-slate-500 mt-0.5">Gemiddeld 9.8/10 op Google</span>
-            </div>
-          </div>
-          <div className="hidden sm:block w-px h-8 bg-slate-200" />
-          <div className="text-center">
-            <p className="text-sm font-semibold text-slate-800">2.500+</p>
-            <p className="text-xs text-slate-500">families geholpen</p>
-          </div>
-        </div>
-
-        {/* Roterende review */}
-        <div className="relative min-h-[52px] flex items-center justify-center">
+    <div className="bg-slate-50 border-b border-slate-100 py-5 px-6">
+      <div className="max-w-2xl mx-auto text-center">
+        <Stars />
+        <div className="min-h-[56px] flex items-center justify-center">
           <blockquote
-            className="text-center text-sm text-slate-500 italic max-w-xl transition-opacity duration-500"
+            className="text-sm text-slate-600 italic transition-opacity duration-500"
             style={{ opacity: visible ? 1 : 0 }}
           >
             &ldquo;{review.text}&rdquo;
-            <span className="not-italic font-medium text-slate-600 ml-2">— {review.author}</span>
+            <span className="not-italic font-medium text-slate-700 ml-2">— {review.author}</span>
           </blockquote>
         </div>
-
-        {/* Dot indicators */}
         <div className="flex justify-center gap-1.5 mt-3">
-          {reviews.map((_, i) => (
+          {REVIEWS.map((_, i) => (
             <button
               key={i}
-              onClick={() => { setVisible(false); setTimeout(() => { setIndex(i); setVisible(true); }, 300); }}
+              onClick={() => {
+                setVisible(false);
+                setTimeout(() => { setIndex(i); setVisible(true); }, 300);
+              }}
               className="w-1.5 h-1.5 rounded-full transition-colors"
               style={{ backgroundColor: i === index ? "#f59e0b" : "#e2e8f0" }}
               aria-label={`Review ${i + 1}`}
