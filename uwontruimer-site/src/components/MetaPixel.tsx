@@ -22,7 +22,7 @@ function hasAnalyticsConsent(): boolean {
     const data = JSON.parse(
       decodeURIComponent(raw.trim().replace(/^cc_cookie=/, ""))
     );
-    return Array.isArray(data.categories) && data.categories.includes("analytics");
+    return Array.isArray(data.categories) && data.categories.includes("marketing");
   } catch {
     return false;
   }

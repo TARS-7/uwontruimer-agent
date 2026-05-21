@@ -36,6 +36,7 @@ export default function CookieBanner() {
         categories: {
           necessary: { enabled: true, readOnly: true },
           analytics: {},
+          marketing: {},
         },
         language: {
           default: "nl",
@@ -43,7 +44,7 @@ export default function CookieBanner() {
             nl: {
               consentModal: {
                 title: "Wij gebruiken cookies",
-                description: "We gebruiken analytische cookies om het gebruik van de website te begrijpen en te verbeteren. Uw gegevens worden niet gedeeld met derden.",
+                description: "We gebruiken analytische en marketingcookies om de website te verbeteren en relevante advertenties te tonen. U kiest zelf wat u accepteert.",
                 acceptAllBtn: "Alles accepteren",
                 acceptNecessaryBtn: "Alleen noodzakelijk",
                 showPreferencesBtn: "Voorkeuren",
@@ -63,6 +64,11 @@ export default function CookieBanner() {
                     title: "Analytische cookies",
                     description: "Helpen ons het gebruik van de website te begrijpen via Google Analytics (GA4). Geen persoonlijke gegevens worden gedeeld.",
                     linkedCategory: "analytics",
+                  },
+                  {
+                    title: "Marketingcookies",
+                    description: "Worden gebruikt om advertenties relevanter te maken via platforms zoals Meta (Facebook/Instagram). Uw gedrag op deze site kan worden gedeeld met Meta.",
+                    linkedCategory: "marketing",
                   },
                 ],
               },
