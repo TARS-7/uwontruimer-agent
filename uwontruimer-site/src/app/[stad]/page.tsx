@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ReviewBanner from "@/components/ReviewBanner";
 import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
 import seoData from "@/data/seo-metadata.json";
@@ -224,7 +225,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         <a
           href="https://analyse.uwontruimer.nl"
           className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
-          style={{ backgroundColor: "#f4a01c" }}
+          style={{ backgroundColor: "#d97706" }}
         >
           {offerteIcon}
           Ontvang direct uw AI-offerte (2 min)
@@ -276,7 +277,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         </div>
 
         {/* Trustbalk */}
-        <div className="bg-slate-50 border-y border-slate-100 py-5 px-6">
+        <div className="bg-slate-50 border-t border-slate-100 py-5 px-6">
           <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-8">
             {[
               { label: "15+ jaar ervaring", icon: <svg key="exp" className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> },
@@ -290,6 +291,9 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             ))}
           </div>
         </div>
+
+        {/* Review banner */}
+        <ReviewBanner name={name} />
 
         {/* StadContent + FAQ + CTA */}
         <div className="bg-white py-14 px-6">
@@ -334,13 +338,13 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             </div>
 
             {/* Onderste CTA blok */}
-            <div className="mt-14 bg-slate-900 rounded-2xl px-8 py-10 sm:px-10">
-              <p className="text-xs font-medium text-blue-400 uppercase tracking-widest mb-3">Aan de slag</p>
-              <h2 className="text-2xl font-semibold text-white tracking-tight mb-2">Klaar voor de volgende stap?</h2>
-              <p className="text-slate-400 font-light text-sm leading-relaxed mb-7">
+            <div className="mt-14 rounded-2xl border border-slate-200 px-8 py-10 sm:px-10" style={{ backgroundColor: "#f8fafc" }}>
+              <p className="text-xs font-medium uppercase tracking-widest mb-3" style={{ color: "#1e3a5f" }}>Aan de slag</p>
+              <h2 className="text-2xl font-semibold tracking-tight mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+              <p className="font-light text-sm leading-relaxed mb-7" style={{ color: "#1e3a5f", opacity: 0.7 }}>
                 Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie.
               </p>
-              {ctaButtons(true)}
+              {ctaButtons(false)}
             </div>
 
           </div>
