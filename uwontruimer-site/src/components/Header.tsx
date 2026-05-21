@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const diensten = [
   { label: "Woningontruiming", href: "/diensten/woningontruiming" },
@@ -18,6 +18,115 @@ const zakelijk = [
   { label: "Voor makelaars", href: "/makelaar" },
   { label: "Bewindvoerders", href: "/bewindvoerder" },
   { label: "Woningcorporaties", href: "/woningbouwvereniging" },
+];
+
+const werkgebied: { regio: string; steden: { slug: string; name: string }[] }[] = [
+  {
+    regio: "Noord-Holland",
+    steden: [
+      { slug: "amsterdam", name: "Amsterdam" },
+      { slug: "amstelveen", name: "Amstelveen" },
+      { slug: "aalsmeer", name: "Aalsmeer" },
+      { slug: "aerdenhout", name: "Aerdenhout" },
+      { slug: "alkmaar", name: "Alkmaar" },
+      { slug: "badhoevedorp", name: "Badhoevedorp" },
+      { slug: "bergen", name: "Bergen" },
+      { slug: "beverwijk", name: "Beverwijk" },
+      { slug: "blaricum", name: "Blaricum" },
+      { slug: "bloemendaal", name: "Bloemendaal" },
+      { slug: "bussum", name: "Bussum" },
+      { slug: "castricum", name: "Castricum" },
+      { slug: "den-helder", name: "Den Helder" },
+      { slug: "diemen", name: "Diemen" },
+      { slug: "drechterland", name: "Drechterland" },
+      { slug: "edam-volendam", name: "Edam-Volendam" },
+      { slug: "enkhuizen", name: "Enkhuizen" },
+      { slug: "gooi-en-vechtstreek", name: "Gooi- en Vechtstreek" },
+      { slug: "gooise-meren", name: "Gooise Meren" },
+      { slug: "graft-de-rijp", name: "Graft-De Rijp" },
+      { slug: "haarlem", name: "Haarlem" },
+      { slug: "haarlemmerliede", name: "Haarlemmerliede" },
+      { slug: "haarlemmermeer", name: "Haarlemmermeer" },
+      { slug: "heemskerk", name: "Heemskerk" },
+      { slug: "heemstede", name: "Heemstede" },
+      { slug: "heiloo", name: "Heiloo" },
+      { slug: "hilversum", name: "Hilversum" },
+      { slug: "hollands-kroon", name: "Hollands Kroon" },
+      { slug: "hoofddorp", name: "Hoofddorp" },
+      { slug: "hoorn", name: "Hoorn" },
+      { slug: "huizen", name: "Huizen" },
+      { slug: "landsmeer", name: "Landsmeer" },
+      { slug: "laren", name: "Laren" },
+      { slug: "naarden", name: "Naarden" },
+      { slug: "nieuw-vennep", name: "Nieuw-Vennep" },
+      { slug: "noord-holland", name: "Noord-Holland" },
+      { slug: "purmerend", name: "Purmerend" },
+      { slug: "schagen", name: "Schagen" },
+      { slug: "uithoorn", name: "Uithoorn" },
+      { slug: "zaandam", name: "Zaandam" },
+      { slug: "zaanstad", name: "Zaanstad" },
+    ],
+  },
+  {
+    regio: "Zuid-Holland",
+    steden: [
+      { slug: "alphen-aan-den-rijn", name: "Alphen aan den Rijn" },
+      { slug: "barendrecht", name: "Barendrecht" },
+      { slug: "bodegraven", name: "Bodegraven" },
+      { slug: "capelle-aan-den-ijssel", name: "Capelle aan den IJssel" },
+      { slug: "delft", name: "Delft" },
+      { slug: "den-haag", name: "Den Haag" },
+      { slug: "gouda", name: "Gouda" },
+      { slug: "hillegom", name: "Hillegom" },
+      { slug: "katwijk", name: "Katwijk" },
+      { slug: "leiden", name: "Leiden" },
+      { slug: "leiderdorp", name: "Leiderdorp" },
+      { slug: "leidschendam", name: "Leidschendam" },
+      { slug: "lisse", name: "Lisse" },
+      { slug: "maassluis", name: "Maassluis" },
+      { slug: "noordwijk", name: "Noordwijk" },
+      { slug: "nootdorp", name: "Nootdorp" },
+      { slug: "oegstgeest", name: "Oegstgeest" },
+      { slug: "pijnacker", name: "Pijnacker" },
+      { slug: "ridderkerk", name: "Ridderkerk" },
+      { slug: "roelofarendsveen", name: "Roelofarendsveen" },
+      { slug: "rotterdam", name: "Rotterdam" },
+      { slug: "schiedam", name: "Schiedam" },
+      { slug: "vlaardingen", name: "Vlaardingen" },
+      { slug: "voorburg", name: "Voorburg" },
+      { slug: "voorschoten", name: "Voorschoten" },
+      { slug: "wassenaar", name: "Wassenaar" },
+      { slug: "woerden", name: "Woerden" },
+      { slug: "zoetermeer", name: "Zoetermeer" },
+      { slug: "zuid-holland", name: "Zuid-Holland" },
+    ],
+  },
+  {
+    regio: "Utrecht",
+    steden: [
+      { slug: "amersfoort", name: "Amersfoort" },
+      { slug: "baarn", name: "Baarn" },
+      { slug: "bunnik", name: "Bunnik" },
+      { slug: "eemnes", name: "Eemnes" },
+      { slug: "houten", name: "Houten" },
+      { slug: "ijsselstein", name: "IJsselstein" },
+      { slug: "leusden", name: "Leusden" },
+      { slug: "nieuwegein", name: "Nieuwegein" },
+      { slug: "soest", name: "Soest" },
+      { slug: "stichtse-vecht", name: "Stichtse Vecht" },
+      { slug: "utrecht", name: "Utrecht" },
+      { slug: "veenendaal", name: "Veenendaal" },
+      { slug: "vianen", name: "Vianen" },
+      { slug: "vijfheerenlanden", name: "Vijfheerenlanden" },
+      { slug: "zeist", name: "Zeist" },
+    ],
+  },
+  {
+    regio: "Overig",
+    steden: [
+      { slug: "culemborg", name: "Culemborg" },
+    ],
+  },
 ];
 
 function Dropdown({ label, items }: { label: string; items: { label: string; href: string }[] }) {
@@ -51,8 +160,65 @@ function Dropdown({ label, items }: { label: string; items: { label: string; hre
   );
 }
 
+function WerkgebiedDropdown() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    if (!open) return;
+    function handle(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handle);
+    return () => document.removeEventListener("mousedown", handle);
+  }, [open]);
+
+  return (
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button className="flex items-center gap-1 text-sm text-slate-500 hover:text-slate-900 transition-colors">
+        Werkgebied
+        <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50" style={{ width: "680px" }}>
+          <div className="bg-white border border-slate-100 rounded-xl shadow-xl p-5">
+            <div className="grid grid-cols-4 gap-x-6">
+              {werkgebied.map(({ regio, steden }) => (
+                <div key={regio}>
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-2">{regio}</p>
+                  <ul className="space-y-0.5">
+                    {steden.map(({ slug, name }) => (
+                      <li key={slug}>
+                        <Link
+                          href={`/woningontruiming-${slug}/`}
+                          className="block text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded px-1 py-0.5 transition-colors"
+                          onClick={() => setOpen(false)}
+                        >
+                          {name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [werkgebiedOpen, setWerkgebiedOpen] = useState(false);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -60,7 +226,7 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const close = () => setMobileOpen(false);
+  const close = () => { setMobileOpen(false); setWerkgebiedOpen(false); };
 
   return (
     <>
@@ -77,6 +243,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-7">
             <Dropdown label="Diensten" items={diensten} />
             <Dropdown label="Zakelijk" items={zakelijk} />
+            <WerkgebiedDropdown />
             <Link href="/werkwijze" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werkwijze</Link>
             <Link href="/over-ons" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Over ons</Link>
             <Link href="/faq" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">FAQ</Link>
@@ -142,6 +309,38 @@ export default function Header() {
                 </div>
               </div>
             ))}
+
+            {/* Werkgebied — collapsible per regio */}
+            <div className="mb-6">
+              <button
+                className="flex items-center justify-between w-full text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-1"
+                onClick={() => setWerkgebiedOpen((v) => !v)}
+              >
+                Werkgebied
+                <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${werkgebiedOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              {werkgebiedOpen && (
+                <div className="mt-2 space-y-4">
+                  {werkgebied.map(({ regio, steden }) => (
+                    <div key={regio}>
+                      <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-1">{regio}</p>
+                      <div className="grid grid-cols-2 gap-x-4">
+                        {steden.map(({ slug, name }) => (
+                          <Link
+                            key={slug}
+                            href={`/woningontruiming-${slug}/`}
+                            onClick={close}
+                            className="py-1.5 text-[14px] text-slate-700 hover:text-blue-600 transition-colors"
+                          >
+                            {name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="px-6 py-6 border-t border-slate-100 space-y-3">
