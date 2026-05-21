@@ -26,6 +26,12 @@ const nextConfig: NextConfig = {
         destination: "https://www.uwontruimer.nl/:path*",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "uwontruimer.nl" }],
+        destination: "https://www.uwontruimer.nl/:path*",
+        permanent: true,
+      },
     ];
   },
 };
