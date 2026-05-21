@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Woningbouwvereniging - Woning laten voldoen aan opleveringseisen",
@@ -10,37 +10,137 @@ export const metadata: Metadata = {
   alternates: { canonical: "/woningbouwvereniging/" },
 };
 
+const checkIcon = (
+  <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+    <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+const CtaBox = () => (
+  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+    <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+    <p className="text-slate-500 font-light text-sm mb-6">Ontvang binnen 2 minuten een vrijblijvende prijsindicatie, of bel direct voor een afspraak.</p>
+    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Start de AI-wizard →
+      </a>
+      <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl transition-colors text-base">
+        Bel 085-303 58 94
+      </a>
+    </div>
+    <div className="flex flex-wrap gap-x-6 gap-y-1">
+      {["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"].map((item) => (
+        <span key={item} className="text-xs text-slate-400 flex items-center gap-1">
+          <svg className="w-3 h-3 text-slate-300" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 export default function Page() {
   return (
     <>
       <Header />
       <main className="mt-16">
-        <div className="bg-white py-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Samenwerking</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Woningbouwvereniging</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">Het komt vaak voor dat een huurder niet in de gelegenheid is om de woning op te leveren. Uw Ontruimer heeft ruim 10 jaar ervaring als ontruimingsbedrijf. Wij staan voor kwaliteit en werkkracht. Bent u op zoek naar een partner voor het ontruimen van woningen? Dan bent u bij ons aan het goede adres.</p>
-
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Kies voor een samenwerking met Uw Ontruimer</h2>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Voor- en eindinspectie</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">De voordelen van onze services zijn groot. Zo doen wij voor onze klanten de voor- en eindinspectie. Wij leveren de woning dan helemaal naar eisen van de voorinspectie op. Zo kunnen wij onze klanten helemaal ontzorgen.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Discrete en respectvolle woningontruiming</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Onze medewerkers hebben een georganiseerde werkwijze en gaan op een respectvolle manier met de ontruiming om. Indien nodig wordt de hele inboedel geïnventariseerd en gedocumenteerd.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Geïnteresseerd in een samenwerking met ons?</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Maak eenvoudig een afspraak met ons door te bellen naar: 085-303 58 94 of vul het contactformulier in op onze website. U ontvangt dan een vrijblijvende offerte.</p>
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mt-10">
-          <p className="text-slate-700 font-medium mb-2">Hulp nodig?</p>
-          <p className="text-slate-500 font-light text-sm mb-4">
-            Bel Uw Ontruimer op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag vrijblijvend een offerte aan.
-          </p>
-          <a href="/offerte" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors">
-            Gratis offerte aanvragen
-          </a>
-        </div>
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/truck-woningontruiming.png" alt="Woningontruiming voor woningcorporaties" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Woningontruiming voor woningcorporaties:<br />Snel en conform eisen opgeleverd
+              </h1>
+            </div>
           </div>
         </div>
-        <TrustBar />
-        <CTASection />
+
+        <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
+          <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            {["Korte doorlooptijd", "Conform opleveringseisen", "Voor- en eindinspectie"].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <GoogleReviewsBar />
+
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Samenwerking</p>
+
+            <div className="mb-10">
+              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+                Start de AI-wizard →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Ontruiming bij huurbeëindiging: snel en conform eisen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Woningcorporaties hebben er baat bij dat vrijgekomen huurwoningen zo snel mogelijk opnieuw verhuurd kunnen worden. Uw Ontruimer levert woningen op conform uw opleveringseisen — bezemschoon, gedocumenteerd en binnen de afgesproken termijn. Of het nu gaat om een reguliere huurbeëindiging, overlastsituatie of gedwongen ontruiming: wij regelen het.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Ontruiming bij reguliere huurbeëindiging of wisselwoning",
+                "Gedwongen ontruiming na vonnis — in samenwerking met deurwaarder",
+                "Ontruiming bij overlast, vervuiling of verwaarlozing",
+                "Volledige woning leeg inclusief zolder, kelder en berging",
+                "Bezemschoon opgeleverd conform uw standaard opleveringseisen",
+                "Schriftelijk opleveringsrapport na iedere opdracht",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Voor- en eindinspectie</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Uw Ontruimer voert op verzoek zowel de voorinspectie als de eindinspectie uit. Wij leggen de toestand van de woning bij aanvang vast en leveren op conform de eisen die bij de voorinspectie zijn afgesproken. Zo heeft u zekerheid over de oplevering en is de woning klaar voor de volgende bewoner.
+            </p>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Gedwongen ontruiming: snel en professioneel</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Bij een vonnis tot ontruiming werkt Uw Ontruimer samen met de deurwaarder en handhavers. Wij zijn gewend aan de specifieke eisen en procedures rondom gedwongen ontruimingen en kunnen doorgaans binnen 24–48 uur inzetbaar zijn. Alle aangetroffen goederen worden geïnventariseerd en gedocumenteerd conform de wettelijke bewaartermijnen.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Samenwerking met deurwaarder en gemeente indien nodig",
+                "Inventarisatie en documentatie van achtergelaten goederen",
+                "Bewaring conform wettelijke termijnen op verzoek",
+                "Spoedontruiming mogelijk — ook op korte termijn inzetbaar",
+                "Discrete aanpak — ook bij complexe of gevoelige situaties",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Structurele samenwerking met woningcorporaties</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Uw Ontruimer werkt op basis van raamovereenkomsten samen met woningcorporaties in de regio. Wij kennen de vereisten, de procedures en de tijdsdruk die bij corporatievastgoed komen kijken. Met een vaste contactpersoon en een vlotte administratie ontzorgen wij u volledig — van opdracht tot opleveringsrapport.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-10">
+              {[
+                { titel: "Vaste contactpersoon", omschrijving: "Eén aanspreekpunt voor alle opdrachten — geen wisselende teams of onduidelijkheid over verantwoordelijkheden." },
+                { titel: "Snelle doorlooptijd", omschrijving: "Wij plannen in overleg met u en streven naar een maximale doorlooptijd van 48–72 uur na opdrachtverlening." },
+                { titel: "Duurzame verwerking", omschrijving: "Achtergelaten inboedel gaat naar kringloop en recycling. Zo min mogelijk naar de vuilstort." },
+                { titel: "Transparante facturatie", omschrijving: "Eén overzichtelijke factuur per opdracht, voorzien van foto-documentatie en werkbon." },
+              ].map(({ titel, omschrijving }) => (
+                <div key={titel} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                  <p className="font-medium text-slate-800 mb-1 text-sm">{titel}</p>
+                  <p className="text-slate-500 font-light text-sm leading-relaxed">{omschrijving}</p>
+                </div>
+              ))}
+            </div>
+
+            <CtaBox />
+          </div>
+        </div>
       </main>
       <Footer />
     </>

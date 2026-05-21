@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Woningontruiming nodig als bewindvoerder? Kom in contact",
@@ -10,47 +10,132 @@ export const metadata: Metadata = {
   alternates: { canonical: "/bewindvoerder/" },
 };
 
+const checkIcon = (
+  <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+    <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+const CtaBox = () => (
+  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+    <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+    <p className="text-slate-500 font-light text-sm mb-6">Ontvang binnen 2 minuten een vrijblijvende prijsindicatie, of bel direct voor een afspraak.</p>
+    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Start de AI-wizard →
+      </a>
+      <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl transition-colors text-base">
+        Bel 085-303 58 94
+      </a>
+    </div>
+    <div className="flex flex-wrap gap-x-6 gap-y-1">
+      {["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"].map((item) => (
+        <span key={item} className="text-xs text-slate-400 flex items-center gap-1">
+          <svg className="w-3 h-3 text-slate-300" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 export default function Page() {
   return (
     <>
       <Header />
       <main className="mt-16">
-        <div className="bg-white py-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Samenwerking</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Uw Ontruimer voor bewindvoerders</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">In uw taak als bewindvoerder zijnde kan het voorkomen dat een cliënt zijn of haar woning uit moet en dat de oude woning ontruimd dient te worden. Uw Ontruimer kan u hierbij helpen. Wij halen de woning op een respectvolle manier leeg.</p>
-
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Inboedelbeheer</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Een groot voordeel van Uw Ontruimer is onze service inboedelbeheer. Wij inventariseren dan de volledige inboedel en documenteren dit. Zo houdt u zicht op de inboedel. Indien nodig kunnen we dit ook voor u taxeren.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Waardevolle goederen</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Waardevolle goederen kunnen we voor u taxeren. Wilt u de goederen verkopen? Uw Ontruimer koopt deze ook op. Daarnaast kunnen we het ook voor u naar de veiling brengen. U krijgt dan een overzicht met de ingebrachte spullen en de geschatte opbrengst. Nadat de goederen geveild zijn krijgt u de opbrengst direct op uw rekening gestort.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Duurzaam</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Wij hebben duurzaamheid hoog in het vaandel staan. Met uw toestemming bieden wij de spullen die nog geschikt zijn voor hergebruik aan bij de aan ons aangesloten kringlooporganisaties.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Woning verhuur of verkoop klaar opleveren</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer levert de woning op naar wens van de verhuur of verkoop makelaar. Wij hebben kwaliteit hoog in het vaandel staan en we kunnen u hierbij volledig ontzorgen.</p>
-            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
-              <li>Discreet</li>
-              <li>Duurzaam</li>
-              <li>Opleveringsgarantie</li>
-              <li>15+ jaar ervaring</li>
-              <li>Ontzorgt</li>
-            </ul>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Kom in contact</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Maak eenvoudig een afspraak met ons door te bellen naar: 085-303 58 94 of vul het contactformulier in op onze website. U ontvangt dan een vrijblijvende offerte.</p>
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mt-10">
-          <p className="text-slate-700 font-medium mb-2">Hulp nodig?</p>
-          <p className="text-slate-500 font-light text-sm mb-4">
-            Bel Uw Ontruimer op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag vrijblijvend een offerte aan.
-          </p>
-          <a href="/offerte" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors">
-            Gratis offerte aanvragen
-          </a>
-        </div>
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/Ontruimers.png" alt="Woningontruiming voor bewindvoerders" fill className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Woningontruiming voor bewindvoerders:<br />Compleet ontzorgd
+              </h1>
+            </div>
           </div>
         </div>
-        <TrustBar />
-        <CTASection />
+
+        <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
+          <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            {["15+ jaar ervaring", "Gedocumenteerde oplevering", "Discreet & respectvol"].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <GoogleReviewsBar />
+
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Samenwerking</p>
+
+            <div className="mb-10">
+              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+                Start de AI-wizard →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Ontruiming bij bewind: volledig geregeld</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Als bewindvoerder krijgt u te maken met situaties waarbij een cliënt de woning moet verlaten en de inboedel geregeld dient te worden. Uw Ontruimer neemt dit volledig uit handen. Wij handelen discreet, respectvol en efficiënt — en leveren de woning gedocumenteerd op conform uw eisen.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Volledige ontruiming van woning, berging, zolder en kelder",
+                "Inventarisatie en documentatie van alle aangetroffen goederen",
+                "Taxatie van waardevolle objecten door erkende taxateurs",
+                "Opbrengst waardevolle spullen gestort op rekening van de cliënt of boedel",
+                "Woning bezemschoon opgeleverd met schriftelijk opleveringsrapport",
+                "Discrete werkwijze — ook bij gevoelige situaties of vervuilde woningen",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Inboedelbeheer en waardebepaling</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Wij inventariseren de volledige inboedel en documenteren elk object. Zo houdt u als bewindvoerder volledig overzicht over de boedel. Waardevolle goederen kunnen wij taxeren, opkopen of onderbrengen bij een veilinghuis. De opbrengst wordt verrekend met de ontruimingskosten of direct uitbetaald.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {[
+                { titel: "Inboedelbeheer", omschrijving: "Volledige inventarisatie met foto-documentatie — bruikbaar als bijlage bij bewindrapportages." },
+                { titel: "Taxatie", omschrijving: "Erkende taxateurs bepalen de waarde van antiek, kunst, sieraden en andere waardevolle objecten." },
+                { titel: "Opkoop of veiling", omschrijving: "Waardevolle spullen worden opgekocht of geveild. Opbrengst direct uitbetaald of verrekend." },
+                { titel: "Duurzame verwerking", omschrijving: "Rest-inboedel gaat naar kringlooporganisaties. Zo min mogelijk afval, zo veel mogelijk hergebruik." },
+              ].map(({ titel, omschrijving }) => (
+                <div key={titel} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                  <p className="font-medium text-slate-800 mb-1 text-sm">{titel}</p>
+                  <p className="text-slate-500 font-light text-sm leading-relaxed">{omschrijving}</p>
+                </div>
+              ))}
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Woning verhuur- of verkoopklaar opleveren</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Na de ontruiming levert Uw Ontruimer de woning op conform de eisen van de verhuurder of makelaar — bezemschoon en gedocumenteerd. U ontvangt een schriftelijk opleveringsrapport dat u kunt opnemen in uw bewinddossier. Zo kunt u aantonen dat de woning correct is opgeleverd.
+            </p>
+            <ul className="space-y-3 mb-10">
+              {[
+                "Oplevering conform eisen verhuurder of woningcorporatie",
+                "Schriftelijk opleveringsrapport als bijlage voor uw dossier",
+                "Snelle doorlooptijd — ook bij urgente opdrachten",
+                "Vaste contactpersoon gedurende het hele traject",
+                "Actief in heel Noord-Holland, Zuid-Holland en Utrecht",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <CtaBox />
+          </div>
+        </div>
       </main>
       <Footer />
     </>
