@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Vervuilde woning laten ontruimen | UwOntruimer.nl",
@@ -10,56 +10,131 @@ export const metadata: Metadata = {
   alternates: { canonical: "/vervuilde-woning-ontruimen/" },
 };
 
+const checkIcon = (
+  <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+    <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+const CtaBox = () => (
+  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+    <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+    <p className="text-slate-500 font-light text-sm mb-6">Ontvang binnen 2 minuten een vrijblijvende prijsindicatie, of bel direct voor een afspraak.</p>
+    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Start de AI-wizard →
+      </a>
+      <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl transition-colors text-base">
+        Bel 085-303 58 94
+      </a>
+    </div>
+    <div className="flex flex-wrap gap-x-6 gap-y-1">
+      {["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"].map((item) => (
+        <span key={item} className="text-xs text-slate-400 flex items-center gap-1">
+          <svg className="w-3 h-3 text-slate-300" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 export default function Page() {
   return (
     <>
       <Header />
       <main className="mt-16">
-        <div className="bg-white py-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Ontruiming</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Vervuilde woning laten ontruimen</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">Wilt u een (ernstig) vervuilde woning laten ontruimen? Laat dit dan over aan het team van Uw Ontruimer! Wij beschikken over jarenlange ervaring in het ontruimen van vervuilde woningen. Als professioneel ontruimingsbedrijf kunnen wij zelfs de meest vervuilde woning weer bewoonbaar maken. Ook een spoedontruiming is mogelijk! Bel ons vrijblijvend voor een afspraak. Dan voorzien we u van een maatwerk offerte!</p>
-
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat komt er kijken bij het ontruimen van een vervuilde woning?</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Bij het ontruimen van een vervuilde woning komt meer kijken dan alleen het leegruimen van de woning. De woning moet ook worden schoongemaakt en gedesinfecteerd voordat hij weer geschikt is voor bewoning. Wie hier geen ervaring mee heeft, kan dit beter overlaten aan een professioneel ontruimingsbedrijf. Wij weten hoe we dit aan moeten pakken en beschikken over beschermende pakken, die nodig kunnen zijn om veilig te werken. Of het nu om uw eigen woning gaat of om een pand dat u verhuurt, onderneem zo snel mogelijk actie in verband met gezondheidsrisico's voor de (toekomstige) bewoner.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">De huisraad kan vaak worden afgeschreven. Ongedierte, schimmel en luchtjes die er niet meer uit willen, maken de meeste spullen in het huis ongeschikt om nog te gebruiken. Deze voeren wij in overleg met u af naar de vuilstort. Wat nog wel goed is, kan worden geveild of naar de kringloop worden gebracht.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">De woning wordt volledig leeggemaakt, waarbij vaak ook tapijten en de vloeren eruit moeten. Ook deze worden afgevoerd, waarna de woning grondig kan worden gereinigd en schoongemaakt. Hierna is de vervuilde woning volledig schoon en zijn ook de nare luchtjes weg. Het huis is weer geschikt voor bewoning!</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat kost het ontruimen van een vervuilde woning?</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">De kosten van het ontruimen van een vervuilde woning kunnen sterk uiteenlopen. Hoe groot is de woning? Is de hele woning vervuild en hoe erg? Hoe dan ook heeft u de hulp van een professionele ontruimer nodig om de woning weer bewoonbaar te maken. Wij komen vrijblijvend langs op locatie om een goede inschatting van de werkzaamheden te maken. En we voorzien u van een maatwerk offerte, zodat u precies weet wat de kosten zijn.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Vaak is de inboedel niets meer waard, maar wij lopen alles na om hier zeker van te zijn. Eventuele waardevolle spullen kunnen worden geveild en in mindering worden gebracht op de offerte.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Naast woningontruiming ook bedrijfsontruiming in Aalsmeer</h2>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Waarom kiezen voor Uw Ontruimer?</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Ons ontruimingsbedrijf is een specialist in het ontruimen van (sterk) vervuilde woningen. In een kort tijdsbestek wordt uw woning leeggeruimd, schoongemaakt en ontsmet, zodat het weer snel geschikt is voor bewoning.</p>
-            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
-              <li>Vrijblijvende maatwerk offerte</li>
-              <li>Zoveel mogelijk wordt hergebruikt</li>
-              <li>Ontruiming van a tot z geregeld</li>
-              <li>Vakkundige ontruiming</li>
-              <li>Eén aanspreekpunt</li>
-            </ul>
-            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
-              <li>Discreet</li>
-              <li>Duurzaam</li>
-              <li>Opleveringsgarantie</li>
-              <li>15+ jaar ervaring</li>
-              <li>Ontzorgt</li>
-            </ul>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Hulp nodig bij ontruimen vervuilde woning?</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Wilt u onze hulp voor het ontruimen van een vervuilde woning? Bel ons dan vrijblijvend op 085-303 58 94 of vul het contactformulier in. Dan komen wij vrijblijvend bij u langs om een maatwerk offerte op te stellen.</p>
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mt-10">
-          <p className="text-slate-700 font-medium mb-2">Hulp nodig?</p>
-          <p className="text-slate-500 font-light text-sm mb-4">
-            Bel Uw Ontruimer op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag vrijblijvend een offerte aan.
-          </p>
-          <a href="/offerte" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors">
-            Gratis offerte aanvragen
-          </a>
-        </div>
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/Gemini_Generated_Image_nz1f59nz1f59nz1f_cleanup.jpg" alt="Vervuilde woning ontruimen" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Vervuilde woning ontruimen:<br />Discreet en grondig
+              </h1>
+            </div>
           </div>
         </div>
-        <TrustBar />
-        <CTASection />
+
+        <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
+          <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            {["Ervaring met ernstige vervuiling", "Discreet & respectvol", "Grondig en veilig"].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <GoogleReviewsBar />
+
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Ontruiming</p>
+
+            <div className="mb-10">
+              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+                Start de AI-wizard →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wanneer spreken we van een vervuilde woning?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Een vervuilde woning kan verschillende oorzaken hebben: extreme vermesting (het ophopen van spullen), verwaarlozing door ziekte of dementie, overlast van ongedierte, of vervuiling na overlijden. In al deze gevallen beschikt Uw Ontruimer over de ervaring, de middelen en de discretie om de situatie professioneel aan te pakken.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {[
+                { titel: "Extreme vermesting", omschrijving: "Woningen vol opgehoopte spullen, afval of objecten — ook bij ernstige gevallen met smalle doorgangen." },
+                { titel: "Verwaarloosde woning", omschrijving: "Verwaarlozing door ziekte, dementie of sociale omstandigheden. Wij werken altijd respectvol en zonder oordeel." },
+                { titel: "Ongedierte en schimmel", omschrijving: "Woning met kakkerlakken, ratten, schimmelvorming of andere gezondheidsrisico's — met de juiste bescherming." },
+                { titel: "Vervuiling na overlijden", omschrijving: "Woning reinigen en ontruimen na overlijden, ook bij gevallen waarbij enige tijd is verstreken." },
+              ].map(({ titel, omschrijving }) => (
+                <div key={titel} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                  <p className="font-medium text-slate-800 mb-1 text-sm">{titel}</p>
+                  <p className="text-slate-500 font-light text-sm leading-relaxed">{omschrijving}</p>
+                </div>
+              ))}
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Onze aanpak bij vervuilde woningen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Ons team werkt met de juiste beschermingskleding en -middelen. Wij beoordelen de situatie vooraf en stellen een veilige werkwijze op. Waardevolle objecten worden ook in vervuilde woningen gesignaleerd en apart gehouden. Na de ontruiming kan de woning worden gereinigd en bezemschoon opgeleverd.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Inzet van persoonlijke beschermingsmiddelen bij gevaarlijke situaties",
+                "Sortering en scheiding van afval, ook bij extreme vervuiling",
+                "Waardevolle objecten worden herkend en apart gehouden",
+                "Samenwerking met gespecialiseerde schoonmaakbedrijven indien nodig",
+                "Woning bezemschoon opgeleverd na ontruiming",
+                "Discrete aanpak — geen onnodig verkeer van buitenaf",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wie schakelt Uw Ontruimer in voor vervuilde woningen?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Particulieren, nabestaanden, woningcorporaties, gemeenten en notarissen schakelen Uw Ontruimer in voor vervuilde woningen. Wij begrijpen dat het om gevoelige situaties gaat en handelen altijd met discretie en professionele afstand — ook ten opzichte van de buurt en buren.
+            </p>
+            <ul className="space-y-3 mb-10">
+              {[
+                "Particulieren en nabestaanden bij overlijden of ziekte",
+                "Woningcorporaties bij huurders die de woning in slechte staat achterlieten",
+                "Gemeenten bij verwaarloosde of onbewoonbare panden",
+                "Notarissen bij ontruiming van boedels in slechte staat",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <CtaBox />
+          </div>
+        </div>
       </main>
       <Footer />
     </>

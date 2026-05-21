@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Uw Ontruimer legt uit hoe u een huis kan leegmaken. | UwOntruimer.nl",
@@ -10,57 +10,131 @@ export const metadata: Metadata = {
   alternates: { canonical: "/huis-leegmaken/" },
 };
 
+const checkIcon = (
+  <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+    <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+const CtaBox = () => (
+  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+    <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+    <p className="text-slate-500 font-light text-sm mb-6">Ontvang binnen 2 minuten een vrijblijvende prijsindicatie, of bel direct voor een afspraak.</p>
+    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Start de AI-wizard →
+      </a>
+      <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl transition-colors text-base">
+        Bel 085-303 58 94
+      </a>
+    </div>
+    <div className="flex flex-wrap gap-x-6 gap-y-1">
+      {["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"].map((item) => (
+        <span key={item} className="text-xs text-slate-400 flex items-center gap-1">
+          <svg className="w-3 h-3 text-slate-300" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 export default function Page() {
   return (
     <>
       <Header />
       <main className="mt-16">
-        <div className="bg-white py-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Informatie</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Uw Ontruimer legt uit hoe u een huis kan leegmaken.</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">Bijvoorbeeld na overlijden of na verhuizen kan het voorkomen dat u een huis moet leegmaken.</p>
-
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Een huis leegmaken is vaak fysiek zwaar werk. Dit verschilt natuurlijk per huis of woning. In dit artikel nemen we alles stap voor stap door. U kunt er natuurlijk ook voor kiezen om dit uit te besteden aan professionele woning- of huisontruimer.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Als u het zelf gaat doen dan zijn de volgende factoren van belang:</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">-Is het op begane grond</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">-Zijn er trappen in huis</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">-Is er een lift aanwezig</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">-Vervoer en transportbenodigdheden</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">1.Inventariseren</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Voordat u kunt beginnen met het huis leegmaken is het van belang om een inschatting te maken van de werkzaamheden. Is het een huurhuis? Vraag dan een voorinspectie aan bij de verhuurder of woningbouwvereniging. Is er een opnamestaat aanwezig? Dit is een rapport waarin de staat van de woning is beschreven voordat deze verhuurd wordt. Vaak moet de woning weer in oude staat opgeleverd worden.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Meer informatie over het opleveren van een huurwoning kunt u op deze pagina vinden klik hier.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Maak bij de inventarisatie een lijst van spullen die weg mogen, die geschikt zijn voor hergebruik en van spullen die u zelf wilt houden. Goederen die nog bruikbaar zijn en zelf niet wilt houden kunt u doneren aan de kringloopwinkel. Houd bij het inventariseren ook rekening met boeken en kleingoed. Dit zijn vaak onderschatte werkzaamheden bij het leegmaken van een huis. Boeken worden snel zwaar.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">2. Vervoer en transport</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Hoe gaat u de inboedel vervoeren? Misschien kent u iemand die een busje of aanhanger heeft. Anders kunt u er een huren. Als u goederen doneert aan de kringloopwinkel halen zij deze gratis bij u op.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Houd ook rekening met het leegmaken van het huis dat intern transport ook heel handig kan zijn. Plankjes op wieltjes (ook wel hondjes genoemd) zoals hieronder op de afbeelding kunnen heel makkelijk zijn om meubels op te transporteren. Ook steekwagens en magazijnkarren kunnen goed te pas komen. Is er een lift aanwezig? Als u een huis moet leegmaken in een flat of op een hogere verdieping en er is geen lift aanwezig kunt u eventueel een verhuislift huren.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Tip: gebruik ductape om de deurtjes en laatjes van de kast dicht te maken. Dit voorkomt dat het bij transport openklapt en beschadigt.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">3. Kleingoed</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Verzamel verhuisdozen en kratten om het kleingoed in te doen. Houd er rekening mee dat boeken en papierwerk erg zwaar worden. Voor boeken kunt u het beste kunststof kratten gebruiken. Gebruik papier en dekens om porselein, glas en aardewerk in te verpakken zodat het niet beschadigt bij de werkzaamheden. Kratten en dozen kunt u stapelen en met een steekwagen verrijden. Dat is makkelijker en minder zwaar bij het huis leeg maken.</p>
-            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
-              <li>Discreet</li>
-              <li>Duurzaam</li>
-              <li>Opleveringsgarantie</li>
-              <li>15+ jaar ervaring</li>
-              <li>Ontzorgt</li>
-            </ul>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">4. Afval</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Bij een huis leegmaken blijft veel afval over. Vaak mag u tot een bepaald aantal kilo gratis afvoeren bij de milieustraat. Kijk op de website van uw gemeente wat de regels zijn. Het verschilt namelijk per stad of dorp. Wel moet u altijd alles gescheiden inleveren bij de milieustraat. Sommige gemeente accepteren geen bouw en sloopafval. U kunt ook een afspraak maken om het op te laten halen door de gemeentedienst. Dit kost vaak geld en u moet het lang van te voren aangeven. U kunt er ook voor kiezen om een container te laten plaatsen op de locatie van het leeg te maken huis. Hier zijn wel kosten aan verbonden. Als u in de binnenstad woont moet u waarschijnlijk ook een vergunning aanvragen. Een container plaatsen kost geld maar het scheelt u een hoop werk. U hoeft niet op en neer te rijden naar de milieustraat. En u hoeft ook niet al het afval te scheiden.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Afspraak maken voor woning ontruimen</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Maak eenvoudig een afspraak met ons door te bellen naar: 085-303 58 94 of vul het contactformulier in op onze website. U ontvangt dan een vrijblijvende offerte</p>
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mt-10">
-          <p className="text-slate-700 font-medium mb-2">Hulp nodig?</p>
-          <p className="text-slate-500 font-light text-sm mb-4">
-            Bel Uw Ontruimer op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag vrijblijvend een offerte aan.
-          </p>
-          <a href="/offerte" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors">
-            Gratis offerte aanvragen
-          </a>
-        </div>
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/Ontruimers.png" alt="Huis leegmaken" fill className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Huis leegmaken:<br />Snel en professioneel geregeld
+              </h1>
+            </div>
           </div>
         </div>
-        <TrustBar />
-        <CTASection />
+
+        <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
+          <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            {["15+ jaar ervaring", "Bezemschoon opgeleverd", "Duurzame verwerking"].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <GoogleReviewsBar />
+
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Diensten</p>
+
+            <div className="mb-10">
+              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+                Start de AI-wizard →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wanneer moet u een huis leegmaken?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Er zijn veel situaties waarbij een huis leeggemaakt moet worden: na overlijden van een familielid, bij verhuizing naar een verzorgingstehuis, bij verkoop of einde huurcontract. Uw Ontruimer helpt u snel en volledig — van de eerste inboedel tot de laatste stoel in de kelder.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {[
+                { titel: "Na overlijden", omschrijving: "Discreet en respectvol leegmaken van de woning van een overledene, in overleg met nabestaanden." },
+                { titel: "Bij verhuizing", omschrijving: "Huis leegmaken bij verhuizing naar kleiner appartement, seniorenwoning of verzorgingstehuis." },
+                { titel: "Bij verkoop", omschrijving: "Woning leeg en verkoopklaar opleveren voor de makelaar — inclusief zolder, berging en kelder." },
+                { titel: "Einde huurcontract", omschrijving: "Huurwoning leeg en bezemschoon opleveren conform de eisen van de verhuurder." },
+              ].map(({ titel, omschrijving }) => (
+                <div key={titel} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                  <p className="font-medium text-slate-800 mb-1 text-sm">{titel}</p>
+                  <p className="text-slate-500 font-light text-sm leading-relaxed">{omschrijving}</p>
+                </div>
+              ))}
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat doet Uw Ontruimer bij het leegmaken?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Een huis leegmaken is meer dan dozen sjouwen. Uw Ontruimer verzorgt de volledige logistiek: wat gaat mee, wat wordt verkocht, wat naar kringloop en wat wordt afgevoerd. Wij werken efficiënt met een vast team en de juiste middelen — inclusief verhuislift voor hogere verdiepingen.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Volledige inboedel leeggemaakt inclusief zolder, kelder en schuur",
+                "Waardevolle spullen getaxeerd en opgekocht of geveild",
+                "Bruikbare goederen naar kringlooporganisaties",
+                "Restafval verantwoord gesorteerd en afgevoerd",
+                "Woning bezemschoon opgeleverd met opleveringsgarantie",
+                "Verhuislift beschikbaar voor hogere verdiepingen",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Huis leegmaken: wat kost het?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              De prijs hangt af van de inhoud van de woning, de bereikbaarheid en eventuele bijzonderheden. Als er waardevolle spullen aanwezig zijn, wordt de opbrengst verrekend met de ontruimingskosten — soms betaalt u netto niets. Gebruik de AI-wizard voor een directe indicatie op basis van uw situatie.
+            </p>
+            <ul className="space-y-3 mb-10">
+              {[
+                "Waardevolle inboedel verrekend: lagere of geen kosten",
+                "Vaste prijs op basis van offerte — geen verrassingen achteraf",
+                "Combinatie met vloerverwijdering of schoonmaak mogelijk",
+                "Actief in Noord-Holland, Zuid-Holland en Utrecht",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <CtaBox />
+          </div>
+        </div>
       </main>
       <Footer />
     </>

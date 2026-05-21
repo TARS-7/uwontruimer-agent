@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Discreet een huis laten ontruimen na een overlijden | UwOntruimer.nl",
@@ -10,47 +10,134 @@ export const metadata: Metadata = {
   alternates: { canonical: "/huis-ontruimen-na-overlijden/" },
 };
 
+const checkIcon = (
+  <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+    <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+const CtaBox = () => (
+  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+    <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+    <p className="text-slate-500 font-light text-sm mb-6">Ontvang binnen 2 minuten een vrijblijvende prijsindicatie, of bel direct voor een afspraak.</p>
+    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Start de AI-wizard →
+      </a>
+      <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl transition-colors text-base">
+        Bel 085-303 58 94
+      </a>
+    </div>
+    <div className="flex flex-wrap gap-x-6 gap-y-1">
+      {["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"].map((item) => (
+        <span key={item} className="text-xs text-slate-400 flex items-center gap-1">
+          <svg className="w-3 h-3 text-slate-300" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 export default function Page() {
   return (
     <>
       <Header />
       <main className="mt-16">
-        <div className="bg-white py-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Ontruiming</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Discreet een huis laten ontruimen na een overlijden</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">Wilt u een huis laten ontruimen na een overlijden? Laat dit dan over aan het professionele en toegewijde team van Uw Ontruimer! Wij zijn betrouwbaar, deskundig en klantgericht. Wij begrijpend dat een overlijden voor u een zware emotionele tijd betekent. En dat uw hoofd op dat moment niet staat naar het ontruimen van een huis. Ons team staat klaar om het leegruimen met de grootst mogelijke zorg voor u uit te voeren. Bel ons voor een vrijblijvende offerte!</p>
-
-            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
-              <li>15+ jaar ervaring</li>
-              <li>Waardevolle spullen kunnen geveild worden</li>
-              <li>Overige spullen worden duurzaam verwijderd in samenwerking met regionale kringloopwinkels</li>
-              <li>Wij werken discreet en ontzorgen u zoveel mogelijk</li>
-            </ul>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Hoe werkt een huis laten ontruimen?</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Bij een overlijden zijn de erfgenamen verantwoordelijk voor het leegruimen van het huis. Maar dit is een flinke klus en u heeft op dat moment al genoeg aan uw hoofd. Dan is het handig om hulp in te schakelen. Bijvoorbeeld van een ons ontruimingsbedrijf.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Dat is makkelijk, want zo hoeft u niet zelf het hele huis leeg te ruimen en alles uit te zoeken. Ons team is snel, efficiënt en discreet. Als we nog dingen van waarde vinden, dan worden die geveild en in mindering gebracht op de factuur. Voorwerpen waarvan we vermoeden dat ze emotionele waarde hebben, houden we voor u apart. De rest geven we zoveel mogelijk een tweede leven via kringloopwinkels.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Moet de woning ook klaar worden gemaakt voor verhuur of om te worden verkocht? Dan kunt u dit ook aan ons uitbesteden. Wij zorgen ervoor dat het leegruimen van de woning met respect gebeurt. En dat u zelf nergens omkijken naar heeft!</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Direct contact</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Heeft u een huis wat leeggehaald moet worden en kunt u hulp gebruiken? Twijfel dan niet om een woningontruimer in te schakelen. Een ontruimingsbedrijf zoals wij zijn gespecialiseerd in een woning leegruimen. Wij hebben meer dan 15 jaar ervaring en werken deskundig en discreet. Voor u het weet is het appartement leeg.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Kosten ontruimen huis na overlijden</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Wat de kosten van het ontruimen van een huis na overlijden zijn, is van meerdere factoren afhankelijk. Hoeveel spullen zijn het, moet er veel worden uitgezocht, is het op de begane grond is en zijn er nog extra werkzaamheden die moeten worden uitgevoerd? Dit zijn allemaal zaken die invloed hebben op de kosten.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Daarom komen wij vrijblijvend bij u langs en voorzien we u van een maatwerk offerte. Zo weet u precies wat het laten ontruimen van een huis na een overlijden u gaat kosten. Vinden wij bij het ontruimen nog waardevolle spullen? Dan worden die op het offertebedrag in mindering gebracht. Met onze opkoop- en veilingservice kunt u hier dus zelfs aan verdienen.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Afspraak maken voor ontruimen huis na overlijden</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Maak eenvoudig een afspraak voor het ontruimen van een huis na een overlijden. Bel ons op 085-303 58 94 of vul het contactformulier in en wij komen vrijblijvend bij u langs om een offerte op te stellen</p>
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mt-10">
-          <p className="text-slate-700 font-medium mb-2">Hulp nodig?</p>
-          <p className="text-slate-500 font-light text-sm mb-4">
-            Bel Uw Ontruimer op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag vrijblijvend een offerte aan.
-          </p>
-          <a href="/offerte" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors">
-            Gratis offerte aanvragen
-          </a>
-        </div>
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/appartement-leeg.png" alt="Huis ontruimen na overlijden" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Huis ontruimen na overlijden:<br />Respectvol en volledig ontzorgd
+              </h1>
+            </div>
           </div>
         </div>
-        <TrustBar />
-        <CTASection />
+
+        <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
+          <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            {["15+ jaar ervaring", "Discreet & respectvol", "Schriftelijke opleveringsgarantie"].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <GoogleReviewsBar />
+
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Ontruiming</p>
+
+            <div className="mb-10">
+              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+                Start de AI-wizard →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Een huis ontruimen na overlijden: wat komt erbij kijken?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Na het overlijden van een dierbare is er naast het verdriet ook veel praktisch te regelen. De woning moet worden leeggemaakt, de inboedel verdeeld of afgevoerd, en het huis bezemschoon opgeleverd aan verhuurder of erfgenamen. Uw Ontruimer neemt dit volledig uit handen — discreet, snel en met oog voor de emotionele situatie.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Volledige ontruiming van de woning, inclusief zolder, kelder en schuur",
+                "Inventarisatie en documentatie van de inboedel",
+                "Waardevolle objecten getaxeerd door erkende taxateurs",
+                "Spullen naar erfgenamen, kringloop, veiling of opkoop",
+                "Woning bezemschoon opgeleverd met schriftelijke garantie",
+                "Eén vast aanspreekpunt gedurende het hele traject",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Respectvolle omgang met de nalatenschap</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Wij begrijpen dat het leeghalen van een ouderlijk huis of de woning van een partner meer is dan een praktische klus. Ons team werkt altijd respectvol, gedegen en op uw tempo. U bepaalt wat er met de spullen gebeurt — wij voeren het uit. Persoonlijke herinneringen worden nooit zomaar afgevoerd.
+            </p>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Waardevolle spullen: taxatie, veiling of opkoop</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Heeft de overledene waardevolle objecten nagelaten? Uw Ontruimer taxeert antiek, kunst, sieraden en andere waardevolle goederen door erkende taxateurs. Waardevolle spullen kopen wij op of brengen wij naar een veilinghuis. De opbrengst wordt verrekend met de ontruimingskosten — zodat u netto minder betaalt.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Taxatie door erkende taxateurs (Federatie TMV)",
+                "Opkoop door Uw Ontruimer: snel en eerlijke prijs",
+                "Veiling via gerenommeerd veilinghuis: maximale opbrengst",
+                "Donatie aan kringloop of goed doel op verzoek",
+                "Persoonlijke bezittingen bewaard en overhandigd aan nabestaanden",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Hoe verloopt de ontruiming?</h2>
+            <ol className="space-y-4 mb-10">
+              {[
+                { stap: "1", titel: "Vrijblijvende prijsindicatie", tekst: "Via de AI-wizard of een kort telefoongesprek geeft u de situatie door. Wij sturen een heldere offerte." },
+                { stap: "2", titel: "Afstemming met nabestaanden", tekst: "In overleg bepalen we wat meegaat naar erfgenamen, wat verkocht wordt en wat wordt afgevoerd." },
+                { stap: "3", titel: "Ontruiming en verwerking", tekst: "Ons team werkt efficiënt en respectvol. Waardevolle spullen worden apart gehouden en verwerkt." },
+                { stap: "4", titel: "Bezemschone oplevering", tekst: "De woning wordt bezemschoon opgeleverd. U ontvangt een schriftelijk opleveringsrapport." },
+              ].map(({ stap, titel, tekst }) => (
+                <li key={stap} className="flex gap-4">
+                  <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">{stap}</span>
+                  <div><p className="font-medium text-slate-800 mb-1">{titel}</p><p className="text-slate-500 font-light text-sm leading-relaxed">{tekst}</p></div>
+                </li>
+              ))}
+            </ol>
+
+            <CtaBox />
+          </div>
+        </div>
       </main>
       <Footer />
     </>

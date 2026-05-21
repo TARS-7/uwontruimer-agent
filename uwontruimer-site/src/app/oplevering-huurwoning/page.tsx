@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Stap 1. Alle abonnementen moeten worden opgezegd. | UwOntruimer.nl",
@@ -10,54 +10,129 @@ export const metadata: Metadata = {
   alternates: { canonical: "/oplevering-huurwoning/" },
 };
 
+const checkIcon = (
+  <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+    <svg className="w-2.5 h-2.5 text-blue-600" viewBox="0 0 12 12" fill="none">
+      <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
+const CtaBox = () => (
+  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+    <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Klaar voor de volgende stap?</h2>
+    <p className="text-slate-500 font-light text-sm mb-6">Ontvang binnen 2 minuten een vrijblijvende prijsindicatie, of bel direct voor een afspraak.</p>
+    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Start de AI-wizard →
+      </a>
+      <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl transition-colors text-base">
+        Bel 085-303 58 94
+      </a>
+    </div>
+    <div className="flex flex-wrap gap-x-6 gap-y-1">
+      {["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"].map((item) => (
+        <span key={item} className="text-xs text-slate-400 flex items-center gap-1">
+          <svg className="w-3 h-3 text-slate-300" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 export default function Page() {
   return (
     <>
       <Header />
       <main className="mt-16">
-        <div className="bg-white py-20 px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Informatie</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Stap 1. Alle abonnementen moeten worden opgezegd.</h1>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">Hoe moet je als huurder je oude huurwoning opleveren? Op deze pagina kunt u informatie, tips en adviezen lezen over het opleveren van een huurwoning.</p>
-
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Er zijn verschillende aanleidingen waarom dit voor u een nuttig artikel is. Misschien gaat u verhuizen. Dan moet u uw oude huurwoning weer in oude staat opleveren. Bij het overlijden van een dierbare of familielid kan het zijn dat u als erfgename de nalatenschap moet verzorgen. Dan is de aanleiding vervelend en heeft u misschien te maken met verdriet of andere emoties. Dan kan dit artikel u helpen in deze moeilijke tijd.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">In het volgende artikel nemen we stap voor stap door wat de gebruikelijke procedure is bij het opleveren van een huurwoning.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Eventueel vooruit betaalde abonnementen kunnen teruggevorderd worden.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Stap 2. Contact opnemen met de verhuurder of woningcorporatie.</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">U legt uit wat de situatie is en vraagt zo nodig een voorinspectie aan. Tijdens deze voorinspectie legt de verhuurder/verhuurmakelaar uit wat de eisen zijn voor de oplevering. Is er een opnamestaat aanwezig? Opnamestaat ook wel inspectierapport genoemd is een beschrijving van de woning bij het aangaan van de huurovereenkomst. Vaak moet de woning weer in oude staat opgeleverd worden.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Stap 3. De inboedel</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Bij het overlijden van een dierbare kan dit een emotionele gebeurtenis zijn. Sommige spullen kunnen nog een emotionele waarde vertegenwoordigen voor de erfgename. Erfgenamen kunnen aanspraak hebben op dezelfde spullen. Dit kan problemen veroorzaken bij de verdeling van de inboedel.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Tip: Stel een onafhankelijk persoon aan voor de verdeling van de goederen en zorg dat alle spullen een waarde toegekend krijgen. Zo voorkom je dat iemand waardevollere spullen toegekend krijgt dan een ander.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Stap 4. De woning in oude staat opleveren.</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Denk hierbij aan vloerverwijdering en weghalen van gordijnrails en lampen. Slijtage door gebruikt hoeft u niet te herstellen. Schade aan de woning moet wel hersteld worden. Had u toestemming van de verhuurder om veranderingen aan te brengen? Bijvoorbeeld bij het verbouwen van de badkamer of keuken. Dan hoeft dit niet hersteld te worden. U kunt dan zelfs een vergoeding vragen aan het einde van de huurovereenkomst. (link juridisch loket.nl)</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Bij een verhuizing heeft u mogelijk nog een restboedel. Is dit nog bruikbaar? Dan zijn er verschillende kringlooporganisaties die dit gratis ophalen. Misschien wil de nieuwe bewoner spullen overnemen. Maak hierover een duidelijke prijsafspraak zodat u niet voor verassingen komt te staan. Voor een waardevolle inboedel kunt u eventueel een opkoper zoeken. Klik hier voor inboedel opkoop.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Tip: Een woning leegruimen en schoon opleveren is een tijdrovende klus. Het is ook nog eens fysiek zwaar werk om de inboedel te verwijderen. Daarom kiezen veel mensen ervoor dit uit handen te geven. U kunt er ook voor kiezen om de woning professioneel te laten ontruimen. Er zijn veel bedrijven die woningontruimingen aanbieden. Als u ervoor kiest dit uit handen te geven zoek dan een betrouwbare partner aan wie u de sleutels letterlijk toevertrouwd.</p>
-            <ul className="list-disc list-inside text-slate-500 font-light leading-relaxed mb-5 space-y-1">
-              <li>Discreet</li>
-              <li>Duurzaam</li>
-              <li>Opleveringsgarantie</li>
-              <li>15+ jaar ervaring</li>
-              <li>Ontzorgt</li>
-            </ul>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Stap 5. Meterstanden opnemen en doorgeven.</h2>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Stap 6. Eindopname.</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Als de woning leeg is komt de verhuurder of de verhuurmakelaar langs voor een inspectie. Hij controleert of de is woning opgeleverd zoals afgesproken bij de voorcontrole en u levert alle sleutels in.</p>
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Afspraak maken voor woning ontruimen</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Maak eenvoudig een afspraak met ons door te bellen naar: 085-303 58 94 of vul het contactformulier in op onze website. U ontvangt dan een vrijblijvende offerte</p>
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mt-10">
-          <p className="text-slate-700 font-medium mb-2">Hulp nodig?</p>
-          <p className="text-slate-500 font-light text-sm mb-4">
-            Bel Uw Ontruimer op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag vrijblijvend een offerte aan.
-          </p>
-          <a href="/offerte" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors">
-            Gratis offerte aanvragen
-          </a>
-        </div>
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/appartement-makelaar.png" alt="Oplevering huurwoning" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Oplevering huurwoning:<br />Voldoe aan alle eisen van uw verhuurder
+              </h1>
+            </div>
           </div>
         </div>
-        <TrustBar />
-        <CTASection />
+
+        <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
+          <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+            {["Conform opleveringseisen", "Schriftelijke garantie", "Borg terug"].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <GoogleReviewsBar />
+
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Diensten</p>
+
+            <div className="mb-10">
+              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+                Start de AI-wizard →
+              </a>
+              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wat zijn de eisen bij oplevering van een huurwoning?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Bij het einde van een huurcontract moet u de woning opleveren in de staat zoals vastgelegd bij aanvang van de huur. Dat betekent in de praktijk: leeg, schoon en zonder beschadigingen die niet als normaal gebruik gelden. Uw Ontruimer helpt u om aan al deze eisen te voldoen — zodat u uw borg terugkrijgt.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Woning volledig leeg inclusief zolder, kelder en berging",
+                "Bezemschoon opgeleverd conform de inspectie-eisen",
+                "Kleine gebreken hersteld: gaatjes in de muur, beschadigde kozijnen",
+                "Vloerbedekking verwijderd indien gewenst",
+                "Abonnementen en nutsvoorzieningen tijdig doorgeven aan verhuurder",
+                "Schriftelijke opleveringsgarantie — bij opmerkingen komen wij kosteloos terug",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Checklist oplevering huurwoning</h2>
+            <ol className="space-y-4 mb-8">
+              {[
+                { stap: "1", titel: "Zeg abonnementen op", tekst: "Gas, water, elektra, internet en eventuele verzekeringen tijdig opzeggen of doorgeven aan de nieuwe bewoner." },
+                { stap: "2", titel: "Maak de woning leeg", tekst: "Alle meubels, dozen en persoonlijke spullen moeten uit de woning — inclusief zolder, kelder en berging." },
+                { stap: "3", titel: "Herstel gebreken", tekst: "Gaatjes vullen, beschadigingen herstellen die buiten normale slijtage vallen. Vraag twijfelgevallen na bij verhuurder." },
+                { stap: "4", titel: "Grondige schoonmaak", tekst: "Keuken, badkamer, ramen en vloeren grondig schoonmaken. Bij voorkeur professionele eindschoonmaak." },
+                { stap: "5", titel: "Eindinspectie", tekst: "Loop de woning samen met de verhuurder of zijn vertegenwoordiger door. Zorg voor een schriftelijk inspectierapport." },
+              ].map(({ stap, titel, tekst }) => (
+                <li key={stap} className="flex gap-4">
+                  <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">{stap}</span>
+                  <div><p className="font-medium text-slate-800 mb-1">{titel}</p><p className="text-slate-500 font-light text-sm leading-relaxed">{tekst}</p></div>
+                </li>
+              ))}
+            </ol>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Uw Ontruimer helpt bij de oplevering</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Wij kennen de standaard opleveringseisen en kunnen de woning volledig voor u klaarmaken. Ontruiming, vloerverwijdering, kleine herstelwerkzaamheden en schoonmaak: alles in één opdracht, één factuur. Zo weet u zeker dat de woning voldoet — en krijgt u uw borg terug.
+            </p>
+            <ul className="space-y-3 mb-10">
+              {[
+                "Ontruiming én eindschoonmaak in één opdracht",
+                "Vloerverwijdering indien vereist door verhuurder",
+                "Kleine reparaties en schilderwerk op aanvraag",
+                "Schriftelijke opleveringsgarantie — bij opmerkingen kosteloos terug",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+              ))}
+            </ul>
+
+            <CtaBox />
+          </div>
+        </div>
       </main>
       <Footer />
     </>
