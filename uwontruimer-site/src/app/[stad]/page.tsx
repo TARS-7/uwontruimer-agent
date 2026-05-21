@@ -206,6 +206,31 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkgebied</p>
             <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Woningontruiming {name}</h1>
 
+            {/* Primaire bel-knop */}
+            <a
+              href="tel:0853035894"
+              className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-md transition-colors mb-6"
+            >
+              <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              085-303 58 94
+            </a>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium px-3 py-1.5 rounded-full">
+                <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                500+ ontruimingen
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium px-3 py-1.5 rounded-full">
+                <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                15+ jaar ervaring
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium px-3 py-1.5 rounded-full">
+                <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Bezemschoon garantie
+              </span>
+            </div>
+
             {paragraphs ? (
               paragraphs.map((p, i) => (
                 <p key={i} className="text-slate-500 font-light leading-relaxed mb-6">{p}</p>
@@ -218,6 +243,22 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             )}
 
             <p className="text-slate-500 font-light leading-relaxed">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
+
+            {/* Urgentie-regel */}
+            <p className="mt-6 text-sm font-medium text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+              Beperkte beschikbaarheid in {name} — bel voor actuele planning
+            </p>
+
+            {/* Tweede bel-knop (mobiel/onderaan content) */}
+            <div className="mt-6">
+              <a
+                href="tel:0853035894"
+                className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-md transition-colors w-full justify-center sm:w-auto"
+              >
+                <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                Bel direct: 085-303 58 94
+              </a>
+            </div>
           </div>
         </div>
         <TrustBar />
