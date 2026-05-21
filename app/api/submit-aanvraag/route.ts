@@ -218,6 +218,29 @@ async function saveToFirestore(doc: FirestoreDoc): Promise<void> {
   }
 }
 
+// ─── Apps Script webhook ──────────────────────────────────────────────────────
+
+async function notifyAppsScript(payload: {
+  naam: string
+  email: string
+  telefoon: string
+  adres: string
+  notitie: string
+}): Promise<void> {
+  const webhookUrl = process.env.APPS_SCRIPT_WEBHOOK_URL
+  if (!webhookUrl) return
+
+  const res = await fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  if (!res.ok) {
+    const txt = await res.text()
+    throw new Error(`Apps Script webhook (${res.status}): ${txt.slice(0, 200)}`)
+  }
+}
+
 // ─── Route handler ────────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
@@ -295,14 +318,24 @@ export async function POST(request: NextRequest) {
     await appendToSheets(sheetId!, token, row)
   }
 
-  // Run both in parallel
-  const [sheetsResult, firestoreResult] = await Promise.allSettled([
+  const webhookPayload = {
+    naam,
+    email,
+    telefoon,
+    adres,
+    notitie: `${offerte.referentie} | ${bedragRange} | ${opleveringsdatum}`,
+  }
+
+  // Run all three in parallel
+  const [sheetsResult, firestoreResult, webhookResult] = await Promise.allSettled([
     sheetsConfigured ? doSheets() : Promise.reject(new Error('Sheets niet geconfigureerd')),
     saveToFirestore(firestoreDoc),
+    notifyAppsScript(webhookPayload),
   ])
 
   const sheetsOk    = sheetsResult.status === 'fulfilled'
   const firestoreOk = firestoreResult.status === 'fulfilled'
+  const webhookOk   = webhookResult.status === 'fulfilled'
 
   if (!sheetsOk) {
     const msg = sheetsResult.status === 'rejected'
@@ -316,11 +349,17 @@ export async function POST(request: NextRequest) {
       : ''
     console.error('[submit-aanvraag] Firestore fout:', msg)
   }
+  if (!webhookOk) {
+    const msg = webhookResult.status === 'rejected'
+      ? (webhookResult.reason instanceof Error ? webhookResult.reason.message : String(webhookResult.reason))
+      : ''
+    console.error('[submit-aanvraag] Webhook fout:', msg)
+  }
 
   if (!sheetsOk && !firestoreOk) {
     return Response.json({ error: 'Opslaan mislukt. Probeer opnieuw.' }, { status: 500 })
   }
 
-  const opgeslagenIn = [sheetsOk && 'sheets', firestoreOk && 'firestore'].filter(Boolean)
+  const opgeslagenIn = [sheetsOk && 'sheets', firestoreOk && 'firestore', webhookOk && 'webhook'].filter(Boolean)
   return Response.json({ ok: true, opgeslagenIn })
 }
