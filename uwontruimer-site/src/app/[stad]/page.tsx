@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import TrustBar from "@/components/TrustBar";
-import CTASection from "@/components/CTASection";
 import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
 import seoData from "@/data/seo-metadata.json";
@@ -187,6 +185,71 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     ],
   };
 
+  const faqItems = [
+    {
+      q: `Wat kost een woningontruiming in ${name}?`,
+      a: `De kosten van een woningontruiming in ${name} zijn afhankelijk van de omvang van de klus, de hoeveelheid inboedel en eventuele bijzondere omstandigheden. Uw Ontruimer werkt altijd met een transparante, vaste offerte — zonder verborgen kosten. Bel 085-303 58 94 voor een gratis prijsopgave.`,
+    },
+    {
+      q: `Hoe snel kan Uw Ontruimer in ${name} starten?`,
+      a: `In de meeste gevallen kunnen wij binnen 24 tot 48 uur na contact starten met de ontruiming in ${name}. Bij spoedgevallen kijken wij altijd naar de mogelijkheden voor een snellere inzet. Neem direct contact op via 085-303 58 94.`,
+    },
+    {
+      q: `Moet ik zelf aanwezig zijn bij de woningontruiming in ${name}?`,
+      a: `U hoeft niet persoonlijk aanwezig te zijn. Uw Ontruimer werkt volledig zelfstandig en levert de woning bezemschoon op met een schriftelijke opleveringsgarantie. Wel heeft u kort contact nodig voor overdracht van sleutels en specifieke instructies.`,
+    },
+    {
+      q: `Wat gebeurt er met de inboedel bij een ontruiming in ${name}?`,
+      a: `Waardevolle spullen worden getaxeerd en kunnen worden afgekocht of verrekend met de ontruimingskosten. Herbruikbare goederen gaan naar de kringloopwinkel, de rest wordt op verantwoorde wijze afgevoerd en gesorteerd. Wij werken duurzaam en houden zo veel mogelijk materiaal uit de verbrandingsoven.`,
+    },
+  ];
+
+  const phoneIcon = (
+    <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+    </svg>
+  );
+
+  const offerteIcon = (
+    <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+  );
+
+  const checkItems = ["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"];
+
+  const ctaButtons = (dark = false) => (
+    <>
+      <div className="flex flex-col sm:flex-row gap-3 mb-5">
+        <a
+          href="https://analyse.uwontruimer.nl"
+          className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
+          style={{ backgroundColor: "#f4a01c" }}
+        >
+          {offerteIcon}
+          Ontvang direct uw AI-offerte (2 min)
+        </a>
+        <a
+          href="tel:0853035894"
+          className={`inline-flex items-center justify-center gap-2 font-semibold px-7 py-4 rounded-xl transition-colors text-base border-2 ${dark ? "bg-transparent border-white text-white hover:bg-white/10" : "bg-white border-blue-600 text-blue-600 hover:bg-blue-50"}`}
+        >
+          {phoneIcon}
+          Bel 085-303 58 94
+        </a>
+      </div>
+      <div className="flex flex-wrap gap-x-6 gap-y-1.5">
+        {checkItems.map((item) => (
+          <span key={item} className={`inline-flex items-center gap-1.5 text-sm ${dark ? "text-slate-400" : "text-slate-400"}`}>
+            <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            {item}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+
   return (
     <>
       <script
@@ -195,42 +258,44 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
       />
       <Header />
       <main className="mt-16">
-        {/* Hero */}
-        <div className="relative w-full overflow-hidden" style={{ height: '400px' }}>
+
+        {/* Hero afbeelding */}
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
           <Image src="/hero-truck.png" alt={`Woningontruiming ${name}`} fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
           <div className="absolute inset-0 bg-slate-900/30" />
         </div>
 
-        <div className="bg-white py-16 px-6">
+        {/* Hero CTA blok */}
+        <div className="bg-white py-14 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkgebied</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Woningontruiming {name}</h1>
+            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-3">Woningontruiming {name}</h1>
+            <p className="text-lg text-slate-500 font-light mb-8">Snel, discreet en met schriftelijke opleveringsgarantie</p>
+            {ctaButtons(false)}
+          </div>
+        </div>
 
-            {/* Primaire bel-knop */}
-            <a
-              href="tel:0853035894"
-              className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-md transition-colors mb-6"
-            >
-              <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-              085-303 58 94
-            </a>
+        {/* Trustbalk */}
+        <div className="bg-slate-50 border-y border-slate-100 py-5 px-6">
+          <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-8">
+            {[
+              { label: "15+ jaar ervaring", icon: <svg key="exp" className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> },
+              { label: "Schriftelijke opleveringsgarantie", icon: <svg key="gar" className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> },
+              { label: "Binnen 24 uur beschikbaar", icon: <svg key="24h" className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> },
+            ].map(({ label, icon }) => (
+              <div key={label} className="flex items-center gap-2 text-sm font-medium text-slate-600">
+                {icon}
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
 
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium px-3 py-1.5 rounded-full">
-                <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                500+ ontruimingen
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium px-3 py-1.5 rounded-full">
-                <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                15+ jaar ervaring
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium px-3 py-1.5 rounded-full">
-                <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
-                Bezemschoon garantie
-              </span>
-            </div>
+        {/* StadContent + FAQ + CTA */}
+        <div className="bg-white py-14 px-6">
+          <div className="max-w-3xl mx-auto">
 
+            {/* Stadinhoud — volledig intact */}
             {paragraphs ? (
               paragraphs.map((p, i) => (
                 <p key={i} className="text-slate-500 font-light leading-relaxed mb-6">{p}</p>
@@ -239,30 +304,48 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               <>
                 <p className="text-slate-500 font-light leading-relaxed mb-6">UwOntruimer is actief in {name} en omstreken. Wij verzorgen de volledige ontruiming van woningen, appartementen en bedrijfspanden — snel, discreet en met een schriftelijke opleveringsgarantie.</p>
                 <p className="text-slate-500 font-light leading-relaxed mb-6">Of u nu een woning wilt laten ontruimen na een overlijden, een verhuizing plant of een spoedontruiming nodig heeft: ons team staat voor u klaar in {name}. Wij hanteren vaste, transparante prijzen zonder verborgen kosten.</p>
+                <p className="text-slate-500 font-light leading-relaxed mb-6">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
               </>
             )}
 
-            <p className="text-slate-500 font-light leading-relaxed">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
-
-            {/* Urgentie-regel */}
-            <p className="mt-6 text-sm font-medium text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
-              Beperkte beschikbaarheid in {name} — bel voor actuele planning
-            </p>
-
-            {/* Tweede bel-knop (mobiel/onderaan content) */}
-            <div className="mt-6">
-              <a
-                href="tel:0853035894"
-                className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-md transition-colors w-full justify-center sm:w-auto"
-              >
-                <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                Bel direct: 085-303 58 94
-              </a>
+            {/* Amber urgentie-blok */}
+            <div className="mt-8 flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-lg px-4 py-4">
+              <svg className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <p className="text-sm font-medium text-amber-700">
+                Beperkte beschikbaarheid in {name} — bel voor actuele planning
+              </p>
             </div>
+
+            {/* FAQ */}
+            <div className="mt-14 border-t border-slate-100 pt-10">
+              <h2 className="text-2xl font-semibold text-slate-900 tracking-tight mb-8">
+                Veelgestelde vragen over woningontruiming in {name}
+              </h2>
+              <div className="space-y-7">
+                {faqItems.map(({ q, a }) => (
+                  <div key={q}>
+                    <p className="font-medium text-slate-800 mb-1.5">{q}</p>
+                    <p className="text-slate-500 font-light leading-relaxed">{a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Onderste CTA blok */}
+            <div className="mt-14 bg-slate-900 rounded-2xl px-8 py-10 sm:px-10">
+              <p className="text-xs font-medium text-blue-400 uppercase tracking-widest mb-3">Aan de slag</p>
+              <h2 className="text-2xl font-semibold text-white tracking-tight mb-2">Klaar voor de volgende stap?</h2>
+              <p className="text-slate-400 font-light text-sm leading-relaxed mb-7">
+                Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie.
+              </p>
+              {ctaButtons(true)}
+            </div>
+
           </div>
         </div>
-        <TrustBar />
-        <CTASection />
+
       </main>
       <Footer />
     </>
