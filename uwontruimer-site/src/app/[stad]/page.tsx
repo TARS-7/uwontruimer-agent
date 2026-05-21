@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReviewBanner from "@/components/ReviewBanner";
-import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
+import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
 import seoData from "@/data/seo-metadata.json";
@@ -293,10 +293,8 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
           </div>
         </div>
 
-        {/* Google reviews badge */}
-        <div className="bg-white border-b border-slate-100 py-3 px-6 flex justify-center">
-          <GoogleReviewsBadge />
-        </div>
+        {/* Google reviews bar */}
+        <GoogleReviewsBar />
 
         {/* Review banner */}
         <ReviewBanner name={name} />
