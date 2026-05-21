@@ -9,6 +9,7 @@ import HeroTunnels from "@/components/HeroTunnels";
 import Image from "next/image";
 import Link from "next/link";
 import WerkgebiedSearch from "@/components/WerkgebiedSearch";
+import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
 import { blogPosts } from "@/data/blog-posts";
 
 const blogImages: Record<string, string> = {
@@ -95,11 +96,12 @@ export default function HomePage() {
           </p>
           <HeroTunnels />
           {/* TRUST STATS */}
-          <div className="fade-5 flex flex-wrap gap-8 pt-8 border-t border-slate-100">
+          <div className="fade-5 flex flex-wrap items-center gap-8 pt-8 border-t border-slate-100">
             <div><div className="text-xl font-semibold text-slate-900 leading-none mb-1">2.500+</div><div className="text-xs text-slate-400 uppercase tracking-wide">Families geholpen</div></div>
             <div><div className="text-xl font-semibold text-slate-900 leading-none mb-1">5,0 ★</div><div className="text-xs text-slate-400 uppercase tracking-wide">Google beoordeling</div></div>
             <div><div className="text-xl font-semibold text-slate-900 leading-none mb-1">24u</div><div className="text-xs text-slate-400 uppercase tracking-wide">Spoedservice</div></div>
             <div><div className="text-xl font-semibold text-slate-900 leading-none mb-1">100%</div><div className="text-xs text-slate-400 uppercase tracking-wide">Opleveringsgarantie</div></div>
+            <GoogleReviewsBadge />
           </div>
         </div>
         {/* HERO IMAGE */}

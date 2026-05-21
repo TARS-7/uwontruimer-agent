@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReviewBanner from "@/components/ReviewBanner";
+import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
 import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
 import seoData from "@/data/seo-metadata.json";
@@ -225,7 +226,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         <a
           href="https://analyse.uwontruimer.nl"
           className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
-          style={{ backgroundColor: "#d97706" }}
+          style={{ backgroundColor: "#2563eb" }}
         >
           {offerteIcon}
           Ontvang direct uw AI-offerte (2 min)
@@ -290,6 +291,11 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Google reviews badge */}
+        <div className="bg-white border-b border-slate-100 py-3 px-6 flex justify-center">
+          <GoogleReviewsBadge />
         </div>
 
         {/* Review banner */}
