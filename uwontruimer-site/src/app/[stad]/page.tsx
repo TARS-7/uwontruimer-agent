@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ReviewBanner from "@/components/ReviewBanner";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
@@ -295,9 +294,6 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
 
         {/* Google reviews bar */}
         <GoogleReviewsBar />
-
-        {/* Review banner */}
-        <ReviewBanner name={name} />
 
         {/* StadContent + FAQ + CTA */}
         <div className="bg-white py-14 px-6">
