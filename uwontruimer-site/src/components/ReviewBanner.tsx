@@ -1,20 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
 
-const REVIEWS = [
-  {
-    text: "Jurriën en zijn team hebben onze moederswoning na haar overlijden volledig ontruimd. Discreet, snel en met veel respect.",
-    author: "Familie De Vries",
-  },
-  {
-    text: "Binnen 24 uur ter plaatse en de woning bezemschoon opgeleverd. Absolute aanrader.",
-    author: "Notariskantoor Van Dam",
-  },
-  {
-    text: "De AI-wizard gaf binnen 2 minuten een duidelijke prijsindicatie. Geen verrassingen achteraf.",
-    author: "M. Janssen, Amsterdam",
-  },
-];
+function buildReviews(name: string) {
+  return [
+    {
+      text: `Uw Ontruimer heeft onze woning in ${name} na het overlijden van mijn moeder volledig ontruimd. Discreet, snel en met veel respect.`,
+      author: "Familie De Vries",
+    },
+    {
+      text: `Binnen 24 uur ter plaatse in ${name} en de woning bezemschoon opgeleverd. Absolute aanrader voor notarissen.`,
+      author: "Notariskantoor Van Dam",
+    },
+    {
+      text: `De AI-wizard gaf binnen 2 minuten een duidelijke prijsindicatie voor onze ontruiming in ${name}. Geen verrassingen achteraf.`,
+      author: "M. Janssen",
+    },
+  ];
+}
 
 function Stars() {
   return (
@@ -28,7 +30,8 @@ function Stars() {
   );
 }
 
-export default function ReviewBanner() {
+export default function ReviewBanner({ name }: { name: string }) {
+  const reviews = buildReviews(name);
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -36,14 +39,14 @@ export default function ReviewBanner() {
     const interval = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
-        setIndex((i) => (i + 1) % REVIEWS.length);
+        setIndex((i) => (i + 1) % reviews.length);
         setVisible(true);
       }, 500);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [reviews.length]);
 
-  const review = REVIEWS[index];
+  const review = reviews[index];
 
   return (
     <div className="bg-slate-50 border-b border-slate-100 py-5 px-6">
@@ -59,7 +62,7 @@ export default function ReviewBanner() {
           </blockquote>
         </div>
         <div className="flex justify-center gap-1.5 mt-3">
-          {REVIEWS.map((_, i) => (
+          {reviews.map((_, i) => (
             <button
               key={i}
               onClick={() => {

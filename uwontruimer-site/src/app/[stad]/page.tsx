@@ -297,7 +297,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         <GoogleReviewsBar />
 
         {/* Roterende klantreviews */}
-        <ReviewBanner />
+        <ReviewBanner name={name} />
 
         {/* StadContent + FAQ + CTA */}
         <div className="bg-white py-14 px-6">
