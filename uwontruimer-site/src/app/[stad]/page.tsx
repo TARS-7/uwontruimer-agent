@@ -226,7 +226,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         <a
           href="https://analyse.uwontruimer.nl"
           className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
-          style={{ backgroundColor: "#2563eb" }}
+          style={{ backgroundColor: "#d97706" }}
         >
           {offerteIcon}
           Ontvang direct uw AI-offerte (2 min)
