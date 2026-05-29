@@ -5,11 +5,13 @@ import type { NextRequest } from "next/server";
 const REDIRECTS: Record<string, string> = {
   "/privacybeleid":                        "/privacy",
   "/formulier":                            "/offerte",
+  "/bereken-uw-ontruiming":               "/offerte",
   "/seniorenverhuizing":                   "/diensten/verhuizen",
   "/woningbouwvereneging":                 "/woningbouwvereniging",
   "/sitemap":                              "/",
   "/over-uw-ontruimer":                    "/over-ons",
   "/werkgebied":                           "/",
+  "/werkgebied-noord-holland":             "/woningontruiming-noord-holland",
   // Special stad cases
   "/woningontruiming-hilversum-2":         "/woningontruiming-hilversum",
   "/woningontruiming-coronavirus-covid-19": "/",
@@ -28,7 +30,14 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(url, { status: 301 });
   }
 
-  // 2. Rewrite /woningontruiming-{slug} → /{slug} internally
+  // 2. Redirect /nieuws/... → /blog/...
+  if (normalized.startsWith("/nieuws")) {
+    const url = request.nextUrl.clone();
+    url.pathname = normalized.replace(/^\/nieuws/, "/blog");
+    return NextResponse.redirect(url, { status: 301 });
+  }
+
+  // 3. Rewrite /woningontruiming-{slug} → /{slug} internally
   //    The public URL stays /woningontruiming-amsterdam/, content served from [stad] route
   const match = normalized.match(/^\/woningontruiming-(.+)$/);
   if (match) {
@@ -58,5 +67,10 @@ export const config = {
     "/over-uw-ontruimer/",
     "/werkgebied",
     "/werkgebied/",
+    "/nieuws/:path*",
+    "/bereken-uw-ontruiming",
+    "/bereken-uw-ontruiming/",
+    "/werkgebied-noord-holland",
+    "/werkgebied-noord-holland/",
   ],
 };
