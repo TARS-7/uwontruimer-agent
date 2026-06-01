@@ -15,6 +15,8 @@ export interface Step4Result {
 
 interface Props {
   initialData: { fotos: File[] }
+  naam?: string
+  woonplaats?: string
   onComplete: (result: Step4Result) => void
   onBack: () => void
 }
@@ -25,7 +27,7 @@ function uid() { return Math.random().toString(36).slice(2, 10) }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
+export default function Step4Fotos({ initialData, naam, woonplaats, onComplete, onBack }: Props) {
   const [fotos, setFotos]       = useState<FotoItem[]>(() =>
     initialData.fotos.map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
   )
@@ -53,9 +55,8 @@ export default function Step4Fotos({ initialData, onComplete, onBack }: Props) {
     setUploading(true)
     setError(null)
     try {
-      const files  = fotos.map((f) => f.file)
-      const subpad = `aanvragen/${uploadIdRef.current}`
-      const fotoUrls = await uploadFotos(files, subpad)
+      const files    = fotos.map((f) => f.file)
+      const fotoUrls = await uploadFotos(files, uploadIdRef.current, naam, woonplaats)
       onComplete({ fotos: files, fotoUrls })
     } catch {
       setError('Upload mislukt. Controleer je verbinding en probeer opnieuw.')

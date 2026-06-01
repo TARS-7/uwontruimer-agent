@@ -8,6 +8,19 @@ export function generateUploadId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
 }
 
+// Maakt een string veilig voor gebruik als mapnaam in Firebase Storage
+function sanitizePadDeel(s: string): string {
+  return s
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')   // strip accenten
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 40) || 'onbekend'
+}
+
 // ─── Compression ──────────────────────────────────────────────────────────────
 
 // Resize to MAX_DIM and convert to JPEG. GIFs are passed through unchanged
@@ -108,8 +121,18 @@ export async function uploadFoto(file: File, pad: string): Promise<string | null
 
 export async function uploadFotos(
   files: File[],
-  subpad: string,
+  uploadId: string,
+  naam?: string,
+  woonplaats?: string,
+  subfolder?: string,
 ): Promise<string[]> {
+  const datum      = new Date().toISOString().slice(0, 10)
+  const naamDeel   = naam?.trim()      ? sanitizePadDeel(naam)      : uploadId
+  const plaatsDeel = woonplaats?.trim() ? sanitizePadDeel(woonplaats) : uploadId
+  const mapNaam    = `${datum}_${naamDeel}_${plaatsDeel}`
+  const basePad    = `aanvragen/${mapNaam}/${uploadId}`
+  const subpad     = subfolder ? `${basePad}/${subfolder}` : basePad
+
   const urls: string[] = []
   for (let i = 0; i < files.length; i++) {
     const isGif = files[i].type === 'image/gif'

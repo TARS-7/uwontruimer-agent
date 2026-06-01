@@ -15,6 +15,8 @@ export interface Step5WaardevollResult {
 
 interface Props {
   initialData: { fotosWaardevol: File[] }
+  naam?: string
+  woonplaats?: string
   onComplete: (result: Step5WaardevollResult) => void
   onBack: () => void
 }
@@ -25,7 +27,7 @@ function uid() { return Math.random().toString(36).slice(2, 10) }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function Step5FotosWaardevol({ initialData, onComplete, onBack }: Props) {
+export default function Step5FotosWaardevol({ initialData, naam, woonplaats, onComplete, onBack }: Props) {
   const [fotos, setFotos]         = useState<FotoItem[]>(() =>
     initialData.fotosWaardevol.map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
   )
@@ -52,9 +54,8 @@ export default function Step5FotosWaardevol({ initialData, onComplete, onBack }:
     setUploading(true)
     setError(null)
     try {
-      const files  = fotos.map((f) => f.file)
-      const subpad = `aanvragen/${uploadIdRef.current}/waardevol`
-      const fotosWaardevollUrls = await uploadFotos(files, subpad)
+      const files               = fotos.map((f) => f.file)
+      const fotosWaardevollUrls = await uploadFotos(files, uploadIdRef.current, naam, woonplaats, 'waardevol')
       onComplete({ fotosWaardevol: files, fotosWaardevollUrls })
     } catch {
       setError('Upload mislukt. Controleer je verbinding en probeer opnieuw.')

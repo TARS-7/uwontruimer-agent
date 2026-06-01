@@ -131,6 +131,8 @@ export default function Page() {
             {state.step === 5 && (
               <Step4Fotos
                 initialData={{ fotos: state.fotos }}
+                naam={state.naam}
+                woonplaats={state.address?.woonplaats}
                 onComplete={handleStep4Complete}
                 onBack={() => setState((s) => ({
                   ...s,
@@ -143,6 +145,8 @@ export default function Page() {
             {state.step === 6 && (
               <Step5FotosWaardevol
                 initialData={{ fotosWaardevol: state.fotosWaardevol }}
+                naam={state.naam}
+                woonplaats={state.address?.woonplaats}
                 onComplete={handleStep5WaardevollComplete}
                 onBack={() => setState((s) => ({ ...s, step: 5 }))}
               />
