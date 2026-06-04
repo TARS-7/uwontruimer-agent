@@ -166,6 +166,12 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
           eigendomstype: eigendomstype,
         })
 
+        fetch('https://event-service-1012181768627.europe-west4.run.app/event', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ entiteit: 'klant', data: { type: 'particulier', bron: 'wizard' } })
+        }).catch(() => {})
+
         setPhase('result')
       } catch (err) {
         if (intervalRef.current) clearInterval(intervalRef.current)
