@@ -1,6 +1,12 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[]
+  }
+}
 import Button from '@/components/ui/Button'
 import type { AddressData, Offerte } from '@/lib/types'
 
@@ -127,10 +133,9 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
         if (intervalRef.current) clearInterval(intervalRef.current)
 
         setOfferte(generatedOfferte)
-        setPhase('result')
 
-        // Write to CRM in the background — don't block the confirmation screen
-        fetch('/api/submit-aanvraag', {
+        // Write to CRM and push dataLayer before showing ResultView
+        await fetch('/api/submit-aanvraag', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -148,6 +153,20 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
         }).catch((err) => {
           console.error('[Step6Offerte] CRM submit fout:', err)
         })
+
+        const totaalMin = generatedOfferte.totaalMin
+        const totaalMax = generatedOfferte.totaalMax
+        const eigendomstype = data.eigendomstype
+
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+          event: 'wizard_voltooid',
+          offerte_min: totaalMin,
+          offerte_max: totaalMax,
+          eigendomstype: eigendomstype,
+        })
+
+        setPhase('result')
       } catch (err) {
         if (intervalRef.current) clearInterval(intervalRef.current)
         setError(err instanceof Error ? err.message : 'Er is iets misgegaan.')
