@@ -254,6 +254,8 @@ async function notifyDashboard(data: {
   postcode?: string
   gemeente?: string
   notitie?: string
+  fotoUrls?: string[]
+  fotosWaardevollUrls?: string[]
 }): Promise<void> {
   try {
     const res = await fetch('https://app.uwontruimer.nl/api/webhooks/wizard', {
@@ -273,6 +275,8 @@ async function notifyDashboard(data: {
         opmerking: data.notitie || '',
         bron: 'wizard',
         aiAnalyse: '',
+        fotoUrls: data.fotoUrls ?? [],
+        fotosWaardevollUrls: data.fotosWaardevollUrls ?? [],
       }),
     })
     console.log('Dashboard webhook:', res.status)
@@ -409,6 +413,8 @@ export async function POST(request: NextRequest) {
     postcode: address.postcode,
     gemeente: address.woonplaats,
     notitie: webhookPayload.notitie,
+    fotoUrls,
+    fotosWaardevollUrls,
   })
 
   // Run all five in parallel
