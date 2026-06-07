@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server'
 import { createSign } from 'crypto'
+import { Client } from 'pg'
 import type { Offerte, AddressData } from '@/lib/types'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -243,6 +244,77 @@ async function notifyAppsScript(payload: {
   }
 }
 
+// ─── Dashboard webhook ────────────────────────────────────────────────────────
+
+async function notifyDashboard(data: {
+  naam: string
+  email: string
+  telefoon: string
+  adres: string
+  postcode?: string
+  gemeente?: string
+  notitie?: string
+}): Promise<void> {
+  try {
+    const res = await fetch('https://app.uwontruimer.nl/api/webhooks/wizard', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-webhook-secret': process.env.WEBHOOK_SECRET ?? '',
+      },
+      body: JSON.stringify({
+        naam: data.naam,
+        email: data.email,
+        telefoon: data.telefoon,
+        adres: data.adres,
+        postcode: data.postcode || '',
+        gemeente: data.gemeente || '',
+        type: 'woning',
+        opmerking: data.notitie || '',
+        bron: 'wizard',
+        aiAnalyse: '',
+      }),
+    })
+    console.log('Dashboard webhook:', res.status)
+  } catch (err) {
+    console.error('Dashboard webhook fout:', err)
+  }
+}
+
+// ─── Atlas Postgres ───────────────────────────────────────────────────────────
+
+async function saveToAtlas(naam: string, bron: string): Promise<void> {
+  const client = new Client({
+    host: process.env.ATLAS_DB_HOST,
+    user: process.env.ATLAS_DB_USER,
+    password: process.env.ATLAS_DB_PASSWORD,
+    database: process.env.ATLAS_DB_NAME,
+    ssl: { rejectUnauthorized: false }
+  })
+  await client.connect()
+  await client.query(
+    `SET app.actor = 'wizard'`
+  )
+  await client.query(
+    `INSERT INTO klant (type, bron) VALUES ($1, $2)`,
+    ['particulier', bron]
+  )
+  await client.end()
+}
+
+// ─── Atlas event ─────────────────────────────────────────────────────────────
+
+async function stuurAtlasEvent(type: string, bron: string): Promise<void> {
+  await fetch('https://event-service-1012181768627.europe-west4.run.app/event', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Atlas-Token': 'pqqrb8btWQZjU_sHZgQOvfiRxGZLsqVrOj_JqPvW2Kk'
+    },
+    body: JSON.stringify({ entiteit: 'klant', data: { type, bron } })
+  })
+}
+
 // ─── Route handler ────────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
@@ -328,11 +400,24 @@ export async function POST(request: NextRequest) {
     notitie: `${offerte.referentie} | ${bedragRange} | ${opleveringsdatum}`,
   }
 
-  // Run all three in parallel
-  const [sheetsResult, firestoreResult, webhookResult] = await Promise.allSettled([
+  // Fire-and-forget: dashboard webhook mag de hoofdflow niet blokkeren
+  notifyDashboard({
+    naam,
+    email,
+    telefoon,
+    adres,
+    postcode: address.postcode,
+    gemeente: address.woonplaats,
+    notitie: webhookPayload.notitie,
+  })
+
+  // Run all five in parallel
+  const [sheetsResult, firestoreResult, webhookResult, atlasResult, atlasDbResult] = await Promise.allSettled([
     sheetsConfigured ? doSheets() : Promise.reject(new Error('Sheets niet geconfigureerd')),
     saveToFirestore(firestoreDoc),
     notifyAppsScript(webhookPayload),
+    stuurAtlasEvent('particulier', 'wizard'),
+    saveToAtlas(naam, 'wizard'),
   ])
 
   const sheetsOk    = sheetsResult.status === 'fulfilled'
