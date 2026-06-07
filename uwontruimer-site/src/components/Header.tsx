@@ -122,6 +122,13 @@ const werkgebied: { regio: string; steden: { slug: string; name: string }[] }[] 
     ],
   },
   {
+    regio: "Flevoland",
+    steden: [
+      { slug: "almere",   name: "Almere" },
+      { slug: "lelystad", name: "Lelystad" },
+    ],
+  },
+  {
     regio: "Overig",
     steden: [
       { slug: "culemborg", name: "Culemborg" },

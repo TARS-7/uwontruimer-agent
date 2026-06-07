@@ -43,6 +43,7 @@ const provincies = [
       { slug: "purmerend",          name: "Purmerend" },
       { slug: "schagen",            name: "Schagen" },
       { slug: "uithoorn",           name: "Uithoorn" },
+      { slug: "weesp",              name: "Weesp" },
       { slug: "zaanstad",           name: "Zaanstad" },
     ],
   },
@@ -66,6 +67,7 @@ const provincies = [
       { slug: "noordwijk",              name: "Noordwijk" },
       { slug: "oegstgeest",             name: "Oegstgeest" },
       { slug: "ridderkerk",             name: "Ridderkerk" },
+      { slug: "rijswijk",               name: "Rijswijk" },
       { slug: "rotterdam",              name: "Rotterdam" },
       { slug: "schiedam",               name: "Schiedam" },
       { slug: "vlaardingen",            name: "Vlaardingen" },
@@ -96,6 +98,33 @@ const provincies = [
       { slug: "zeist",           name: "Zeist" },
     ],
   },
+  {
+    naam: "Flevoland",
+    slug: "flevoland",
+    steden: [
+      { slug: "almere",   name: "Almere" },
+      { slug: "lelystad", name: "Lelystad" },
+    ],
+  },
+  {
+    naam: "Gelderland",
+    slug: "gelderland",
+    steden: [
+      { slug: "arnhem",    name: "Arnhem" },
+      { slug: "apeldoorn", name: "Apeldoorn" },
+    ],
+  },
+  {
+    naam: "Noord-Brabant",
+    slug: "noord-brabant",
+    steden: [
+      { slug: "breda",      name: "Breda" },
+      { slug: "den-bosch",  name: "Den Bosch" },
+      { slug: "dordrecht",  name: "Dordrecht" },
+      { slug: "eindhoven",  name: "Eindhoven" },
+      { slug: "tilburg",    name: "Tilburg" },
+    ],
+  },
 ];
 
 // Flat list voor zoekfunctionaliteit
@@ -114,7 +143,7 @@ export default function WerkgebiedSearch() {
     <div>
       {/* Intro */}
       <p className="text-slate-500 font-light leading-relaxed mb-6 max-w-2xl">
-        UwOntruimer.nl is actief in heel Nederland en met name in provincies Noord-Holland, Zuid-Holland en Utrecht. Hieronder vindt u enkele plaatsen waar wij vaak ontruimen en samenwerken met lokale kringloopwinkels.
+        UwOntruimer.nl is actief in heel Nederland en met name in provincies Noord-Holland, Zuid-Holland, Utrecht, Flevoland en Gelderland. Hieronder vindt u enkele plaatsen waar wij vaak ontruimen en samenwerken met lokale kringloopwinkels.
       </p>
 
       {/* Zoekbalk */}

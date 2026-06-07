@@ -23,7 +23,7 @@ export default function Page() {
               Praktische informatie over woningontruiming, nalatenschappen, kosten en meer.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {blogPosts.map((post) => (
+              {[...blogPosts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => (
                 <article
                   key={post.slug}
                   className="group bg-slate-50 border border-slate-100 rounded-2xl p-6 hover:shadow-md hover:border-transparent transition-all duration-300"

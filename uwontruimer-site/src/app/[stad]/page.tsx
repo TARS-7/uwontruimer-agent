@@ -74,6 +74,7 @@ const steden = [
   { slug: "lisse",                  name: "Lisse",                  title: "Woningontruiming Lisse | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Lisse. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "maassluis",              name: "Maassluis",              title: "Woningontruiming Maassluis | Uw Ontruimer",                                    desc: "Woningontruiming in Maassluis? Uw Ontruimer regelt het snel, discreet en professioneel. Vraag vrijblijvend een offerte aan of maak een afspraak." },
   { slug: "naarden",                name: "Naarden",                title: "Woningontruiming Naarden | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Naarden. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "weesp",                  name: "Weesp",                  title: "Woningontruiming Weesp | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Weesp. Grenzend aan Amsterdam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
   { slug: "nieuw-vennep",           name: "Nieuw-Vennep",           title: "Woningontruiming Nieuw-Vennep | UwOntruimer.nl",                                desc: "Woningontruimer in omgeving Nieuw-Vennep. Met meer dan 15 jaar ervaring kunnen wij iedere klus aan. Bel 085-303 58 94." },
   { slug: "nieuwegein",             name: "Nieuwegein",             title: "Woningontruiming Nieuwegein | UwOntruimer.nl",                                  desc: "Woningontruiming in Nieuwegein nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "noord-holland",          name: "Noord-Holland",          title: "Woningontruiming Noord-Holland | UwOntruimer.nl",                               desc: "Voor professionele woningontruiming in Noord-Holland belt u Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
@@ -82,6 +83,7 @@ const steden = [
   { slug: "oegstgeest",             name: "Oegstgeest",             title: "Woningontruiming Oegstgeest | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Oegstgeest. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "pijnacker",              name: "Pijnacker",              title: "Woningontruiming Pijnacker | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Pijnacker. Snel, discreet en volledig bezemschoon opgeleverd. Bel Uw Ontruimer op 085-303 58 94." },
   { slug: "ridderkerk",             name: "Ridderkerk",             title: "Woningontruiming Ridderkerk | Uw Ontruimer",                                   desc: "Woningontruiming in Ridderkerk nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "rijswijk",               name: "Rijswijk",               title: "Woningontruiming Rijswijk | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Rijswijk. Grenzend aan Den Haag. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
   { slug: "roelofarendsveen",       name: "Roelofarendsveen",       title: "Woningontruiming Roelofarendsveen | UwOntruimer.nl",                            desc: "Professionele woningontruiming in Roelofarendsveen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "schagen",                name: "Schagen",                title: "Woningontruiming Schagen | Uw Ontruimer",                                      desc: "Professionele woningontruiming in Schagen? Uw Ontruimer helpt discreet, snel en vakkundig bij een woningontruiming. Vraag een offerte aan." },
   { slug: "soest",                  name: "Soest",                  title: "Woningontruiming Soest | Uw Ontruimer",                                        desc: "Woningontruiming in Soest nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
@@ -97,6 +99,21 @@ const steden = [
   { slug: "zaanstad",               name: "Zaanstad",               title: "Woningontruiming Zaanstad - 15+ jaar ervaring | UwOntruimer.nl",                desc: "Woningontruiming Zaanstad. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld ✓ Heel Nederland." },
   { slug: "zeist",                  name: "Zeist",                  title: "Woningontruiming Zeist | UwOntruimer.nl",                                      desc: "Woningontruiming in Zeist nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "zuid-holland",           name: "Zuid-Holland",           title: "Woningontruiming Zuid-Holland | UwOntruimer.nl",                                desc: "Bel Uw Ontruimer via 085-303 58 94 en laat uw woningontruiming in Zuid-Holland over aan een professioneel ontruimingsbedrijf. ✓15+ jaar ervaring." },
+
+  // === Flevoland ===
+  { slug: "almere",                 name: "Almere",                 title: "Woningontruiming Almere | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Almere. Spoedontruiming mogelijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "lelystad",               name: "Lelystad",               title: "Woningontruiming Lelystad | UwOntruimer.nl",                                   desc: "Woningontruiming in Lelystad na overlijden of seniorenverhuizing? Bel Uw Ontruimer op 085-303 58 94. ✓Discreet ✓Opleveringsgarantie." },
+
+  // === Gelderland ===
+  { slug: "arnhem",                 name: "Arnhem",                 title: "Woningontruiming Arnhem | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Arnhem. Spoedontruiming, na overlijden of oplevering aan Portaal. Bel Uw Ontruimer op 085-303 58 94. ✓Opleveringsgarantie." },
+  { slug: "apeldoorn",              name: "Apeldoorn",              title: "Woningontruiming Apeldoorn | UwOntruimer.nl",                                   desc: "Woningontruiming in Apeldoorn? Seniorenverhuizing, huis leeghalen of oplevering aan Ons Huis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
+
+  // === Noord-Brabant & Dordrecht ===
+  { slug: "dordrecht",              name: "Dordrecht",              title: "Woningontruiming Dordrecht | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Dordrecht. Actief in Crabbehof, Sterrenburg en Wielwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "breda",                  name: "Breda",                  title: "Woningontruiming Breda | UwOntruimer.nl",                                      desc: "Woningontruiming in Breda? Actief in Haagse Beemden, Prinsenbeek en Bavel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "tilburg",                name: "Tilburg",                title: "Woningontruiming Tilburg | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Tilburg. Actief in Reeshof, Broekhoven en Noord. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Spoedontruiming." },
+  { slug: "den-bosch",              name: "Den Bosch",              title: "Woningontruiming Den Bosch | UwOntruimer.nl",                                  desc: "Woningontruiming in Den Bosch? Actief in Rosmalen, Empel en Graafsepoort. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "eindhoven",              name: "Eindhoven",              title: "Woningontruiming Eindhoven | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Eindhoven. Actief in Woensel, Stratum en Gestel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
 ];
 
 export function generateStaticParams() {
@@ -222,7 +239,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
 
   const ctaButtons = (dark = false) => (
     <>
-      <div className="flex flex-col sm:flex-row gap-3 mb-5">
+      <div className="flex flex-col sm:flex-row gap-3 mb-5 flex-wrap">
         <a
           href="https://analyse.uwontruimer.nl"
           className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
@@ -238,6 +255,20 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
           {phoneIcon}
           Bel 085-303 58 94
         </a>
+        <div className="inline-flex items-center gap-3 py-2">
+          <Image
+            src="/peter-visser2.png"
+            alt="Peter Visser"
+            width={96}
+            height={96}
+            className="rounded-full border-2 border-white shadow-md object-cover flex-shrink-0 w-24 h-24"
+            style={{ objectPosition: "center" }}
+          />
+          <div className="leading-snug">
+            <p className={`text-base font-semibold ${dark ? "text-white" : "text-slate-800"}`}>Bel Peter direct</p>
+            <p className={`text-sm ${dark ? "text-slate-300" : "text-slate-500"}`}>085-303 58 94</p>
+          </div>
+        </div>
       </div>
       <div className="flex flex-wrap gap-x-6 gap-y-1.5">
         {checkItems.map((item) => (
@@ -339,6 +370,46 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Duurzaamheidssectie */}
+            <div className="mt-14 border-t border-slate-100 pt-10">
+              <h2 className="text-2xl font-semibold text-slate-900 tracking-tight mb-3">
+                Duurzame ontruiming in {name}
+              </h2>
+              <p className="text-slate-500 font-light leading-relaxed mb-6">
+                Bij Uw Ontruimer gaat zo weinig mogelijk naar de verbrandingsoven. Meubels, kleding en huisraad die nog bruikbaar zijn, doneren wij aan de kringloopwinkel. Wat niet hergebruikt kan worden, wordt gesorteerd afgevoerd via gecertificeerde milieustraten. Zo zorgen wij voor een verantwoorde en milieubewuste ontruiming in {name}.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-5">
+                <div className="relative overflow-hidden rounded-xl" style={{ height: "200px" }}>
+                  <Image
+                    src="/milieustraat.png"
+                    alt="Milieustraat — verantwoord afvoeren"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
+                    <p className="text-white text-xs font-medium">Verantwoord afvoeren</p>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-xl" style={{ height: "200px" }}>
+                  <Image
+                    src="/kringloop.png"
+                    alt="Kringloopwinkel — hergebruik van inboedel"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
+                    <p className="text-white text-xs font-medium">Hergebruik via kringloop</p>
+                  </div>
+                </div>
+              </div>
+              <a href="/duurzaam/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">
+                Meer over onze duurzame aanpak
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
 
             {/* Onderste CTA blok */}

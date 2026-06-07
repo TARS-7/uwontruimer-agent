@@ -19,12 +19,18 @@ const steden = [
   "haarlemmerliede", "haarlemmermeer", "heemskerk", "heemstede", "heiloo",
   "hillegom", "hollands-kroon", "houten", "huizen", "ijsselstein",
   "katwijk", "landsmeer", "laren", "leiderdorp", "leidschendam",
-  "leusden", "lisse", "maassluis", "naarden", "nieuw-vennep",
+  "leusden", "lisse", "maassluis", "naarden", "weesp", "nieuw-vennep",
   "nieuwegein", "noord-holland", "noordwijk", "nootdorp", "oegstgeest",
-  "pijnacker", "ridderkerk", "roelofarendsveen", "schagen", "soest",
+  "pijnacker", "ridderkerk", "rijswijk", "roelofarendsveen", "schagen", "soest",
   "stichtse-vecht", "uithoorn", "veenendaal", "vianen", "vijfheerenlanden",
   "voorburg", "voorschoten", "wassenaar", "woerden", "zaanstad",
   "zeist", "zuid-holland",
+  // Flevoland
+  "almere", "lelystad",
+  // Gelderland
+  "arnhem", "apeldoorn",
+  // Noord-Brabant & Dordrecht
+  "dordrecht", "breda", "tilburg", "den-bosch", "eindhoven",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

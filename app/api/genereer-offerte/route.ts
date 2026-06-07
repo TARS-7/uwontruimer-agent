@@ -10,8 +10,9 @@ PRIJSLIJST (gebruik deze exacte tarieven, niets anders):
 
 1. WONINGONTRUIMING EN AFVAL AFVOEREN (altijd eerste post)
    Berekening: m² × 0.3 = geschat volume in m³
-   1 vrachtwagen = 20 m³ → €900 (min) tot €1.100 (max)
-   Meerdere vrachtwagens naar rato. Minimum: €450.
+   1 vrachtwagen = 20 m³ → bedragMin: €900, bedragMax: €1.100
+   Meerdere vrachtwagens: bedragMin = vrachtwagens × 900, bedragMax = vrachtwagens × 1100
+   Absoluut minimum: bedragMin = 450, bedragMax = 550
 
 2. SCHILDERWERK
    €20 per m² (min) tot €30 per m² (max) vloeroppervlak per kamer
@@ -118,7 +119,7 @@ function demoOfferte(input: OfferteInput): Offerte {
   const m3 = m2 * 0.3
   const vrachtwagens = Math.ceil(m3 / 20)
   const ontruimingMin = Math.max(450, vrachtwagens * 900)
-  const ontruimingMax = Math.max(450, vrachtwagens * 1100)
+  const ontruimingMax = Math.max(550, vrachtwagens * 1100)
   const kamers = input.aantalKamers ?? 4
   const m2PerKamer = Math.round(m2 / kamers)
 

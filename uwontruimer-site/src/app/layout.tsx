@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.uwontruimer.nl"),
   title: { default: "UwOntruimer.nl – Professionele Woningontruiming", template: "%s | UwOntruimer.nl" },
   description: "Professionele ontruiming van woningen en bedrijfspanden in heel Nederland. Betrouwbaar, discreet en met schriftelijke opleveringsgarantie.",
+  verification: { google: "vfnFmk6CeVk-3rAasrRakH6pezmYdQ8cCORUy30hWWA" },
 };
 
 // Google Consent Mode v2 — default alles denied vóór gtag laadt

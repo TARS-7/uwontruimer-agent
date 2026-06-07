@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
@@ -56,6 +57,15 @@ function renderBlock(block: Block, i: number) {
       </ul>
     );
   }
+  if (block.type === "link") {
+    return (
+      <p key={i} className="text-slate-500 font-light leading-relaxed mb-5">
+        <Link href={block.href} className="text-blue-600 hover:underline font-medium">
+          {block.text}
+        </Link>
+      </p>
+    );
+  }
   // paragraph
   return (
     <p key={i} className="text-slate-500 font-light leading-relaxed mb-5">
@@ -99,6 +109,18 @@ export default async function BlogPostPage({
               {post.title}
             </h1>
             <p className="text-slate-500 font-light leading-relaxed text-lg">{post.excerpt}</p>
+            {post.image && (
+              <div className="mt-8 rounded-2xl overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={800}
+                  height={400}
+                  className="w-full h-64 object-cover"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -108,21 +130,21 @@ export default async function BlogPostPage({
             {post.blocks.map((block, i) => renderBlock(block, i))}
 
             {/* CTA inline */}
-            <div className="mt-12 p-6 bg-blue-50 rounded-2xl border border-blue-100">
-              <p className="text-slate-700 font-medium mb-2">Hulp nodig bij uw ontruiming?</p>
+            <div className="mt-12 p-6 bg-amber-50 rounded-2xl border border-amber-100">
+              <p className="text-slate-700 font-medium mb-2">Vrijblijvend uw ontruiming berekenen?</p>
               <p className="text-slate-500 font-light text-sm mb-4">
-                Bel Uw Ontruimer op{" "}
-                <a href="tel:0853035894" className="text-blue-600 font-medium">
+                Gebruik onze gratis AI-wizard en ontvang direct een persoonlijke prijsindicatie. Of bel ons op{" "}
+                <a href="tel:0853035894" className="text-amber-700 font-medium">
                   085-303 58 94
-                </a>{" "}
-                of vraag vrijblijvend een offerte aan.
+                </a>
+                .
               </p>
-              <Link
-                href="/offerte"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors"
+              <a
+                href="https://analyse.uwontruimer.nl"
+                className="inline-flex items-center gap-2 bg-amber-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-amber-600 transition-colors"
               >
-                Gratis offerte aanvragen
-              </Link>
+                Bereken uw ontruiming →
+              </a>
             </div>
           </div>
         </div>
