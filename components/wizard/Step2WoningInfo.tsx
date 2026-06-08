@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import Button from '@/components/ui/Button'
-import type { AddressData, WizardState } from '@/lib/types'
+import type { AddressData } from '@/lib/types'
 
 export interface Step2Result {
   address: AddressData
@@ -14,9 +14,16 @@ export interface Step2Result {
   eigendomstype: 'huur' | 'koop'
 }
 
+interface Step2InitialData {
+  aantalKamers: number | null
+  staatWoning: 'goed' | 'redelijk' | 'slecht' | null
+  opleveringsdatum: string
+  eigendomstype: 'huur' | 'koop' | null
+}
+
 interface Step2Props {
   address: AddressData
-  initialData: Pick<WizardState, 'aantalKamers' | 'staatWoning' | 'opleveringsdatum' | 'eigendomstype'>
+  initialData: Step2InitialData
   onComplete: (result: Step2Result) => void
   onBack: () => void
 }

@@ -33,54 +33,35 @@ export interface Offerte {
 export interface WizardState {
   step: number
 
-  // Step 1
-  address: AddressData | null
+  // Stap 1 – type ontruiming (progressieve commitment)
+  ontruimingType: string | null
 
-  // Step 2
-  aantalKamers: number | null
-  staatWoning: 'goed' | 'redelijk' | 'slecht' | null
-  opleveringsdatum: string
-  eigendomstype: 'huur' | 'koop' | null
+  // Stap 2 – grootte woning (progressieve commitment)
+  woningGrootte: string | null
 
-  // Step 3 (huurwoning only)
-  inspectierapportNaam: string | null
-  inspectieWerkzaamheden: string[]
-
-  // Step 3b – handmatige werkzaamheden (alleen als geen inspectierapport)
-  geselecteerdeWerkzaamheden: string[]
-
-  // Step 5 – photos (File[] voor thumbnails bij terug-navigatie)
+  // Stap 3 – foto's
   fotos: File[]
-  fotosWaardevol: File[]
-  // geüploade Storage URLs
   fotoUrls: string[]
-  fotosWaardevollUrls: string[]
 
-  // Step 5
-  offerte: Offerte | null
-
-  // Step 6
+  // Stap 4 – adres + contactgegevens
+  address: AddressData | null
   naam: string
   email: string
   telefoon: string
+
+  // Stap 5 – offerte cache
+  offerte: Offerte | null
 }
 
 export const initialWizardState: WizardState = {
   step: 1,
-  address: null,
-  aantalKamers: null,
-  staatWoning: null,
-  opleveringsdatum: '',
-  eigendomstype: null,
-  inspectierapportNaam: null,
-  inspectieWerkzaamheden: [],
-  geselecteerdeWerkzaamheden: [],
+  ontruimingType: null,
+  woningGrootte: null,
   fotos: [],
-  fotosWaardevol: [],
   fotoUrls: [],
-  fotosWaardevollUrls: [],
-  offerte: null,
+  address: null,
   naam: '',
   email: '',
   telefoon: '',
+  offerte: null,
 }

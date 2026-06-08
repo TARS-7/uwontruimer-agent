@@ -18,10 +18,10 @@ interface Props {
 // ─── Opties ───────────────────────────────────────────────────────────────────
 
 const OPTIES = [
-  { label: 'Schilderen',               emoji: '🎨' },
-  { label: 'Behang verwijderen',        emoji: '🧱' },
+  { label: 'Schilderen',               emoji: '🖌️' },
+  { label: 'Behang verwijderen',        emoji: '🪣' },
   { label: 'Vloer verwijderen (los)',   emoji: '🪵' },
-  { label: 'Vloer verwijderen (gelijmd)', emoji: '🔧' },
+  { label: 'Vloer verwijderen (gelijmd)', emoji: '🔨' },
   { label: 'Tuin opruimen',            emoji: '🌿' },
   { label: 'Kelder/zolder ruimen',     emoji: '📦' },
 ]

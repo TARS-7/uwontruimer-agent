@@ -13,20 +13,20 @@ import type { AddressData, Offerte } from '@/lib/types'
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface Step6Input {
-  // Wizard data
   address: AddressData
-  aantalKamers: number | null
-  staatWoning: 'goed' | 'redelijk' | 'slecht' | null
-  opleveringsdatum: string
-  eigendomstype: 'huur' | 'koop' | null
-  inspectieWerkzaamheden: string[]
-  // Contact
+  ontruimingType: string | null
+  woningGrootte: string | null
   naam: string
   email: string
   telefoon: string
-  // Foto's (pre-uploaded Storage URLs)
   fotoUrls: string[]
-  fotosWaardevollUrls: string[]
+}
+
+function woningGrootteToKamers(grootte: string | null): number | null {
+  if (grootte === 'Studio') return 1
+  if (grootte === 'Kleine woning') return 2
+  if (grootte === 'Grote woning') return 4
+  return null
 }
 
 interface Props {
@@ -111,11 +111,11 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               address: data.address,
-              aantalKamers: data.aantalKamers,
-              staatWoning: data.staatWoning,
-              opleveringsdatum: data.opleveringsdatum,
-              eigendomstype: data.eigendomstype,
-              inspectieWerkzaamheden: data.inspectieWerkzaamheden,
+              aantalKamers: woningGrootteToKamers(data.woningGrootte),
+              staatWoning: null,
+              opleveringsdatum: '',
+              eigendomstype: null,
+              inspectieWerkzaamheden: data.ontruimingType ? [data.ontruimingType] : [],
               waardevolleSpullen: [],
             }),
           }).then((r) =>
@@ -143,27 +143,26 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
             email: data.email,
             telefoon: data.telefoon,
             address: data.address,
-            eigendomstype: data.eigendomstype,
-            opleveringsdatum: data.opleveringsdatum,
-            inspectieWerkzaamheden: data.inspectieWerkzaamheden,
+            ontruimingType: data.ontruimingType,
+            woningGrootte: data.woningGrootte,
+            eigendomstype: null,
+            opleveringsdatum: '',
+            inspectieWerkzaamheden: data.ontruimingType ? [data.ontruimingType] : [],
             offerte: generatedOfferte,
             fotoUrls: data.fotoUrls,
-            fotosWaardevollUrls: data.fotosWaardevollUrls,
+            fotosWaardevollUrls: [],
           }),
         }).catch((err) => {
           console.error('[Step6Offerte] CRM submit fout:', err)
         })
 
-        const totaalMin = generatedOfferte.totaalMin
-        const totaalMax = generatedOfferte.totaalMax
-        const eigendomstype = data.eigendomstype
-
         window.dataLayer = window.dataLayer || []
         window.dataLayer.push({
           event: 'wizard_voltooid',
-          offerte_min: totaalMin,
-          offerte_max: totaalMax,
-          eigendomstype: eigendomstype,
+          offerte_min: generatedOfferte.totaalMin,
+          offerte_max: generatedOfferte.totaalMax,
+          ontruiming_type: data.ontruimingType,
+          woning_grootte: data.woningGrootte,
         })
 
         fetch('https://event-service-1012181768627.europe-west4.run.app/event', {

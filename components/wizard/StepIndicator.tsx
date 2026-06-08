@@ -6,9 +6,9 @@ interface Group {
 }
 
 const GROUPS: Group[] = [
-  { label: 'Woning',  steps: [1, 2, 3, 4] },
-  { label: "Foto's",  steps: [5, 6] },
-  { label: 'Offerte', steps: [7, 8] },
+  { label: 'Situatie', steps: [1, 2] },
+  { label: "Foto's",   steps: [3] },
+  { label: 'Offerte',  steps: [4, 5] },
 ]
 
 interface StepIndicatorProps {
