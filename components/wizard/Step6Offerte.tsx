@@ -364,23 +364,7 @@ function ResultView({ offerte, naam, waardevol }: { offerte: Offerte; naam: stri
         </div>
       </div>
 
-      {/* Takaros banner (waardevolle items) */}
-      {(waardevol === 'ja' || waardevol === 'misschien') && (
-        <div className="flex gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-          <svg className="h-5 w-5 shrink-0 text-emerald-600 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
-          </svg>
-          <div>
-            <p className="text-sm font-semibold text-emerald-800">Geschatte veilingwaarde van uw items: \u20ac200\u2013\u20ac2.000</p>
-            <p className="mt-0.5 text-sm text-emerald-700">
-              Dit kan uw netto-kosten verlagen. Wij laten waardevolle spullen gratis taxeren en eventueel veilen \u2014 de opbrengst gaat van uw ontruimingsprijs af.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* What happens next */}
+      {/* Wat gebeurt er nu? */}
       <div className="rounded-xl border border-slate-100 bg-white p-5">
         <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Wat gebeurt er nu?</p>
         <ol className="flex flex-col gap-3">
@@ -399,7 +383,57 @@ function ResultView({ offerte, naam, waardevol }: { offerte: Offerte; naam: stri
         </ol>
       </div>
 
-      {/* CTA */}
+      {/* SECTIE 2 \u2014 Takaros module (Ja / Misschien) */}
+      {(waardevol === 'ja' || waardevol === 'misschien') && (
+        <div className="flex flex-col gap-4 border-t border-slate-200 pt-6">
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
+            <h3 className="text-base font-bold text-emerald-900">
+              Verlaag uw ontruimingskosten \u2014 mogelijk tot nul
+            </h3>
+            <p className="mt-2 text-sm text-emerald-800 leading-relaxed">
+              Heeft de woning waardevolle objecten? Via Takaros laten we ze gratis en vrijblijvend taxeren door gecertificeerde experts. De veilingopbrengst verrekenen we met uw ontruimingskosten \u2014 wij noemen dit een Netto-Nul ontruiming.
+            </p>
+            <p className="mt-3 text-xs font-medium text-emerald-700">
+              Gratis taxatie \u00b7 Gespecialiseerde Nederlandse veilinghuizen \u00b7 U blijft eigenaar \u00b7 Geen verplichting
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <a
+              href="https://takaros.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+            >
+              Start mijn gratis taxatie
+              <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </a>
+            <p className="text-xs text-slate-500">
+              Gratis en vrijblijvend. U beslist zelf of u een bod accepteert.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* SECTIE 3 \u2014 Zachte Takaros hint (Nee / Weet ik niet) */}
+      {(waardevol === 'nee' || waardevol === 'weet ik niet') && (
+        <div className="border-t border-slate-200 pt-6">
+          <p className="text-sm text-slate-500 text-center">
+            Twijfelt u achteraf of er toch waardevolle items zijn?{' '}
+            <a
+              href="https://takaros.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              U kunt altijd nog een gratis taxatie aanvragen op takaros.com
+            </a>
+          </p>
+        </div>
+      )}
+
+      {/* CTA \u2014 contact */}
       <div className="flex flex-col items-center gap-3">
         <a
           href="tel:0853035894"

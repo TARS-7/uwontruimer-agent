@@ -198,8 +198,11 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
       <div className="flex flex-col gap-4 border-t border-slate-100 pt-5">
         <div>
           <h3 className="text-base font-semibold text-slate-900">
-            Zitten er mogelijk waardevolle spullen tussen — kunst, antiek, designmeubels, sieraden of verzamelingen?
+            Bevat de woning mogelijk waardevolle objecten?
           </h3>
+          <p className="mt-1 text-sm text-slate-500">
+            Denk aan antiek, kunst, designmeubels, sieraden of verzamelingen.
+          </p>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
