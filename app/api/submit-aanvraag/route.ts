@@ -257,8 +257,9 @@ async function notifyDashboard(data: {
   fotoUrls?: string[]
   fotosWaardevollUrls?: string[]
 }): Promise<void> {
+  let res: Response
   try {
-    const res = await fetch('https://app.uwontruimer.nl/api/webhooks/wizard', {
+    res = await fetch('https://app.uwontruimer.nl/api/webhooks/wizard', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -279,10 +280,18 @@ async function notifyDashboard(data: {
         fotosWaardevollUrls: data.fotosWaardevollUrls ?? [],
       }),
     })
-    console.log('Dashboard webhook:', res.status)
   } catch (err) {
-    console.error('Dashboard webhook fout:', err)
+    console.error('[dashboard-webhook] Fetch mislukt:', err instanceof Error ? err.message : err)
+    throw err
   }
+
+  if (!res.ok) {
+    const body = await res.text().catch(() => '')
+    console.error(`[dashboard-webhook] Non-200 response: ${res.status} ${res.statusText} — ${body.slice(0, 200)}`)
+    throw new Error(`Dashboard webhook ${res.status}`)
+  }
+
+  console.log('[dashboard-webhook] OK:', res.status)
 }
 
 // ─── Atlas Postgres ───────────────────────────────────────────────────────────
@@ -404,26 +413,24 @@ export async function POST(request: NextRequest) {
     notitie: `${offerte.referentie} | ${bedragRange} | ${opleveringsdatum}`,
   }
 
-  // Fire-and-forget: dashboard webhook mag de hoofdflow niet blokkeren
-  notifyDashboard({
-    naam,
-    email,
-    telefoon,
-    adres,
-    postcode: address.postcode,
-    gemeente: address.woonplaats,
-    notitie: webhookPayload.notitie,
-    fotoUrls,
-    fotosWaardevollUrls,
-  })
-
-  // Run all five in parallel
-  const [sheetsResult, firestoreResult, webhookResult, atlasResult, atlasDbResult] = await Promise.allSettled([
+  // Run all in parallel — dashboard webhook mee in allSettled zodat fouten gelogd worden
+  const [sheetsResult, firestoreResult, webhookResult, atlasResult, atlasDbResult, dashboardResult] = await Promise.allSettled([
     sheetsConfigured ? doSheets() : Promise.reject(new Error('Sheets niet geconfigureerd')),
     saveToFirestore(firestoreDoc),
     notifyAppsScript(webhookPayload),
     stuurAtlasEvent('particulier', 'wizard'),
     saveToAtlas(naam, 'wizard'),
+    notifyDashboard({
+      naam,
+      email,
+      telefoon,
+      adres,
+      postcode: address.postcode,
+      gemeente: address.woonplaats,
+      notitie: webhookPayload.notitie,
+      fotoUrls,
+      fotosWaardevollUrls,
+    }),
   ])
 
   const sheetsOk    = sheetsResult.status === 'fulfilled'
@@ -446,13 +453,21 @@ export async function POST(request: NextRequest) {
     const msg = webhookResult.status === 'rejected'
       ? (webhookResult.reason instanceof Error ? webhookResult.reason.message : String(webhookResult.reason))
       : ''
-    console.error('[submit-aanvraag] Webhook fout:', msg)
+    console.error('[submit-aanvraag] Apps Script webhook fout:', msg)
+  }
+
+  if (dashboardResult.status === 'rejected') {
+    const msg = dashboardResult.reason instanceof Error ? dashboardResult.reason.message : String(dashboardResult.reason)
+    console.error('[submit-aanvraag] Dashboard webhook fout:', msg)
+  } else {
+    console.log('[submit-aanvraag] Dashboard webhook geslaagd')
   }
 
   if (!sheetsOk && !firestoreOk) {
     return Response.json({ error: 'Opslaan mislukt. Probeer opnieuw.' }, { status: 500 })
   }
 
-  const opgeslagenIn = [sheetsOk && 'sheets', firestoreOk && 'firestore', webhookOk && 'webhook'].filter(Boolean)
+  const dashboardOk = dashboardResult.status === 'fulfilled'
+  const opgeslagenIn = [sheetsOk && 'sheets', firestoreOk && 'firestore', webhookOk && 'webhook', dashboardOk && 'dashboard'].filter(Boolean)
   return Response.json({ ok: true, opgeslagenIn })
 }
