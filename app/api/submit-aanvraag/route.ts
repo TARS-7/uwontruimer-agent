@@ -352,6 +352,7 @@ export async function POST(request: NextRequest) {
   // 3 — Validate required fields
   const validationError = validateBody(body)
   if (validationError) {
+    console.error('[submit-aanvraag] Validatie mislukt:', validationError, JSON.stringify(body).slice(0, 500))
     return Response.json({ error: validationError }, { status: 422 })
   }
 
