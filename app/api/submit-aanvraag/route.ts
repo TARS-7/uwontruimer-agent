@@ -264,13 +264,17 @@ async function notifyDashboard(data: {
   bedragMin?: number
   bedragMax?: number
 }): Promise<void> {
+  const dashboardUrl = 'https://app.uwontruimer.nl/api/webhooks/wizard'
+  const secret = process.env.WEBHOOK_SECRET ?? ''
+  console.log('[debug-dashboard] URL:', dashboardUrl)
+  console.log('[debug-dashboard] secret prefix:', secret.slice(0, 8) || '(leeg!)')
   let res: Response
   try {
-    res = await fetch('https://app.uwontruimer.nl/api/webhooks/wizard', {
+    res = await fetch(dashboardUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-webhook-secret': process.env.WEBHOOK_SECRET ?? '',
+        'x-webhook-secret': secret,
       },
       body: JSON.stringify({
         naam: data.naam,
@@ -298,9 +302,12 @@ async function notifyDashboard(data: {
     throw err
   }
 
+  const responseBody = await res.text().catch(() => '')
+  console.log('[debug-dashboard] response status:', res.status, res.statusText)
+  console.log('[debug-dashboard] response body:', responseBody.slice(0, 200))
+
   if (!res.ok) {
-    const body = await res.text().catch(() => '')
-    console.error(`[dashboard-webhook] Non-200 response: ${res.status} ${res.statusText} — ${body.slice(0, 200)}`)
+    console.error(`[dashboard-webhook] Non-200 response: ${res.status} ${res.statusText} — ${responseBody.slice(0, 200)}`)
     throw new Error(`Dashboard webhook ${res.status}`)
   }
 
