@@ -8,10 +8,10 @@ import type { Offerte, AddressData } from '@/lib/types'
 interface SubmitInput {
   naam: string
   email: string
-  telefoon: string
+  telefoon?: string
   address: AddressData
   eigendomstype: 'huur' | 'koop' | null
-  opleveringsdatum: string
+  opleveringsdatum?: string
   inspectieWerkzaamheden: string[]
   offerte: Offerte
   fotoUrls: string[]
@@ -54,10 +54,6 @@ function validateBody(body: unknown): string | null {
     return 'Naam is verplicht'
   if (!b.email || typeof b.email !== 'string' || !b.email.includes('@'))
     return 'Geldig e-mailadres is verplicht'
-  if (!b.telefoon || typeof b.telefoon !== 'string' || !b.telefoon.trim())
-    return 'Telefoonnummer is verplicht'
-  if (!b.opleveringsdatum || typeof b.opleveringsdatum !== 'string' || !b.opleveringsdatum.trim())
-    return 'Opleveringsdatum is verplicht'
   if (!b.address || typeof b.address !== 'object')
     return 'Adresgegevens zijn verplicht'
 
@@ -164,6 +160,7 @@ interface FirestoreDoc {
   werkzaamheden: string[]
   aanvraagDatum: string
 }
+
 
 function toFirestoreFields(doc: FirestoreDoc): Record<string, FirestoreValue> {
   function str(v: string): { stringValue: string }        { return { stringValue: v } }
@@ -356,7 +353,9 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: validationError }, { status: 422 })
   }
 
-  const { naam, email, telefoon, address, eigendomstype, opleveringsdatum, offerte } = body
+  const { naam, email, address, eigendomstype, offerte } = body
+  const telefoon = body.telefoon ?? ''
+  const opleveringsdatum = body.opleveringsdatum ?? ''
   const fotoUrls           = Array.isArray(body.fotoUrls)           ? body.fotoUrls           : []
   const fotosWaardevollUrls = Array.isArray(body.fotosWaardevollUrls) ? body.fotosWaardevollUrls : []
 
