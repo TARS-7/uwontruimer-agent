@@ -16,6 +16,10 @@ interface SubmitInput {
   offerte: Offerte
   fotoUrls: string[]
   fotosWaardevollUrls: string[]
+  ontruimingType?: string
+  woningType?: string
+  woningGrootte?: string
+  waardevol?: string
 }
 
 // ─── Rate limiting (in-memory, per serverless instance) ───────────────────────
@@ -253,6 +257,12 @@ async function notifyDashboard(data: {
   notitie?: string
   fotoUrls?: string[]
   fotosWaardevollUrls?: string[]
+  ontruimingType?: string
+  woningType?: string
+  woningGrootte?: string
+  waardevol?: string
+  bedragMin?: number
+  bedragMax?: number
 }): Promise<void> {
   let res: Response
   try {
@@ -269,12 +279,18 @@ async function notifyDashboard(data: {
         adres: data.adres,
         postcode: data.postcode || '',
         gemeente: data.gemeente || '',
-        type: 'woning',
+        type: data.ontruimingType || 'woning',
         opmerking: data.notitie || '',
         bron: 'wizard',
         aiAnalyse: '',
         fotoUrls: data.fotoUrls ?? [],
         fotosWaardevollUrls: data.fotosWaardevollUrls ?? [],
+        ontruimingType: data.ontruimingType || '',
+        woningType: data.woningType || '',
+        woningGrootte: data.woningGrootte || '',
+        waardevol: data.waardevol || '',
+        bedragMin: data.bedragMin ?? null,
+        bedragMax: data.bedragMax ?? null,
       }),
     })
   } catch (err) {
@@ -405,12 +421,19 @@ export async function POST(request: NextRequest) {
     await appendToSheets(sheetId!, token, row)
   }
 
+  const notitieOnderdelen = [
+    `${offerte.referentie} | ${bedragRange}`,
+    body.ontruimingType,
+    body.woningType && body.woningGrootte ? `${body.woningType} · ${body.woningGrootte}` : body.woningType,
+    body.waardevol ? `waardevol: ${body.waardevol}` : null,
+  ].filter(Boolean).join(' | ')
+
   const webhookPayload = {
     naam,
     email,
     telefoon,
     adres,
-    notitie: `${offerte.referentie} | ${bedragRange} | ${opleveringsdatum}`,
+    notitie: notitieOnderdelen,
   }
 
   // Run all in parallel — dashboard webhook mee in allSettled zodat fouten gelogd worden
@@ -430,6 +453,12 @@ export async function POST(request: NextRequest) {
       notitie: webhookPayload.notitie,
       fotoUrls,
       fotosWaardevollUrls,
+      ontruimingType: body.ontruimingType,
+      woningType: body.woningType,
+      woningGrootte: body.woningGrootte,
+      waardevol: body.waardevol,
+      bedragMin: offerte.totaalMin,
+      bedragMax: offerte.totaalMax,
     }),
   ])
 
