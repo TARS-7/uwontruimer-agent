@@ -3,18 +3,12 @@
 import { useState } from 'react'
 import StepIndicator from '@/components/wizard/StepIndicator'
 import StepOntruimingType, { type StepOntruimingTypeResult } from '@/components/wizard/StepOntruimingType'
-import StepWoningGrootte, { type StepWoningGrootteResult } from '@/components/wizard/StepWoningGrootte'
-import Step4Fotos, { type Step4Result } from '@/components/wizard/Step4Fotos'
+import StepWoning, { type StepWoningResult } from '@/components/wizard/StepWoning'
+import StepFotosEnWaardevol, { type StepFotosEnWaardevollResult } from '@/components/wizard/StepFotosEnWaardevol'
 import StepAdresContact, { type StepAdresContactResult } from '@/components/wizard/StepAdresContact'
 import Step6Offerte from '@/components/wizard/Step6Offerte'
 import type { WizardState } from '@/lib/types'
 import { initialWizardState } from '@/lib/types'
-
-function getGroepNaam(step: number): string {
-  if (step <= 2) return 'Situatie'
-  if (step === 3) return "Foto's"
-  return 'Offerte'
-}
 
 export default function Page() {
   const [state, setState] = useState<WizardState>(initialWizardState)
@@ -23,20 +17,26 @@ export default function Page() {
     setState((s) => ({ ...s, ontruimingType: result.ontruimingType, step: 2 }))
   }
 
-  function handleStep2Complete(result: StepWoningGrootteResult) {
-    setState((s) => ({ ...s, woningGrootte: result.woningGrootte, step: 3 }))
+  function handleStep2Complete(result: StepWoningResult) {
+    setState((s) => ({ ...s, woningType: result.woningType, woningGrootte: result.woningGrootte, step: 3 }))
   }
 
-  function handleStep3Complete(result: Step4Result) {
-    setState((s) => ({ ...s, fotos: result.fotos, fotoUrls: result.fotoUrls, step: 4 }))
+  function handleStep3Complete(result: StepFotosEnWaardevollResult) {
+    setState((s) => ({
+      ...s,
+      fotos: result.fotos,
+      fotoUrls: result.fotoUrls,
+      waardevol: result.waardevol,
+      step: 4,
+    }))
   }
 
   function handleStep4Complete(result: StepAdresContactResult) {
     setState((s) => ({
       ...s,
-      address: result.address,
-      naam: result.naam,
-      email: result.email,
+      address:  result.address,
+      naam:     result.naam,
+      email:    result.email,
       telefoon: result.telefoon,
       step: 5,
     }))
@@ -55,15 +55,18 @@ export default function Page() {
             </div>
             <span className="font-semibold text-slate-900">Uw Ontruimer</span>
           </a>
-          <span className="text-sm font-medium text-slate-500">
-            {getGroepNaam(state.step)}
-          </span>
+          <a
+            href="tel:0853035894"
+            className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors"
+          >
+            085-303 58 94
+          </a>
         </div>
       </header>
 
       {/* Main */}
       <main className="flex-1 py-8 px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl flex flex-col gap-8">
+        <div className="mx-auto max-w-3xl flex flex-col gap-6">
 
           <StepIndicator currentStep={state.step} />
 
@@ -76,16 +79,16 @@ export default function Page() {
             )}
 
             {state.step === 2 && (
-              <StepWoningGrootte
-                initialData={{ woningGrootte: state.woningGrootte }}
+              <StepWoning
+                initialData={{ woningType: state.woningType, woningGrootte: state.woningGrootte }}
                 onComplete={handleStep2Complete}
                 onBack={() => setState((s) => ({ ...s, step: 1 }))}
               />
             )}
 
             {state.step === 3 && (
-              <Step4Fotos
-                initialData={{ fotos: state.fotos }}
+              <StepFotosEnWaardevol
+                initialData={{ fotos: state.fotos, waardevol: state.waardevol }}
                 onComplete={handleStep3Complete}
                 onBack={() => setState((s) => ({ ...s, step: 2 }))}
               />
@@ -94,9 +97,9 @@ export default function Page() {
             {state.step === 4 && (
               <StepAdresContact
                 initialData={{
-                  address: state.address,
-                  naam: state.naam,
-                  email: state.email,
+                  address:  state.address,
+                  naam:     state.naam,
+                  email:    state.email,
                   telefoon: state.telefoon,
                 }}
                 onComplete={handleStep4Complete}
@@ -107,13 +110,15 @@ export default function Page() {
             {state.step === 5 && state.address && (
               <Step6Offerte
                 data={{
-                  address: state.address,
+                  address:       state.address,
                   ontruimingType: state.ontruimingType,
+                  woningType:    state.woningType,
                   woningGrootte: state.woningGrootte,
-                  naam: state.naam,
-                  email: state.email,
-                  telefoon: state.telefoon,
-                  fotoUrls: state.fotoUrls,
+                  waardevol:     state.waardevol,
+                  naam:          state.naam,
+                  email:         state.email,
+                  telefoon:      state.telefoon,
+                  fotoUrls:      state.fotoUrls,
                 }}
                 initialOfferte={state.offerte}
                 onBack={() => setState((s) => ({ ...s, step: 4 }))}
@@ -124,7 +129,7 @@ export default function Page() {
           {state.step === 1 && (
             <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
               <TrustItem icon="shield" label="Veilig en vertrouwelijk" />
-              <TrustItem icon="clock" label="Offerte binnen 5 minuten" />
+              <TrustItem icon="clock" label="Prijsindicatie binnen 2 minuten" />
               <TrustItem icon="star" label="Gratis en vrijblijvend" />
             </div>
           )}
@@ -149,8 +154,8 @@ export default function Page() {
 function TrustItem({ icon, label }: { icon: 'shield' | 'clock' | 'star'; label: string }) {
   const icons = {
     shield: <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />,
-    clock: <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />,
-    star: <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />,
+    clock:  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />,
+    star:   <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />,
   }
   return (
     <div className="flex items-center gap-1.5">

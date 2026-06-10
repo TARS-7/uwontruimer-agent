@@ -33,17 +33,19 @@ export interface Offerte {
 export interface WizardState {
   step: number
 
-  // Stap 1 – type ontruiming (progressieve commitment)
+  // Stap 1 – type ontruiming
   ontruimingType: string | null
 
-  // Stap 2 – grootte woning (progressieve commitment)
+  // Stap 2 – woningtype + grootte
+  woningType: string | null
   woningGrootte: string | null
 
-  // Stap 3 – foto's
+  // Stap 3 – foto's + waardevolle spullen
   fotos: File[]
   fotoUrls: string[]
+  waardevol: 'ja' | 'misschien' | 'nee' | 'weet ik niet' | null
 
-  // Stap 4 – adres + contactgegevens
+  // Stap 4 – contactgegevens + adres
   address: AddressData | null
   naam: string
   email: string
@@ -56,9 +58,11 @@ export interface WizardState {
 export const initialWizardState: WizardState = {
   step: 1,
   ontruimingType: null,
+  woningType: null,
   woningGrootte: null,
   fotos: [],
   fotoUrls: [],
+  waardevol: null,
   address: null,
   naam: '',
   email: '',

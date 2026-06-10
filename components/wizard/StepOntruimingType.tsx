@@ -41,7 +41,7 @@ export default function StepOntruimingType({ initialData, onComplete }: Props) {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {OPTIES.map(({ label, emoji }) => {
           const isSelected = selected === label
           return (
@@ -71,6 +71,10 @@ export default function StepOntruimingType({ initialData, onComplete }: Props) {
           )
         })}
       </div>
+
+      <p className="text-center text-xs text-slate-400">
+        Gratis &amp; vrijblijvend · Prijsindicatie binnen 2 minuten
+      </p>
     </div>
   )
 }

@@ -15,7 +15,9 @@ import type { AddressData, Offerte } from '@/lib/types'
 export interface Step6Input {
   address: AddressData
   ontruimingType: string | null
+  woningType: string | null
   woningGrootte: string | null
+  waardevol: string | null
   naam: string
   email: string
   telefoon: string
@@ -117,6 +119,8 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
               eigendomstype: null,
               inspectieWerkzaamheden: data.ontruimingType ? [data.ontruimingType] : [],
               waardevolleSpullen: [],
+              woningType: data.woningType,
+              waardevol: data.waardevol,
             }),
           }).then((r) =>
             r.ok
@@ -144,7 +148,9 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
             telefoon: data.telefoon,
             address: data.address,
             ontruimingType: data.ontruimingType,
+            woningType: data.woningType,
             woningGrootte: data.woningGrootte,
+            waardevol: data.waardevol,
             eigendomstype: null,
             opleveringsdatum: '',
             inspectieWerkzaamheden: data.ontruimingType ? [data.ontruimingType] : [],
@@ -191,7 +197,7 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
 
   if (phase === 'loading') return <LoadingView gedaanStappen={gedaanStappen} actieveStap={actieveStap} />
   if (phase === 'error') return <ErrorView error={error} onRetry={handleRetry} onBack={onBack} />
-  if (phase === 'result' && offerte) return <ResultView offerte={offerte} naam={data.naam} />
+  if (phase === 'result' && offerte) return <ResultView offerte={offerte} naam={data.naam} waardevol={data.waardevol} />
   return null
 }
 
@@ -272,7 +278,7 @@ function ErrorView({ error, onRetry, onBack }: { error: string | null; onRetry: 
 
 // ─── Result (= bevestigingsscherm) ────────────────────────────────────────────
 
-function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
+function ResultView({ offerte, naam, waardevol }: { offerte: Offerte; naam: string; waardevol: string | null }) {
   const pmPosten = offerte.onderdelen.filter((o) => o.isPM)
   const berekendePosten = offerte.onderdelen.filter((o) => !o.isPM)
 
@@ -358,13 +364,29 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
         </div>
       </div>
 
+      {/* Takaros banner (waardevolle items) */}
+      {(waardevol === 'ja' || waardevol === 'misschien') && (
+        <div className="flex gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+          <svg className="h-5 w-5 shrink-0 text-emerald-600 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
+          </svg>
+          <div>
+            <p className="text-sm font-semibold text-emerald-800">Geschatte veilingwaarde van uw items: \u20ac200\u2013\u20ac2.000</p>
+            <p className="mt-0.5 text-sm text-emerald-700">
+              Dit kan uw netto-kosten verlagen. Wij laten waardevolle spullen gratis taxeren en eventueel veilen \u2014 de opbrengst gaat van uw ontruimingsprijs af.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* What happens next */}
       <div className="rounded-xl border border-slate-100 bg-white p-5">
         <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Wat gebeurt er nu?</p>
         <ol className="flex flex-col gap-3">
           {[
             'Onze medewerker belt u binnen 1 werkdag',
-            "We checken uw gegevens en foto\u2019s \u2014 zo nodig plannen we een inspectie op locatie",
+            "We checken uw gegevens en foto's \u2014 zo nodig plannen we een inspectie op locatie",
             'U ontvangt de definitieve offerte',
           ].map((stap, i) => (
             <li key={i} className="flex items-start gap-3">
@@ -377,12 +399,24 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
         </ol>
       </div>
 
-      <p className="text-center text-xs text-slate-400">
-        {'Vragen? Bel ons op '}
-        <a href="tel:+31853035894" className="text-blue-600 hover:underline">
-          {'085-303 58 94'}
+      {/* CTA */}
+      <div className="flex flex-col items-center gap-3">
+        <a
+          href="tel:0853035894"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+        >
+          <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Plan een gratis bevestiging in
         </a>
-      </p>
+        <p className="text-xs text-slate-400">
+          Of bel direct:{' '}
+          <a href="tel:0853035894" className="font-medium text-blue-600 hover:underline">
+            085-303 58 94
+          </a>
+        </p>
+      </div>
     </div>
   )
 }
