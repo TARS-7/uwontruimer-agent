@@ -29,7 +29,7 @@ export default function Page() {
             {/* Teamfoto */}
             <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
               <Image
-                src="/Uw-Ontruimer.jpg"
+                src="/over-ons.jpg"
                 alt="Het team van UwOntruimer"
                 fill
                 className="object-cover"
@@ -89,17 +89,35 @@ export default function Page() {
               De onderneming is actief in de particuliere én de zakelijke markt. Voor zowel huur- als koopwoningen. Bovendien is het belangrijk om met een solide bedrijf in zee te gaan voordat u de sleutels van de woning overhandigt — Uw Ontruimer is dat bedrijf.
             </p>
 
-            {/* Team link */}
-            <div className="mb-12 flex items-center gap-4 bg-slate-50 border border-slate-100 rounded-xl px-6 py-5">
-              <div className="flex-1">
-                <p className="font-semibold text-slate-900 mb-0.5">Maak kennis met ons team</p>
-                <p className="text-sm text-slate-500 font-light">Leer de mensen kennen die elke ontruiming met zorg uitvoeren.</p>
+            {/* Team preview */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-slate-900 tracking-tight mb-2">Ons team</h2>
+              <p className="text-slate-500 font-light leading-relaxed mb-10">
+                Achter elke ontruiming staat een team van betrokken vakmensen die discreet en zorgvuldig te werk gaan.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-8">
+                {[
+                  { naam: "Peter Visser", functie: "Bedrijfsleider",            foto: "/team-Peter.jpg", bio: "Al meer dan 15 jaar zorgt Peter persoonlijk voor een zorgvuldige en discrete uitvoering van elke ontruiming." },
+                  { naam: "Lisa Vermeer", functie: "Planning & Klantenservice", foto: "/team-Lisa.jpg",  bio: "Lisa is het eerste aanspreekpunt voor klanten en zorgt voor een vlekkeloze planning." },
+                  { naam: "Carlos",       functie: "Senior Uitvoerder",         foto: "/team-Carlos.jpg",bio: "Carlos heeft jarenlange ervaring met grote en complexe ontruimingen in de regio Amsterdam." },
+                  { naam: "Boris",        functie: "Uitvoerder",                foto: "/team-Boris.jpg", bio: "Boris staat bekend om zijn snelheid en zorgvuldigheid op de werkvloer." },
+                  { naam: "Hector",       functie: "Teamhond & Moraalbooster",  foto: "/team-Hector.jpg",bio: "Hector vergezelt het team op de klus en zorgt altijd voor een glimlach bij klanten en collega's." },
+                ].map((lid) => (
+                  <div key={lid.naam} className="flex flex-col items-center text-center">
+                    <div className="w-40 h-40 rounded-full overflow-hidden bg-slate-100 mb-5 flex-shrink-0">
+                      <Image src={lid.foto} alt={lid.naam} width={160} height={160} className="w-full h-full object-cover" />
+                    </div>
+                    <p className="text-lg font-semibold text-slate-900 mb-0.5">{lid.naam}</p>
+                    <p className="text-sm text-slate-400 mb-3">{lid.functie}</p>
+                    <p className="text-sm text-slate-500 font-light leading-relaxed">{lid.bio}</p>
+                  </div>
+                ))}
               </div>
               <Link
-                href="/over-ons/team"
-                className="flex-shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+                href="/over-ons/team/"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
               >
-                Ons team
+                Maak kennis met ons hele team
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                 </svg>
