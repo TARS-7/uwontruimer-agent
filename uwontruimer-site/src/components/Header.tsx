@@ -13,6 +13,11 @@ const diensten = [
   { label: "Verhuizen", href: "/diensten/verhuizen" },
 ];
 
+const overOns = [
+  { label: "Over ons", href: "/over-ons" },
+  { label: "Ons team", href: "/over-ons/team" },
+];
+
 const zakelijk = [
   { label: "Voor notarissen", href: "/notaris" },
   { label: "Voor makelaars", href: "/makelaar" },
@@ -252,7 +257,7 @@ export default function Header() {
             <Dropdown label="Zakelijk" items={zakelijk} />
             <WerkgebiedDropdown />
             <Link href="/werkwijze" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werkwijze</Link>
-            <Link href="/over-ons" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Over ons</Link>
+            <Dropdown label="Over ons" items={overOns} />
             <Link href="/faq" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">FAQ</Link>
           </nav>
 
@@ -296,6 +301,7 @@ export default function Header() {
                 items: [
                   { label: "Werkwijze", href: "/werkwijze" },
                   { label: "Over ons", href: "/over-ons" },
+                  { label: "Ons team", href: "/over-ons/team" },
                   { label: "FAQ", href: "/faq" },
                 ],
               },

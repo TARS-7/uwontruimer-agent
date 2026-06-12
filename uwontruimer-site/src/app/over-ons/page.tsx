@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Over ons - Maak kennis met Uw Ontruimer",
@@ -87,6 +88,23 @@ export default function Page() {
             <p className="text-slate-500 font-light leading-relaxed mb-10">
               De onderneming is actief in de particuliere én de zakelijke markt. Voor zowel huur- als koopwoningen. Bovendien is het belangrijk om met een solide bedrijf in zee te gaan voordat u de sleutels van de woning overhandigt — Uw Ontruimer is dat bedrijf.
             </p>
+
+            {/* Team link */}
+            <div className="mb-12 flex items-center gap-4 bg-slate-50 border border-slate-100 rounded-xl px-6 py-5">
+              <div className="flex-1">
+                <p className="font-semibold text-slate-900 mb-0.5">Maak kennis met ons team</p>
+                <p className="text-sm text-slate-500 font-light">Leer de mensen kennen die elke ontruiming met zorg uitvoeren.</p>
+              </div>
+              <Link
+                href="/over-ons/team"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:underline"
+              >
+                Ons team
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+              </Link>
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">

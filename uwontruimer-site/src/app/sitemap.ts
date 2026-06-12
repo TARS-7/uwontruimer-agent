@@ -25,6 +25,12 @@ const steden = [
   "stichtse-vecht", "uithoorn", "veenendaal", "vianen", "vijfheerenlanden",
   "voorburg", "voorschoten", "wassenaar", "woerden", "zaanstad",
   "zeist", "zuid-holland",
+  // Zaanstreek-Waterland aanvulling
+  "oostzaan", "wormerland", "waterland", "beemster",
+  // Amstelregio
+  "ouder-amstel", "muiden",
+  // Utrecht aanvulling
+  "de-ronde-venen",
   // Flevoland
   "almere", "lelystad",
   // Gelderland
@@ -46,6 +52,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/diensten/inboedel-veilen/`,          lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/diensten/verhuizen/`,                lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/diensten/traplift-verwijderen/`,     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/diensten/raambekleding-verwijderen/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/diensten/behang-verwijderen/`,        lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/diensten/keuken-verwijderen/`,        lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/diensten/zonnescherm-verwijderen/`,   lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/diensten/constructies-verwijderen/`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/diensten/gaatjes-dichten/`,           lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/diensten/tuin-snoeien-opschonen/`,    lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/huisontruiming/`,                    lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/huis-laten-ontruimen/`,              lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/huis-ontruimen-na-overlijden/`,      lastModified: now, changeFrequency: "monthly", priority: 0.8 },
@@ -59,6 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/bewindvoerder/`,                     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/woningbouwvereniging/`,              lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/over-ons/`,                          lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/over-ons/team/`,                     lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/werkwijze/`,                         lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/faq/`,                               lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/duurzaam/`,                          lastModified: now, changeFrequency: "monthly", priority: 0.5 },
