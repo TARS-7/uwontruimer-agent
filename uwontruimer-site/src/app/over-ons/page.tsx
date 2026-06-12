@@ -29,7 +29,7 @@ export default function Page() {
             {/* Teamfoto */}
             <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
               <Image
-                src="/over-ons.jpg"
+                src="/Over-ons.jpg"
                 alt="Het team van UwOntruimer"
                 fill
                 className="object-cover"
