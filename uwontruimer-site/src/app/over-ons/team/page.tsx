@@ -15,31 +15,31 @@ const team = [
   {
     naam: "Peter Visser",
     functie: "Bedrijfsleider",
-    foto: "/images/team/team-Peter.jpg",
+    foto: "/images/team-Peter.jpg",
     bio: "Al meer dan 15 jaar zorgt Peter persoonlijk voor een zorgvuldige en discrete uitvoering van elke ontruiming.",
   },
   {
     naam: "Lisa Vermeer",
     functie: "Planning & Klantenservice",
-    foto: "/images/team/team-Lisa.jpg",
+    foto: "/images/team-Lisa.jpg",
     bio: "Lisa is het eerste aanspreekpunt voor klanten en zorgt voor een vlekkeloze planning.",
   },
   {
     naam: "Carlos",
     functie: "Senior Uitvoerder",
-    foto: "/images/team/team-Carlos.jpg",
+    foto: "/images/team-Carlos.jpg",
     bio: "Carlos heeft jarenlange ervaring met grote en complexe ontruimingen in de regio Amsterdam.",
   },
   {
     naam: "Boris",
     functie: "Uitvoerder",
-    foto: "/images/team/team-Boris.jpg",
+    foto: "/images/team-Boris.jpg",
     bio: "Boris staat bekend om zijn snelheid en zorgvuldigheid op de werkvloer.",
   },
   {
     naam: "Hector",
     functie: "Teamhond & Moraalbooster",
-    foto: "/images/team/team-Hector.jpg",
+    foto: "/images/team-Hector.jpg",
     bio: "Hector vergezelt het team op de klus en zorgt altijd voor een glimlach bij klanten en collega's.",
   },
 ];
