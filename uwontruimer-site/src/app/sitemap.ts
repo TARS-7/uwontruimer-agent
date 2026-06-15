@@ -97,7 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}/blog/${post.slug}/`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
-    priority: 0.6,
+    priority: post.sitemapPriority ?? 0.6,
   }));
 
   return [...staticPages, ...stadPages, ...blogPostPages];

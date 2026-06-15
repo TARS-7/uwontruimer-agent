@@ -15,10 +15,66 @@ export interface BlogPost {
   seoTitle: string;
   seoDesc: string;
   image?: string;
+  sitemapPriority?: number;
   blocks: Block[];
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "huis-ontruimen-gratis",
+    title: "Huis ontruimen gratis — wanneer is het mogelijk?",
+    date: "2026-06-15",
+    dateDisplay: "15 jun 2026",
+    excerpt: "Een huis laten ontruimen kost geld, maar in sommige gevallen kan de opbrengst van uw inboedel de kosten volledig dekken — of zelfs overtreffen. Wanneer is gratis ontruimen realistisch, en wat bepaalt de uitkomst?",
+    seoTitle: "Huis ontruimen gratis — wanneer is het mogelijk? | UwOntruimer.nl",
+    seoDesc: "Wanneer kunt u een huis gratis laten ontruimen? Lees wanneer inboedelopkoop de ontruimingskosten dekt en wat u kunt verwachten. Vraag vrijblijvend een offerte aan.",
+    sitemapPriority: 0.8,
+    blocks: [
+      { type: "h2", text: "Huis ontruimen gratis: is dat mogelijk?" },
+      { type: "p", text: "Een woningontruiming brengt altijd kosten met zich mee — voor arbeid, transport en afvoer. Toch klinkt 'gratis ontruimen' voor steeds meer mensen bekend in de oren. En dat is geen marketingtruc: in bepaalde situaties kan de waarde van de aanwezige inboedel de ontruimingskosten volledig compenseren. Bij Uw Ontruimer werken we transparant: als uw inboedel voldoende waarde heeft, verrekenen we de opbrengst rechtstreeks met de ontruimingsfactuur. In dit artikel leggen we uit wanneer dat realistisch is, wat er precies bij komt kijken en wat u kunt verwachten." },
+      { type: "h2", text: "Hoe werkt inboedelopkoop als compensatie?" },
+      { type: "p", text: "Wij kopen waardevolle inboedel op en verrekenen de opbrengst met de ontruimingskosten. Dit werkt als volgt: tijdens of vóór de offerte-inspectie beoordelen onze specialisten welke items verkoopwaarde hebben. Denk aan antieke meubels, sieraden, kunstwerken, kwaliteitselectronica of verzamelobjecten. De geschatte opbrengst wordt in mindering gebracht op de ontruimingsprijs. Als de waarde van de inboedel hoger is dan de ontruimingskosten, ontvangt u zelfs een bedrag van ons." },
+      { type: "ul", items: [
+        "Opbrengst inboedel wordt direct verrekend met de offerte",
+        "Eerlijke handelsprijs op basis van actuele marktwaarde",
+        "U hoeft zelf niets te regelen — wij taxeren, kopen op en voeren af",
+        "Transparante afrekening: u ziet precies wat waarde heeft en wat het oplevert"
+      ]},
+      { type: "h2", text: "Wanneer is gratis ontruimen realistisch?" },
+      { type: "p", text: "Of een ontruiming uiteindelijk gratis uitvalt, hangt volledig af van de verhouding tussen de waarde van de inboedel en de omvang van het werk. Een ontruiming is eerder gratis of nagenoeg kosteloos wanneer:" },
+      { type: "ul", items: [
+        "De woning antiek, design of kwalitatief hoogwaardig meubilair bevat",
+        "Er sieraden, zilverwerk, porselein of kunstwerken aanwezig zijn",
+        "Er waardevolle elektronica, gereedschap of verzamelobjecten in huis zijn",
+        "De woning relatief compact is met weinig te storten afval",
+        "Er geen bijzondere werkzaamheden nodig zijn, zoals vloerverwijdering of herstelwerk"
+      ]},
+      { type: "p", text: "In de praktijk zien we dit het vaakst bij ontruimingen na een overlijden, waarbij de woning decennialang niet is leeggehaald en nog origineel meubilair of collectibles bevat. Maar ook bij kleinere appartementen met kwalitatieve inboedel is een (nagenoeg) gratis ontruiming soms mogelijk." },
+      { type: "h2", text: "Wanneer is het níet gratis?" },
+      { type: "p", text: "Eerlijkheid is voor ons net zo belangrijk als een goede deal. Er zijn situaties waarin een gratis ontruiming niet realistisch is:" },
+      { type: "ul", items: [
+        "De inboedel bestaat voornamelijk uit IKEA-meubels of andere laaggeprijsde items zonder tweedehands waarde",
+        "Er is veel grofvuil, vervuild materiaal of gevaarlijk afval aanwezig",
+        "De woning is groot en de ontruiming vereist een uitgebreid team en meerdere vrachtwagens",
+        "Er zijn aanvullende werkzaamheden nodig zoals vloerverwijdering, sauzen of buitenruimte opruimen",
+        "De woning bevindt zich op een moeilijk bereikbare locatie zonder lift"
+      ]},
+      { type: "p", text: "In die gevallen brengen we een faire ontruimingsprijs in rekening, maar verrekenen we de inboedelopbrengst alsnog. Zo betaalt u nooit meer dan nodig." },
+      { type: "h2", text: "Hoe vraagt u een gratis ontruiming aan?" },
+      { type: "p", text: "Het proces start met een vrijblijvende inspectie. Onze adviseur komt langs, bekijkt de woning en de aanwezige inboedel, en maakt een offerte op maat. Als er voldoende waardevolle items zijn, ziet u in de offerte direct hoe de opbrengst wordt verrekend. U beslist zelf of u akkoord gaat — er zijn geen verplichtingen." },
+      { type: "h2", text: "Direct contact" },
+      { type: "p", text: "Heeft u een huis dat leeggehaald moet worden en bent u benieuwd of de ontruiming (deels) gratis kan? Wij taxeren uw inboedel kosteloos en geven u een eerlijk beeld van de mogelijkheden. Bel ons op 085-303 58 94 of vraag direct een vrijblijvende offerte aan via ons contactformulier." },
+      { type: "h2", text: "Veelgestelde vragen over gratis ontruimen" },
+      { type: "h3", text: "Kan ik ook foto's opsturen ter beoordeling?" },
+      { type: "p", text: "Ja. Stuur ons via WhatsApp of e-mail foto's van de meest opvallende items in de woning. Wij geven u dan al snel een eerste indicatie of de ontruiming kosteloos of nagenoeg gratis kan verlopen. Een definitieve berekening maken we altijd na een bezichtiging op locatie." },
+      { type: "h3", text: "Wat als er weinig waardevolle spullen zijn?" },
+      { type: "p", text: "Dan betaalt u een reguliere ontruimingsprijs. Die is altijd transparant en vooraf vastgelegd in de offerte. Geen verborgen kosten, geen verrassingen achteraf. Wij gaan nooit over tot uitvoering zonder uw akkoord." },
+      { type: "h3", text: "Hoe snel kan een gratis ontruiming plaatsvinden?" },
+      { type: "p", text: "Na uw akkoord op de offerte plannen wij de ontruiming zo snel mogelijk in. Bij spoed kunnen wij in veel gevallen binnen 24 tot 48 uur starten. Bespreek uw tijdlijn altijd bij de inspectie, zodat wij de planning hierop kunnen afstemmen." },
+      { type: "link", text: "Lees ook: Kosten woningontruiming verminderen door opkoop inboedel", href: "/blog/kosten-woningontruiming-verminderen" },
+      { type: "link", text: "Meer weten over wat er na de ontruiming gebeurt?", href: "/blog/na-de-ontruiming" },
+    ],
+  },
   {
     slug: "na-de-ontruiming",
     title: "Wat gebeurt er n\u00e1 de ontruiming? Schoonmaak, afvoer, verantwoorde recycling & inboedelverkoop",
