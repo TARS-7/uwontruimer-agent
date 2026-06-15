@@ -39,14 +39,8 @@ body {
   100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
 }
 @media (max-width: 767px) {
-  .phone-glow {
-    animation: phone-glow 0.9s ease-in-out 5;
-    animation-delay: 10s;
-    animation-fill-mode: backwards;
-  }
+  .phone-glow,
   .phone-glow-alt {
-    animation: phone-glow 0.9s ease-in-out 5;
-    animation-delay: 15s;
-    animation-fill-mode: backwards;
+    animation: phone-glow 2s ease-in-out infinite;
   }
 }
