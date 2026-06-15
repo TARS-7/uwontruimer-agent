@@ -305,19 +305,19 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     <>
       <div className="flex flex-col sm:flex-row gap-3 mb-5 flex-wrap">
         <a
+          href="tel:0853035894"
+          className={`phone-glow-alt order-1 sm:order-2 inline-flex items-center justify-center gap-2 font-semibold px-7 py-4 rounded-xl transition-colors text-base border-2 bg-blue-600 text-white border-blue-600 hover:opacity-90 ${dark ? "sm:bg-transparent sm:border-white sm:hover:bg-white/10" : "sm:bg-white sm:text-blue-600 sm:border-blue-600 sm:hover:bg-blue-50 sm:hover:opacity-100"}`}
+        >
+          {phoneIcon}
+          Bel 085-303 58 94
+        </a>
+        <a
           href="https://analyse.uwontruimer.nl"
-          className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
+          className="order-2 sm:order-1 inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
           style={{ backgroundColor: "#d97706" }}
         >
           {offerteIcon}
           Ontvang direct uw AI-offerte (2 min)
-        </a>
-        <a
-          href="tel:0853035894"
-          className={`inline-flex items-center justify-center gap-2 font-semibold px-7 py-4 rounded-xl transition-colors text-base border-2 ${dark ? "bg-transparent border-white text-white hover:bg-white/10" : "bg-white border-blue-600 text-blue-600 hover:bg-blue-50"}`}
-        >
-          {phoneIcon}
-          Bel 085-303 58 94
         </a>
         <div className="inline-flex items-center gap-3 py-2">
           <Image

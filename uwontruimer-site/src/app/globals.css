@@ -44,4 +44,9 @@ body {
     animation-delay: 10s;
     animation-fill-mode: backwards;
   }
+  .phone-glow-alt {
+    animation: phone-glow 0.9s ease-in-out 5;
+    animation-delay: 15s;
+    animation-fill-mode: backwards;
+  }
 }
