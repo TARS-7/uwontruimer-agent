@@ -415,7 +415,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-3 items-start">
               <a href="https://analyse.uwontruimer.nl" className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors text-sm whitespace-nowrap">Gratis offerte aanvragen</a>
-              <a href="tel:0853035894" className="border border-slate-200 hover:border-blue-600 text-slate-600 hover:text-blue-600 font-medium px-6 py-3 rounded-lg transition-colors text-sm bg-white whitespace-nowrap">Bel 085-303 58 94</a>
+              <a href="tel:0853035894" className="phone-glow border border-slate-200 hover:border-blue-600 text-slate-600 hover:text-blue-600 font-medium px-6 py-3 rounded-lg transition-colors text-sm bg-white whitespace-nowrap">Bel 085-303 58 94</a>
             </div>
           </div>
         </div>

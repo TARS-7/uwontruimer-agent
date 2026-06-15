@@ -242,19 +242,7 @@ export default function Header() {
 
   return (
     <>
-      <style>{`
-        @keyframes phone-glow {
-          0%   { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
-          50%  { box-shadow: 0 0 0 8px rgba(37,99,235,0.22); background-color: rgba(37,99,235,0.08); }
-          100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
-        }
-        .phone-glow {
-          animation: phone-glow 0.9s ease-in-out 3;
-          animation-delay: 10s;
-          animation-fill-mode: backwards;
-        }
-      `}</style>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 h-16">
+<header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 h-16">
         <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5" onClick={close}>
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
