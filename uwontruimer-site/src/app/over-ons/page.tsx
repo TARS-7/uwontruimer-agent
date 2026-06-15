@@ -101,7 +101,7 @@ export default function Page() {
                   { naam: "Lisa Vermeer", functie: "Planning & Klantenservice", foto: "/team-Lisa.jpg",  bio: "Lisa is het eerste aanspreekpunt voor klanten en zorgt voor een vlekkeloze planning." },
                   { naam: "Carlos",       functie: "Senior Uitvoerder",         foto: "/team-Carlos.jpg",bio: "Carlos heeft jarenlange ervaring met grote en complexe ontruimingen in de regio Amsterdam." },
                   { naam: "Boris",        functie: "Uitvoerder",                foto: "/team-Boris.jpg", bio: "Boris staat bekend om zijn snelheid en zorgvuldigheid op de werkvloer." },
-                  { naam: "Hector",       functie: "Teamhond & Moraalbooster",  foto: "/team-Hector.jpg",bio: "Hector vergezelt het team op de klus en zorgt altijd voor een glimlach bij klanten en collega's." },
+                  { naam: "Hector",       functie: "Teamhond & Moraalbooster",  foto: "/team-Hector.jpg",bio: "Hector is de vaste favoriet op kantoor en verwelkomt elke klant die langskomt met een kwispelende staart." },
                 ].map((lid) => (
                   <div key={lid.naam} className="flex flex-col items-center text-center">
                     <div className="w-40 h-40 rounded-full overflow-hidden bg-slate-100 mb-5 flex-shrink-0">
