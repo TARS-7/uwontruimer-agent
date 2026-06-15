@@ -40,7 +40,7 @@ const team = [
     naam: "Hector",
     functie: "Teamhond & Moraalbooster",
     foto: "/team-Hector.jpg",
-    bio: "Hector vergezelt het team op de klus en zorgt altijd voor een glimlach bij klanten en collega's.",
+    bio: "Hector is de vaste favoriet op kantoor en verwelkomt elke klant die langskomt met een kwispelende staart.",
   },
 ];
 

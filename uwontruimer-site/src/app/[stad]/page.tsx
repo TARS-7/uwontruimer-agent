@@ -5,7 +5,9 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import ReviewBanner from "@/components/ReviewBanner";
 import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
+import Link from "next/link";
 import seoData from "@/data/seo-metadata.json";
+import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf } from "lucide-react";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
@@ -114,7 +116,68 @@ const steden = [
   { slug: "tilburg",                name: "Tilburg",                title: "Woningontruiming Tilburg | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Tilburg. Actief in Reeshof, Broekhoven en Noord. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Spoedontruiming." },
   { slug: "den-bosch",              name: "Den Bosch",              title: "Woningontruiming Den Bosch | UwOntruimer.nl",                                  desc: "Woningontruiming in Den Bosch? Actief in Rosmalen, Empel en Graafsepoort. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
   { slug: "eindhoven",              name: "Eindhoven",              title: "Woningontruiming Eindhoven | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Eindhoven. Actief in Woensel, Stratum en Gestel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+
+  // === Zaanstreek-Waterland aanvulling ===
+  { slug: "oostzaan",               name: "Oostzaan",               title: "Woningontruiming Oostzaan | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Oostzaan. Actief in de Dorpsstraat, Zuideinde en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "wormerland",             name: "Wormerland",             title: "Woningontruiming Wormerland | UwOntruimer.nl",                                  desc: "Woningontruiming in Wormerland? Actief in Wormer, Jisp, Neck en Wijdewormer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "waterland",              name: "Waterland",              title: "Woningontruiming Waterland | UwOntruimer.nl",                                   desc: "Woningontruiming in Waterland? Actief in Monnickendam, Broek in Waterland en Marken. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "beemster",               name: "Beemster",               title: "Woningontruiming Beemster | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in de Beemsterpolder (UNESCO). Actief in Middenbeemster en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
+
+  // === Amstelregio ===
+  { slug: "ouder-amstel",           name: "Ouder-Amstel",           title: "Woningontruiming Ouder-Amstel | UwOntruimer.nl",                                desc: "Woningontruiming in Ouder-Amstel? Actief in Ouderkerk a/d Amstel, Duivendrecht en Abcoude. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
+  { slug: "muiden",                 name: "Muiden",                 title: "Woningontruiming Muiden | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Muiden en Muiderberg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+
+  // === Utrecht aanvulling ===
+  { slug: "de-ronde-venen",         name: "De Ronde Venen",         title: "Woningontruiming De Ronde Venen | UwOntruimer.nl",                             desc: "Woningontruiming in De Ronde Venen? Actief in Mijdrecht, Vinkeveen en Wilnis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
 ];
+
+// Provincie-indeling voor "Ook actief in" sectie (sluit provinciesidepagina's uit)
+const provincieSteden: Record<string, string[]> = {
+  "noord-holland": [
+    "aalsmeer", "aerdenhout", "alkmaar", "amstelveen", "amsterdam", "badhoevedorp",
+    "bergen", "beverwijk", "blaricum", "bloemendaal", "bussum", "castricum",
+    "den-helder", "diemen", "drechterland", "edam-volendam", "enkhuizen",
+    "gooi-en-vechtstreek", "gooise-meren", "graft-de-rijp", "haarlem",
+    "haarlemmerliede", "haarlemmermeer", "heemskerk", "heemstede", "heiloo",
+    "hilversum", "hollands-kroon", "hoofddorp", "hoorn", "huizen", "landsmeer",
+    "laren", "naarden", "nieuw-vennep", "purmerend", "schagen", "uithoorn",
+    "weesp", "zaandam", "zaanstad",
+    "oostzaan", "wormerland", "waterland", "beemster", "ouder-amstel", "muiden",
+  ],
+  "zuid-holland": [
+    "alphen-aan-den-rijn", "barendrecht", "bodegraven", "capelle-aan-den-ijssel",
+    "delft", "den-haag", "dordrecht", "gouda", "hillegom", "katwijk", "leiden",
+    "leiderdorp", "leidschendam", "lisse", "maassluis", "noordwijk", "nootdorp",
+    "oegstgeest", "pijnacker", "ridderkerk", "rijswijk", "roelofarendsveen",
+    "rotterdam", "schiedam", "vlaardingen", "voorburg", "voorschoten",
+    "wassenaar", "zoetermeer",
+  ],
+  "utrecht": [
+    "amersfoort", "baarn", "bunnik", "culemborg", "eemnes", "houten",
+    "ijsselstein", "leusden", "nieuwegein", "soest", "stichtse-vecht", "utrecht",
+    "veenendaal", "vianen", "vijfheerenlanden", "woerden", "zeist",
+    "de-ronde-venen",
+  ],
+  "flevoland": ["almere", "lelystad"],
+  "gelderland": ["apeldoorn", "arnhem"],
+  "noord-brabant": ["breda", "den-bosch", "eindhoven", "tilburg"],
+};
+
+function getNabijgelegenSteden(currentSlug: string): Array<{ slug: string; name: string }> {
+  const entry = Object.values(provincieSteden).find((slugs) => slugs.includes(currentSlug));
+  if (!entry) return [];
+  const others = entry.filter((s) => s !== currentSlug);
+  if (others.length === 0) return [];
+  const startIdx = entry.indexOf(currentSlug) % others.length;
+  const result: string[] = [];
+  for (let i = 0; i < Math.min(5, others.length); i++) {
+    result.push(others[(startIdx + i) % others.length]);
+  }
+  return result.map((slug) => {
+    const city = steden.find((s) => s.slug === slug);
+    return { slug, name: city?.name ?? slug };
+  });
+}
 
 export function generateStaticParams() {
   return steden.map((s) => ({ stad: s.slug }));
@@ -164,6 +227,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
   const city = steden.find((s) => s.slug === stad);
   const name = city?.name ?? stad;
   const paragraphs = stadContent[stad] ?? null;
+  const nabijgelegenSteden = getNabijgelegenSteden(stad);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -334,17 +398,69 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         <div className="bg-white py-14 px-6">
           <div className="max-w-3xl mx-auto">
 
-            {/* Stadinhoud — volledig intact */}
+            {/* Stadinhoud — eerste twee alinea's */}
             {paragraphs ? (
-              paragraphs.map((p, i) => (
+              paragraphs.slice(0, 2).map((p, i) => (
                 <p key={i} className="text-slate-500 font-light leading-relaxed mb-6">{p}</p>
               ))
             ) : (
               <>
                 <p className="text-slate-500 font-light leading-relaxed mb-6">UwOntruimer is actief in {name} en omstreken. Wij verzorgen de volledige ontruiming van woningen, appartementen en bedrijfspanden — snel, discreet en met een schriftelijke opleveringsgarantie.</p>
                 <p className="text-slate-500 font-light leading-relaxed mb-6">Of u nu een woning wilt laten ontruimen na een overlijden, een verhuizing plant of een spoedontruiming nodig heeft: ons team staat voor u klaar in {name}. Wij hanteren vaste, transparante prijzen zonder verborgen kosten.</p>
-                <p className="text-slate-500 font-light leading-relaxed mb-6">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
               </>
+            )}
+
+            {/* Carlos quote blok */}
+            <div className="mt-8 bg-white border border-slate-100 rounded-xl shadow-sm px-6 py-5 flex items-start gap-4">
+              <Image
+                src="/team-Carlos.jpg"
+                alt="Carlos"
+                width={64}
+                height={64}
+                className="rounded-full object-cover flex-shrink-0"
+              />
+              <div>
+                <p className="text-slate-600 font-light leading-relaxed text-sm italic mb-2">
+                  "In mijn 15 jaar bij Uw Ontruimer heb ik alles gezien — van gewone ontruimingen tot extreme vervuiling. Geen klus is te groot."
+                </p>
+                <p className="text-xs font-medium text-slate-400">— Carlos, Senior Uitvoerder</p>
+              </div>
+            </div>
+
+            {/* Aanvullende services — na tweede alinea */}
+            <div className="mt-8 border-t border-slate-100 pt-8 mb-8">
+              <h2 className="text-xl font-semibold text-slate-900 tracking-tight mb-5">
+                Aanvullende services in {name}
+              </h2>
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                {[
+                  { href: "/diensten/raambekleding-verwijderen", Icon: Frame,             label: "Raambekleding verwijderen" },
+                  { href: "/diensten/behang-verwijderen",        Icon: Paintbrush,        label: "Behang verwijderen" },
+                  { href: "/diensten/keuken-verwijderen",        Icon: UtensilsCrossed,   label: "Keuken verwijderen" },
+                  { href: "/diensten/zonnescherm-verwijderen",   Icon: Sun,               label: "Zonnescherm verwijderen" },
+                  { href: "/diensten/constructies-verwijderen",  Icon: Hammer,            label: "Constructies verwijderen" },
+                  { href: "/diensten/gaatjes-dichten",           Icon: Wrench,            label: "Gaatjes dichten" },
+                  { href: "/diensten/tuin-snoeien-opschonen",    Icon: Leaf,              label: "Tuin snoeien & opschonen" },
+                ].map(({ href, Icon, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="group flex flex-col items-center gap-2 bg-white rounded-lg border border-slate-100 shadow-sm px-3 py-4 text-center hover:border-blue-200 hover:shadow-md transition-all duration-150"
+                  >
+                    <Icon size={24} color="#2563eb" strokeWidth={1.5} />
+                    <span className="text-xs font-medium text-slate-600 group-hover:text-blue-600 leading-tight transition-colors">{label}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Stadinhoud — rest van de alinea's */}
+            {paragraphs ? (
+              paragraphs.slice(2).map((p, i) => (
+                <p key={i + 2} className="text-slate-500 font-light leading-relaxed mb-6">{p}</p>
+              ))
+            ) : (
+              <p className="text-slate-500 font-light leading-relaxed mb-6">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
             )}
 
             {/* Amber urgentie-blok */}
@@ -421,6 +537,26 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </p>
               {ctaButtons(false)}
             </div>
+
+            {/* Ook actief in */}
+            {nabijgelegenSteden.length > 0 && (
+              <div className="mt-14 border-t border-slate-100 pt-10">
+                <h2 className="text-xl font-semibold text-slate-900 tracking-tight mb-5">
+                  Ook actief in
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {nabijgelegenSteden.map((naburig) => (
+                    <Link
+                      key={naburig.slug}
+                      href={`/woningontruiming-${naburig.slug}`}
+                      className="inline-flex items-center px-4 py-2 rounded-full border border-slate-200 bg-slate-50 text-sm font-medium text-slate-600 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-150"
+                    >
+                      Woningontruiming {naburig.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
           </div>
         </div>
