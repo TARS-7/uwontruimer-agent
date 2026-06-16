@@ -303,7 +303,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
 
   const ctaButtons = (dark = false) => (
     <>
-      <div className="flex flex-col sm:flex-row gap-3 mb-5 flex-wrap">
+      <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
         <a
           href="tel:0853035894"
           className={`phone-glow-alt order-1 sm:order-2 inline-flex items-center justify-center gap-2.5 font-semibold px-5 py-3.5 rounded-xl transition-colors text-base border-2 bg-blue-600 text-white border-blue-600 hover:opacity-90 ${dark ? "sm:bg-transparent sm:border-white sm:hover:bg-white/10" : "sm:bg-white sm:text-blue-600 sm:border-blue-600 sm:hover:bg-blue-50 sm:hover:opacity-100"}`}
@@ -317,24 +317,26 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
           />
           Bel Peter — 085-303 58 94
         </a>
-        <a
-          href="https://analyse.uwontruimer.nl"
-          className="order-2 sm:order-1 inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
-          style={{ backgroundColor: "#d97706" }}
-        >
-          {offerteIcon}
-          Ontvang direct uw AI-offerte (2 min)
-        </a>
-      </div>
-      <div className="flex flex-wrap gap-x-6 gap-y-1.5">
-        {checkItems.map((item) => (
-          <span key={item} className={`inline-flex items-center gap-1.5 text-sm ${dark ? "text-slate-400" : "text-slate-400"}`}>
-            <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            {item}
-          </span>
-        ))}
+        <div className="order-2 sm:order-1 flex flex-col gap-1.5">
+          <a
+            href="https://analyse.uwontruimer.nl"
+            className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
+            style={{ backgroundColor: "#d97706" }}
+          >
+            {offerteIcon}
+            Ontvang direct uw AI-offerte (2 min)
+          </a>
+          <div className="flex flex-wrap gap-x-4 gap-y-1 px-1">
+            {checkItems.map((item) => (
+              <span key={item} className="inline-flex items-center gap-1 text-xs text-slate-400">
+                <svg className="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );
