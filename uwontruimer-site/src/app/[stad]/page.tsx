@@ -369,6 +369,27 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-3">Woningontruiming {name}</h1>
             <p className="text-lg text-slate-500 font-light mb-8">Snel, discreet en met schriftelijke opleveringsgarantie</p>
             {ctaButtons(false)}
+
+            {/* Beschikbaarheidsstrip */}
+            <div className="mt-6 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+              <Image
+                src="/team-Lisa.jpg"
+                alt="Lisa — Planning"
+                width={48}
+                height={48}
+                className="rounded-full object-cover flex-shrink-0 w-12 h-12"
+              />
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-slate-700 mb-0.5">Lisa — Planning</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <p className="text-xs text-slate-500 font-light leading-snug">Beperkte beschikbaarheid deze week in {name} — bel voor actuele planning.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
