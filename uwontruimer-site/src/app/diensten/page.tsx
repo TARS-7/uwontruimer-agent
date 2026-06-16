@@ -84,6 +84,32 @@ export default function Page() {
               ))}
             </div>
 
+            <div className="mt-16">
+              <h2 className="text-2xl font-semibold text-slate-900 tracking-tight mb-2">Aanvullende services</h2>
+              <p className="text-slate-500 font-light leading-relaxed mb-6 max-w-xl">
+                Naast ontruiming verzorgen wij ook losse verwijder- en hersteldiensten. Combineerbaar met woningontruiming of als zelfstandige klus.
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { href: "/diensten/raambekleding-verwijderen", title: "Raambekleding verwijderen", desc: "Gordijnen, rolgordijnen, screens en jaloezieën vakkundig gedemonteerd." },
+                  { href: "/diensten/behang-verwijderen", title: "Behang verwijderen", desc: "Alle soorten behang gestript, muren intact en schilderklaar opgeleverd." },
+                  { href: "/diensten/keuken-verwijderen", title: "Keuken verwijderen", desc: "Complete keukensloping inclusief veilige afkoppeling van gas, water en elektra." },
+                  { href: "/diensten/zonnescherm-verwijderen", title: "Zonnescherm verwijderen", desc: "Uitvalschermen, screens en terrasoverkappingen veilig gedemonteerd." },
+                  { href: "/diensten/constructies-verwijderen", title: "Constructies verwijderen", desc: "Scheidingswanden, inbouwkasten en vaste inrichting professioneel gesloopt." },
+                  { href: "/diensten/gaatjes-dichten", title: "Gaatjes dichten", desc: "Muurschade hersteld na ontruiming of demontage — direct schilderklaar." },
+                ].map((d) => (
+                  <Link
+                    key={d.href}
+                    href={d.href}
+                    className="group block p-6 border border-slate-100 rounded-2xl hover:border-blue-200 hover:shadow-sm transition-all"
+                  >
+                    <h3 className="text-slate-900 font-semibold mb-2 group-hover:text-blue-600 transition-colors">{d.title}</h3>
+                    <p className="text-slate-500 font-light text-sm leading-relaxed">{d.desc}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-12 p-6 bg-slate-50 rounded-2xl border border-slate-100">
               <p className="text-slate-700 font-medium mb-2">Staat uw dienst er niet bij?</p>
               <p className="text-slate-500 font-light">Geen klus is te gek. Bel ons op <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> om de mogelijkheden te bespreken.</p>

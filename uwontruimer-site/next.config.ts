@@ -32,6 +32,10 @@ const nextConfig: NextConfig = {
         destination: "https://www.uwontruimer.nl/:path*",
         permanent: true,
       },
+      { source: "/categorie/nieuws/", destination: "/blog/", permanent: true },
+      { source: "/bereken-uw-ontruiming/", destination: "/offerte/", permanent: true },
+      { source: "/werkgebied-noord-holland/", destination: "/woningontruiming-amsterdam/", permanent: true },
+      { source: "/wp-content/themes/saleswizard-theme/:path*", destination: "/", permanent: true },
     ];
   },
 };
