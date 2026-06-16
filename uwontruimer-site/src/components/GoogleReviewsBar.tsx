@@ -40,7 +40,7 @@ export default function GoogleReviewsBar() {
           <div className="flex flex-col gap-0.5">
             <Stars />
             <span className="text-xs font-medium text-slate-700 group-hover:text-slate-900 transition-colors whitespace-nowrap">
-              Gemiddeld 9.8 op Google
+              Gemiddeld 4,9 op Google
             </span>
           </div>
         </div>
