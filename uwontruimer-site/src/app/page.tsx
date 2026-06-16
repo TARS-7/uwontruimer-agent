@@ -110,6 +110,23 @@ export default function HomePage() {
               Discreet, respectvol en met een vaste prijs — schriftelijk vastgelegd. Geen verrassingen achteraf.
             </p>
             <HeroTunnels />
+            {/* Lisa beschikbaarheidsstrip */}
+            <div className="mb-4 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+              <Image src="/team-Lisa.jpg" alt="Lisa" width={48} height={48} className="rounded-full object-cover flex-shrink-0 w-12 h-12" />
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-slate-700 mb-0.5">Lisa — Planning</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <p className="text-xs text-slate-500 font-light leading-snug">Beperkte beschikbaarheid deze week — bel voor actuele planning.</p>
+                </div>
+              </div>
+            </div>
+            <div className="mb-8">
+              <TerugbelForm gemeente="Algemeen" />
+            </div>
             <div className="bg-white rounded-2xl border border-slate-100 shadow-md w-fit mb-8 overflow-hidden divide-y divide-slate-100">
               <div className="flex items-center gap-3 px-4 py-3">
                 <Image
@@ -239,6 +256,40 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 7b. CARLOS */}
+      <section className="bg-slate-50 py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white border border-slate-100 rounded-2xl p-8 sm:p-12 shadow-sm">
+            <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-10">
+              <div className="flex flex-col items-center gap-2 flex-shrink-0">
+                <Image
+                  src="/team-Carlos.jpg"
+                  alt="Carlos"
+                  width={80}
+                  height={80}
+                  className="rounded-full object-cover object-center w-20 h-20 shadow-sm"
+                />
+                <div className="text-center">
+                  <p className="text-sm font-semibold text-slate-900">Carlos</p>
+                  <p className="text-xs text-slate-400">Senior Uitvoerder</p>
+                </div>
+              </div>
+              <div>
+                <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-4">Ons team</p>
+                <p className="text-base font-light text-slate-600 leading-relaxed italic mb-6">
+                  &ldquo;In 15 jaar heb ik alles gezien — van gewone verhuizingen tot de zwaarste gevallen: extreme vervuiling, hoarding, woningen die jarenlang dichtgezet waren. Juist in die situaties maakt het verschil hoe een team werkt. Wij oordelen niet, wij ruimen op. Discreet, grondig en met respect voor wat er is achtergelaten.&rdquo;
+                </p>
+                <p className="text-sm font-semibold text-slate-900 mb-4">Carlos — Senior Uitvoerder</p>
+                <Link href="/diensten/vervuilde-woning-ontruimen/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">
+                  Meer over vervuilde woning ontruiming
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 8. WERKWIJZE */}
       <section className="bg-slate-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -303,7 +354,7 @@ export default function HomePage() {
             {[
               { href: "/notaris", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&q=70", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
               { href: "/makelaar", img: "/appartement-makelaar.png", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
-              { href: "/woningbouwvereniging", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=320&q=70", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
+              { href: "/woningbouwvereniging", img: "/hero-truck.png", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
               { href: "/bewindvoerder", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="bg-white border border-slate-100 rounded-2xl overflow-hidden flex flex-col sm:grid hover:shadow-md hover:border-transparent transition-all duration-300" style={{ gridTemplateColumns: "160px 1fr" }}>
