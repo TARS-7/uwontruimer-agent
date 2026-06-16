@@ -280,7 +280,7 @@ export default function HomePage() {
                   &ldquo;In 15 jaar heb ik alles gezien — van gewone verhuizingen tot de zwaarste gevallen: extreme vervuiling, hoarding, woningen die jarenlang dichtgezet waren. Juist in die situaties maakt het verschil hoe een team werkt. Wij oordelen niet, wij ruimen op. Discreet, grondig en met respect voor wat er is achtergelaten.&rdquo;
                 </p>
                 <p className="text-sm font-semibold text-slate-900 mb-4">Carlos — Senior Uitvoerder</p>
-                <Link href="/diensten/vervuilde-woning-ontruimen/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">
+                <Link href="/vervuilde-woning-ontruimen/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">
                   Meer over vervuilde woning ontruiming
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </Link>
