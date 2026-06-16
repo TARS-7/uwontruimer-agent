@@ -47,3 +47,8 @@ body {
     animation: phone-glow 2s ease-in-out infinite;
   }
 }
+@media (min-width: 768px) {
+  .terugbel-glow {
+    animation: phone-glow 2s ease-in-out infinite;
+  }
+}

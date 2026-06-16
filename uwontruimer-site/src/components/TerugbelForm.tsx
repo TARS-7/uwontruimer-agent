@@ -56,7 +56,7 @@ export default function TerugbelForm({ gemeente = "" }: { gemeente?: string }) {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="whitespace-nowrap text-sm font-medium px-4 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors disabled:opacity-50"
+          className="terugbel-glow whitespace-nowrap text-sm font-medium px-4 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors disabled:opacity-50"
         >
           {status === "loading" ? "Bezig…" : "Bel mij terug"}
         </button>
