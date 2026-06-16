@@ -31,11 +31,11 @@ export default function GoogleReviewsBadge() {
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-slate-300 hover:shadow-sm rounded-full pl-3 pr-4 py-1.5 transition-all"
-      aria-label="Bekijk onze Google reviews — 5,0 · 2.500+ reviews"
+      aria-label="Bekijk onze Google reviews — 4,9 · 1.200+ reviews"
     >
       <GoogleG />
       <Stars />
-      <span className="text-xs font-medium text-slate-700 whitespace-nowrap">5,0 · 2.500+ reviews op Google</span>
+      <span className="text-xs font-medium text-slate-700 whitespace-nowrap">4,9 · 1.200+ reviews op Google</span>
     </a>
   );
 }

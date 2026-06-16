@@ -127,9 +127,9 @@ export default function Page() {
             {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {[
-                { stat: "2.500+", label: "Families geholpen" },
+                { stat: "1.200+", label: "Families geholpen" },
                 { stat: "15+", label: "Jaar ervaring" },
-                { stat: "5,0 ★", label: "Google beoordeling" },
+                { stat: "4,9 ★", label: "Google beoordeling" },
                 { stat: "100%", label: "Opleveringsgarantie" },
               ].map((s) => (
                 <div key={s.label} className="bg-slate-50 border border-slate-100 rounded-xl p-4 text-center">

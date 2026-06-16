@@ -128,8 +128,8 @@ export default function HomePage() {
             </div>
             {/* TRUST STATS */}
             <div className="fade-5 flex flex-wrap items-center gap-8 pt-8 border-t border-white/20 lg:border-slate-100">
-              <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">2.500+</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Families geholpen</div></div>
-              <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">5,0 ★</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Google beoordeling</div></div>
+              <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">1.200+</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Families geholpen</div></div>
+              <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">4,9 ★</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Google beoordeling</div></div>
               <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">24u</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Spoedservice</div></div>
               <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">100%</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Opleveringsgarantie</div></div>
             </div>
@@ -362,18 +362,19 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
             <div>
               <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat klanten zeggen</p>
-              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight">Beoordeeld met 5 sterren</h2>
+              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight">Beoordeeld met 4,9 sterren</h2>
             </div>
             <div className="text-right">
               <div className="text-yellow-400 text-lg tracking-widest mb-1">★★★★★</div>
-              <div className="text-xs text-slate-400">5,0 op Google Reviews</div>
+              <div className="text-xs text-slate-400">4,9 op Google Reviews</div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { init: "S", name: "Sandra de Vries", loc: "Amsterdam", text: "\"Na het overlijden van mijn moeder heeft UwOntruimer de woning volledig ontruimd. Ze waren bijzonder begripvol en professioneel.\"" },
-              { init: "P", name: "Peter Smits", loc: "Haarlem", text: "\"Spoedontruiming aangevraagd en ze stonden de volgende ochtend al voor de deur. Geweldige service en perfecte oplevering.\"" },
-              { init: "E", name: "Ellen Bakker", loc: "Utrecht · Makelaar", text: "\"Als makelaar schakel ik UwOntruimer regelmatig in. Betrouwbaar, snel en altijd op tijd. De samenwerking verloopt altijd soepel.\"" },
+              { init: "S", name: "Sandra de Vries", loc: "Amsterdam — na overlijden moeder", text: "\"Na het overlijden van mijn moeder heeft UwOntruimer de woning volledig ontruimd. Ze waren bijzonder begripvol en professioneel.\"" },
+              { init: "P", name: "Peter Smits", loc: "Haarlem — spoedontruiming", text: "\"Spoedontruiming aangevraagd en ze stonden de volgende ochtend al voor de deur. Geweldige service en perfecte oplevering.\"" },
+              { init: "E", name: "Ellen Bakker", loc: "Utrecht — makelaar", text: "\"Als makelaar schakel ik UwOntruimer regelmatig in. Betrouwbaar, snel en altijd op tijd. De samenwerking verloopt altijd soepel.\"" },
+              { init: "M", name: "Marieke van den Berg", loc: "Amstelveen — na overlijden vader", text: "\"Na het overlijden van mijn vader stond het huis vol herinneringen. Het team van Uw Ontruimer heeft alles met zoveel respect behandeld — ik kon mijn ogen niet geloven.\"" },
             ].map((r) => (
               <div key={r.name} className="bg-slate-50 border border-slate-100 rounded-2xl p-6">
                 <div className="text-yellow-400 text-sm tracking-widest mb-4">★★★★★</div>

@@ -50,7 +50,7 @@ export default function GoogleReviewsBar() {
 
         {/* Rechts: aantal families */}
         <div className="flex flex-col items-center">
-          <span className="text-sm font-semibold text-slate-800 leading-none">2.500+</span>
+          <span className="text-sm font-semibold text-slate-800 leading-none">1.200+</span>
           <span className="text-xs text-slate-500 mt-0.5 whitespace-nowrap">families geholpen</span>
         </div>
       </a>
