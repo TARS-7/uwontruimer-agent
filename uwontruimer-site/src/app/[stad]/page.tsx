@@ -7,7 +7,7 @@ import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
 import Link from "next/link";
 import seoData from "@/data/seo-metadata.json";
-import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf } from "lucide-react";
+import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, Zap } from "lucide-react";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
@@ -442,6 +442,19 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </div>
             </div>
 
+            {/* USP blok — Waarom eerlijk geprijsd? */}
+            <div className="mt-6 bg-blue-50 border border-blue-100 rounded-xl px-6 py-5 flex items-start gap-4">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Zap size={20} color="#2563eb" strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-800 mb-1">Waarom eerlijk geprijsd?</p>
+                <p className="text-sm text-slate-500 font-light leading-relaxed">
+                  Onze AI-tool analyseert de woning vooraf zodat ons team precies weet wat er komt. Geen verspilde uren, geen verrassingen — dat maakt ons scherp geprijsd.
+                </p>
+              </div>
+            </div>
+
             {/* Aanvullende services — na tweede alinea */}
             <div className="mt-8 border-t border-slate-100 pt-8 mb-8">
               <h2 className="text-xl font-semibold text-slate-900 tracking-tight mb-5">
@@ -478,14 +491,25 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               <p className="text-slate-500 font-light leading-relaxed mb-6">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
             )}
 
-            {/* Amber urgentie-blok */}
-            <div className="mt-8 flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-lg px-4 py-4">
-              <svg className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              <p className="text-sm font-medium text-amber-700">
-                Beperkte beschikbaarheid in {name} — bel voor actuele planning
-              </p>
+            {/* Lisa beschikbaarheidskaart — middenin pagina */}
+            <div className="mt-8 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+              <Image
+                src="/team-Lisa.jpg"
+                alt="Lisa — Planning"
+                width={48}
+                height={48}
+                className="rounded-full object-cover flex-shrink-0 w-12 h-12"
+              />
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-slate-700 mb-0.5">Lisa — Planning</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <p className="text-xs text-slate-500 font-light leading-snug">Beperkte beschikbaarheid deze week in {name} — bel voor actuele planning.</p>
+                </div>
+              </div>
             </div>
 
             {/* FAQ */}

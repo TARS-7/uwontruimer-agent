@@ -10,6 +10,7 @@ import Link from "next/link";
 import WerkgebiedSearch from "@/components/WerkgebiedSearch";
 import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
 import { blogPosts } from "@/data/blog-posts";
+import { Zap } from "lucide-react";
 
 const blogImages: Record<string, string> = {
   "na-de-ontruiming":                      "/Ontruimers.png",
@@ -193,6 +194,23 @@ export default function HomePage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6b. USP — WAAROM EERLIJK GEPRIJSD */}
+      <section className="bg-white py-10 px-6 border-t border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-blue-50 border border-blue-100 rounded-xl px-6 py-5 flex items-start gap-4 max-w-2xl">
+            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Zap size={20} color="#2563eb" strokeWidth={1.5} />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-slate-800 mb-1">Waarom eerlijk geprijsd?</p>
+              <p className="text-sm text-slate-500 font-light leading-relaxed">
+                Onze AI-tool analyseert de woning vooraf zodat ons team precies weet wat er komt. Geen verspilde uren, geen verrassingen — dat maakt ons scherp geprijsd.
+              </p>
+            </div>
           </div>
         </div>
       </section>
