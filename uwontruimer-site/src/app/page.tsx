@@ -102,10 +102,10 @@ export default function HomePage() {
               15+ jaar ervaring · heel Nederland
             </div>
             <h1 className="fade-2 text-4xl lg:text-5xl font-semibold text-white lg:text-slate-900 leading-tight tracking-tight mb-5">
-              Professionele ontruiming, eerlijke prijs
+              Woning leeghalen na overlijden of verhuizing? Wij ontzorgen u volledig.
             </h1>
             <p className="fade-3 text-white/80 lg:text-slate-500 text-base font-light leading-relaxed max-w-md mb-10">
-              Geen verrassingen, geen verborgen kosten. U weet vooraf precies wat het kost — schriftelijk vastgelegd.
+              Discreet, respectvol en met een vaste prijs — schriftelijk vastgelegd. Geen verrassingen achteraf.
             </p>
             <HeroTunnels />
             <div className="bg-white rounded-2xl border border-slate-100 shadow-md w-fit mb-8 overflow-hidden divide-y divide-slate-100">
