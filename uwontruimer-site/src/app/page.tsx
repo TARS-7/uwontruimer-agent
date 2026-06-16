@@ -125,7 +125,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mb-8">
-              <TerugbelForm gemeente="Algemeen" />
+              <TerugbelForm gemeente="Algemeen" collapsibleOnMobile />
             </div>
             <div className="bg-white rounded-2xl border border-slate-100 shadow-md w-fit mb-8 overflow-hidden divide-y divide-slate-100">
               <div className="flex items-center gap-3 px-4 py-3">

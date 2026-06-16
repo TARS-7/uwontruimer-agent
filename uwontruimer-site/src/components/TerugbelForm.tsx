@@ -2,10 +2,17 @@
 
 import { useState } from "react";
 
-export default function TerugbelForm({ gemeente = "" }: { gemeente?: string }) {
+export default function TerugbelForm({
+  gemeente = "",
+  collapsibleOnMobile = false,
+}: {
+  gemeente?: string;
+  collapsibleOnMobile?: boolean;
+}) {
   const [naam, setNaam] = useState("");
   const [telefoon, setTelefoon] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -33,9 +40,8 @@ export default function TerugbelForm({ gemeente = "" }: { gemeente?: string }) {
     );
   }
 
-  return (
-    <div className="mt-5">
-      <p className="text-xs text-slate-400 mb-2.5">Liever teruggebeld worden?</p>
+  const formBody = (
+    <>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
         <input
           type="text"
@@ -64,6 +70,34 @@ export default function TerugbelForm({ gemeente = "" }: { gemeente?: string }) {
       {status === "error" && (
         <p className="text-xs text-red-500 mt-1.5">Er ging iets mis. Probeer het opnieuw of bel ons direct.</p>
       )}
+    </>
+  );
+
+  if (collapsibleOnMobile) {
+    return (
+      <div className="mt-5">
+        {/* Mobile: toggle link */}
+        <button
+          type="button"
+          onClick={() => setMobileOpen((o) => !o)}
+          className="md:hidden text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2 transition-colors mb-2.5"
+        >
+          Liever teruggebeld worden?
+        </button>
+        {/* Desktop: static label */}
+        <p className="hidden md:block text-xs text-slate-400 mb-2.5">Liever teruggebeld worden?</p>
+        {/* Form: collapsed on mobile unless open, always visible on desktop */}
+        <div className={`${mobileOpen ? "block" : "hidden"} md:block`}>
+          {formBody}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-5">
+      <p className="text-xs text-slate-400 mb-2.5">Liever teruggebeld worden?</p>
+      {formBody}
     </div>
   );
 }
