@@ -306,10 +306,16 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
       <div className="flex flex-col sm:flex-row gap-3 mb-5 flex-wrap">
         <a
           href="tel:0853035894"
-          className={`phone-glow-alt order-1 sm:order-2 inline-flex items-center justify-center gap-2 font-semibold px-7 py-4 rounded-xl transition-colors text-base border-2 bg-blue-600 text-white border-blue-600 hover:opacity-90 ${dark ? "sm:bg-transparent sm:border-white sm:hover:bg-white/10" : "sm:bg-white sm:text-blue-600 sm:border-blue-600 sm:hover:bg-blue-50 sm:hover:opacity-100"}`}
+          className={`phone-glow-alt order-1 sm:order-2 inline-flex items-center justify-center gap-2.5 font-semibold px-5 py-3.5 rounded-xl transition-colors text-base border-2 bg-blue-600 text-white border-blue-600 hover:opacity-90 ${dark ? "sm:bg-transparent sm:border-white sm:hover:bg-white/10" : "sm:bg-white sm:text-blue-600 sm:border-blue-600 sm:hover:bg-blue-50 sm:hover:opacity-100"}`}
         >
-          {phoneIcon}
-          Bel 085-303 58 94
+          <Image
+            src="/peter-visser2.png"
+            alt=""
+            width={32}
+            height={32}
+            className="rounded-full object-cover flex-shrink-0 w-8 h-8"
+          />
+          Bel Peter — 085-303 58 94
         </a>
         <a
           href="https://analyse.uwontruimer.nl"
@@ -319,20 +325,6 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
           {offerteIcon}
           Ontvang direct uw AI-offerte (2 min)
         </a>
-        <div className="inline-flex items-center gap-3 py-2">
-          <Image
-            src="/peter-visser2.png"
-            alt="Peter Visser"
-            width={96}
-            height={96}
-            className="rounded-full border-2 border-white shadow-md object-cover flex-shrink-0 w-24 h-24"
-            style={{ objectPosition: "center" }}
-          />
-          <div className="leading-snug">
-            <p className={`text-base font-semibold ${dark ? "text-white" : "text-slate-800"}`}>Bel Peter direct</p>
-            <p className={`text-sm ${dark ? "text-slate-300" : "text-slate-500"}`}>085-303 58 94</p>
-          </div>
-        </div>
       </div>
       <div className="flex flex-wrap gap-x-6 gap-y-1.5">
         {checkItems.map((item) => (
