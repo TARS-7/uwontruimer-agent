@@ -8,14 +8,15 @@ declare global {
   }
 }
 
-function updateConsent(granted: boolean) {
+function updateConsent(analyticsGranted: boolean, marketingGranted: boolean) {
   if (typeof window.gtag !== "function") return;
-  const value = granted ? "granted" : "denied";
+  const analytics = analyticsGranted ? "granted" : "denied";
+  const marketing = marketingGranted ? "granted" : "denied";
   window.gtag("consent", "update", {
-    analytics_storage: value,
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
+    analytics_storage: analytics,
+    ad_storage: marketing,
+    ad_user_data: marketing,
+    ad_personalization: marketing,
   });
 }
 
@@ -25,13 +26,13 @@ export default function CookieBanner() {
       cc.run({
         guiOptions: { consentModal: { layout: "bar", position: "bottom center" } },
         onConsent: ({ cookie }) => {
-          updateConsent(cookie.categories.includes("analytics"));
+          updateConsent(cookie.categories.includes("analytics"), cookie.categories.includes("marketing"));
         },
         onFirstConsent: ({ cookie }) => {
-          updateConsent(cookie.categories.includes("analytics"));
+          updateConsent(cookie.categories.includes("analytics"), cookie.categories.includes("marketing"));
         },
         onChange: ({ cookie }) => {
-          updateConsent(cookie.categories.includes("analytics"));
+          updateConsent(cookie.categories.includes("analytics"), cookie.categories.includes("marketing"));
         },
         categories: {
           necessary: { enabled: true, readOnly: true },
