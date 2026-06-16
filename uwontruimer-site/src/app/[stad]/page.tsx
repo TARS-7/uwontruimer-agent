@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import seoData from "@/data/seo-metadata.json";
 import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, Zap } from "lucide-react";
+import TerugbelForm from "@/components/TerugbelForm";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
@@ -490,6 +491,8 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             ) : (
               <p className="text-slate-500 font-light leading-relaxed mb-6">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
             )}
+
+            <TerugbelForm gemeente={name} />
 
             {/* Lisa beschikbaarheidskaart — middenin pagina */}
             <div className="mt-8 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">

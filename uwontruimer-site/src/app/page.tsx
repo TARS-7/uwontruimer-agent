@@ -11,6 +11,7 @@ import WerkgebiedSearch from "@/components/WerkgebiedSearch";
 import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
 import { blogPosts } from "@/data/blog-posts";
 import { Zap } from "lucide-react";
+import TerugbelForm from "@/components/TerugbelForm";
 
 const blogImages: Record<string, string> = {
   "na-de-ontruiming":                      "/Ontruimers.png",
@@ -418,7 +419,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-4">Klaar voor de volgende stap?</h2>
           <p className="text-slate-500 font-light text-sm leading-relaxed mb-10">Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie.</p>
           {/* Peter Visser + knoppen */}
-          <div className="flex flex-row items-center justify-center gap-6 mb-10">
+          <div className="flex flex-row items-center justify-center gap-6 mb-6">
             <div className="flex items-center gap-3 flex-shrink-0">
               <Image
                 src="/peter-visser2.png"
@@ -435,6 +436,11 @@ export default function HomePage() {
             <div className="flex flex-col gap-3 items-start">
               <a href="https://analyse.uwontruimer.nl" className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors text-sm whitespace-nowrap">Gratis offerte aanvragen</a>
               <a href="tel:0853035894" className="phone-glow border border-slate-200 hover:border-blue-600 text-slate-600 hover:text-blue-600 font-medium px-6 py-3 rounded-lg transition-colors text-sm bg-white whitespace-nowrap">Bel 085-303 58 94</a>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-sm text-left">
+              <TerugbelForm gemeente="" />
             </div>
           </div>
         </div>
