@@ -80,7 +80,7 @@ export default function TerugbelForm({
         <button
           type="button"
           onClick={() => setMobileOpen((o) => !o)}
-          className="md:hidden text-xs text-slate-400 hover:text-slate-600 underline underline-offset-2 transition-colors mb-2.5"
+          className="md:hidden text-xs text-white/70 hover:text-white underline underline-offset-2 transition-colors mb-2.5"
         >
           Liever teruggebeld worden?
         </button>

@@ -15,7 +15,7 @@ export default function HeroTunnels() {
       <a
         href="tel:0853035894"
         onClick={() => sendGAEvent("event", "bellen", { method: "hero" })}
-        className="text-sm text-slate-500 hover:text-slate-700 transition-colors text-center"
+        className="text-sm text-white/70 hover:text-white md:text-slate-500 md:hover:text-slate-700 transition-colors text-center"
       >
         Liever direct bellen? <span className="font-medium">085-303 58 94</span>
       </a>
