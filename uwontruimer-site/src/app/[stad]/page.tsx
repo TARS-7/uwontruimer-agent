@@ -381,7 +381,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                   </span>
-                  <p className="text-xs text-slate-500 font-light leading-snug">Beperkte beschikbaarheid deze week in {name} — bel voor actuele planning.</p>
+                  <p className="text-xs text-slate-500 font-light leading-snug">Vanwege de hoeveelheid aanvragen hebben we soms beperkte beschikbaarheid — bel voor de actuele planning.</p>
                 </div>
               </div>
             </div>
@@ -510,7 +510,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                   </span>
-                  <p className="text-xs text-slate-500 font-light leading-snug">Beperkte beschikbaarheid deze week in {name} — bel voor actuele planning.</p>
+                  <p className="text-xs text-slate-500 font-light leading-snug">Vanwege de hoeveelheid aanvragen hebben we soms beperkte beschikbaarheid — bel voor de actuele planning.</p>
                 </div>
               </div>
             </div>

@@ -120,7 +120,7 @@ export default function HomePage() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                   </span>
-                  <p className="text-xs text-slate-500 font-light leading-snug">Beperkte beschikbaarheid deze week — bel voor actuele planning.</p>
+                  <p className="text-xs text-slate-500 font-light leading-snug">Vanwege de hoeveelheid aanvragen hebben we soms beperkte beschikbaarheid — bel voor de actuele planning.</p>
                 </div>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function HomePage() {
             </div>
             <Link href="/diensten/woningontruiming" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">Alle diensten <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
               { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.png", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
               { href: "/diensten/bedrijfsontruiming", img: "/bedrijfsontruiming.png", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
@@ -212,6 +212,25 @@ export default function HomePage() {
                 </div>
               </Link>
             ))}
+
+            {/* Takaros kaart */}
+            <a href="https://www.takaros.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300 relative">
+              <div className="overflow-hidden h-32 relative" style={{ backgroundColor: "#F5F0E8" }}>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+              </div>
+              <div className="p-4 pb-8">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: "#f0ebe0" }}>
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 2L2 7l10 5 10-5-10-5z"/><path strokeLinecap="round" strokeLinejoin="round" d="M2 17l10 5 10-5"/><path strokeLinecap="round" strokeLinejoin="round" d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div className="text-sm font-medium text-slate-900 mb-1">Waardevolle objecten</div>
+                <div className="text-xs text-slate-400 font-light leading-relaxed">Weet wat uw stukken waard zijn via gespecialiseerde veilinghuizen.</div>
+              </div>
+              <span className="absolute bottom-2 right-3 text-xs font-medium" style={{ color: "#C9A227" }}>via Takaros.</span>
+            </a>
           </div>
         </div>
       </section>
