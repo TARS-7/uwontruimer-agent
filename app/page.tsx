@@ -26,7 +26,6 @@ export default function Page() {
       ...s,
       fotos: result.fotos,
       fotoUrls: result.fotoUrls,
-      waardevol: result.waardevol,
       step: 4,
     }))
   }
@@ -88,7 +87,7 @@ export default function Page() {
 
             {state.step === 3 && (
               <StepFotosEnWaardevol
-                initialData={{ fotos: state.fotos, waardevol: state.waardevol }}
+                initialData={{ fotos: state.fotos }}
                 onComplete={handleStep3Complete}
                 onBack={() => setState((s) => ({ ...s, step: 2 }))}
               />
@@ -114,7 +113,6 @@ export default function Page() {
                   ontruimingType: state.ontruimingType,
                   woningType:    state.woningType,
                   woningGrootte: state.woningGrootte,
-                  waardevol:     state.waardevol,
                   naam:          state.naam,
                   email:         state.email,
                   telefoon:      state.telefoon,

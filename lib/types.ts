@@ -40,10 +40,9 @@ export interface WizardState {
   woningType: string | null
   woningGrootte: string | null
 
-  // Stap 3 – foto's + waardevolle spullen
+  // Stap 3 – foto's
   fotos: File[]
   fotoUrls: string[]
-  waardevol: 'ja' | 'misschien' | 'nee' | 'weet ik niet' | null
 
   // Stap 4 – contactgegevens + adres
   address: AddressData | null
@@ -62,7 +61,6 @@ export const initialWizardState: WizardState = {
   woningGrootte: null,
   fotos: [],
   fotoUrls: [],
-  waardevol: null,
   address: null,
   naam: '',
   email: '',

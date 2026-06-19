@@ -9,13 +9,11 @@ interface FotoItem { id: string; file: File; url: string }
 export interface StepFotosEnWaardevollResult {
   fotos: File[]
   fotoUrls: string[]
-  waardevol: 'ja' | 'misschien' | 'nee' | 'weet ik niet'
 }
 
 interface Props {
   initialData: {
     fotos: File[]
-    waardevol: 'ja' | 'misschien' | 'nee' | 'weet ik niet' | null
   }
   naam?: string
   woonplaats?: string
@@ -25,23 +23,15 @@ interface Props {
 
 const ACCEPTED_TYPES = 'image/jpeg,image/png,image/webp,image/gif'
 
-const WAARDEVOL_OPTIES: Array<{ label: string; value: 'ja' | 'misschien' | 'nee' | 'weet ik niet' }> = [
-  { label: 'Ja',           value: 'ja' },
-  { label: 'Misschien',    value: 'misschien' },
-  { label: 'Nee',          value: 'nee' },
-  { label: 'Weet ik niet', value: 'weet ik niet' },
-]
-
 function uid() { return Math.random().toString(36).slice(2, 10) }
 
 export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, onComplete, onBack }: Props) {
   const [fotos, setFotos] = useState<FotoItem[]>(() =>
     initialData.fotos.map((f) => ({ id: uid(), file: f, url: URL.createObjectURL(f) }))
   )
-  const [dragOver, setDragOver]   = useState(false)
-  const [waardevol, setWaardevol] = useState<'ja' | 'misschien' | 'nee' | 'weet ik niet' | null>(initialData.waardevol)
+  const [dragOver, setDragOver] = useState(false)
   const [uploading, setUploading] = useState(false)
-  const [error, setError]         = useState<string | null>(null)
+  const [error, setError]        = useState<string | null>(null)
   const inputRef       = useRef<HTMLInputElement>(null)
   const cameraInputRef = useRef<HTMLInputElement>(null)
   const uploadIdRef    = useRef(generateUploadId())
@@ -56,10 +46,6 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
   }
 
   async function handleSubmit() {
-    if (!waardevol) {
-      setError('Geef aan of er mogelijk waardevolle spullen zijn.')
-      return
-    }
     setError(null)
     setUploading(true)
     try {
@@ -68,7 +54,7 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
         const files = fotos.map((f) => f.file)
         fotoUrls = await uploadFotos(files, uploadIdRef.current, naam, woonplaats)
       }
-      onComplete({ fotos: fotos.map((f) => f.file), fotoUrls, waardevol })
+      onComplete({ fotos: fotos.map((f) => f.file), fotoUrls })
     } catch {
       setError("Upload mislukt. Controleer je verbinding en probeer opnieuw.")
     } finally {
@@ -132,7 +118,7 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
         </div>
         <div className="text-center">
           <p className="text-sm font-medium text-slate-700">
-            {dragOver ? 'Laat los om te uploaden' : "Sleep foto’s hier of klik om te uploaden"}
+            {dragOver ? 'Laat los om te uploaden' : "Sleep foto's hier of klik om te uploaden"}
           </p>
           <p className="mt-0.5 text-xs text-slate-400">JPEG, PNG, WebP · meerdere tegelijk mogelijk</p>
         </div>
@@ -162,7 +148,7 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              {fotos.length} {fotos.length === 1 ? 'foto' : "foto’s"} geselecteerd
+              {fotos.length} {fotos.length === 1 ? 'foto' : "foto's"} geselecteerd
             </p>
             <button
               type="button"
@@ -194,65 +180,6 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
         </div>
       )}
 
-      {/* Waardevolle spullen */}
-      <div className="flex flex-col gap-4 border-t border-slate-100 pt-5">
-        <div>
-          <h3 className="text-base font-semibold text-slate-900">
-            Bevat de woning mogelijk waardevolle objecten?
-          </h3>
-          <p className="mt-1 text-sm text-slate-500">
-            Denk aan antiek, kunst, designmeubels, sieraden of verzamelingen.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3">
-          {WAARDEVOL_OPTIES.map(({ label, value }) => {
-            const isSelected = waardevol === value
-            return (
-              <button
-                key={value}
-                type="button"
-                onClick={() => setWaardevol(value)}
-                className={`
-                  relative flex items-center justify-center rounded-2xl border-2 px-4 py-4
-                  text-sm font-medium transition-all duration-150
-                  ${isSelected
-                    ? 'border-blue-500 bg-blue-50 text-blue-800'
-                    : 'border-slate-200 bg-white text-slate-700 hover:border-blue-300 hover:bg-blue-50/30'
-                  }
-                `}
-              >
-                {isSelected && (
-                  <span className="absolute right-2.5 top-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-blue-500">
-                    <svg className="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                )}
-                {label}
-              </button>
-            )
-          })}
-        </div>
-
-        {(waardevol === 'ja' || waardevol === 'misschien') && (
-          <div className="rounded-xl border-l-4 border-blue-500 bg-blue-50 px-5 py-4 space-y-3">
-            <p className="text-sm font-semibold text-blue-900">
-              Goed nieuws: waardevolle spullen hoeven niet verloren te gaan.
-            </p>
-            <p className="text-sm text-blue-800 leading-relaxed">
-              Uw Ontruimer werkt samen met Takaros — een professioneel platform dat uw waardevolle objecten koppelt aan gespecialiseerde Nederlandse veilinghuizen. Kunst, antiek, sieraden, oldtimers, verzamelobjecten: wij zorgen dat deze bij de juiste specialist terechtkomen. De opbrengst van de veiling wordt verrekend met uw ontruimingskosten.
-            </p>
-            <blockquote className="rounded-lg bg-white border border-blue-100 px-4 py-3">
-              <p className="text-sm text-slate-700 italic leading-relaxed">
-                &ldquo;We dachten dat de ontruiming €2.800 zou kosten. Na de veiling van het aardewerk en het schrijfbureau betaalden we uiteindelijk €340.&rdquo;
-              </p>
-              <p className="mt-1.5 text-xs text-slate-400 font-medium">— Familie Vermeer, Amsterdam</p>
-            </blockquote>
-          </div>
-        )}
-      </div>
-
       {error && <p className="text-sm text-red-500">{error}</p>}
 
       {/* Navigation */}
@@ -263,7 +190,7 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
           </svg>
           Terug
         </Button>
-        <Button size="lg" onClick={handleSubmit} disabled={!waardevol || uploading}>
+        <Button size="lg" onClick={handleSubmit} disabled={uploading}>
           {uploading ? 'Uploaden…' : 'Volgende stap'}
           {!uploading && (
             <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">

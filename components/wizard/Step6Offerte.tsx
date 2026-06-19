@@ -17,7 +17,6 @@ export interface Step6Input {
   ontruimingType: string | null
   woningType: string | null
   woningGrootte: string | null
-  waardevol: string | null
   naam: string
   email: string
   telefoon: string
@@ -120,7 +119,6 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
               inspectieWerkzaamheden: data.ontruimingType ? [data.ontruimingType] : [],
               waardevolleSpullen: [],
               woningType: data.woningType,
-              waardevol: data.waardevol,
             }),
           }).then((r) =>
             r.ok
@@ -150,7 +148,6 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
             ontruimingType: data.ontruimingType,
             woningType: data.woningType,
             woningGrootte: data.woningGrootte,
-            waardevol: data.waardevol,
             eigendomstype: null,
             opleveringsdatum: '',
             inspectieWerkzaamheden: data.ontruimingType ? [data.ontruimingType] : [],
@@ -197,7 +194,7 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
 
   if (phase === 'loading') return <LoadingView gedaanStappen={gedaanStappen} actieveStap={actieveStap} />
   if (phase === 'error') return <ErrorView error={error} onRetry={handleRetry} onBack={onBack} />
-  if (phase === 'result' && offerte) return <ResultView offerte={offerte} naam={data.naam} waardevol={data.waardevol} />
+  if (phase === 'result' && offerte) return <ResultView offerte={offerte} naam={data.naam} />
   return null
 }
 
@@ -278,7 +275,7 @@ function ErrorView({ error, onRetry, onBack }: { error: string | null; onRetry: 
 
 // ─── Result (= bevestigingsscherm) ────────────────────────────────────────────
 
-function ResultView({ offerte, naam, waardevol }: { offerte: Offerte; naam: string; waardevol: string | null }) {
+function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
   const pmPosten = offerte.onderdelen.filter((o) => o.isPM)
   const berekendePosten = offerte.onderdelen.filter((o) => !o.isPM)
 
@@ -370,7 +367,7 @@ function ResultView({ offerte, naam, waardevol }: { offerte: Offerte; naam: stri
         <ol className="flex flex-col gap-3">
           {[
             'Onze medewerker belt u binnen 1 werkdag',
-            "We checken uw gegevens en foto's \u2014 zo nodig plannen we een inspectie op locatie",
+            "We checken uw gegevens en foto's — zo nodig plannen we een inspectie op locatie",
             'U ontvangt de definitieve offerte',
           ].map((stap, i) => (
             <li key={i} className="flex items-start gap-3">
@@ -383,57 +380,27 @@ function ResultView({ offerte, naam, waardevol }: { offerte: Offerte; naam: stri
         </ol>
       </div>
 
-      {/* SECTIE 2 \u2014 Takaros module (Ja / Misschien) */}
-      {(waardevol === 'ja' || waardevol === 'misschien') && (
-        <div className="flex flex-col gap-4 border-t border-slate-200 pt-6">
-          <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
-            <h3 className="text-base font-bold text-emerald-900">
-              Verlaag uw ontruimingskosten \u2014 mogelijk tot nul
-            </h3>
-            <p className="mt-2 text-sm text-emerald-800 leading-relaxed">
-              Heeft de woning waardevolle objecten? Via Takaros laten we ze gratis en vrijblijvend taxeren door gecertificeerde experts. De veilingopbrengst verrekenen we met uw ontruimingskosten \u2014 wij noemen dit een Netto-Nul ontruiming.
-            </p>
-            <p className="mt-3 text-xs font-medium text-emerald-700">
-              Gratis taxatie \u00b7 Gespecialiseerde Nederlandse veilinghuizen \u00b7 U blijft eigenaar \u00b7 Geen verplichting
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <a
-              href="https://takaros.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
-            >
-              Start mijn gratis taxatie
-              <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </a>
-            <p className="text-xs text-slate-500">
-              Gratis en vrijblijvend. U beslist zelf of u een bod accepteert.
-            </p>
-          </div>
-        </div>
-      )}
+      {/* Takaros upsell — altijd zichtbaar na succesvolle aanvraag */}
+      <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+        <p className="text-sm font-semibold text-slate-700">Heeft u ook waardevolle spullen?</p>
+        <p className="mt-1 text-sm text-slate-500 leading-relaxed">
+          Ontdek vrijblijvend wat ze waard zijn via Takaros — onafhankelijk en kosteloos.
+        </p>
+        <a
+          href={`https://www.takaros.com/?source=uwontruimer&aanvraag=${encodeURIComponent(offerte.referentie)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
+          style={{ backgroundColor: '#0F2942' }}
+        >
+          Ontdek de waarde
+          <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </a>
+      </div>
 
-      {/* SECTIE 3 \u2014 Zachte Takaros hint (Nee / Weet ik niet) */}
-      {(waardevol === 'nee' || waardevol === 'weet ik niet') && (
-        <div className="border-t border-slate-200 pt-6">
-          <p className="text-sm text-slate-500 text-center">
-            Twijfelt u achteraf of er toch waardevolle items zijn?{' '}
-            <a
-              href="https://takaros.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              U kunt altijd nog een gratis taxatie aanvragen op takaros.com
-            </a>
-          </p>
-        </div>
-      )}
-
-      {/* CTA \u2014 contact */}
+      {/* CTA — contact */}
       <div className="flex flex-col items-center gap-3">
         <a
           href="tel:0853035894"
