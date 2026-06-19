@@ -236,10 +236,19 @@ export default function StepFotosEnWaardevol({ initialData, naam, woonplaats, on
         </div>
 
         {(waardevol === 'ja' || waardevol === 'misschien') && (
-          <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3">
-            <p className="text-sm text-amber-800 leading-relaxed">
-              Waardevolle items laten we gratis taxeren en eventueel voor u veilen. De opbrengst gaat van uw ontruimingskosten af — gemiddeld zit er voor honderden euro&apos;s aan veilingwaardige spullen in een woning.
+          <div className="rounded-xl border-l-4 border-blue-500 bg-blue-50 px-5 py-4 space-y-3">
+            <p className="text-sm font-semibold text-blue-900">
+              Goed nieuws: waardevolle spullen hoeven niet verloren te gaan.
             </p>
+            <p className="text-sm text-blue-800 leading-relaxed">
+              Uw Ontruimer werkt samen met Takaros — een professioneel platform dat uw waardevolle objecten koppelt aan gespecialiseerde Nederlandse veilinghuizen. Kunst, antiek, sieraden, oldtimers, verzamelobjecten: wij zorgen dat deze bij de juiste specialist terechtkomen. De opbrengst van de veiling wordt verrekend met uw ontruimingskosten.
+            </p>
+            <blockquote className="rounded-lg bg-white border border-blue-100 px-4 py-3">
+              <p className="text-sm text-slate-700 italic leading-relaxed">
+                &ldquo;We dachten dat de ontruiming €2.800 zou kosten. Na de veiling van het aardewerk en het schrijfbureau betaalden we uiteindelijk €340.&rdquo;
+              </p>
+              <p className="mt-1.5 text-xs text-slate-400 font-medium">— Familie Vermeer, Amsterdam</p>
+            </blockquote>
           </div>
         )}
       </div>
