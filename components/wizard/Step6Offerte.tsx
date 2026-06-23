@@ -219,7 +219,7 @@ function LoadingView({ gedaanStappen, actieveStap }: { gedaanStappen: number[]; 
       <div>
         <h2 className="text-xl font-semibold text-slate-900">Offerte wordt gegenereerd</h2>
         <p className="mt-1 text-sm text-slate-500">
-          Claude AI berekent de prijzen op basis van uw woninggegevens.
+          Uw offerte wordt berekend op basis van uw woninggegevens.
         </p>
       </div>
 
