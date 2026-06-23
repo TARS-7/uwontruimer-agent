@@ -403,7 +403,7 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
               className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
               style={{ backgroundColor: '#0F2942' }}
             >
-              Ontdek wat u bespaart
+              Ontdek de waarde
               <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
