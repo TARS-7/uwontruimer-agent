@@ -215,12 +215,8 @@ export default function HomePage() {
 
             {/* Takaros kaart */}
             <a href="https://www.takaros.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300 relative">
-              <div className="overflow-hidden h-32 relative" style={{ backgroundColor: "#F5F0E8" }}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-                  </svg>
-                </div>
+              <div className="overflow-hidden h-32 foto-zoom relative">
+                <Image src="/waardevolle.spullen.png" fill className="object-cover" alt="Waardevolle objecten" />
               </div>
               <div className="p-4 pb-8">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: "#f0ebe0" }}>

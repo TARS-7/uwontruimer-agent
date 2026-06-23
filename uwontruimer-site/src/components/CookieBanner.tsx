@@ -25,6 +25,9 @@ export default function CookieBanner() {
     import("vanilla-cookieconsent").then((cc) => {
       cc.run({
         guiOptions: { consentModal: { layout: "bar", position: "bottom center" } },
+        cookie: {
+          domain: ".uwontruimer.nl",
+        },
         onConsent: ({ cookie }) => {
           updateConsent(cookie.categories.includes("analytics"), cookie.categories.includes("marketing"));
         },

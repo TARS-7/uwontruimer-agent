@@ -52,7 +52,7 @@ export default function Page() {
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">
               <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
-                Taxatie inboedel:<br />Onafhankelijke waardebepaling
+                Waardevolle objecten in uw inboedel<br /><span className="text-white/75 text-2xl sm:text-3xl font-light">Weet wat u heeft, voordat u beslist</span>
               </h1>
             </div>
           </div>
@@ -75,11 +75,31 @@ export default function Page() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Diensten</p>
 
-            <div className="mb-10">
-              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
-                Start de AI-wizard →
-              </a>
-              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            {/* Takaros doorverwijzing */}
+            <div className="rounded-2xl overflow-hidden border border-slate-100 mb-10" style={{ background: "#F5F0E8" }}>
+              <div className="flex flex-col sm:flex-row items-stretch gap-0">
+                <div className="relative flex-shrink-0 w-full sm:w-40 h-32 sm:h-auto">
+                  <Image src="/waardevolle.spullen.png" fill className="object-cover" alt="Waardevolle objecten" style={{ borderRadius: "0" }} />
+                </div>
+                <div className="px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
+                <div className="flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "#C9A227" }}>Weet wat u heeft</p>
+                  <h2 className="text-lg font-semibold mb-1" style={{ color: "#13294B" }}>Onafhankelijke veilingwaarde via Takaros</h2>
+                  <p className="text-sm font-light leading-relaxed" style={{ color: "#4a5568" }}>
+                    Upload foto&apos;s van uw waardevolle stukken en ontvang een vrijblijvende veilingwaarde van gespecialiseerde veilinghuizen. Kosteloos en zonder verplichtingen.
+                  </p>
+                </div>
+                <a
+                  href="https://www.takaros.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-xl text-sm whitespace-nowrap flex-shrink-0 transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "#13294B", color: "#F5F0E8" }}
+                >
+                  Ontdek de veilingwaarde →
+                </a>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wanneer heeft u een taxatie nodig?</h2>

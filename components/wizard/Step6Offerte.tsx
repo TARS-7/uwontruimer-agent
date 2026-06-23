@@ -7,6 +7,7 @@ declare global {
     dataLayer: Record<string, unknown>[]
   }
 }
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import type { AddressData, Offerte } from '@/lib/types'
 
@@ -381,7 +382,17 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
       </div>
 
       {/* Takaros upsell — altijd zichtbaar na succesvolle aanvraag */}
-      <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+      <div className="rounded-xl border border-slate-200 bg-slate-50 overflow-hidden">
+        <div className="relative w-full max-h-48">
+          <Image
+            src="/images/waardevolle.spullen.png"
+            alt="Waardevolle spullen"
+            width={800}
+            height={192}
+            className="w-full max-h-48 object-cover rounded-lg"
+          />
+        </div>
+        <div className="p-5">
         <p className="text-sm font-semibold text-slate-700">Heeft u ook waardevolle spullen?</p>
         <p className="mt-1 text-sm text-slate-500 leading-relaxed">
           Ontdek vrijblijvend wat ze waard zijn via Takaros — onafhankelijk en kosteloos.
@@ -398,6 +409,7 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
             <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
         </a>
+        </div>
       </div>
 
       {/* CTA — contact */}
