@@ -383,32 +383,32 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
 
       {/* Takaros upsell — altijd zichtbaar na succesvolle aanvraag */}
       <div className="rounded-xl border border-slate-200 bg-slate-50 overflow-hidden">
-        <div className="relative w-full max-h-48">
+        <div className="flex items-stretch gap-4 p-4 sm:p-5">
           <Image
             src="/images/waardevolle.spullen.png"
             alt="Waardevolle spullen"
-            width={800}
-            height={192}
-            className="w-full max-h-48 object-cover rounded-lg"
+            width={120}
+            height={120}
+            className="h-[120px] w-[120px] shrink-0 object-cover rounded-lg"
           />
-        </div>
-        <div className="p-5">
-        <p className="text-sm font-semibold text-slate-700">Heeft u ook waardevolle spullen?</p>
-        <p className="mt-1 text-sm text-slate-500 leading-relaxed">
-          Ontdek vrijblijvend wat ze waard zijn via Takaros — onafhankelijk en kosteloos.
-        </p>
-        <a
-          href={`https://www.takaros.com/?source=uwontruimer&aanvraag=${encodeURIComponent(offerte.referentie)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
-          style={{ backgroundColor: '#0F2942' }}
-        >
-          Ontdek de waarde
-          <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </a>
+          <div className="flex min-w-0 flex-col justify-center">
+            <p className="text-sm font-semibold text-slate-700">Waardevolle spullen bij de ontruiming?</p>
+            <p className="mt-1 text-sm text-slate-500 leading-relaxed">
+              Zonder actie verdwijnen ze naar de container. Via Takaros koppelen wij ze aan het juiste veilinghuis — de opbrengst gaat van uw ontruimingskosten af.
+            </p>
+            <a
+              href={`https://www.takaros.com/?source=uwontruimer&aanvraag=${encodeURIComponent(offerte.referentie)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
+              style={{ backgroundColor: '#0F2942' }}
+            >
+              Ontdek wat u bespaart
+              <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
