@@ -394,7 +394,7 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
           <div className="flex min-w-0 flex-col justify-center">
             <p className="text-sm font-semibold text-slate-700">Waardevolle spullen bij de ontruiming?</p>
             <p className="mt-1 text-sm text-slate-500 leading-relaxed">
-              Zonder actie verdwijnen ze naar de container. Via Takaros koppelen wij ze aan het juiste veilinghuis — de opbrengst gaat van uw ontruimingskosten af.
+              Heeft u waardevolle spullen? Via Takaros koppelen wij ze kosteloos aan het juiste gespecialiseerde veilinghuis.
             </p>
             <a
               href={`https://www.takaros.com/?source=uwontruimer&aanvraag=${encodeURIComponent(offerte.referentie)}`}
