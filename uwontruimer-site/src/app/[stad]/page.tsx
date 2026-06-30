@@ -130,6 +130,12 @@ const steden = [
 
   // === Utrecht aanvulling ===
   { slug: "de-ronde-venen",         name: "De Ronde Venen",         title: "Woningontruiming De Ronde Venen | UwOntruimer.nl",                             desc: "Woningontruiming in De Ronde Venen? Actief in Mijdrecht, Vinkeveen en Wilnis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+
+  // === Nieuwe steden ===
+  { slug: "velsen",                 name: "Velsen",                 title: "Woningontruiming Velsen | UwOntruimer.nl",                                     desc: "Woningontruiming in Velsen? Actief in IJmuiden, Velserbroek en Driehuis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "wijdemeren",             name: "Wijdemeren",             title: "Woningontruiming Wijdemeren | UwOntruimer.nl",                                  desc: "Woningontruiming in Wijdemeren? Actief in Loosdrecht en Nederhorst den Berg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "spijkenisse",            name: "Spijkenisse",            title: "Woningontruiming Spijkenisse | UwOntruimer.nl",                                 desc: "Woningontruiming in Spijkenisse (Nissewaard)? Actief in De Akkers, Maaswijk en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "amsterdam-noord",        name: "Amsterdam-Noord",        title: "Woningontruiming Amsterdam-Noord | UwOntruimer.nl",                             desc: "Woningontruiming in Amsterdam-Noord? Actief bij de NDSM-werf, Noorderpark en Buikslotermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
 ];
 
 // Provincie-indeling voor "Ook actief in" sectie (sluit provinciesidepagina's uit)
@@ -144,13 +150,14 @@ const provincieSteden: Record<string, string[]> = {
     "laren", "naarden", "nieuw-vennep", "purmerend", "schagen", "uithoorn",
     "weesp", "zaandam", "zaanstad",
     "oostzaan", "wormerland", "waterland", "beemster", "ouder-amstel", "muiden",
+    "velsen", "wijdemeren", "amsterdam-noord",
   ],
   "zuid-holland": [
     "alphen-aan-den-rijn", "barendrecht", "bodegraven", "capelle-aan-den-ijssel",
     "delft", "den-haag", "dordrecht", "gouda", "hillegom", "katwijk", "leiden",
     "leiderdorp", "leidschendam", "lisse", "maassluis", "noordwijk", "nootdorp",
     "oegstgeest", "pijnacker", "ridderkerk", "rijswijk", "roelofarendsveen",
-    "rotterdam", "schiedam", "vlaardingen", "voorburg", "voorschoten",
+    "rotterdam", "schiedam", "spijkenisse", "vlaardingen", "voorburg", "voorschoten",
     "wassenaar", "zoetermeer",
   ],
   "utrecht": [
@@ -196,7 +203,7 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
   return {
     title,
     description,
-    alternates: { canonical: `/woningontruiming-${stad}/` },
+    alternates: { canonical: `https://www.uwontruimer.nl/woningontruiming-${stad}/` },
     openGraph: {
       title,
       description,

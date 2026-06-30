@@ -37,6 +37,8 @@ const steden = [
   "arnhem", "apeldoorn",
   // Noord-Brabant & Dordrecht
   "dordrecht", "breda", "tilburg", "den-bosch", "eindhoven",
+  // Nieuwe steden
+  "velsen", "wijdemeren", "spijkenisse", "amsterdam-noord",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
