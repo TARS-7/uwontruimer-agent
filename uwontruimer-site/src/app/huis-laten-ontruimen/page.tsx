@@ -7,7 +7,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Een woningontruiming in Aalsmeer van a tot z geregeld. | UwOntruimer.nl",
   description: "Woningontruiming in Aalsmeer vakkundig uitgevoerd door ervaren ontruimers. U zoekt een professionele partner voor uw ontruiming? Wij komen graag persoonlij",
-  alternates: { canonical: "/huis-laten-ontruimen/" },
+  alternates: { canonical: "https://www.uwontruimer.nl/huis-laten-ontruimen/" },
 };
 
 const checkIcon = (
