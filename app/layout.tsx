@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import CookieBanner from '@/components/CookieBanner'
 import './globals.css'
 
 const dmSans = DM_Sans({
@@ -51,6 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <body className="min-h-full flex flex-col antialiased">
         <noscript dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8ZW2GRM" height="0" width="0" style="display:none;visibility:hidden"></iframe>` }} />
         {children}
+        <CookieBanner />
         <Analytics />
       </body>
     </html>
