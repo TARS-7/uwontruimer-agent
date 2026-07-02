@@ -12,6 +12,7 @@ import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
 import { blogPosts } from "@/data/blog-posts";
 import { Zap } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
+import TakarosHomepageBlock from "@/components/TakarosHomepageBlock";
 
 const blogImages: Record<string, string> = {
   "na-de-ontruiming":                      "/Ontruimers.png",
@@ -230,6 +231,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 6a. TAKAROS — ZUSTERPLATFORM */}
+      <TakarosHomepageBlock />
 
       {/* 6b. USP — WAAROM EERLIJK GEPRIJSD */}
       <section className="bg-white py-10 px-6 border-t border-slate-100">
