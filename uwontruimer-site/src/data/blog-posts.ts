@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     seoTitle: "Waardevolle spullen uit nalatenschap — wat nu? | UwOntruimer.nl",
     seoDesc: "Wat doet u met antiek, sieraden of kunst uit een nalatenschap? Ontdek hoe u gratis een waardeoordeel aanvraagt via gespecialiseerde veilinghuizen.",
     sitemapPriority: 0.8,
-    image: "/images/takaros-objecten.png",
+    image: "/hero-main-takaros.png",
     blocks: [
       { type: "p", text: "Na het overlijden van een dierbare komt er veel op u af. Naast het verdriet moet de woning worden leeggemaakt, spullen verdeeld en beslissingen genomen. Eén van de moeilijkste vragen is: wat is de inboedel eigenlijk waard?" },
       { type: "h2", text: "Niet alles is waardeloos" },

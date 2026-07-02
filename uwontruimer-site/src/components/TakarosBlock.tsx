@@ -11,8 +11,20 @@ export default function TakarosBlock() {
   return (
     <section className="mt-14 rounded-2xl py-16 px-8" style={{ backgroundColor: "#f5f0e8" }}>
       <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 md:items-stretch gap-8">
-        {/* Links: tekst + knop */}
-        <div className="order-2 md:order-1 text-left">
+        {/* Links (desktop) / boven (mobiel): afbeelding */}
+        <div className="order-1 md:order-1 relative h-64 md:h-80 rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
+          <Image
+            src="/hero-main-takaros.png"
+            alt="Waardevolle objecten uit een inboedel"
+            fill={true}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="w-full h-full"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
+        </div>
+
+        {/* Rechts (desktop) / onder (mobiel): tekst + knop */}
+        <div className="order-2 md:order-2 text-left">
           <p
             className="text-xs font-semibold mb-4"
             style={{ color: "#1a2744", letterSpacing: "0.35em" }}
@@ -39,18 +51,6 @@ export default function TakarosBlock() {
           >
             Gratis waardeoordeel aanvragen via Takaros →
           </a>
-        </div>
-
-        {/* Rechts (40%): afbeelding */}
-        <div className="order-1 md:order-2 relative h-64 md:h-80 rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
-          <Image
-            src="/images/takaros-objecten.png"
-            alt="Waardevolle objecten uit een inboedel"
-            fill={true}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="w-full h-full"
-            style={{ objectFit: "cover", objectPosition: "center" }}
-          />
         </div>
       </div>
     </section>
