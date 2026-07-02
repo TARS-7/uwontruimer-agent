@@ -15,6 +15,7 @@ import TerugbelForm from "@/components/TerugbelForm";
 import TakarosHomepageBlock from "@/components/TakarosHomepageBlock";
 
 const blogImages: Record<string, string> = {
+  "waardevolle-spullen-nalatenschap":      "/hero-main-takaros.png",
   "na-de-ontruiming":                      "/Ontruimers.png",
   "zelf-woning-ontruimen-of-uitbesteden":  "/appartement-leeg.png",
   "wat-te-doen-bij-een-woningontruiming":  "/hero-truck.png",
