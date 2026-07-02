@@ -578,8 +578,8 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </a>
             </div>
 
-            {/* Takaros blok — test op Amsterdam */}
-            {stad === "amsterdam" && <TakarosBlock />}
+            {/* Takaros blok — op alle regiopagina's */}
+            <TakarosBlock />
 
             {/* Onderste CTA blok */}
             <div className="mt-14 rounded-2xl border border-slate-200 px-8 py-10 sm:px-10" style={{ backgroundColor: "#f8fafc" }}>
