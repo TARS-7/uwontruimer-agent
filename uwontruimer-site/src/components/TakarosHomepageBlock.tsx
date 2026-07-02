@@ -67,7 +67,7 @@ export default function TakarosHomepageBlock() {
         {/* Rechterkolom: afbeelding */}
         <div className="order-1 md:order-2 relative h-80 md:h-96 rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
           <Image
-            src="/images/takaros-objecten.png"
+            src="/hero-main-takaros.png"
             alt="Waardevolle objecten uit een inboedel"
             fill={true}
             sizes="(max-width: 768px) 100vw, 50vw"
