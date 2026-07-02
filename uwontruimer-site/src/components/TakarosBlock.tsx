@@ -35,7 +35,7 @@ export default function TakarosBlock() {
             href="https://takaros.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-semibold text-white px-7 py-4 rounded-xl shadow-md transition-colors bg-[#c9a84c] hover:bg-[#b8973a]"
+            className="inline-flex w-fit items-center gap-2 font-semibold text-white px-7 py-4 rounded-xl shadow-md transition-colors bg-[#c9a84c] hover:bg-[#b8973a]"
           >
             Gratis waardeoordeel aanvragen via Takaros →
           </a>
@@ -48,7 +48,7 @@ export default function TakarosBlock() {
             alt="Waardevolle objecten uit een inboedel"
             fill
             sizes="(max-width: 768px) 100vw, 40vw"
-            className="object-cover"
+            className="object-cover object-top"
           />
         </div>
       </div>
