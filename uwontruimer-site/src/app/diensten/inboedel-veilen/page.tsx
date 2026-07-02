@@ -134,6 +134,16 @@ export default function Page() {
               Veilen is ideaal voor objecten met een duidelijke verzamelaarswaarde. Bij grote hoeveelheden gemengde inboedel is directe opkoop door Uw Ontruimer vaak sneller en praktischer. Twijfelt u? Wij adviseren u kosteloos welke route het meeste oplevert.
             </p>
 
+            <div className="rounded-2xl p-8 mb-8" style={{ backgroundColor: "#2563eb" }}>
+              <h2 className="text-xl font-semibold text-white mb-2">Uw inboedel laten veilen?</h2>
+              <p className="text-blue-100 font-light text-sm mb-6 max-w-xl">
+                Doe een vrijblijvende aanvraag via Takaros — ons zusterplatform dat u koppelt aan gespecialiseerde veilinghuizen. Gratis waardeoordeel, zonder verplichtingen.
+              </p>
+              <a href="https://takaros.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 hover:bg-blue-50 font-semibold px-7 py-4 rounded-xl shadow-md transition-colors text-base">
+                Aanvraag indienen via Takaros →
+              </a>
+            </div>
+
             <CtaBox />
           </div>
         </div>
