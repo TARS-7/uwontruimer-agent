@@ -42,13 +42,14 @@ export default function TakarosBlock() {
         </div>
 
         {/* Rechts (40%): afbeelding */}
-        <div className="md:w-2/5 order-1 md:order-2 relative h-56 md:h-auto rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
+        <div className="md:w-2/5 order-1 md:order-2 flex items-center justify-center rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
           <Image
             src="/images/takaros-objecten.png"
             alt="Waardevolle objecten uit een inboedel"
-            fill
+            width={2528}
+            height={1696}
             sizes="(max-width: 768px) 100vw, 40vw"
-            className="object-contain"
+            className="w-full h-auto min-h-72 object-contain"
           />
         </div>
       </div>
