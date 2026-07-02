@@ -21,6 +21,43 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "waardevolle-spullen-nalatenschap",
+    title: "Wat te doen met waardevolle spullen uit een nalatenschap?",
+    date: "2026-07-02",
+    dateDisplay: "2 jul 2026",
+    excerpt: "Na een overlijden weet u vaak niet wat de spullen waard zijn. Toch kan er tussen de inboedel meer zitten dan gedacht. Zo pakt u het slim aan.",
+    seoTitle: "Waardevolle spullen uit nalatenschap — wat nu? | UwOntruimer.nl",
+    seoDesc: "Wat doet u met antiek, sieraden of kunst uit een nalatenschap? Ontdek hoe u gratis een waardeoordeel aanvraagt via gespecialiseerde veilinghuizen.",
+    sitemapPriority: 0.8,
+    image: "/images/takaros-objecten.png",
+    blocks: [
+      { type: "p", text: "Na het overlijden van een dierbare komt er veel op u af. Naast het verdriet moet de woning worden leeggemaakt, spullen verdeeld en beslissingen genomen. Eén van de moeilijkste vragen is: wat is de inboedel eigenlijk waard?" },
+      { type: "h2", text: "Niet alles is waardeloos" },
+      { type: "p", text: "Een gemiddelde inboedel heeft weinig marktwaarde — meubels, huishoudspullen en kleding leveren nauwelijks iets op. Maar daar tussenin zit soms meer dan u denkt. Antiek, sieraden, schilderijen, postzegelverzamelingen, designmeubels of oude horloges kunnen aanzienlijk meer waard zijn dan op het eerste gezicht lijkt." },
+      { type: "p", text: "Het probleem is dat erfgenamen dit zelden weten. En zonder kennis is de verleiding groot om alles mee te geven aan de ontruimer of opkoper — die gemiddeld 30 tot 50 procent van de marktwaarde biedt." },
+      { type: "h2", text: "Wat zijn tekenen dat iets waardevol kan zijn?" },
+      { type: "ul", items: [
+        "Sieraden met stempels, merktekens of bijzondere stenen",
+        "Schilderijen met een signatuur of lijst in vergulde lijst",
+        "Meubels met een fabrikantslabel of herkenbaar design (Eames, Artifort, Pastoe)",
+        "Oude klokken, horloges of wetenschappelijke instrumenten",
+        "Porselein, zilver of kristal met merktekens",
+        "Postzegel- of muntenverzamelingen",
+        "Aziatische kunst of beelden"
+      ]},
+      { type: "p", text: "Twijfelt u? Dan is het verstandig om een second opinion te vragen voordat u besluit wat er mee gebeurt." },
+      { type: "h2", text: "Gratis waardeoordeel via gespecialiseerde veilinghuizen" },
+      { type: "p", text: "Via Takaros, ons zusterplatform, kunt u een foto uploaden van een object en dat voorleggen aan gespecialiseerde veilinghuizen. Zij geven een vrijblijvend waardeoordeel — inclusief een indicatie van de verwachte opbrengst. Gratis, zonder veilingkennis en zonder verplichting." },
+      { type: "p", text: "U hoeft niet te weten bij welk veilinghuis een object thuishoort. De AI herkent de categorie en stuurt het door naar de juiste specialist. U beslist daarna zelf of, en bij wie, u veilt." },
+      { type: "h2", text: "Wat doet Uw Ontruimer tijdens de ontruiming?" },
+      { type: "p", text: "Tijdens een ontruiming letten onze medewerkers op objecten die mogelijk waardevol zijn. Wij informeren u hierover en kunnen die objecten apart houden zodat u ze kunt laten beoordelen voordat de rest van de inboedel wordt afgevoerd." },
+      { type: "p", text: "Zo hoeft u niets over het hoofd te zien — ook niet in een drukke en emotionele periode." },
+      { type: "h2", text: "Conclusie" },
+      { type: "p", text: "Een nalatenschap afwikkelen is al zwaar genoeg. Laat u niet overvallen door beslissingen over de inboedel. Neem de tijd om te laten beoordelen wat er mogelijk waardevol is — het kost niets en verplicht u tot niets." },
+      { type: "link", text: "Gratis waardeoordeel aanvragen via Takaros →", href: "https://takaros.com", external: true },
+    ],
+  },
+  {
     slug: "huis-ontruimen-gratis",
     title: "Huis ontruimen gratis — wanneer is het mogelijk?",
     date: "2026-06-15",
