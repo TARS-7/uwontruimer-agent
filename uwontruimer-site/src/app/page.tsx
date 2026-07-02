@@ -14,21 +14,6 @@ import { Zap } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
 import TakarosHomepageBlock from "@/components/TakarosHomepageBlock";
 
-const blogImages: Record<string, string> = {
-  "waardevolle-spullen-nalatenschap":      "/hero-main-takaros.png",
-  "na-de-ontruiming":                      "/Ontruimers.png",
-  "zelf-woning-ontruimen-of-uitbesteden":  "/appartement-leeg.png",
-  "wat-te-doen-bij-een-woningontruiming":  "/hero-truck.png",
-  "vloer-verwijderen-kosten":              "/bedrijfsontruiming.png",
-  "wat-is-het-stappenplan-bij-een-woningontruiming": "/Ontruimers.png",
-  "wat-kost-een-woningontruiming":         "/truck-woningontruiming.png",
-  "huis-ontruimen-na-overlijden":          "/appartement-leeg.png",
-  "woningontruiming-checklist":            "/Ontruimers.png",
-  "woningontruiming-vs-verhuizen":         "/Verhuizen.jpg",
-  "hoe-werkt-opleveringsgarantie":         "/appartement-makelaar.png",
-  "ontruiming-na-overlijden-kosten":       "/appartement-leeg.png",
-};
-
 export const metadata: Metadata = {
   title: "Professionele Woningontruiming | Uw Ontruimer",
   description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
@@ -425,7 +410,7 @@ export default function HomePage() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={blogImages[post.slug] ?? "/Ontruimers.png"}
+                    src={post.image ?? "/Ontruimers.png"}
                     alt={post.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
