@@ -10,9 +10,9 @@ const cormorant = Cormorant_Garamond({
 export default function TakarosBlock() {
   return (
     <section className="mt-14 rounded-2xl py-16 px-8" style={{ backgroundColor: "#f5f0e8" }}>
-      <div className="max-w-3xl mx-auto flex flex-col md:flex-row md:items-stretch gap-8">
-        {/* Links (60%): tekst + knop */}
-        <div className="md:w-3/5 order-2 md:order-1 text-left">
+      <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 md:items-stretch gap-8">
+        {/* Links: tekst + knop */}
+        <div className="order-2 md:order-1 text-left">
           <p
             className="text-xs font-semibold mb-4"
             style={{ color: "#1a2744", letterSpacing: "0.35em" }}
@@ -42,14 +42,14 @@ export default function TakarosBlock() {
         </div>
 
         {/* Rechts (40%): afbeelding */}
-        <div className="md:w-2/5 order-1 md:order-2 relative h-80 md:h-96 rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
+        <div className="order-1 md:order-2 relative h-64 md:h-80 rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
           <Image
             src="/images/takaros-objecten.png"
             alt="Waardevolle objecten uit een inboedel"
             fill={true}
-            sizes="(max-width: 768px) 100vw, 40vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="w-full h-full"
-            style={{ objectFit: "contain", objectPosition: "center" }}
+            style={{ objectFit: "cover", objectPosition: "center" }}
           />
         </div>
       </div>
