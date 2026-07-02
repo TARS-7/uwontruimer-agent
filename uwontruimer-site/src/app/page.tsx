@@ -223,7 +223,7 @@ export default function HomePage() {
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 2L2 7l10 5 10-5-10-5z"/><path strokeLinecap="round" strokeLinejoin="round" d="M2 17l10 5 10-5"/><path strokeLinecap="round" strokeLinejoin="round" d="M2 12l10 5 10-5"/></svg>
                 </div>
                 <div className="text-sm font-medium text-slate-900 mb-1">Waardevolle objecten</div>
-                <div className="text-xs text-slate-400 font-light leading-relaxed mb-3">Heeft u antiek, sieraden of kunst aangetroffen in de woning? Via Takaros krijgt u gratis een vrijblijvend waardeoordeel van gespecialiseerde veilinghuizen — voordat u beslist wat ermee gebeurt. Wij signaleren waardevolle objecten tijdens de ontruiming en informeren u hierover.</div>
+                <div className="text-xs text-slate-400 font-light leading-relaxed mb-3">Antiek, sieraden of kunst? Via Takaros krijgt u gratis een waardeoordeel van gespecialiseerde veilinghuizen.</div>
                 <span className="text-xs font-medium inline-flex items-center gap-1" style={{ color: "#C9A227" }}>Meer informatie op takaros.com →</span>
               </div>
             </a>
