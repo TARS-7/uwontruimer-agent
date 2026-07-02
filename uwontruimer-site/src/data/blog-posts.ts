@@ -4,7 +4,7 @@ export type Block =
   | { type: "p"; text: string }
   | { type: "h2" | "h3" | "h4"; text: string }
   | { type: "ul"; items: string[] }
-  | { type: "link"; text: string; href: string };
+  | { type: "link"; text: string; href: string; external?: boolean };
 
 export interface BlogPost {
   slug: string;
@@ -60,6 +60,12 @@ export const blogPosts: BlogPost[] = [
         "De woning bevindt zich op een moeilijk bereikbare locatie zonder lift"
       ]},
       { type: "p", text: "In die gevallen brengen we een faire ontruimingsprijs in rekening, maar verrekenen we de inboedelopbrengst alsnog. Zo betaalt u nooit meer dan nodig." },
+      { type: "h2", text: "Waardevolle objecten: weet wat u heeft voordat u besluit" },
+      { type: "p", text: "Niet alles in een inboedel is waardeloos. Antiek, sieraden, kunst of verzamelobjecten kunnen aanzienlijk meer opbrengen dan een opkoper biedt — soms tientallen of honderden euro's meer per stuk." },
+      { type: "p", text: "Het probleem is dat erfgenamen vaak niet weten wat iets waard is. En zonder die kennis is het verleidelijk om alles mee te geven aan de ontruimer of opkoper, die gemiddeld 30 tot 50 procent van de marktwaarde biedt." },
+      { type: "p", text: "Via Takaros legt u een foto voor aan gespecialiseerde veilinghuizen. Zij geven een vrijblijvend waardeoordeel — gratis, zonder verplichtingen en zonder dat u verstand hoeft te hebben van veilen. U beslist daarna zelf wat u doet." },
+      { type: "p", text: "Wij als Uw Ontruimer signaleren tijdens de ontruiming welke objecten mogelijk waardevol zijn en wijzen u hierop. Zo hoeft u niets te missen." },
+      { type: "link", text: "Gratis waardeoordeel aanvragen via Takaros", href: "https://takaros.com", external: true },
       { type: "h2", text: "Hoe vraagt u een gratis ontruiming aan?" },
       { type: "p", text: "Het proces start met een vrijblijvende inspectie. Onze adviseur komt langs, bekijkt de woning en de aanwezige inboedel, en maakt een offerte op maat. Als er voldoende waardevolle items zijn, ziet u in de offerte direct hoe de opbrengst wordt verrekend. U beslist zelf of u akkoord gaat — er zijn geen verplichtingen." },
       { type: "h2", text: "Direct contact" },

@@ -60,9 +60,15 @@ function renderBlock(block: Block, i: number) {
   if (block.type === "link") {
     return (
       <p key={i} className="text-slate-500 font-light leading-relaxed mb-5">
-        <Link href={block.href} className="text-blue-600 hover:underline font-medium">
-          {block.text}
-        </Link>
+        {block.external ? (
+          <a href={block.href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">
+            {block.text}
+          </a>
+        ) : (
+          <Link href={block.href} className="text-blue-600 hover:underline font-medium">
+            {block.text}
+          </Link>
+        )}
       </p>
     );
   }

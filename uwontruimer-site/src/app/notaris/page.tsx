@@ -135,6 +135,17 @@ export default function Page() {
               ))}
             </ol>
 
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Waardevolle objecten uit de nalatenschap</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Tijdens een ontruiming signaleren wij objecten die mogelijk waardevol zijn — antiek, sieraden, kunst of verzamelobjecten. Via ons zusterplatform <a href="https://takaros.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Takaros</a> kunnen nabestaanden hier gratis een vrijblijvend waardeoordeel voor aanvragen bij gespecialiseerde veilinghuizen.
+            </p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Voor notarissen betekent dit dat u uw cliënten een complete ontzorging kunt aanbieden: van de ontruiming van de woning tot een onafhankelijk oordeel over de waarde van de inboedel. Wij nemen dit proces uit handen — zonder extra kosten voor de nabestaanden.
+            </p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Wilt u weten hoe dit werkt in de praktijk? Neem contact op voor een korte toelichting.
+            </p>
+
             <CtaBox />
           </div>
         </div>

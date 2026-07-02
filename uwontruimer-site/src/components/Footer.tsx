@@ -18,8 +18,12 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Diensten</h4>
             <ul className="space-y-2">
-              {[["Woningontruiming","/diensten/woningontruiming"],["Bedrijfsontruiming","/diensten/bedrijfsontruiming"],["Spoedontruiming","/diensten/spoedontruiming"],["Vloerverwijdering","/diensten/vloerverwijdering"],["Opkopen inboedel","/diensten/opkopen-inboedel"],["Taxatie","/diensten/taxatie"],["Inboedel veilen","/diensten/inboedel-veilen"],["Verhuizen","/diensten/verhuizen"]].map(([label,href])=>(
-                <li key={href}><Link href={href} className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</Link></li>
+              {[["Woningontruiming","/diensten/woningontruiming"],["Bedrijfsontruiming","/diensten/bedrijfsontruiming"],["Spoedontruiming","/diensten/spoedontruiming"],["Vloerverwijdering","/diensten/vloerverwijdering"],["Opkopen inboedel","/diensten/opkopen-inboedel"],["Taxatie","/diensten/taxatie"],["Inboedel laten taxeren","https://takaros.com"],["Verhuizen","/diensten/verhuizen"]].map(([label,href])=>(
+                <li key={href}>{href.startsWith("http") ? (
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</a>
+                ) : (
+                  <Link href={href} className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</Link>
+                )}</li>
               ))}
             </ul>
           </div>
