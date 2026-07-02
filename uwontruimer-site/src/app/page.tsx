@@ -179,7 +179,7 @@ export default function HomePage() {
               <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Onze diensten</h2>
               <p className="text-slate-500 font-light text-sm max-w-md leading-relaxed">Van volledige woningontruiming tot spoedopdrachten — wij regelen het voor u.</p>
             </div>
-            <Link href="/diensten/woningontruiming" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">Alle diensten <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
+            <Link href="/diensten/" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">Alle diensten <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
