@@ -30,14 +30,9 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(url, { status: 301 });
   }
 
-  // 2. Redirect /nieuws/... → /blog/...
-  if (normalized.startsWith("/nieuws")) {
-    const url = request.nextUrl.clone();
-    url.pathname = normalized.replace(/^\/nieuws/, "/blog");
-    return NextResponse.redirect(url, { status: 301 });
-  }
-
-  // 3. Rewrite /woningontruiming-{slug} → /{slug} internally
+  // 2. Rewrite /woningontruiming-{slug} → /{slug} internally
+  //    /nieuws/* → /blog/* now lives in next.config.ts redirects() so it collapses
+  //    with trailingSlash normalization into a single 301 (no intermediate hop).
   //    The public URL stays /woningontruiming-amsterdam/, content served from [stad] route
   const match = normalized.match(/^\/woningontruiming-(.+)$/);
   if (match) {
@@ -67,7 +62,6 @@ export const config = {
     "/over-uw-ontruimer/",
     "/werkgebied",
     "/werkgebied/",
-    "/nieuws/:path*",
     "/bereken-uw-ontruiming",
     "/bereken-uw-ontruiming/",
     "/werkgebied-noord-holland",

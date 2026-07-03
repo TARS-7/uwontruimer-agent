@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/categorie/nieuws/", destination: "/blog/", permanent: true },
+      // Legacy /nieuws/* → /blog/* lives here (not in proxy.ts) so it runs in the
+      // same phase as trailingSlash normalization. Destination keeps the trailing
+      // slash explicitly (Next 16 does not auto-append it), so the canonical legacy
+      // URL /nieuws/[slug]/ redirects with a single 301 straight to /blog/[slug]/
+      // with no intermediate hop.
+      { source: "/nieuws/:path*", destination: "/blog/:path*/", statusCode: 301 },
       { source: "/bereken-uw-ontruiming/", destination: "/offerte/", permanent: true },
       { source: "/werkgebied-noord-holland/", destination: "/woningontruiming-amsterdam/", permanent: true },
       { source: "/wp-content/themes/saleswizard-theme/:path*", destination: "/", permanent: true },
