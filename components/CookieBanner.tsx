@@ -21,11 +21,8 @@ function updateConsent(analyticsGranted: boolean, marketingGranted: boolean) {
 }
 
 export default function CookieBanner() {
-  console.log("[CookieBanner] component render");
   useEffect(() => {
-    console.log("[CookieBanner] useEffect mount — vanilla-cookieconsent laden");
     import("vanilla-cookieconsent").then((cc) => {
-      console.log("[CookieBanner] vanilla-cookieconsent geladen, cc.run() aanroepen");
       cc.run({
         guiOptions: { consentModal: { layout: "bar", position: "bottom center" } },
         cookie: {
