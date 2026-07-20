@@ -277,6 +277,23 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     ],
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `Woningontruiming ${name}`,
+    serviceType: "Woningontruiming",
+    url: `https://www.uwontruimer.nl/woningontruiming-${stad}/`,
+    image: "https://www.uwontruimer.nl/hero-truck.png",
+    areaServed: { "@type": "City", name },
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Uw Ontruimer",
+      telephone: "+31853035894",
+      url: "https://www.uwontruimer.nl",
+      image: "https://www.uwontruimer.nl/hero-truck.png",
+    },
+  };
+
   const faqItems = [
     {
       q: `Wat kost een woningontruiming in ${name}?`,
@@ -355,6 +372,10 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <Header />
       <main className="mt-16">
