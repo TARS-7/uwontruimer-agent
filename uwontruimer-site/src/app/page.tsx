@@ -79,10 +79,11 @@ export default function HomePage() {
       <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-64px)]">
         {/* Left column — mobile: bg image + overlay; desktop: white */}
         <div className="relative flex flex-col justify-center px-8 lg:px-16 py-16 lg:bg-white min-h-[520px] lg:min-h-0">
-          {/* Mobile background + overlay — hidden on lg */}
-          <div className="absolute inset-0 lg:hidden overflow-hidden">
-            <Image src="/hero-handdruk-oplevering.jpg" alt="" fill sizes="(min-width: 1024px) 0px, 100vw" className="object-cover object-[65%_center]" priority />
-            <div className="absolute inset-0 bg-black/50" />
+          {/* Mobile: egale donkere achtergrond — foto staat als banner boven de content */}
+          <div className="absolute inset-0 lg:hidden bg-slate-900" />
+          {/* Mobile: foto als banner, zodat knoppen nooit over gezichten vallen */}
+          <div className="relative z-10 lg:hidden -mx-8 -mt-16 mb-10 h-64 overflow-hidden">
+            <Image src="/hero-handdruk-oplevering.jpg" alt="Medewerker van Uw Ontruimer schudt de hand van een tevreden klant in een leeg opgeleverde woning" fill sizes="(min-width: 1024px) 0px, 100vw" className="object-cover object-[65%_45%]" priority />
           </div>
           {/* Content */}
           <div className="relative z-10">
