@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import { blogPosts } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
@@ -15,10 +16,20 @@ export default function Page() {
     <>
       <Header />
       <main className="mt-16">
+        {/* Hero */}
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/hero-truck.jpg" alt="Uw Ontruimer bedrijfsbus met verhuislift tijdens een woningontruiming" fill className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-4xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">Artikelen & tips</h1>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-white py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Blog</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-4">Artikelen & tips</h1>
             <p className="text-slate-500 font-light leading-relaxed mb-12 max-w-xl">
               Praktische informatie over woningontruiming, nalatenschappen, kosten en meer.
             </p>

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Contact | Neem gerust contact op | UwOntruimer.nl",
@@ -15,10 +16,20 @@ export default function Page() {
     <>
       <Header />
       <main className="mt-16">
+        {/* Hero */}
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/hero-handdruk-oplevering.jpg" alt="Persoonlijk contact met het team van Uw Ontruimer" fill className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">Neem gerust contact op</h1>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-white py-20 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Contact</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-6">Neem gerust contact op</h1>
             <p className="text-slate-500 font-light leading-relaxed mb-10">
               Wilt u een ontruimer inschakelen of heeft u een vraag? Neem dan gerust contact met ons op. Dit kan telefonisch, per mail of door het invullen van het contactformulier. Wij reageren zo spoedig mogelijk.
             </p>

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Veelgestelde vragen | UwOntruimer.nl",
@@ -82,10 +83,20 @@ export default function Page() {
     <>
       <Header />
       <main className="mt-16">
+        {/* Hero */}
+        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
+          <Image src="/hero-verhuisdozen-bus.jpg" alt="Het team van Uw Ontruimer beantwoordt al uw vragen over woningontruiming" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">Veelgestelde vragen</h1>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-white py-20 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">FAQ</p>
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-4">Veelgestelde vragen</h1>
             <p className="text-slate-500 font-light leading-relaxed mb-12">
               Uw Ontruimer geeft antwoord op uw vragen. Staat uw vraag er niet tussen? Bel ons op{" "}
               <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a>.
