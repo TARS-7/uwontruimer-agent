@@ -329,13 +329,13 @@ export default function HomePage() {
           </p>
           <div className="grid grid-cols-2 gap-4 mb-6 max-w-2xl">
             <div className="relative overflow-hidden rounded-xl h-52">
-              <Image src="/milieustraat.png" alt="Milieustraat — verantwoord afvoeren" fill className="object-cover" />
+              <Image src="/milieustraat.jpg" alt="Milieustraat — verantwoord afvoeren" fill className="object-cover" />
               <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
                 <p className="text-white text-xs font-medium">Verantwoord afvoeren</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl h-52">
-              <Image src="/kringloop.png" alt="Kringloopwinkel — hergebruik van inboedel" fill className="object-cover" />
+              <Image src="/kringloop.jpg" alt="Kringloopwinkel — hergebruik van inboedel" fill className="object-cover" />
               <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
                 <p className="text-white text-xs font-medium">Hergebruik via kringloop</p>
               </div>
@@ -411,7 +411,7 @@ export default function HomePage() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={post.image ?? "/Ontruimers.png"}
+                    src={post.image ?? "/Ontruimers.jpg"}
                     alt={post.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"

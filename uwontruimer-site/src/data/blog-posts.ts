@@ -606,7 +606,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Een woningontruiming goed voorbereiden bespaart tijd, geld en stress. Met deze stap-voor-stap checklist weet u precies wat u moet regelen: van het sorteren van spullen tot de definitieve oplevering van de woning.",
     seoTitle: "Woningontruiming checklist: waar moet u op letten? | UwOntruimer.nl",
     seoDesc: "Woningontruiming checklist: alles stap voor stap. Wat bewaren, wat afvoeren, hoe de oplevering regelen? Gebruik onze complete checklist voor een stressvrije ontruiming.",
-    image: "/Ontruimers.png",
+    image: "/Ontruimers.jpg",
     blocks: [
       { type: "h2", text: "Waarom een goede voorbereiding essentieel is" },
       { type: "p", text: "Een woningontruiming is meer dan alleen spullen weggooien. Er zijn veel zaken om rekening mee te houden: waardevolle items veiligstellen, documenten bewaren, afspraken nakomen met verhuurders en de woning netjes achterlaten. Wie goed voorbereid begint, bespaart zichzelf veel stress, tijd en mogelijk ook geld." },

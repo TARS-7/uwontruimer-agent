@@ -569,7 +569,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               <div className="grid grid-cols-2 gap-4 mb-5">
                 <div className="relative overflow-hidden rounded-xl" style={{ height: "200px" }}>
                   <Image
-                    src="/milieustraat.png"
+                    src="/milieustraat.jpg"
                     alt="Milieustraat — verantwoord afvoeren"
                     fill
                     className="object-cover"
@@ -580,7 +580,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
                 </div>
                 <div className="relative overflow-hidden rounded-xl" style={{ height: "200px" }}>
                   <Image
-                    src="/kringloop.png"
+                    src="/kringloop.jpg"
                     alt="Kringloopwinkel — hergebruik van inboedel"
                     fill
                     className="object-cover"
