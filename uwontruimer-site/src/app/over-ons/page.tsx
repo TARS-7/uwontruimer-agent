@@ -30,9 +30,10 @@ export default function Page() {
             <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
               <Image
                 src="/Ontruimers.jpg"
-                alt="Het team van UwOntruimer"
+                alt="Het team van UwOntruimer met de bedrijfsbussen tijdens een woningontruiming"
                 fill
                 className="object-cover"
+                style={{ objectPosition: "center 72%" }}
                 priority
               />
             </div>
