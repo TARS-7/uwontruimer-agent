@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import CookieBanner from "@/components/CookieBanner";
 import MetaPixel from "@/components/MetaPixel";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-slate-50 text-slate-900 antialiased">
         <noscript dangerouslySetInnerHTML={{__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8ZW2GRM" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}} />
         {children}
+        <WhatsAppButton />
         <CookieBanner />
         <MetaPixel />
         <Analytics />
