@@ -138,6 +138,12 @@ const steden = [
   { slug: "wijdemeren",             name: "Wijdemeren",             title: "Woningontruiming Wijdemeren | UwOntruimer.nl",                                  desc: "Woningontruiming in Wijdemeren? Actief in Loosdrecht en Nederhorst den Berg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
   { slug: "spijkenisse",            name: "Spijkenisse",            title: "Woningontruiming Spijkenisse | UwOntruimer.nl",                                 desc: "Woningontruiming in Spijkenisse (Nissewaard)? Actief in De Akkers, Maaswijk en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
   { slug: "amsterdam-noord",        name: "Amsterdam-Noord",        title: "Woningontruiming Amsterdam-Noord | UwOntruimer.nl",                             desc: "Woningontruiming in Amsterdam-Noord? Actief bij de NDSM-werf, Noorderpark en Buikslotermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+
+  // === Overijssel, Gelderland (Nijmegen) & Groningen ===
+  { slug: "zwolle",                 name: "Zwolle",                 title: "Woningontruiming Zwolle | UwOntruimer.nl",                                     desc: "Woningontruiming in Zwolle? Actief in Holtenbroek, Aa-landen, Assendorp en Stadshagen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "deventer",               name: "Deventer",               title: "Woningontruiming Deventer | UwOntruimer.nl",                                   desc: "Woningontruiming in Deventer? Actief in Colmschate, Keizerslanden, Borgele en de Rivierenwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "nijmegen",               name: "Nijmegen",               title: "Woningontruiming Nijmegen | UwOntruimer.nl",                                   desc: "Woningontruiming in Nijmegen? Actief in Dukenburg, Lindenholt, Hatert en de Waalsprong. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "groningen",              name: "Groningen",              title: "Woningontruiming Groningen | UwOntruimer.nl",                                  desc: "Woningontruiming in Groningen? Actief in Beijum, Lewenborg, Paddepoel en Vinkhuizen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
 ];
 
 // Provincie-indeling voor "Ook actief in" sectie (sluit provinciesidepagina's uit)
@@ -169,8 +175,10 @@ const provincieSteden: Record<string, string[]> = {
     "de-ronde-venen",
   ],
   "flevoland": ["almere", "lelystad"],
-  "gelderland": ["apeldoorn", "arnhem"],
+  "gelderland": ["apeldoorn", "arnhem", "nijmegen"],
   "noord-brabant": ["breda", "den-bosch", "eindhoven", "tilburg"],
+  "overijssel": ["zwolle", "deventer"],
+  "groningen": ["groningen"],
 };
 
 function getNabijgelegenSteden(currentSlug: string): Array<{ slug: string; name: string }> {
