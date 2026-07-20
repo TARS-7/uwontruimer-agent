@@ -214,9 +214,9 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
       type: "website",
       images: [
         {
-          url: "/hero-truck.png",
-          width: 1200,
-          height: 630,
+          url: "/hero-verhuisdozen-bus.jpg",
+          width: 1600,
+          height: 1121,
           alt: `Woningontruiming ${name} – UwOntruimer.nl`,
         },
       ],
@@ -225,7 +225,7 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
       card: "summary_large_image",
       title,
       description,
-      images: ["/hero-truck.png"],
+      images: ["/hero-verhuisdozen-bus.jpg"],
     },
   };
 }
@@ -237,6 +237,9 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
   const name = city?.name ?? stad;
   const paragraphs = stadContent[stad] ?? null;
   const nabijgelegenSteden = getNabijgelegenSteden(stad);
+  const heroAlt = city
+    ? `Medewerkers van Uw Ontruimer laden verhuisdozen in de bedrijfsbus tijdens een woningontruiming in ${city.name}`
+    : "Medewerkers van Uw Ontruimer laden verhuisdozen in de bedrijfsbus tijdens een woningontruiming";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -283,7 +286,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     name: `Woningontruiming ${name}`,
     serviceType: "Woningontruiming",
     url: `https://www.uwontruimer.nl/woningontruiming-${stad}/`,
-    image: "https://www.uwontruimer.nl/hero-truck.png",
+    image: "https://www.uwontruimer.nl/hero-verhuisdozen-bus.jpg",
     areaServed: { "@type": "City", name },
     provider: {
       "@type": "LocalBusiness",
@@ -382,7 +385,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
 
         {/* Hero afbeelding */}
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
-          <Image src="/hero-truck.png" alt={`Woningontruiming ${name}`} fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <Image src="/hero-verhuisdozen-bus.jpg" alt={heroAlt} fill sizes="100vw" className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
           <div className="absolute inset-0 bg-slate-900/30" />
         </div>
 
