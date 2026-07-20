@@ -41,6 +41,8 @@ const steden = [
   "velsen", "wijdemeren", "spijkenisse", "amsterdam-noord",
   // Overijssel, Gelderland (Nijmegen) & Groningen
   "zwolle", "deventer", "nijmegen", "groningen",
+  // Volledige dekking NH/ZH/UT/FL
+  "heerhugowaard", "zandvoort", "medemblik", "uitgeest", "stede-broec", "koggenland", "opmeer", "texel", "de-bilt", "utrechtse-heuvelrug", "bunschoten", "wijk-bij-duurstede", "rhenen", "montfoort", "lopik", "oudewater", "woudenberg", "renswoude", "dronten", "emmeloord", "urk", "zeewolde", "westland", "zwijndrecht", "papendrecht", "sliedrecht", "alblasserdam", "hendrik-ido-ambacht", "hardinxveld-giessendam", "gorinchem", "molenlanden", "krimpenerwaard", "krimpen-aan-den-ijssel", "lansingerland", "teylingen", "waddinxveen", "zuidplas", "hoeksche-waard", "hellevoetsluis", "nieuwkoop", "midden-delfland", "goeree-overflakkee", "zoeterwoude", "albrandswaard",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
