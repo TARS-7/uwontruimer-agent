@@ -7,7 +7,7 @@ export default function HeroTunnels() {
       <a
         href="https://analyse.uwontruimer.nl"
         onClick={() => sendGAEvent("event", "wizard", { method: "hero" })}
-        className="flex flex-col items-center justify-center bg-blue-600 hover:bg-blue-700 rounded-xl px-6 py-5 transition-colors text-center"
+        className="flex flex-col items-center justify-center bg-[#d97706] hover:bg-[#b45309] lg:bg-blue-600 lg:hover:bg-blue-700 rounded-xl px-6 py-5 transition-colors text-center"
       >
         <span className="text-base font-semibold text-white">Gratis AI-prijsindicatie</span>
         <span className="text-xs text-white/70 mt-1">Binnen 5 minuten · geen gesprek nodig</span>
