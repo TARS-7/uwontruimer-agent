@@ -39,6 +39,8 @@ const steden = [
   "dordrecht", "breda", "tilburg", "den-bosch", "eindhoven",
   // Nieuwe steden
   "velsen", "wijdemeren", "spijkenisse", "amsterdam-noord",
+  // Overijssel, Gelderland (Nijmegen) & Groningen
+  "zwolle", "deventer", "nijmegen", "groningen",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
