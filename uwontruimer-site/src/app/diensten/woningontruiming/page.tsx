@@ -36,11 +36,11 @@ export default function Page() {
         {/* Hero */}
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
           <Image
-            src="/Ontruimers.png"
+            src="/hero-verhuisdozen-bus.jpg"
             alt="Professionele woningontruiming"
             fill
             className="w-full h-full object-cover"
-            style={{ objectPosition: "center 40%" }}
+            style={{ objectPosition: "center center" }}
             priority
           />
           <div className="absolute inset-0 bg-slate-900/40" />
