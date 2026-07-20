@@ -52,3 +52,9 @@ body {
     animation: phone-glow 2s ease-in-out infinite;
   }
 }
+
+/* A/B-test CTA-teksten — head-script in layout.tsx zet data-ab-cta op <html>.
+   Zonder JS (of vóór toewijzing) is variant A zichtbaar. */
+.ab-cta-b { display: none; }
+html[data-ab-cta="B"] .ab-cta-a { display: none; }
+html[data-ab-cta="B"] .ab-cta-b { display: inline; }

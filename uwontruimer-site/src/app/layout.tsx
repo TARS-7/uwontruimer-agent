@@ -33,12 +33,26 @@ const consentDefault = `
   });
 `;
 
+// A/B-test CTA-teksten: variant toewijzen vóór eerste paint (geen flikkering).
+// Cookie ab_cta (1 jaar) houdt bezoekers bij herbezoek op dezelfde variant;
+// data-ab-cta op <html> stuurt de CSS in globals.css. Teksten: src/data/ab-cta.ts.
+const abCtaAssign = `
+  (function(){try{
+    var m=document.cookie.match(/(?:^|; )ab_cta=(A|B)/);
+    var v=m?m[1]:(Math.random()<0.5?"A":"B");
+    if(!m)document.cookie="ab_cta="+v+"; path=/; max-age=31536000; SameSite=Lax";
+    document.documentElement.setAttribute("data-ab-cta",v);
+    gtag('event','ab_cta_exposure',{ab_cta_variant:v});
+  }catch(e){}})();
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="nl" className={dmSans.className}>
       <head>
         {/* Consent Mode v2 default — moet vóór gtag script staan */}
         <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
+        <script dangerouslySetInnerHTML={{ __html: abCtaAssign }} />
         <script dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W8ZW2GRM');`}} />
       </head>
       <body className="bg-slate-50 text-slate-900 antialiased">

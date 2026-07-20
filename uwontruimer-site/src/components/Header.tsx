@@ -1,6 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
+import { getAbCtaVariant } from "@/data/ab-cta";
+import AbCtaText from "@/components/AbCtaText";
 
 const diensten = [
   { label: "Woningontruiming", href: "/diensten/woningontruiming" },
@@ -268,7 +271,7 @@ export default function Header() {
             </a>
             {/* Phone text — sm and up, hidden on desktop */}
             <a href="tel:0853035894" className="phone-glow hidden sm:block md:hidden text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors">085-303 58 94</a>
-            <Link href="https://analyse.uwontruimer.nl" className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">Gratis AI-analyse</Link>
+            <Link href="https://analyse.uwontruimer.nl" onClick={() => sendGAEvent("event", "cta_click", { ab_cta_variant: getAbCtaVariant(), cta_location: "menu" })} className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"><AbCtaText slot="menu" /></Link>
 
             {/* Hamburger — mobile only */}
             <button
@@ -367,10 +370,13 @@ export default function Header() {
             </a>
             <Link
               href="https://analyse.uwontruimer.nl"
-              onClick={close}
+              onClick={() => {
+                sendGAEvent("event", "cta_click", { ab_cta_variant: getAbCtaVariant(), cta_location: "menu" });
+                close();
+              }}
               className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-3 rounded-xl transition-colors"
             >
-              Gratis AI-analyse
+              <AbCtaText slot="menu" />
             </Link>
           </div>
         </div>

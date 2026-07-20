@@ -10,6 +10,7 @@ import seoData from "@/data/seo-metadata.json";
 import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, Zap } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
 import TakarosBlock from "@/components/TakarosBlock";
+import AbHeroCta from "@/components/AbHeroCta";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
@@ -322,15 +323,9 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     </svg>
   );
 
-  const offerteIcon = (
-    <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-    </svg>
-  );
-
   const checkItems = ["100% Gratis & Vrijblijvend", "Direct een prijsindicatie", "Foto's uploaden via mobiel"];
 
-  const ctaButtons = (dark = false) => (
+  const ctaButtons = (dark = false, location: "hero" | "bottom" = "hero") => (
     <>
       <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
         <a
@@ -347,14 +342,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
           Bel Peter — 085-303 58 94
         </a>
         <div className="order-2 sm:order-1 flex flex-col gap-1.5">
-          <a
-            href="https://analyse.uwontruimer.nl"
-            className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
-            style={{ backgroundColor: "#d97706" }}
-          >
-            {offerteIcon}
-            Ontvang direct uw AI-offerte (2 min)
-          </a>
+          <AbHeroCta location={location} />
           <div className="flex flex-wrap gap-x-4 gap-y-1 px-1">
             {checkItems.map((item) => (
               <span key={item} className="inline-flex items-center gap-1 text-xs text-slate-400">
@@ -612,7 +600,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               <p className="font-light text-sm leading-relaxed mb-7" style={{ color: "#1e3a5f", opacity: 0.7 }}>
                 Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie.
               </p>
-              {ctaButtons(false)}
+              {ctaButtons(false, "bottom")}
             </div>
 
             {/* Ook actief in */}
