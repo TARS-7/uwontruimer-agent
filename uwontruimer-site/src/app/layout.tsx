@@ -48,7 +48,8 @@ const abCtaAssign = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl" className={dmSans.className}>
+    // suppressHydrationWarning: het A/B-script zet data-ab-cta vóór hydration
+    <html lang="nl" className={dmSans.className} suppressHydrationWarning>
       <head>
         {/* Consent Mode v2 default — moet vóór gtag script staan */}
         <script dangerouslySetInnerHTML={{ __html: consentDefault }} />

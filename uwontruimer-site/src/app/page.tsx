@@ -81,7 +81,7 @@ export default function HomePage() {
         <div className="relative flex flex-col justify-center px-8 lg:px-16 py-16 lg:bg-white min-h-[520px] lg:min-h-0">
           {/* Mobile background + overlay — hidden on lg */}
           <div className="absolute inset-0 lg:hidden overflow-hidden">
-            <Image src="/peter-visser.png" alt="" fill className="object-cover object-center" priority />
+            <Image src="/hero-handdruk-oplevering.jpg" alt="" fill sizes="(min-width: 1024px) 0px, 100vw" className="object-cover object-[65%_center]" priority />
             <div className="absolute inset-0 bg-black/50" />
           </div>
           {/* Content */}
