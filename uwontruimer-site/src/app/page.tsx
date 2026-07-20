@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.uwontruimer.nl/hero-truck.png",
+        url: "https://www.uwontruimer.nl/hero-truck.jpg",
         width: 1200,
         height: 630,
         alt: "Professionele Woningontruiming – UwOntruimer.nl",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Professionele Woningontruiming | Uw Ontruimer",
     description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
-    images: ["https://www.uwontruimer.nl/hero-truck.png"],
+    images: ["https://www.uwontruimer.nl/hero-truck.jpg"],
   },
 };
 
@@ -49,7 +49,7 @@ const localBusinessSchema = {
   url: "https://www.uwontruimer.nl",
   telephone: "+31853035894",
   priceRange: "€€",
-  image: "https://www.uwontruimer.nl/hero-truck.png",
+  image: "https://www.uwontruimer.nl/hero-truck.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Welnastraat 175",
@@ -186,7 +186,7 @@ export default function HomePage() {
             {[
               { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.png", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
               { href: "/diensten/bedrijfsontruiming", img: "/bedrijfsontruiming.png", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
-              { href: "/diensten/spoedontruiming", img: "/hero-truck.png", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
+              { href: "/diensten/spoedontruiming", img: "/hero-truck.jpg", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
               { href: "/diensten/opkopen-inboedel", img: "/inboedel opkopen.png", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
@@ -360,7 +360,7 @@ export default function HomePage() {
             {[
               { href: "/notaris", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&q=70", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
               { href: "/makelaar", img: "/appartement-makelaar.png", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
-              { href: "/woningbouwvereniging", img: "/hero-truck.png", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
+              { href: "/woningbouwvereniging", img: "/hero-truck.jpg", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
               { href: "/bewindvoerder", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="bg-white border border-slate-100 rounded-2xl overflow-hidden flex flex-col sm:grid hover:shadow-md hover:border-transparent transition-all duration-300" style={{ gridTemplateColumns: "160px 1fr" }}>

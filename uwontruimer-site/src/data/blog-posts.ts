@@ -504,7 +504,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "De kosten voor een woningontruiming hangen af van veel factoren: de grootte van de woning, de hoeveelheid inboedel, de verdieping en de regio. In dit artikel leest u alles over de gemiddelde prijzen in 2025, wat er standaard is inbegrepen en hoe u de kosten kunt beperken.",
     seoTitle: "Wat kost een woningontruiming in 2025? Prijzen en factoren | UwOntruimer.nl",
     seoDesc: "Wat kost een woningontruiming? Ontdek de gemiddelde prijzen in 2025, welke factoren de kosten bepalen en wat er standaard is inbegrepen. Bereken uw prijs via onze gratis AI-wizard.",
-    image: "/truck-woningontruiming.png",
+    image: "/truck-woningontruiming.jpg",
     blocks: [
       { type: "h2", text: "Wat bepaalt de kosten van een woningontruiming?" },
       { type: "p", text: "De prijs van een woningontruiming is niet voor iedereen gelijk. Dat is logisch: geen twee ontruimingen zijn hetzelfde. De hoeveelheid inboedel, de grootte van de woning, de bereikbaarheid van het pand en het gewenste serviceniveau zijn allemaal factoren die de uiteindelijke prijs bepalen. Het is daarom verstandig om vooraf goed te inventariseren wat er moet gebeuren, zodat u een realistische offerte kunt aanvragen en achteraf niet voor verrassingen komt te staan." },

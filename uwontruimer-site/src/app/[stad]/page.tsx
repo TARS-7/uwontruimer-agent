@@ -302,7 +302,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
       name: "Uw Ontruimer",
       telephone: "+31853035894",
       url: "https://www.uwontruimer.nl",
-      image: "https://www.uwontruimer.nl/hero-truck.png",
+      image: "https://www.uwontruimer.nl/hero-truck.jpg",
     },
   };
 
