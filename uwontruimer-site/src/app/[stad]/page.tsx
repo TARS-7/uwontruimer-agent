@@ -390,7 +390,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
           className={`phone-glow-alt order-1 sm:order-2 inline-flex items-center justify-center gap-2.5 font-semibold px-5 py-3.5 rounded-xl transition-colors text-base border-2 bg-blue-600 text-white border-blue-600 hover:opacity-90 ${dark ? "sm:bg-transparent sm:border-white sm:hover:bg-white/10" : "sm:bg-white sm:text-blue-600 sm:border-blue-600 sm:hover:bg-blue-50 sm:hover:opacity-100"}`}
         >
           <Image
-            src="/peter-visser2.png"
+            src="/peter-visser2.jpg"
             alt=""
             width={32}
             height={32}

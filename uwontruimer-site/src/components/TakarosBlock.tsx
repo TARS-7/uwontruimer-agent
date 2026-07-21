@@ -14,7 +14,7 @@ export default function TakarosBlock() {
         {/* Links (desktop) / boven (mobiel): afbeelding */}
         <div className="order-1 md:order-1 relative h-64 md:h-80 rounded-lg overflow-hidden" style={{ backgroundColor: "#f5f0e8" }}>
           <Image
-            src="/hero-main-takaros.png"
+            src="/hero-main-takaros.jpg"
             alt="Waardevolle objecten uit een inboedel"
             fill={true}
             sizes="(max-width: 768px) 100vw, 50vw"

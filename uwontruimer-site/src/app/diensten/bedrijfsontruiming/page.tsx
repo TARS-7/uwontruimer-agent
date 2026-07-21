@@ -26,7 +26,7 @@ export default function Page() {
         {/* Hero */}
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
           <Image
-            src="/bedrijfsontruiming.png"
+            src="/bedrijfsontruiming.jpg"
             alt="Professionele bedrijfsontruiming"
             fill
             className="w-full h-full object-cover"

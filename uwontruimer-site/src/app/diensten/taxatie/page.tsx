@@ -47,7 +47,7 @@ export default function Page() {
       <Header />
       <main className="mt-16">
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
-          <Image src="/waardevolle.spullen.png" alt="Taxatie van waardevolle spullen" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <Image src="/waardevolle.spullen.jpg" alt="Taxatie van waardevolle spullen" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
           <div className="absolute inset-0 bg-slate-900/40" />
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">
@@ -79,7 +79,7 @@ export default function Page() {
             <div className="rounded-2xl overflow-hidden border border-slate-100 mb-10" style={{ background: "#F5F0E8" }}>
               <div className="flex flex-col sm:flex-row items-stretch gap-0">
                 <div className="relative flex-shrink-0 w-full sm:w-40 h-32 sm:h-auto">
-                  <Image src="/waardevolle.spullen.png" fill className="object-cover" alt="Waardevolle objecten" style={{ borderRadius: "0" }} />
+                  <Image src="/waardevolle.spullen.jpg" fill className="object-cover" alt="Waardevolle objecten" style={{ borderRadius: "0" }} />
                 </div>
                 <div className="px-7 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
                 <div className="flex-1">

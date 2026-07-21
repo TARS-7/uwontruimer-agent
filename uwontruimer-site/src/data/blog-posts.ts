@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     seoTitle: "Waardevolle spullen uit nalatenschap — wat nu? | UwOntruimer.nl",
     seoDesc: "Wat doet u met antiek, sieraden of kunst uit een nalatenschap? Ontdek hoe u gratis een waardeoordeel aanvraagt via gespecialiseerde veilinghuizen.",
     sitemapPriority: 0.8,
-    image: "/hero-main-takaros.png",
+    image: "/hero-main-takaros.jpg",
     blocks: [
       { type: "p", text: "Na het overlijden van een dierbare komt er veel op u af. Naast het verdriet moet de woning worden leeggemaakt, spullen verdeeld en beslissingen genomen. Eén van de moeilijkste vragen is: wat is de inboedel eigenlijk waard?" },
       { type: "h2", text: "Niet alles is waardeloos" },
@@ -559,7 +559,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Het leeghalen van een huis na overlijden is emotioneel zwaar en praktisch complex. Welke stappen moet u zetten, wat zijn de juridische aandachtspunten en hoe kan een professioneel ontruimingsbedrijf u helpen? In deze gids leest u alles wat u moet weten.",
     seoTitle: "Huis ontruimen na overlijden: wat moet u regelen? | UwOntruimer.nl",
     seoDesc: "Huis ontruimen na overlijden? Lees onze praktische gids over de stappen, juridische aspecten en hoe een ontruimingsbedrijf u helpt. Inclusief tijdlijn en checklist.",
-    image: "/appartement-leeg.png",
+    image: "/appartement-leeg.jpg",
     blocks: [
       { type: "h2", text: "Huis ontruimen na overlijden: een emotionele en praktische uitdaging" },
       { type: "p", text: "Het overlijden van een dierbare is al moeilijk genoeg. Maar er volgt ook een praktische kant: de woning van de overledene moet worden leeggehaald, spullen moeten worden verdeeld of afgevoerd, en de woning moet worden opgeleverd aan de verhuurder of overgedragen aan nieuwe eigenaren. Dit alles terwijl u in een rouwproces zit." },
@@ -740,7 +740,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Een opleveringsgarantie geeft u zekerheid dat de woning na de ontruiming voldoet aan de eisen van de verhuurder of koper. Maar wat houdt zo'n garantie precies in, en waarom is het zo belangrijk om hierop te letten bij het kiezen van een ontruimingsbedrijf?",
     seoTitle: "Hoe werkt een opleveringsgarantie bij woningontruiming? | UwOntruimer.nl",
     seoDesc: "Wat is een opleveringsgarantie bij woningontruiming? Lees wat het inhoudt, waarom het belangrijk is en hoe Uw Ontruimer u zekerheid geeft bij de oplevering van uw woning.",
-    image: "/appartement-makelaar.png",
+    image: "/appartement-makelaar.jpg",
     blocks: [
       { type: "h2", text: "Wat is een opleveringsgarantie?" },
       { type: "p", text: "Een opleveringsgarantie is de belofte van een ontruimingsbedrijf dat de woning na afloop van de ontruiming voldoet aan de overeengekomen oplevernorm. In de praktijk betekent dit dat de woning volledig leeg, schoon en in de afgesproken staat wordt opgeleverd, zodat u zonder problemen de sleutels kunt overdragen aan de verhuurder, woningcorporatie of nieuwe eigenaar." },
@@ -792,7 +792,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Na een overlijden moet de woning van de overledene worden ontruimd. Maar wie is daarvoor verantwoordelijk, wat zijn de juridische verplichtingen en wat kost een nalatenschapsontruiming? Een helder overzicht.",
     seoTitle: "Ontruiming na overlijden: kosten en wie betaalt? | UwOntruimer.nl",
     seoDesc: "Wat kost een ontruiming na overlijden en wie is verantwoordelijk? Lees alles over nalatenschapsontruiming: juridische aspecten, prijzen en praktische tips.",
-    image: "/appartement-leeg.png",
+    image: "/appartement-leeg.jpg",
     blocks: [
       { type: "h2", text: "Ontruiming na overlijden: een praktische en emotionele taak" },
       { type: "p", text: "Het overlijden van een familielid brengt naast verdriet ook een reeks praktische verplichtingen met zich mee. Een van de eerste concrete taken is het ontruimen van de woning. Dit moet vaak snel gebeuren, zeker als het een huurwoning betreft waarvan de huur op korte termijn moet worden opgezegd. In dit artikel leest u wie verantwoordelijk is voor de ontruiming, wat de juridische aspecten zijn, wat de kosten zijn en hoe u dit het beste kunt aanpakken." },

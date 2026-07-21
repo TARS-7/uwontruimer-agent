@@ -47,7 +47,7 @@ export default function Page() {
       <Header />
       <main className="mt-16">
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
-          <Image src="/appartement-leeg.png" alt="Woningontruiming voor notarissen" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <Image src="/appartement-leeg.jpg" alt="Woningontruiming voor notarissen" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
           <div className="absolute inset-0 bg-slate-900/40" />
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">

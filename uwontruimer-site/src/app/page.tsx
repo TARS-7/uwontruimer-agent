@@ -118,7 +118,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-md w-fit mb-8 overflow-hidden divide-y divide-slate-100">
               <div className="flex items-center gap-3 px-4 py-3">
                 <Image
-                  src="/peter-visser2.png"
+                  src="/peter-visser2.jpg"
                   alt="Peter Visser"
                   width={48}
                   height={48}
@@ -144,7 +144,7 @@ export default function HomePage() {
         </div>
         {/* HERO IMAGE — desktop only */}
         <div className="hidden lg:block relative overflow-hidden">
-          <Image src="/hero-handdruk-oplevering.jpg" alt="Medewerker van Uw Ontruimer schudt de hand van een tevreden klant in een leeg opgeleverde woning" fill sizes="(max-width: 1023px) 0px, 50vw" className="object-cover object-center" priority quality={90} />
+          <Image src="/hero-handdruk-oplevering.jpg" alt="Medewerker van Uw Ontruimer schudt de hand van een tevreden klant in een leeg opgeleverde woning" fill sizes="(max-width: 1023px) 0px, 50vw" className="object-cover object-center" priority />
           <div className="absolute bottom-8 left-6 bg-white rounded-2xl p-4 flex items-center gap-3 border border-slate-100 shadow-lg">
             <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -184,10 +184,10 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
-              { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.png", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
-              { href: "/diensten/bedrijfsontruiming", img: "/bedrijfsontruiming.png", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
+              { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.jpg", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
+              { href: "/diensten/bedrijfsontruiming", img: "/bedrijfsontruiming.jpg", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
               { href: "/diensten/spoedontruiming", img: "/hero-truck.jpg", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
-              { href: "/diensten/opkopen-inboedel", img: "/inboedel opkopen.png", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
+              { href: "/diensten/opkopen-inboedel", img: "/inboedel opkopen.jpg", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
                 <div className="overflow-hidden h-32 foto-zoom relative"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
@@ -204,7 +204,7 @@ export default function HomePage() {
             {/* Takaros kaart */}
             <a href="https://takaros.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300 relative">
               <div className="overflow-hidden h-32 foto-zoom relative">
-                <Image src="/waardevolle.spullen.png" fill className="object-cover" alt="Waardevolle objecten" />
+                <Image src="/waardevolle.spullen.jpg" fill className="object-cover" alt="Waardevolle objecten" />
               </div>
               <div className="p-4">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: "#f0ebe0" }}>
@@ -244,7 +244,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center gap-8 bg-slate-50 border border-slate-100 rounded-2xl p-8 sm:p-12">
             <Image
-              src="/peter-visser.png"
+              src="/peter-visser.jpg"
               alt="Peter Visser"
               width={220}
               height={260}
@@ -359,7 +359,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { href: "/notaris", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=320&q=70", label: "Notarissen", title: "Nalatenschappen & boedelontruimingen", desc: "Discreet, snel en juridisch correct." },
-              { href: "/makelaar", img: "/appartement-makelaar.png", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
+              { href: "/makelaar", img: "/appartement-makelaar.jpg", label: "Makelaars", title: "Pand verkoopklaar maken", desc: "Snelle ontruiming voor bezichtiging of overdracht." },
               { href: "/woningbouwvereniging", img: "/hero-truck.jpg", label: "Woningcorporaties", title: "Vaste partner voor woningcorporaties en VvE\u2019s", desc: "Snelle doorlooptijden en vaste prijsafspraken." },
               { href: "/bewindvoerder", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=320&q=70", label: "Bewindvoerders", title: "Ontruimingen binnen bewindvoering", desc: "Professionele samenwerking bij budgetbeheer." },
             ].map((s) => (
@@ -479,7 +479,7 @@ export default function HomePage() {
           <div className="flex flex-row items-center justify-center gap-6 mb-6">
             <div className="flex items-center gap-3 flex-shrink-0">
               <Image
-                src="/peter-visser2.png"
+                src="/peter-visser2.jpg"
                 alt="Peter Visser"
                 width={80}
                 height={80}
