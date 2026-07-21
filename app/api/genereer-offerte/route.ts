@@ -204,8 +204,10 @@ export async function POST(request: NextRequest) {
     const block = msg.content[0]
     raw = block.type === 'text' ? block.text.trim() : ''
   } catch (err) {
-    console.error('[genereer-offerte] Claude fout:', err)
-    return Response.json({ error: 'AI-analyse mislukt. Probeer opnieuw.' }, { status: 502 })
+    // AI tijdelijk niet beschikbaar (overloaded/rate-limit) mag NOOIT de lead kosten:
+    // val terug op de regelgebaseerde prijsberekening i.p.v. een foutscherm.
+    console.error('[genereer-offerte] Claude fout — fallback naar regelgebaseerde offerte:', err)
+    return Response.json(demoOfferte(input))
   }
 
   const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()
@@ -232,7 +234,8 @@ export async function POST(request: NextRequest) {
     }
 
     return Response.json(offerte)
-  } catch {
-    return Response.json({ error: 'Onverwachte AI-respons. Probeer opnieuw.' }, { status: 502 })
+  } catch (err) {
+    console.error('[genereer-offerte] Onverwachte AI-respons — fallback naar regelgebaseerde offerte:', err)
+    return Response.json(demoOfferte(input))
   }
 }
