@@ -51,6 +51,12 @@ export default function StepAdresContact({ initialData, onComplete, onBack }: Pr
   const [adresApiError, setAdresApiError] = useState<string | null>(null)
   const [gevondenAdres, setGevondenAdres] = useState<AddressData | null>(initialData.address)
 
+  // Handmatige invoer-fallback wanneer de BAG-lookup het adres niet kent
+  // (nieuwbouw, bijzondere toevoeging) — anders zit de bezoeker definitief vast.
+  const [handmatig, setHandmatig]   = useState(false)
+  const [straat, setStraat]         = useState('')
+  const [woonplaats, setWoonplaats] = useState('')
+
   // Validation errors
   const [errors, setErrors] = useState<Record<string, string>>({})
 
@@ -104,7 +110,15 @@ export default function StepAdresContact({ initialData, onComplete, onBack }: Pr
     if (telefoon.trim() && !/^[0-9+\s\-().]{7,}$/.test(telefoon.trim())) {
       errs.telefoon = 'Vul een geldig telefoonnummer in'
     }
-    if (!gevondenAdres) errs.adres = 'Zoek eerst een adres op via de zoekopdracht hierboven'
+    if (!gevondenAdres && !handmatig) {
+      errs.adres = 'Zoek eerst een adres op via de zoekopdracht hierboven'
+    }
+    if (!gevondenAdres && handmatig) {
+      if (!/^\d{4}[A-Z]{2}$/i.test(postcode.replace(/\s/g, ''))) errs.postcode = 'Voer een geldige postcode in (bijv. 1234 AB)'
+      if (!huisnummer.trim()) errs.huisnummer = 'Voer een huisnummer in'
+      if (!straat.trim()) errs.straat = 'Vul de straatnaam in'
+      if (!woonplaats.trim()) errs.woonplaats = 'Vul de woonplaats in'
+    }
     if (!privacy) errs.privacy = 'U dient akkoord te gaan met het privacybeleid'
 
     if (Object.keys(errs).length > 0) {
@@ -112,8 +126,23 @@ export default function StepAdresContact({ initialData, onComplete, onBack }: Pr
       return
     }
 
+    const address: AddressData = gevondenAdres ?? {
+      postcode: postcode.replace(/\s/g, '').toUpperCase(),
+      huisnummer: huisnummer.trim(),
+      huisletter: '',
+      toevoeging: toevoeging.trim(),
+      straat: straat.trim(),
+      woonplaats: woonplaats.trim(),
+      gemeente: woonplaats.trim(),
+      oppervlakte: null,
+      bouwjaar: null,
+      woningtype: null,
+      gebruiksdoel: null,
+      adresseerbaarobjectId: null,
+    }
+
     onComplete({
-      address: gevondenAdres!,
+      address,
       naam:     naam.trim(),
       email:    email.trim(),
       telefoon: telefoon.trim(),
@@ -223,12 +252,46 @@ export default function StepAdresContact({ initialData, onComplete, onBack }: Pr
             )}
           </Button>
 
-          {adresApiError && (
-            <div className="flex items-start gap-3 rounded-xl border border-red-100 bg-red-50 p-4">
-              <svg className="h-5 w-5 text-red-500 mt-0.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              <p className="text-sm text-red-700">{adresApiError}</p>
+          {adresApiError && !handmatig && (
+            <div className="flex flex-col gap-3 rounded-xl border border-red-100 bg-red-50 p-4">
+              <div className="flex items-start gap-3">
+                <svg className="h-5 w-5 text-red-500 mt-0.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+                <p className="text-sm text-red-700">{adresApiError}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => { setHandmatig(true); setAdresApiError(null); setErrors((prev) => { const n = { ...prev }; delete n.adres; return n }) }}
+                className="self-start text-sm font-semibold text-blue-600 underline underline-offset-2 hover:text-blue-700"
+              >
+                Adres niet gevonden? Vul uw adres handmatig in →
+              </button>
+            </div>
+          )}
+
+          {handmatig && !gevondenAdres && (
+            <div className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-sm font-medium text-slate-700">Vul uw adres handmatig in</p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <Input
+                  label="Straatnaam"
+                  placeholder="Dorpsstraat"
+                  value={straat}
+                  error={errors.straat}
+                  onChange={(e) => setStraat(e.target.value)}
+                  autoComplete="address-line1"
+                />
+                <Input
+                  label="Woonplaats"
+                  placeholder="Amsterdam"
+                  value={woonplaats}
+                  error={errors.woonplaats}
+                  onChange={(e) => setWoonplaats(e.target.value)}
+                  autoComplete="address-level2"
+                />
+              </div>
+              <p className="text-xs text-slate-400">Postcode en huisnummer hierboven blijven gelden. Wij controleren het adres bij de gratis inspectie.</p>
             </div>
           )}
 
