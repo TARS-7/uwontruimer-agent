@@ -9,6 +9,8 @@ declare global {
 }
 
 function updateConsent(analyticsGranted: boolean, marketingGranted: boolean) {
+  // Laat andere componenten (o.a. TrackingEvents) meeluisteren — óók als gtag nog niet klaar is.
+  window.dispatchEvent(new CustomEvent("uo:consent", { detail: { analytics: analyticsGranted, marketing: marketingGranted } }));
   if (typeof window.gtag !== "function") return;
   const analytics = analyticsGranted ? "granted" : "denied";
   const marketing = marketingGranted ? "granted" : "denied";

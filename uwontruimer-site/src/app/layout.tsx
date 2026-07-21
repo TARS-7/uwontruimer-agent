@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import CookieBanner from "@/components/CookieBanner";
 import MetaPixel from "@/components/MetaPixel";
+import TrackingEvents from "@/components/TrackingEvents";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
@@ -44,7 +45,6 @@ const abCtaAssign = `
     var v=m?m[1]:(Math.random()<0.5?"A":"B");
     if(!m)document.cookie="ab_cta="+v+"; path=/; max-age=31536000; SameSite=Lax";
     document.documentElement.setAttribute("data-ab-cta",v);
-    gtag('event','ab_cta_exposure',{ab_cta_variant:v});
   }catch(e){}})();
 `;
 
@@ -62,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <WhatsAppButton />
         <CookieBanner />
+        <TrackingEvents />
         <MetaPixel />
         <Analytics />
         <SpeedInsights />
