@@ -9,17 +9,19 @@ declare global {
 }
 
 function updateConsent(analyticsGranted: boolean, marketingGranted: boolean) {
-  // Laat andere componenten (o.a. TrackingEvents) meeluisteren — óók als gtag nog niet klaar is.
+  // Eerst de gtag consent-update, dán pas andere componenten informeren —
+  // anders vuurt TrackingEvents zijn events nog in de denied-status (gcs=G100).
+  if (typeof window.gtag === "function") {
+    const analytics = analyticsGranted ? "granted" : "denied";
+    const marketing = marketingGranted ? "granted" : "denied";
+    window.gtag("consent", "update", {
+      analytics_storage: analytics,
+      ad_storage: marketing,
+      ad_user_data: marketing,
+      ad_personalization: marketing,
+    });
+  }
   window.dispatchEvent(new CustomEvent("uo:consent", { detail: { analytics: analyticsGranted, marketing: marketingGranted } }));
-  if (typeof window.gtag !== "function") return;
-  const analytics = analyticsGranted ? "granted" : "denied";
-  const marketing = marketingGranted ? "granted" : "denied";
-  window.gtag("consent", "update", {
-    analytics_storage: analytics,
-    ad_storage: marketing,
-    ad_user_data: marketing,
-    ad_personalization: marketing,
-  });
 }
 
 export default function CookieBanner() {
