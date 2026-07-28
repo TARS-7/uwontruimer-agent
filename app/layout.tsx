@@ -60,6 +60,11 @@ export default function RootLayout({
       <head>
         {/* Consent Mode v2 default — moet vóór GTM script staan */}
         <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
+        {/* Directe Google-tag voor Google Ads (AW-748902533) — verhelpt "Google-tag
+            ontbreekt", legt de gclid vast en laat Consent Mode conversies modelleren.
+            consentDefault hierboven definieert al window.dataLayer + gtag(). */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-748902533" />
+        <script dangerouslySetInnerHTML={{ __html: `gtag('js', new Date());gtag('config', 'AW-748902533');` }} />
         <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

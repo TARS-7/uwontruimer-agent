@@ -55,6 +55,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Consent Mode v2 default — moet vóór gtag script staan */}
         <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
         <script dangerouslySetInnerHTML={{ __html: abCtaAssign }} />
+        {/* Directe Google-tag voor Google Ads (AW-748902533) in de server-HTML.
+            Nodig zodat: (1) Google Ads de tag detecteert — verhelpt "Google-tag
+            ontbreekt / verkeerd ingesteld"; (2) de gclid op de landingspagina wordt
+            vastgelegd zodat conversies toegeschreven kunnen worden; (3) Consent Mode
+            conversies kan modelleren. consentDefault hierboven definieert al
+            window.dataLayer + gtag() en zet de consent-default (ad_storage denied). */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-748902533" />
+        <script dangerouslySetInnerHTML={{ __html: `gtag('js', new Date());gtag('config', 'AW-748902533');` }} />
       </head>
       <body className="bg-slate-50 text-slate-900 antialiased">
         <noscript dangerouslySetInnerHTML={{__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKHKSZP5" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}} />
