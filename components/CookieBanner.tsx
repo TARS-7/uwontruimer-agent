@@ -9,15 +9,20 @@ declare global {
 }
 
 function updateConsent(analyticsGranted: boolean, marketingGranted: boolean) {
-  if (typeof window.gtag !== "function") return;
   const analytics = analyticsGranted ? "granted" : "denied";
   const marketing = marketingGranted ? "granted" : "denied";
-  window.gtag("consent", "update", {
-    analytics_storage: analytics,
-    ad_storage: marketing,
-    ad_user_data: marketing,
-    ad_personalization: marketing,
-  });
+  if (typeof window.gtag === "function") {
+    window.gtag("consent", "update", {
+      analytics_storage: analytics,
+      ad_storage: marketing,
+      ad_user_data: marketing,
+      ad_personalization: marketing,
+    });
+  }
+  // Signaleer consent aan client-componenten (o.a. MicrosoftClarity) — ná de gtag-update.
+  window.dispatchEvent(
+    new CustomEvent("uo:consent", { detail: { analytics: analyticsGranted, marketing: marketingGranted } }),
+  );
 }
 
 export default function CookieBanner() {
