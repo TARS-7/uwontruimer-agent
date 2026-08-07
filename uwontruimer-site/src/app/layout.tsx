@@ -7,6 +7,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import CookieBanner from "@/components/CookieBanner";
 import MetaPixel from "@/components/MetaPixel";
 import TrackingEvents from "@/components/TrackingEvents";
+import MicrosoftClarity from "@/components/MicrosoftClarity";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <CookieBanner />
         <TrackingEvents />
+        <MicrosoftClarity />
         <MetaPixel />
         <Analytics />
         <SpeedInsights />
