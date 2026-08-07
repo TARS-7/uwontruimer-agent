@@ -42,7 +42,7 @@ vlekkeloos, dan hoort u nooit meer van ons. Ik bel u komende week kort na om te 
 
 Met vriendelijke groet,
 [Naam] — Uw Ontruimer
-[telefoon] · info@uwontruimer.nl · uwontruimer.nl
+085-303 58 94 · info@uwontruimer.nl · uwontruimer.nl
 
 _Bijlage: Aansprakelijkheid en de leegstaande woning in de nalatenschap (1 A4)_
 
@@ -84,7 +84,7 @@ Met vriendelijke groet,
 
 [Naam]
 Uw Ontruimer
-[telefoon] · info@uwontruimer.nl
+085-303 58 94 · info@uwontruimer.nl
 
 _Bijlage: Aansprakelijkheid en de leegstaande woning in de nalatenschap_
 

@@ -61,4 +61,4 @@ en de geheimhoudingsplicht.
 **Vrijblijvend kennismaken?** Geef ons het eerstvolgende dossier met een lege woning. Gaat het niet
 vlekkeloos, dan hoort u nooit meer van ons.
 
-_Uw Ontruimer · [telefoon] · [e-mail] · [website]_
+_Uw Ontruimer · 085-303 58 94 · info@uwontruimer.nl · uwontruimer.nl_
