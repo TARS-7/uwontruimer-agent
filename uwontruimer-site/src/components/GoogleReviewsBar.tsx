@@ -1,5 +1,6 @@
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?sa=X&sca_esv=d539714fd0df0db7&rlz=1C5CHFA_enNL1092NL1092&q=Uw+Ontruimer+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2MjG2tDQ0szQ0Nze3NDAzNzE13MDI-IpRJLRcwT-vpKg0Mze1SCEotSwztbx4EStWYQALjwNzSAAAAA&rldimm=2439916917779067451&tbm=lcl&hl=nl-NL&ved=2ahUKEwjO9c3so8qUAxWK9LsIHRHGJQMQ9fQKegQIRxAG&biw=1914&bih=961&dpr=2#lkt=LocalPoiReviews";
+// Stabiele link naar de Google-listing (CID uit de listing). De oude URL was een
+// gekopieerde zoeksessie-link met vervallende params (ved/stick/sca_esv) → dood.
+const GOOGLE_REVIEWS_URL = "https://www.google.com/maps?cid=2439916917779067451";
 
 function GoogleG() {
   return (
