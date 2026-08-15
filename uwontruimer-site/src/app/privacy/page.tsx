@@ -21,7 +21,7 @@ export default function Page() {
             <p className="text-slate-500 font-light leading-relaxed mb-5">https://uwontruimer.nl/</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">Welnastraat 175</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">085-3035894</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">Jurriën Kuijper is de Functionaris Gegevensbescherming van Uw Ontruimer Hij/zij is te bereiken via info@uwontruimer.nl</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">Voor vragen over de verwerking van uw persoonsgegevens is Uw Ontruimer bereikbaar via info@uwontruimer.nl.</p>
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Persoonsgegevens die wij verwerken</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer verwerkt uw persoonsgegevens doordat u gebruik maakt van onze diensten en/of omdat u deze zelf aan ons verstrekt.</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">Hieronder vindt u een overzicht van de persoonsgegevens die wij verwerken:</p>
