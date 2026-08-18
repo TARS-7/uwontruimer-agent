@@ -56,8 +56,12 @@ export default function TrackingEvents() {
         link_url: href,
         page_path: location.pathname,
       };
-      if (href.startsWith("tel:")) window.gtag("event", "tel_click", params);
-      else if (href.includes("wa.me") || href.includes("whatsapp")) window.gtag("event", "whatsapp_click", params);
+      if (href.startsWith("tel:")) {
+        window.gtag("event", "tel_click", params);
+        // Google Ads-conversie: telefoonklik = lead. Rechtstreeks afvuren via de Ads-tag
+        // (AW-748902533) omdat de GA4→Ads-import van tel_click niet doorkwam.
+        window.gtag("event", "conversion", { send_to: "AW-748902533/GaOgCO3s-uMcEIWxjeUC" });
+      } else if (href.includes("wa.me") || href.includes("whatsapp")) window.gtag("event", "whatsapp_click", params);
     };
     document.addEventListener("click", onClick, true);
 
