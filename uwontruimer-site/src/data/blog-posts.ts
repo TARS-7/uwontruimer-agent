@@ -498,12 +498,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "wat-kost-een-woningontruiming",
-    title: "Wat kost een woningontruiming in 2025? Prijzen en factoren",
+    title: "Wat kost een woningontruiming in 2026? Prijzen en factoren",
     date: "2026-05-22",
     dateDisplay: "22 mei 2026",
-    excerpt: "De kosten voor een woningontruiming hangen af van veel factoren: de grootte van de woning, de hoeveelheid inboedel, de verdieping en de regio. In dit artikel leest u alles over de gemiddelde prijzen in 2025, wat er standaard is inbegrepen en hoe u de kosten kunt beperken.",
-    seoTitle: "Wat kost een woningontruiming in 2025? Prijzen en factoren | UwOntruimer.nl",
-    seoDesc: "Wat kost een woningontruiming? Ontdek de gemiddelde prijzen in 2025, welke factoren de kosten bepalen en wat er standaard is inbegrepen. Bereken uw prijs via onze gratis AI-wizard.",
+    excerpt: "De kosten voor een woningontruiming hangen af van veel factoren: de grootte van de woning, de hoeveelheid inboedel, de verdieping en de regio. In dit artikel leest u alles over de gemiddelde prijzen in 2026, wat er standaard is inbegrepen en hoe u de kosten kunt beperken.",
+    seoTitle: "Wat kost een woningontruiming in 2026? Prijzen en factoren | UwOntruimer.nl",
+    seoDesc: "Wat kost een woningontruiming? Ontdek de gemiddelde prijzen in 2026, welke factoren de kosten bepalen en wat er standaard is inbegrepen. Bereken uw prijs via onze gratis AI-wizard.",
     image: "/truck-woningontruiming.jpg",
     blocks: [
       { type: "h2", text: "Wat bepaalt de kosten van een woningontruiming?" },
@@ -520,8 +520,8 @@ export const blogPosts: BlogPost[] = [
         "Gewenst serviceniveau: inclusief diepe schoonmaak en bezemschoon opleveren, of alleen de inboedel afvoeren?",
         "Herbruikbare spullen: waardevolle inboedel die wij voor u verkopen of opkopen kan de totale kosten aanzienlijk verlagen."
       ]},
-      { type: "h2", text: "Gemiddelde prijzen voor een woningontruiming in 2025" },
-      { type: "p", text: "De gemiddelde kosten voor een woningontruiming in Nederland variëren in 2025 sterk, afhankelijk van de omvang en de specifieke situatie. Als globale richtlijn kunt u rekening houden met de volgende indicatieve ranges:" },
+      { type: "h2", text: "Gemiddelde prijzen voor een woningontruiming in 2026" },
+      { type: "p", text: "De gemiddelde kosten voor een woningontruiming in Nederland variëren in 2026 sterk, afhankelijk van de omvang en de specifieke situatie. Als globale richtlijn kunt u rekening houden met de volgende indicatieve ranges:" },
       { type: "ul", items: [
         "Studio of kleine woning (1–2 kamers): vanaf circa € 350 tot € 750",
         "Appartement (2–3 kamers): vanaf circa € 600 tot € 1.400",
