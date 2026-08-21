@@ -45,7 +45,7 @@ export default function Page() {
             <p className="text-slate-500 font-light leading-relaxed mb-5">1. Opdrachtgever dient binnen 14 dagen na verzending van de</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">factuur te betalen.</p>
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 7 Opzeggen en annuleren</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">1. De klant de overeenkomst opzeggen, dit dient schriftelijk of digitaal te gebeuren</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">1. De klant kan de overeenkomst opzeggen, dit dient schriftelijk of digitaal te gebeuren.</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">2. Tot aan 7 dagen voor de uitvoerdatum zijn hier geen kosten aan verbonden. Als er binnen de termijn van 7 dagen voor de uitvoerdatum wordt opgezegd dan is de klant 30% van het offertebedrag verschuldigd.</p>
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 8 Overmacht</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">1. Uwontruimer.nl heeft geen enkele verplichting jegens klant als Uwontruimer.nl gehinderd</p>
