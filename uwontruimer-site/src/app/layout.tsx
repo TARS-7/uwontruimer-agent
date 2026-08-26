@@ -46,6 +46,10 @@ const abCtaAssign = `
     var v=m?m[1]:(Math.random()<0.5?"A":"B");
     if(!m)document.cookie="ab_cta="+v+"; path=/; max-age=31536000; SameSite=Lax";
     document.documentElement.setAttribute("data-ab-cta",v);
+    var mw=document.cookie.match(/(?:^|; )ab_wa=(A|B)/);
+    var w=mw?mw[1]:(Math.random()<0.5?"A":"B");
+    if(!mw)document.cookie="ab_wa="+w+"; path=/; max-age=31536000; SameSite=Lax";
+    document.documentElement.setAttribute("data-ab-wa",w);
   }catch(e){}})();
 `;
 

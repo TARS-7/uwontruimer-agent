@@ -25,6 +25,10 @@ function abVariant(): string {
   return document.documentElement.getAttribute("data-ab-cta") ?? "A";
 }
 
+function abWaVariant(): string {
+  return document.documentElement.getAttribute("data-ab-wa") ?? "A";
+}
+
 /**
  * Vuur het A/B-exposure event pas wanneer analytics-consent is gegeven.
  * Vóór consent zijn GA4-events alleen anonieme pings (gcs=G100) die nooit
@@ -34,6 +38,7 @@ function fireExposureOnce() {
   if (window.__abExposureFired || typeof window.gtag !== "function") return;
   window.__abExposureFired = true;
   window.gtag("event", "ab_cta_exposure", { ab_cta_variant: abVariant() });
+  window.gtag("event", "ab_wa_exposure", { ab_wa_variant: abWaVariant() });
 }
 
 export default function TrackingEvents() {
@@ -53,6 +58,7 @@ export default function TrackingEvents() {
       const href = a.getAttribute("href") ?? "";
       const params = {
         ab_cta_variant: abVariant(),
+        ab_wa_variant: abWaVariant(),
         link_url: href,
         page_path: location.pathname,
       };
@@ -62,6 +68,7 @@ export default function TrackingEvents() {
         // (AW-748902533) omdat de GA4→Ads-import van tel_click niet doorkwam.
         window.gtag("event", "conversion", { send_to: "AW-748902533/GaOgCO3s-uMcEIWxjeUC" });
       } else if (href.includes("wa.me") || href.includes("whatsapp")) window.gtag("event", "whatsapp_click", params);
+      else if (href.startsWith("/offerte")) window.gtag("event", "wizard_click", params);
     };
     document.addEventListener("click", onClick, true);
 

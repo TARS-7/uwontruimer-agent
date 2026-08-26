@@ -58,3 +58,6 @@ body {
 .ab-cta-b { display: none; }
 html[data-ab-cta="B"] .ab-cta-a { display: none; }
 html[data-ab-cta="B"] .ab-cta-b { display: inline; }
+
+/* A/B-test WhatsApp-knop (mobiel): variant A ziet hem niet */
+html[data-ab-wa="A"] .wa-knop { display: none; }
