@@ -1,7 +1,7 @@
 // Zwevende WhatsApp-knop, site-breed via de root layout.
-// Nummer 0653929145 → internationaal +31653929145 (wa.me verwacht landcode zonder +).
+// Zakelijk WhatsApp-nummer 085-303 58 94 (Cloud API) — komt binnen in de dashboard-inbox.
 const WHATSAPP_URL =
-  "https://wa.me/31653929145?text=" +
+  "https://wa.me/31853035894?text=" +
   encodeURIComponent("Hallo, ik heb een vraag over een ontruiming.");
 
 export default function WhatsAppButton() {
