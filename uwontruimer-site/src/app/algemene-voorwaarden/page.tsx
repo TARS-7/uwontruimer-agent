@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Algemene voorwaarden | UwOntruimer.nl",
-  description: "Lees de algemene voorwaarden van UwOntruimer.nl. KVK: 78362970.",
+  description: "Lees de algemene voorwaarden van UwOntruimer.nl. KVK: 84981393.",
   alternates: { canonical: "/algemene-voorwaarden/" },
 };
 
@@ -19,7 +19,7 @@ export default function Page() {
             <p className="text-slate-500 font-light leading-relaxed mb-5">Algemene voorwaarden Uwontruimer.nl versie 20200107</p>
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 1 Algemeen</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">Uw Ontruimer houdt kantoor aan de Welnastraat 175 1096 GJ te Amsterdam en is ingeschreven bij de kamer van koophandel Amsterdam.</p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">KVK- nummer 78362970</p>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">KVK-nummer 84981393</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">BTW- nummer NL 00333 04 43 B56</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">Email: info@uwontruimer.nl</p>
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Artikel 2 Toepasselijkheid en definities</h2>
