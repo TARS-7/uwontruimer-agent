@@ -46,10 +46,10 @@ const abCtaAssign = `
     var v=m?m[1]:(Math.random()<0.5?"A":"B");
     if(!m)document.cookie="ab_cta="+v+"; path=/; max-age=31536000; SameSite=Lax";
     document.documentElement.setAttribute("data-ab-cta",v);
-    var mw=document.cookie.match(/(?:^|; )ab_wa=(A|B)/);
-    var w=mw?mw[1]:(Math.random()<0.5?"A":"B");
-    if(!mw)document.cookie="ab_wa="+w+"; path=/; max-age=31536000; SameSite=Lax";
-    document.documentElement.setAttribute("data-ab-wa",w);
+    // WhatsApp-knop: A/B-test afgerond (sep 2026) — knop staat aan voor
+    // iedereen; bestaande A-cookies worden overschreven naar B.
+    document.cookie="ab_wa=B; path=/; max-age=31536000; SameSite=Lax";
+    document.documentElement.setAttribute("data-ab-wa","B");
   }catch(e){}})();
 `;
 
