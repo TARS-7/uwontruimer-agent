@@ -10,6 +10,8 @@ declare global {
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import type { AddressData, Offerte } from '@/lib/types'
+import { leesAttributie, leesVarianten } from '@/lib/attributie'
+import { meet } from '@/lib/meet'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -155,6 +157,8 @@ export default function Step6Offerte({ data, initialOfferte, onBack }: Props) {
             offerte: generatedOfferte,
             fotoUrls: data.fotoUrls,
             fotosWaardevollUrls: [],
+            ...leesAttributie(),
+            abVarianten: leesVarianten(),
           }),
         }).catch((err) => {
           console.error('[Step6Offerte] CRM submit fout:', err)
@@ -398,6 +402,7 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
             </p>
             <a
               href={`https://www.takaros.com/?source=uwontruimer&aanvraag=${encodeURIComponent(offerte.referentie)}`}
+              onClick={() => meet('wizard_eind_klik', { doel: 'takaros' })}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
@@ -412,10 +417,46 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
         </div>
       </div>
 
+      {/* Voorinspectie huurwoning — 3 van de 4 klussen is een huurwoning met
+          corporatie-oplevering. Aanvraagnummer gaat mee zodat te meten is
+          welke voorinspecties uit de wizard komen. */}
+      <div className="rounded-xl border border-slate-200 bg-slate-50 overflow-hidden">
+        <div className="flex items-stretch gap-4 p-4 sm:p-5">
+          <Image
+            src="/images/oplevering.woningbouw.jpg"
+            alt="Oplevering van een huurwoning aan de woningcorporatie"
+            width={120}
+            height={120}
+            className="h-[120px] w-[120px] shrink-0 object-cover rounded-lg"
+          />
+          <div className="flex min-w-0 flex-col justify-center">
+            <p className="text-sm font-semibold text-slate-700">Huurwoning? Wij regelen de oplevering</p>
+            <p className="mt-1 text-sm text-slate-500 leading-relaxed">
+              Wij wonen de voor- en eindinspectie bij namens u en stemmen af met de woningcorporatie.
+              €150, en dat bedrag wordt verrekend met de ontruiming.
+            </p>
+            <a
+              href={`https://www.uwontruimer.nl/voorinspectie/?van=wizard&aanvraag=${encodeURIComponent(offerte.referentie)}`}
+              onClick={() => meet('wizard_eind_klik', { doel: 'voorinspectie' })}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
+              style={{ backgroundColor: '#0F2942' }}
+            >
+              Bekijk de voorinspectie
+              <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* CTA — contact */}
       <div className="flex flex-col items-center gap-3">
         <a
           href="tel:0853035894"
+          onClick={() => meet('wizard_eind_klik', { doel: 'bel_hoofdknop' })}
           className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
         >
           <svg className="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -425,7 +466,7 @@ function ResultView({ offerte, naam }: { offerte: Offerte; naam: string }) {
         </a>
         <p className="text-xs text-slate-400">
           Of bel direct:{' '}
-          <a href="tel:0853035894" className="font-medium text-blue-600 hover:underline">
+          <a href="tel:0853035894" onClick={() => meet('wizard_eind_klik', { doel: 'bel_nummer' })} className="font-medium text-blue-600 hover:underline">
             085-303 58 94
           </a>
         </p>

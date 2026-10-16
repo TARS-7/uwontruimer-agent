@@ -5,7 +5,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Uw Ontruimer werkt mee aan een duurzame toekomst | UwOntruimer.nl",
+  title: "Uw Ontruimer werkt mee aan een duurzame toekomst",
   description: "Uw Ontruimer bouwt mee aan een duurzame toekomst. Het verduurzamen van de ontruimingssector ligt ons aan het hart. Wij streven ernaar om de complete inboed",
   alternates: { canonical: "/duurzaam/" },
 };

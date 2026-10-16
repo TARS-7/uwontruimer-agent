@@ -14,7 +14,7 @@ export default function AbHeroCta({ location = "hero" }: { location?: "hero" | "
     <a
       href="https://analyse.uwontruimer.nl"
       onClick={() => sendGAEvent("event", "cta_click", { ab_cta_variant: getAbCtaVariant(), cta_location: location })}
-      className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base"
+      className="inline-flex items-center justify-center gap-2 text-white font-semibold px-5 sm:px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-sm sm:text-base whitespace-nowrap"
       style={{ backgroundColor: "#d97706" }}
     >
       {offerteIcon}

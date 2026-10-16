@@ -80,6 +80,14 @@ function renderBlock(block: Block, i: number) {
   );
 }
 
+const PIJLER_LINKS = [
+  { href: "/diensten/woningontruiming/", label: "Woningontruiming", sub: "Vaste prijs, bezemschoon opgeleverd" },
+  { href: "/huis-ontruimen-na-overlijden/", label: "Huis ontruimen na overlijden", sub: "Stappenplan, kosten en wie regelt wat" },
+  { href: "/diensten/spoedontruiming/", label: "Spoedontruiming", sub: "Binnen 24 uur leeg" },
+  { href: "/vervuilde-woning-ontruimen/", label: "Vervuilde woning ontruimen", sub: "Ontruimen en schoonmaken in één hand" },
+  { href: "/kosten-woningontruiming/", label: "Kosten woningontruiming", sub: "Richtprijzen en wat de prijs bepaalt" },
+];
+
 export default async function BlogPostPage({
   params,
 }: {
@@ -89,8 +97,27 @@ export default async function BlogPostPage({
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  // FAQPage-structured-data (rich results) voor posts met een faq-veld.
+  const faqJsonLd = post.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faq.map((f) => ({
+          "@type": "Question",
+          name: f.vraag,
+          acceptedAnswer: { "@type": "Answer", text: f.antwoord },
+        })),
+      }
+    : null;
+
   return (
     <>
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Header />
       <main className="mt-16">
         {/* Hero */}
@@ -98,7 +125,7 @@ export default async function BlogPostPage({
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
               <Link
-                href="/blog"
+                href="/blog/"
                 className="text-xs text-slate-400 hover:text-slate-600 transition-colors inline-flex items-center gap-1"
               >
                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -152,6 +179,18 @@ export default async function BlogPostPage({
                 Bereken uw ontruiming →
               </a>
             </div>
+
+            <div className="mt-10">
+              <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-4">Onze diensten</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {PIJLER_LINKS.map(({ href, label, sub }) => (
+                  <Link key={href} href={href} className="group rounded-xl border border-slate-100 bg-white px-4 py-3 hover:border-blue-200 hover:shadow-sm transition-all">
+                    <p className="text-sm font-medium text-slate-800 group-hover:text-blue-700">{label}</p>
+                    <p className="text-xs text-slate-400 mt-0.5">{sub}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -166,7 +205,7 @@ export default async function BlogPostPage({
                 .map((related) => (
                   <Link
                     key={related.slug}
-                    href={`/blog/${related.slug}`}
+                    href={`/blog/${related.slug}/`}
                     className="group bg-white border border-slate-100 rounded-xl p-5 hover:border-blue-200 hover:shadow-sm transition-all"
                   >
                     <time className="text-xs text-slate-400 mb-2 block" dateTime={related.date}>

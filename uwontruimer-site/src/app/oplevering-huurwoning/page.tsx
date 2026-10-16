@@ -5,7 +5,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Stap 1. Alle abonnementen moeten worden opgezegd. | UwOntruimer.nl",
+  title: "Stap 1. Alle abonnementen moeten worden opgezegd.",
   description: "Hoe moet je als huurder je oude huurwoning opleveren? Op deze pagina kunt u informatie, tips en adviezen lezen over het opleveren van een huurwoning.",
   alternates: { canonical: "/oplevering-huurwoning/" },
 };
@@ -80,6 +80,19 @@ export default function Page() {
                 Start de AI-wizard →
               </a>
               <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
+            </div>
+
+            {/* Voorinspectie-verwijzing */}
+            <div className="rounded-2xl border border-slate-200 p-6 mb-10" style={{ backgroundColor: "#f8fafc" }}>
+              <p className="font-medium text-slate-800 mb-2">Komt de opzichter langs voor de voorinspectie?</p>
+              <p className="text-slate-500 font-light text-sm leading-relaxed mb-4">
+                Wij wonen die inspectie namens u bij, stemmen af met de woningcorporatie en zetten de herstellijst om in één
+                vaste prijs. €150 inclusief btw, en dat bedrag wordt in mindering gebracht als u de ontruiming bij ons boekt.
+                U hoeft er zelf niet bij te zijn.
+              </p>
+              <a href="/voorinspectie/?van=oplevering-huurwoning" className="text-blue-600 font-medium text-sm hover:underline">
+                Meer over de voorinspectie →
+              </a>
             </div>
 
             <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wat zijn de eisen bij oplevering van een huurwoning?</h2>

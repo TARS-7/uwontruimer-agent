@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Contact | Neem gerust contact op | UwOntruimer.nl",
+  title: "Contact | Neem gerust contact op",
   description: "Neem contact op met UwOntruimer. Telefonisch bereikbaar op 085-303 58 94. Wij reageren zo spoedig mogelijk op uw vraag of offerteverzoek.",
   alternates: { canonical: "/contact/" },
 };

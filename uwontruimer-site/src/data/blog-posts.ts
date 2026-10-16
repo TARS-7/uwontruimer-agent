@@ -16,17 +16,84 @@ export interface BlogPost {
   seoDesc: string;
   image?: string;
   sitemapPriority?: number;
+  /** Optioneel: vraag/antwoord-paren voor FAQPage-structured-data (rich results). */
+  faq?: { vraag: string; antwoord: string }[];
   blocks: Block[];
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "wat-kost-woningontruiming-2026-cijfers",
+    title: "Wat kost een woningontruiming in 2026? Onze cijfers uit 87 offertes",
+    date: "2026-10-15",
+    dateDisplay: "15 okt 2026",
+    excerpt: "Geen schatting maar echte cijfers: wij analyseerden 87 offertes voor woningontruimingen in 2026 in Amsterdam, Amstelveen, Hoofddorp en omgeving. De mediaan, de spreiding, de prijs per woningtype en per gemeente, en waarom 'vanaf'-prijzen zo ver van de praktijk liggen.",
+    seoTitle: "Wat kost een woningontruiming in 2026? Cijfers uit 87 offertes",
+    seoDesc: "Echte prijzen uit 87 ontruimingsoffertes in 2026: mediaan €1.880, appartement €1.500, eengezinswoning €2.400. Per woningtype en per gemeente (Amsterdam, Amstelveen, Hoofddorp).",
+    image: "/hero-verhuisdozen-bus.jpg",
+    sitemapPriority: 0.8,
+    faq: [
+      { vraag: "Wat kost een woningontruiming gemiddeld in 2026?", antwoord: "Uit 87 offertes van Uw Ontruimer in 2026 blijkt een mediaan van €1.880 inclusief btw. De helft van de offertes ligt tussen €1.500 en €2.430. Kleine woningen met weinig inboedel beginnen rond €450, grote of volle woningen gaan richting €3.000 en meer." },
+      { vraag: "Waarom staan er 'vanaf €450' op websites als de mediaan €1.880 is?", antwoord: "Een vanaf-prijs geldt voor een studio of zorgkamer met weinig inboedel. De mediaan beschrijft een typische volle woning. Vraag daarom altijd een vaste prijs op basis van foto's of een opname, en kijk niet alleen naar het vanaf-bedrag." },
+      { vraag: "Is een ontruiming in Amsterdam duurder dan daarbuiten?", antwoord: "In onze cijfers niet. De mediaan in Amsterdam (€1.880) ligt iets onder Amstelveen (€2.120) en Hoofddorp (€2.280). Het verschil zit in woninggrootte en hoeveelheid inboedel, niet in de stad." },
+      { vraag: "Verlaagt waardevolle inboedel de prijs echt?", antwoord: "Ja. Wat wij opkopen of veilen gaat van de factuur af. Geaccepteerde offertes liggen met een mediaan van €1.755 lager dan het gemiddelde van alle offertes, mede doordat waardevolle stukken worden verrekend." },
+    ],
+    blocks: [
+      { type: "p", text: "Zoek op 'kosten woningontruiming' en u vindt vooral vanaf-prijzen en ruime bandbreedtes. Wij hebben het anders gedaan: we hebben alle offertes bekeken die Uw Ontruimer in 2026 heeft uitgebracht — 87 stuks, van januari tot half oktober, voornamelijk in Amsterdam, Amstelveen, Hoofddorp, Haarlem en de regio Den Haag–Leiden. Dit zijn de cijfers, zonder opsmuk." },
+      { type: "h2", text: "De kerncijfers: mediaan €1.880, helft tussen €1.500 en €2.430" },
+      { type: "p", text: "Alle bedragen hieronder zijn inclusief btw, zoals een particulier ze op de offerte ziet." },
+      { type: "ul", items: [
+        "Mediaan van alle 87 offertes: €1.880",
+        "Een kwart van de offertes lag onder €1.500, een kwart boven €2.430",
+        "Laagste offerte: €605 (kelder/zolder); hoogste: ruim €10.000 (grote, volle woning met bijgebouwen)",
+        "Gemiddelde (rekenkundig): €2.170 — hoger dan de mediaan door een paar grote klussen",
+        "Mediaan van de offertes die klanten accepteerden: €1.755",
+      ] },
+      { type: "p", text: "Dat laatste getal is interessant: de klussen die doorgaan, zijn gemiddeld iets goedkoper dan de klussen die we offreren. Deels omdat kleinere klussen vaker doorgaan, deels omdat waardevolle inboedel in de uiteindelijke prijs wordt verrekend." },
+      { type: "h2", text: "Per woningtype" },
+      { type: "ul", items: [
+        "Kleine woning (studio, appartement 1–2 slaapkamers), hele woning: mediaan €1.510 (29 offertes)",
+        "Grote woning (eengezins- of rijtjeswoning), hele woning: mediaan €2.380 (20 offertes)",
+        "Deel van een woning, kelder of zolder: €575 tot €1.550, afhankelijk van de hoeveelheid",
+        "Spoedontruiming (binnen 24 uur): reguliere prijs plus toeslag; in onze cijfers één appartement voor €3.900",
+      ] },
+      { type: "p", text: "De grootte van de woning verklaart het meeste. Een appartement met een normale inboedel kost in de praktijk anderhalf tot twee keer het vanaf-bedrag dat u online ziet; een eengezinswoning met kelder, zolder en schuur drie keer." },
+      { type: "h2", text: "Per gemeente" },
+      { type: "ul", items: [
+        "Amsterdam: mediaan €1.880 (24 offertes), spreiding €605 – €10.700",
+        "Amstelveen: mediaan €2.120 (8 offertes), spreiding €1.000 – €2.660",
+        "Hoofddorp / Haarlemmermeer: mediaan €2.280 (5 offertes), spreiding €1.815 – €3.630",
+      ] },
+      { type: "p", text: "De stad maakt weinig uit; de woning wel. Amstelveen en Hoofddorp hebben gemiddeld grotere woningen dan Amsterdam, en dat zie je terug in de offerte. Parkeren en een ontbrekende lift in Amsterdam wegen minder zwaar dan vaak wordt gedacht, omdat wij met een verhuislift werken." },
+      { type: "h2", text: "Waarom 'vanaf €450' en 'mediaan €1.880' allebei kloppen" },
+      { type: "p", text: "Een vanaf-prijs is geen misleiding, maar beschrijft de kleinste klus: een zorgkamer of studio met weinig spullen. De mediaan beschrijft wat de meeste mensen daadwerkelijk laten doen: een volle woning. Het verschil zit in drie dingen die de prijs bepalen." },
+      { type: "ul", items: [
+        "Hoeveelheid inboedel: het aantal kubieke meters dat af te voeren is, bepaalt het grootste deel van de prijs",
+        "Grootte en bereikbaarheid: aantal kamers, verdieping, lift, afstand tot de bus",
+        "Extra werk: vloeren verwijderen, gaatjes dichten, schoonmaak, vervuiling",
+      ] },
+      { type: "p", text: "Waardevolle inboedel werkt de andere kant op. Antiek, kunst, sieraden, verzamelingen en gereedschap kopen wij op of brengen wij naar een veilinghuis; de opbrengst gaat van de factuur af. Daardoor kan een woning met veel spullen soms goedkoper uitvallen dan een woning met weinig, maar waardeloze spullen." },
+      { type: "h2", text: "Hoe u de prijs zelf omlaag brengt" },
+      { type: "ul", items: [
+        "Laat waardevolle stukken taxeren en verrekenen in plaats van ze zelf weg te geven",
+        "Houd persoonlijke zaken en wat de familie wil hebben vooraf apart; dat scheelt sorteertijd",
+        "Vraag een vaste prijs op basis van foto's, zodat u geen nacalculatie krijgt",
+        "Combineer ontruiming en oplevering (vloer, gaatjes, schoonmaak) in één opdracht",
+      ] },
+      { type: "h2", text: "Over deze cijfers" },
+      { type: "p", text: "De cijfers komen uit alle 87 offertes die Uw Ontruimer tussen 1 januari en 15 oktober 2026 heeft uitgebracht, omgerekend naar bedragen inclusief btw. Offertes onder €120 en boven €18.000 zijn buiten beschouwing gelaten. Het is één bedrijf en één regio, dus geen landelijk gemiddelde, maar wel echte prijzen in plaats van schattingen. Wij werken deze cijfers jaarlijks bij." },
+      { type: "link", text: "Direct een vaste prijs voor uw situatie? Start de AI-wizard", href: "https://analyse.uwontruimer.nl", external: true },
+      { type: "link", text: "Lees ook: alles over woningontruiming — werkwijze, garantie en prijstabel", href: "/diensten/woningontruiming/" },
+      { type: "link", text: "Lees ook: kosten woningontruiming — wat bepaalt de prijs", href: "/kosten-woningontruiming/" },
+    ],
+  },
   {
     slug: "waardevolle-spullen-nalatenschap",
     title: "Wat te doen met waardevolle spullen uit een nalatenschap?",
     date: "2026-07-02",
     dateDisplay: "2 jul 2026",
     excerpt: "Na een overlijden weet u vaak niet wat de spullen waard zijn. Toch kan er tussen de inboedel meer zitten dan gedacht. Zo pakt u het slim aan.",
-    seoTitle: "Waardevolle spullen uit nalatenschap — wat nu? | UwOntruimer.nl",
+    seoTitle: "Waardevolle spullen uit nalatenschap — wat nu?",
     seoDesc: "Wat doet u met antiek, sieraden of kunst uit een nalatenschap? Ontdek hoe u gratis een waardeoordeel aanvraagt via gespecialiseerde veilinghuizen.",
     sitemapPriority: 0.8,
     image: "/hero-main-takaros.jpg",
@@ -63,7 +130,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-15",
     dateDisplay: "15 jun 2026",
     excerpt: "Een huis laten ontruimen kost geld, maar in sommige gevallen kan de opbrengst van uw inboedel de kosten volledig dekken — of zelfs overtreffen. Wanneer is gratis ontruimen realistisch, en wat bepaalt de uitkomst?",
-    seoTitle: "Huis ontruimen gratis — wanneer is het mogelijk? | UwOntruimer.nl",
+    seoTitle: "Huis ontruimen gratis — wanneer is het mogelijk?",
     seoDesc: "Wanneer kunt u een huis gratis laten ontruimen? Lees wanneer inboedelopkoop de ontruimingskosten dekt en wat u kunt verwachten. Vraag vrijblijvend een offerte aan.",
     sitemapPriority: 0.8,
     blocks: [
@@ -124,7 +191,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-06",
     dateDisplay: "6 jan 2026",
     excerpt: "Wanneer uw woning volledig is ontruimd, begint vaak een tweede belangrijke fase: het netjes, veilig en verantwoord achterlaten van het pand. Bij Uw Ontruimer zorgen wij er niet alleen voor dat alle sp",
-    seoTitle: "Wat gebeurt er na de ontruiming? | UwOntruimer.nl",
+    seoTitle: "Wat gebeurt er na de ontruiming?",
     seoDesc: "Wat gebeurt er na een woningontruiming? Lees in ons blog over schoonmaak, afvoer, recycling en inboedelverkoop. Zo wordt uw woning bezemschoon opgeleverd.",
     blocks: [
       { type: "h2", text: "Na de woningontruiming" },
@@ -159,7 +226,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-12-19",
     dateDisplay: "19 dec 2025",
     excerpt: "Een woningontruiming is vaak een situatie waar u onverwacht mee te maken krijgt. Denk aan een overlijden, een verhuizing naar een zorginstelling of het opleveren van een huurwoning. Veel mensen vragen",
-    seoTitle: "Zelf woning ontruimen of uitbesteden? | UwOntruimer.nl",
+    seoTitle: "Zelf woning ontruimen of uitbesteden?",
     seoDesc: "Wanneer is woningontruiming nodig en wat kunt u zelf doen? Lees bij Uw Ontruimer wanneer u moet ontruimen en wanneer professionele hulp verstandig is.",
     blocks: [
       { type: "h2", text: "Wanneer moet u uw woning ontruimen en wanneer kunt u ook zelf dingen doen?" },
@@ -198,7 +265,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-11-13",
     dateDisplay: "13 nov 2025",
     excerpt: "Een woningontruiming kan een emotionele en complexe aangelegenheid zijn. Of het nu gaat om een overlijden, verhuizing naar een zorginstelling of het opleveren van een huurwoning, er komt veel kijken b",
-    seoTitle: "Wat te doen bij een woningontruiming? | UwOntruimer.nl",
+    seoTitle: "Wat te doen bij een woningontruiming?",
     seoDesc: "Wat te doen bij de ontruiming van een woning? Lees onze praktische tips en laat uw woning snel, netjes en professioneel ontruimen.",
     blocks: [
       { type: "h2", text: "Wat te doen bij de ontruiming van een woning?" },
@@ -223,7 +290,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-11-12",
     dateDisplay: "12 nov 2025",
     excerpt: "Het verwijderen van een vloer is een klus die vaak onderschat wordt. Of het nu gaat om laminaat, vinyl, tapijt of een houten vloer, het kan tijdrovend en arbeidsintensief zijn. Veel mensen vragen zich",
-    seoTitle: "Vloer verwijderen kosten | UwOntruimer.nl",
+    seoTitle: "Vloer verwijderen kosten",
     seoDesc: "Het verwijderen van een vloer is een klus die vaak onderschat wordt. Of het nu gaat om laminaat, vinyl, tapijt of een houten vloer, het kan tijdrovend en arbeid",
     blocks: [
       { type: "h2", text: "Vloer verwijderen kosten: wat kost het echt in 2026?" },
@@ -253,7 +320,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-10-28",
     dateDisplay: "28 okt 2025",
     excerpt: "Een woningontruiming is vaak meer dan alleen het leegmaken van een huis. Het kan een emotioneel beladen opdracht zijn, bijvoorbeeld na een overlijden of bij de verhuizing van iemand naar een zorginste",
-    seoTitle: "Wat is het stappenplan bij een woningontruiming? | UwOntruimer.nl",
+    seoTitle: "Wat is het stappenplan bij een woningontruiming?",
     seoDesc: "Lees hier meer over het stappenplan woningontruiming van Uw Ontruimer. Van intake tot bezemschoon opleveren: duidelijk, zorgvuldig en zonder zorgen.",
     blocks: [
       { type: "h2", text: "Stappenplan bij een woningontruiming: zo werkt het bij Uw Ontruimer" },
@@ -368,7 +435,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-08-20",
     dateDisplay: "20 aug 2025",
     excerpt: "Een woningontruiming is het volledig leeghalen van een woning, inclusief het afvoeren van meubels, afval en vloerbedekking. Maar wat is woningontruiming nu precies in de praktijk? En wanneer is een wo",
-    seoTitle: "Wat is woningontruiming? | UwOntruimer.nl",
+    seoTitle: "Wat is woningontruiming?",
     seoDesc: "Wat is woningontruiming precies en wanneer is woningontruiming nodig? Lees bij Uw Ontruimer wanneer, waarom en hoe u dit het beste kunt aanpakken.",
     blocks: [
       { type: "h2", text: "Wat is woningontruiming en wanneer is die nodig?" },
@@ -427,7 +494,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-08-01",
     dateDisplay: "1 aug 2025",
     excerpt: "Het ontruimen van een vervuilde huurwoning is een ingrijpende maatregel die u als verhuurder niet zomaar kunt nemen. In dit artikel van ontruimingsbedrijf Uw Ontruimer leest u wanneer ontruiming wette",
-    seoTitle: "Wanneer mag u een vervuilde huurwoning laten ontruimen? | UwOntruimer.nl",
+    seoTitle: "Wanneer mag u een vervuilde huurwoning laten ontruimen?",
     seoDesc: "Wanneer mag u als verhuurder een vervuilde huurwoning ontruimen? Uw Ontruimer neemt de regels, valkuilen en vereiste stappen met u door!",
     blocks: [
       { type: "p", text: "Het ontruimen van een vervuilde huurwoning is een ingrijpende maatregel die u als verhuurder niet zomaar kunt nemen. In dit artikel van ontruimingsbedrijf Uw Ontruimer leest u wanneer ontruiming wettelijk is toegestaan, welke stappen u moet volgen en wat u vooral n\u00ed\u00e9t moet doen om juridische problemen te voorkomen." },
@@ -453,7 +520,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-06-23",
     dateDisplay: "23 jun 2025",
     excerpt: "Gaat u emigreren en wilt u uw woning bezemschoon opleveren? Dan is het fijn als u de ontruiming kunt overlaten aan een ervaren partij. Bij een verhuizing naar het buitenland komt immers al genoeg kijk",
-    seoTitle: "Woningontruiming bij emigratie | UwOntruimer.nl",
+    seoTitle: "Woningontruiming bij emigratie",
     seoDesc: "Laat uw woning zorgeloos ontruimen bij een emigratie. Uw Ontruimer regelt het snel, discreet en volledig volgens uw wensen. Lees er ons blog over.",
     blocks: [
       { type: "h2", text: "Wat komt er kijken bij een woningontruiming bij emigratie?" },
@@ -476,7 +543,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-06-23",
     dateDisplay: "23 jun 2025",
     excerpt: "Bent u expat en vertrekt u (tijdelijk of permanent) naar het buitenland? Dan is een woningontruiming vaak onvermijdelijk. Of het nu gaat om het be\u00ebindigen van een huurcontract, het opleveren van een k",
-    seoTitle: "Woningontruiming voor expats | UwOntruimer.nl",
+    seoTitle: "Woningontruiming voor expats",
     seoDesc: "Wilt u als expat uw woning professioneel laten ontruimen? Uw Ontruimer regelt alles voor de woningontruiming snel, discreet en zorgeloos. Ook op afstand.",
     blocks: [
       { type: "h2", text: "Woningontruiming voor expats: snel, discreet en volledig geregeld" },
@@ -498,11 +565,25 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "wat-kost-een-woningontruiming",
+    faq: [
+      {
+        vraag: "Wat kost een woningontruiming gemiddeld in 2026?",
+        antwoord: "Indicatief: een studio of kleine woning kost circa € 350 tot € 750, een appartement € 600 tot € 1.400, een rijtjeshuis € 900 tot € 2.000 en een vrijstaande woning € 1.500 tot € 4.000 of meer. De werkelijke prijs hangt af van de hoeveelheid inboedel, bereikbaarheid en het gewenste serviceniveau.",
+      },
+      {
+        vraag: "Betaalt de verhuurder of woningcorporatie mee aan de ontruimingskosten?",
+        antwoord: "Dat hangt af van de situatie. Bij een nalatenschapsontruiming zijn de kosten voor rekening van de erfgenamen. In sommige gevallen dragen woningcorporaties bij als de huurder niet in staat is de kosten te dragen.",
+      },
+      {
+        vraag: "Kan waardevolle inboedel de kosten verlagen?",
+        antwoord: "Ja. Antieke meubels, elektronica of verzamelobjecten kunnen worden verrekend met de ontruimingskosten, waardoor de eindrekening aanzienlijk lager kan uitvallen.",
+      },
+    ],
     title: "Wat kost een woningontruiming in 2026? Prijzen en factoren",
     date: "2026-05-22",
     dateDisplay: "22 mei 2026",
     excerpt: "De kosten voor een woningontruiming hangen af van veel factoren: de grootte van de woning, de hoeveelheid inboedel, de verdieping en de regio. In dit artikel leest u alles over de gemiddelde prijzen in 2026, wat er standaard is inbegrepen en hoe u de kosten kunt beperken.",
-    seoTitle: "Wat kost een woningontruiming in 2026? Prijzen en factoren | UwOntruimer.nl",
+    seoTitle: "Wat kost een woningontruiming in 2026? Prijzen en factoren",
     seoDesc: "Wat kost een woningontruiming? Ontdek de gemiddelde prijzen in 2026, welke factoren de kosten bepalen en wat er standaard is inbegrepen. Bereken uw prijs via onze gratis AI-wizard.",
     image: "/truck-woningontruiming.jpg",
     blocks: [
@@ -530,6 +611,7 @@ export const blogPosts: BlogPost[] = [
         "Bedrijfspand of winkel: offerte op maat"
       ]},
       { type: "p", text: "Let op: deze prijzen zijn puur indicatief. De werkelijke kosten hangen altijd af van uw specifieke situatie. Stortkosten, de aanwezigheid van een lift, de hoeveelheid bijzonder afval (zoals asbest of elektronica) en eventuele schoonmaakwerkzaamheden worden apart verrekend of zijn afhankelijk van het gekozen dienstenpakket. Voor een exacte prijs vraagt u het best een vrijblijvende offerte aan." },
+      { type: "link", text: "Bereken direct uw eigen prijs — gratis AI-prijsindicatie in 2 minuten →", href: "https://analyse.uwontruimer.nl", external: true },
       { type: "h2", text: "Wat is er standaard inbegrepen in de ontruimingsprijs?" },
       { type: "p", text: "Bij een professionele woningontruiming via Uw Ontruimer zijn de volgende werkzaamheden standaard inbegrepen in de offerte:" },
       { type: "ul", items: [
@@ -552,59 +634,12 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-    slug: "huis-ontruimen-na-overlijden",
-    title: "Huis ontruimen na overlijden: wat moet u regelen?",
-    date: "2026-05-22",
-    dateDisplay: "22 mei 2026",
-    excerpt: "Het leeghalen van een huis na overlijden is emotioneel zwaar en praktisch complex. Welke stappen moet u zetten, wat zijn de juridische aandachtspunten en hoe kan een professioneel ontruimingsbedrijf u helpen? In deze gids leest u alles wat u moet weten.",
-    seoTitle: "Huis ontruimen na overlijden: wat moet u regelen? | UwOntruimer.nl",
-    seoDesc: "Huis ontruimen na overlijden? Lees onze praktische gids over de stappen, juridische aspecten en hoe een ontruimingsbedrijf u helpt. Inclusief tijdlijn en checklist.",
-    image: "/appartement-leeg.jpg",
-    blocks: [
-      { type: "h2", text: "Huis ontruimen na overlijden: een emotionele en praktische uitdaging" },
-      { type: "p", text: "Het overlijden van een dierbare is al moeilijk genoeg. Maar er volgt ook een praktische kant: de woning van de overledene moet worden leeggehaald, spullen moeten worden verdeeld of afgevoerd, en de woning moet worden opgeleverd aan de verhuurder of overgedragen aan nieuwe eigenaren. Dit alles terwijl u in een rouwproces zit." },
-      { type: "p", text: "Een professioneel ontruimingsbedrijf zoals Uw Ontruimer kan u in deze moeilijke periode veel werk uit handen nemen. Wij begrijpen dat het leeghalen van een huis na overlijden niet alleen een praktische klus is, maar ook een emotioneel proces. Daarom werken we discreet, respectvol en altijd in overleg met de nabestaanden." },
-      { type: "h2", text: "Juridische aandachtspunten bij een nalatenschapsontruiming" },
-      { type: "p", text: "Voordat u begint met het leeghalen van de woning, zijn er enkele belangrijke juridische stappen die u niet mag overslaan. Ten eerste moet de erfenis officieel worden afgewikkeld. Dit gebeurt via de notaris, die de verklaring van erfrecht opstelt. Totdat de erfenis is aanvaard of verworpen, mag er in beginsel niets uit de woning worden verwijderd of verkocht." },
-      { type: "p", text: "Heeft u de erfenis aanvaard? Dan bent u als erfgenaam verantwoordelijk voor de woning en de inhoud. U heeft het recht om de inboedel te verdelen, te verkopen of af te voeren. Bij het verwerpen van de erfenis wordt een boedelnotaris aangesteld die de afwikkeling overneemt. In dat geval mag u zonder toestemming niets uit de woning meenemen." },
-      { type: "ul", items: [
-        "Wacht met ontruimen totdat de erfenis formeel is afgewikkeld via de notaris.",
-        "Houd rekening met de wettelijke bedenktermijn van drie maanden voor het aanvaarden of verwerpen van een erfenis.",
-        "Vraag de verhuurder of woningcorporatie om uitstel van oplevering als u meer tijd nodig heeft.",
-        "Documenteer waardevolle items en maak foto's voor de boedelafwikkeling.",
-        "Raadpleeg bij twijfel altijd een notaris of juridisch adviseur."
-      ]},
-      { type: "h2", text: "Praktische tijdlijn: van overlijden tot opgeleverde woning" },
-      { type: "p", text: "Hieronder vindt u een praktische tijdlijn die u houvast geeft bij het organiseren van de ontruiming na overlijden:" },
-      { type: "ul", items: [
-        "Week 1–2: Regel de direct noodzakelijke zaken – overlijdensakte, verzekeringen, bank en gemeente informeren. Neem contact op met de verhuurder of notaris over de woning.",
-        "Week 2–4: Raadpleeg de notaris over de erfenis. Neem geen spullen uit de woning zolang de erfenis niet is afgewikkeld.",
-        "Week 4–8: Verdeel de persoonlijke bezittingen met de familie. Beslis welke items bewaard, gedoneerd of verkocht worden.",
-        "Week 8–12: Plan de professionele ontruiming. Vraag offertes op bij meerdere ontruimingsbedrijven.",
-        "Na ontruiming: Zorg voor een schone, bezemschone oplevering aan de verhuurder of koper. Regel de opzegging van nutscontracten en huurovereenkomst."
-      ]},
-      { type: "h2", text: "Wat te doen met de persoonlijke bezittingen?" },
-      { type: "p", text: "Een van de meest emotionele onderdelen van het leeghalen van een woning na overlijden is het omgaan met persoonlijke bezittingen. Foto's, brieven, sieraden – dit zijn items die voor familieleden grote emotionele waarde hebben. Neem hier voldoende tijd voor en bespreek de verdeling in onderling overleg met andere erfgenamen." },
-      { type: "p", text: "Voor de overige inboedel zijn er meerdere opties. Waardevolle meubels of antiek kunnen worden verkocht via een veiling, online marktplaats of via Uw Ontruimer, die de opbrengst verrekent met de ontruimingskosten. Bruikbare spullen kunnen worden gedoneerd aan kringloopwinkels of charitatieve instellingen. De rest wordt professioneel afgevoerd en zo veel mogelijk gerecycled." },
-      { type: "h2", text: "Hoe helpt een ontruimingsbedrijf bij een nalatenschapsontruiming?" },
-      { type: "p", text: "Een professioneel ontruimingsbedrijf neemt u het zware, praktische werk volledig uit handen. Bij Uw Ontruimer begint het altijd met een vrijblijvende inspectie van de woning. We brengen de hoeveelheid inboedel in kaart, bespreken uw wensen en stellen een duidelijke offerte op." },
-      { type: "p", text: "Vervolgens regelen we alles: van het inpakken en afvoeren van de inboedel tot het schoonmaken van de woning na afloop. We werken discreet en respectvol, en stemmen elk onderdeel van het proces met u af. Heeft u specifieke wensen, zoals het bewaren van bepaalde items of het apart houden van waardevolle spullen voor taxatie? Geen probleem. We passen onze werkwijze altijd aan uw situatie aan." },
-      { type: "h2", text: "Tijdsdruk bij huurwoningen" },
-      { type: "p", text: "Een veelvoorkomende uitdaging bij nalatenschapsontruimingen is de tijdsdruk die verhuurders en woningcorporaties opleggen. De huurovereenkomst loopt door na overlijden en er geldt een opzegtermijn van meestal één tot twee maanden. In die periode betalen de erfgenamen de huur. Plan de ontruiming daarom zo vroeg mogelijk in om onnodige kosten te voorkomen." },
-      { type: "p", text: "Uw Ontruimer begrijpt de urgentie die hieraan verbonden is. We bieden ook spoedbezetting aan voor situaties waarbij de opleverdatum onder druk staat. Neem gerust contact met ons op voor een snelle inspectie en een offerte op korte termijn." },
-      { type: "h2", text: "Emotionele steun naast praktische hulp" },
-      { type: "p", text: "Wij zijn professionals in woningontruiming, geen rouwtherapeuten – maar we begrijpen dat dit voor u een bijzonder gevoelige situatie is. Onze medewerkers zijn getraind om respectvol en empathisch te werken. We gaan zorgvuldig om met persoonlijke eigendommen, communiceren helder over elke stap en zorgen ervoor dat u nooit voor verrassingen komt te staan. Zo kunt u afscheid nemen op uw eigen manier, terwijl wij de praktische last dragen." },
-      { type: "link", text: "Bekijk ook onze woningontruiming checklist voor een volledig overzicht", href: "/blog/woningontruiming-checklist" },
-      { type: "link", text: "Meer weten over wat er na de ontruiming gebeurt?", href: "/blog/na-de-ontruiming" },
-    ],
-  },
-  {
     slug: "woningontruiming-checklist",
     title: "Woningontruiming checklist: waar moet u op letten?",
     date: "2026-05-22",
     dateDisplay: "22 mei 2026",
     excerpt: "Een woningontruiming goed voorbereiden bespaart tijd, geld en stress. Met deze stap-voor-stap checklist weet u precies wat u moet regelen: van het sorteren van spullen tot de definitieve oplevering van de woning.",
-    seoTitle: "Woningontruiming checklist: waar moet u op letten? | UwOntruimer.nl",
+    seoTitle: "Woningontruiming checklist: waar moet u op letten?",
     seoDesc: "Woningontruiming checklist: alles stap voor stap. Wat bewaren, wat afvoeren, hoe de oplevering regelen? Gebruik onze complete checklist voor een stressvrije ontruiming.",
     image: "/Ontruimers.jpg",
     blocks: [
@@ -674,7 +709,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-05-22",
     dateDisplay: "22 mei 2026",
     excerpt: "Woningontruiming en verhuizen lijken op elkaar, maar zijn wezenlijk verschillend. In dit artikel leggen we uit wanneer u een ontruimingsbedrijf nodig heeft, wanneer een verhuisbedrijf de juiste keuze is en hoe u de beste beslissing maakt voor uw situatie.",
-    seoTitle: "Woningontruiming of verhuizen: wat is het verschil? | UwOntruimer.nl",
+    seoTitle: "Woningontruiming of verhuizen: wat is het verschil?",
     seoDesc: "Woningontruiming of verhuizen – wat is het verschil en wanneer kiest u wat? Lees alles over de verschillen, kosten en situaties in onze praktische vergelijking.",
     image: "/Verhuizen.jpg",
     blocks: [
@@ -738,7 +773,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-05-22",
     dateDisplay: "22 mei 2026",
     excerpt: "Een opleveringsgarantie geeft u zekerheid dat de woning na de ontruiming voldoet aan de eisen van de verhuurder of koper. Maar wat houdt zo'n garantie precies in, en waarom is het zo belangrijk om hierop te letten bij het kiezen van een ontruimingsbedrijf?",
-    seoTitle: "Hoe werkt een opleveringsgarantie bij woningontruiming? | UwOntruimer.nl",
+    seoTitle: "Hoe werkt een opleveringsgarantie bij woningontruiming?",
     seoDesc: "Wat is een opleveringsgarantie bij woningontruiming? Lees wat het inhoudt, waarom het belangrijk is en hoe Uw Ontruimer u zekerheid geeft bij de oplevering van uw woning.",
     image: "/appartement-makelaar.jpg",
     blocks: [
@@ -790,7 +825,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-03",
     dateDisplay: "3 jun 2026",
     excerpt: "Na een overlijden moet de woning van de overledene worden ontruimd. Maar wie is daarvoor verantwoordelijk, wat zijn de juridische verplichtingen en wat kost een nalatenschapsontruiming? Een helder overzicht.",
-    seoTitle: "Ontruiming na overlijden: kosten en wie betaalt? | UwOntruimer.nl",
+    seoTitle: "Ontruiming na overlijden: kosten en wie betaalt?",
     seoDesc: "Wat kost een ontruiming na overlijden en wie is verantwoordelijk? Lees alles over nalatenschapsontruiming: juridische aspecten, prijzen en praktische tips.",
     image: "/appartement-leeg.jpg",
     blocks: [

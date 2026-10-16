@@ -5,7 +5,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Hoe ziet een samenwerking eruit? | UwOntruimer.nl",
+  title: "Hoe ziet een samenwerking eruit?",
   description: "Wij brengen jou nieuwe klanten aan die een woning willen verkopen. Wij vragen hier geen courtage voor. Wij willen het verkoopproces zo voorspoedig en eenvo",
   alternates: { canonical: "/makelaar/" },
 };

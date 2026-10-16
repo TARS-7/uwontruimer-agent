@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lokale overdrachtsarchieven (geheugen) nooit committen
+overdracht/*.tgz
+*.pdf

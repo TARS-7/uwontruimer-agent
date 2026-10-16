@@ -20,6 +20,21 @@ interface SubmitInput {
   woningType?: string
   woningGrootte?: string
   waardevol?: string
+  // Marketing-attributie (Laag 2), meegestuurd door de wizard-client uit de
+  // uo_attr-cookie. Doorgezet naar het dashboard voor closed-loop-meting.
+  gclid?: string
+  gbraid?: string
+  wbraid?: string
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
+  utmContent?: string
+  landingsPagina?: string
+  klikVastgelegdOp?: string
+  marketingConsent?: boolean
+  /** Toegewezen A/B-varianten, bijv. "cta=A;hero=B" (zie lib/attributie.ts). */
+  abVarianten?: string
 }
 
 // ─── Rate limiting (in-memory, per serverless instance) ───────────────────────
@@ -263,6 +278,7 @@ async function notifyDashboard(data: {
   waardevol?: string
   bedragMin?: number
   bedragMax?: number
+  attributie?: Record<string, string | boolean | undefined>
 }): Promise<void> {
   const dashboardUrl = 'https://app.uwontruimer.nl/api/webhooks/wizard'
   const secret = process.env.WEBHOOK_SECRET ?? ''
@@ -295,6 +311,7 @@ async function notifyDashboard(data: {
         waardevol: data.waardevol || '',
         bedragMin: data.bedragMin ?? null,
         bedragMax: data.bedragMax ?? null,
+        ...(data.attributie ?? {}),
       }),
     })
   } catch (err) {
@@ -466,6 +483,20 @@ export async function POST(request: NextRequest) {
       waardevol: body.waardevol,
       bedragMin: offerte.totaalMin,
       bedragMax: offerte.totaalMax,
+      attributie: {
+        gclid: body.gclid,
+        gbraid: body.gbraid,
+        wbraid: body.wbraid,
+        utmSource: body.utmSource,
+        utmMedium: body.utmMedium,
+        utmCampaign: body.utmCampaign,
+        utmTerm: body.utmTerm,
+        utmContent: body.utmContent,
+        landingsPagina: body.landingsPagina,
+        klikVastgelegdOp: body.klikVastgelegdOp,
+        marketingConsent: body.marketingConsent,
+        abVarianten: body.abVarianten,
+      },
     }),
   ])
 

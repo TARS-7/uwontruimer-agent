@@ -5,8 +5,8 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Bedrijfsontruiming - Al meer dan 15 jaar ervaring",
-  description: "Op zoek naar een expert voor het ontruimen van uw bedrijfspand? Bekijk dan de mogelijkheden bij Uw Ontruimer. Duurzaam en discreet.",
+  title: "Bedrijfsontruiming — snel, vaste prijs & bezemschoon",
+  description: "Bedrijfspand, kantoor of winkel ontruimen? Vaste prijs vooraf, binnen 24 uur mogelijk, bezemschoon opgeleverd met schriftelijke garantie. Vraag gratis een prijsindicatie aan.",
   alternates: { canonical: "/diensten/bedrijfsontruiming/" },
 };
 
@@ -18,9 +18,43 @@ const checkIcon = (
   </span>
 );
 
+const faqItems = [
+  {
+    vraag: "Wat kost een bedrijfsontruiming?",
+    antwoord:
+      "De prijs hangt af van het aantal vierkante meters, de hoeveelheid inventaris, de bereikbaarheid en aanvullende wensen zoals vloerverwijdering of eindschoonmaak. U ontvangt altijd vooraf een vaste-prijs offerte, zonder verborgen kosten. Waardevolle inventaris wordt verrekend en verlaagt de prijs.",
+  },
+  {
+    vraag: "Ontruimen jullie ook kantoren en winkels?",
+    antwoord:
+      "Ja. Wij verzorgen kantoorontruimingen, winkelontruimingen, magazijnen, horeca en industriële objecten — volledig of gedeeltelijk, ook buiten kantooruren zodat uw bedrijfsvoering doorloopt.",
+  },
+  {
+    vraag: "Hoe snel kan een bedrijfspand ontruimd zijn?",
+    antwoord:
+      "Bij spoed kunnen wij binnen 24 uur ter plaatse zijn. Een gemiddeld kantoorpand is binnen één tot enkele dagen volledig leeg en bezemschoon opgeleverd, afhankelijk van de omvang.",
+  },
+  {
+    vraag: "Wat gebeurt er met archieven en gevoelige documenten?",
+    antwoord:
+      "Dossiers en digitale gegevensdragers worden veilig vernietigd conform de AVG-wetgeving. U ontvangt hiervan een vernietigingscertificaat.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((f) => ({
+    "@type": "Question",
+    name: f.vraag,
+    acceptedAnswer: { "@type": "Answer", text: f.antwoord },
+  })),
+};
+
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Header />
       <main className="mt-16">
         {/* Hero */}
@@ -162,6 +196,16 @@ export default function Page() {
             <p className="text-slate-500 font-light leading-relaxed mb-6">
               Via de AI-wizard van Uw Ontruimer uploadt u eenvoudig foto's van uw bedrijfspand en ontvangen u binnen 2 minuten een scherpe prijsindicatie. Geen vertegenwoordiger die langskomt, geen wachttijd — direct duidelijkheid over de kosten.
             </p>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Veelgestelde vragen over bedrijfsontruiming</h2>
+            <div className="space-y-5 mb-10">
+              {faqItems.map(({ vraag, antwoord }) => (
+                <div key={vraag}>
+                  <h3 className="text-base font-semibold text-slate-800 mb-1">{vraag}</h3>
+                  <p className="text-slate-500 font-light text-sm leading-relaxed">{antwoord}</p>
+                </div>
+              ))}
+            </div>
 
             {/* Bottom CTA box */}
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">

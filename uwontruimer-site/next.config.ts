@@ -34,6 +34,21 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/categorie/nieuws/", destination: "/blog/", permanent: true },
+      // SEO fase 1 (15 okt 2026): drie dubbelgangers van de pijlerpagina woningontruiming.
+      { source: "/huisontruiming", destination: "/diensten/woningontruiming/", permanent: true },
+      { source: "/huisontruiming/", destination: "/diensten/woningontruiming/", permanent: true },
+      { source: "/huis-laten-ontruimen", destination: "/diensten/woningontruiming/", permanent: true },
+      { source: "/huis-laten-ontruimen/", destination: "/diensten/woningontruiming/", permanent: true },
+      { source: "/huis-leegmaken", destination: "/diensten/woningontruiming/", permanent: true },
+      { source: "/huis-leegmaken/", destination: "/diensten/woningontruiming/", permanent: true },
+      { source: "/blog/huis-ontruimen-na-overlijden", destination: "/huis-ontruimen-na-overlijden/", permanent: true },
+      { source: "/blog/huis-ontruimen-na-overlijden/", destination: "/huis-ontruimen-na-overlijden/", permanent: true },
+      // Pagina heette 20 sep eerst /herstelkosten-woningbouw en daarna
+      // /voorinspectie-uploaden; de klant noemt het document een "vooropname".
+      { source: "/herstelkosten-woningbouw", destination: "/vooropname-uploaden/", permanent: true },
+      { source: "/herstelkosten-woningbouw/", destination: "/vooropname-uploaden/", permanent: true },
+      { source: "/voorinspectie-uploaden", destination: "/vooropname-uploaden/", permanent: true },
+      { source: "/voorinspectie-uploaden/", destination: "/vooropname-uploaden/", permanent: true },
       // Legacy /nieuws/* → /blog/* lives here (not in proxy.ts) so it runs in the
       // same phase as trailingSlash normalization. Destination keeps the trailing
       // slash explicitly (Next 16 does not auto-append it), so the canonical legacy

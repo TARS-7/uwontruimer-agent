@@ -5,7 +5,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Werkwijze | Zo brengen wij uw ontruiming tot een succes | UwOntruimer.nl",
+  title: "Werkwijze | Zo brengen wij uw ontruiming tot een succes",
   description: "Hoe werkt UwOntruimer? Van gratis offerte tot schone oplevering. Transparant, betrouwbaar en met opleveringsgarantie.",
   alternates: { canonical: "/werkwijze/" },
 };

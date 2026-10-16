@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import StepIndicator from '@/components/wizard/StepIndicator'
+import ReviewTicker from '@/components/ReviewTicker'
 import StepOntruimingType, { type StepOntruimingTypeResult } from '@/components/wizard/StepOntruimingType'
 import StepWoning, { type StepWoningResult } from '@/components/wizard/StepWoning'
 import StepFotosEnWaardevol, { type StepFotosEnWaardevollResult } from '@/components/wizard/StepFotosEnWaardevol'
@@ -9,9 +10,36 @@ import StepAdresContact, { type StepAdresContactResult } from '@/components/wiza
 import Step6Offerte from '@/components/wizard/Step6Offerte'
 import type { WizardState } from '@/lib/types'
 import { initialWizardState } from '@/lib/types'
+import { meet, meetAdsWizardVoltooid, STAPNAMEN } from '@/lib/meet'
+import { bepaalIconVariant, meetIconExposure, type IconVariant } from '@/lib/abIconen'
 
 export default function Page() {
   const [state, setState] = useState<WizardState>(initialWizardState)
+
+  // A/B-test stap 1: emoji's (A) of lijn-iconen (B). Loting client-side zodat
+  // de servervariant (emoji) niet botst met hydratatie; daarna vastgezet.
+  const [iconVariant, setIconVariant] = useState<IconVariant>('emoji')
+  useEffect(() => {
+    const v = bepaalIconVariant()
+    setIconVariant(v)
+    meetIconExposure(v)
+  }, [])
+
+  // Trechtermeting: één event per bereikte stap. Het verschil tussen twee stappen
+  // is de uitval — tot 21 sep 2026 was de wizard volledig onzichtbaar in GA4.
+  // Alleen meten; niets aan de flow of teksten veranderd.
+  const gemeten = useRef<Set<number>>(new Set())
+  useEffect(() => {
+    if (gemeten.current.has(state.step)) return
+    gemeten.current.add(state.step)
+    const abIconen = bepaalIconVariant()
+    meet('wizard_stap', { stap: state.step, stapnaam: STAPNAMEN[state.step] ?? String(state.step), ab_iconen_variant: abIconen })
+    if (state.step === 1) meet('wizard_start', { ab_iconen_variant: abIconen })
+    if (state.step === 5) {
+      meet('wizard_voltooid', { ontruimingstype: String(state.ontruimingType ?? ''), ab_iconen_variant: abIconen })
+      meetAdsWizardVoltooid()
+    }
+  }, [state.step, state.ontruimingType])
 
   function handleStep1Complete(result: StepOntruimingTypeResult) {
     setState((s) => ({ ...s, ontruimingType: result.ontruimingType, step: 2 }))
@@ -63,6 +91,22 @@ export default function Page() {
         </div>
       </header>
 
+      {/* Autoriteitsbalk: dezelfde bewijzen als op de site, compact bovenaan */}
+      <div className="border-b border-blue-100 bg-blue-50">
+        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-5 gap-y-1 px-4 py-2 text-xs font-medium text-blue-800 sm:px-6">
+          <span className="flex items-center gap-1.5">
+            <svg className="h-3.5 w-3.5 text-amber-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.077 10.1c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+            4,9 op Google
+          </span>
+          <span className="hidden text-blue-200 sm:inline">·</span>
+          <span>2.500+ families geholpen</span>
+          <span className="hidden text-blue-200 sm:inline">·</span>
+          <span>15+ jaar ervaring</span>
+          <span className="hidden text-blue-200 sm:inline">·</span>
+          <span>Schriftelijke opleveringsgarantie</span>
+        </div>
+      </div>
+
       {/* Main */}
       <main className="flex-1 py-8 px-4 sm:px-6">
         <div className="mx-auto max-w-3xl flex flex-col gap-6">
@@ -74,6 +118,7 @@ export default function Page() {
               <StepOntruimingType
                 initialData={{ ontruimingType: state.ontruimingType }}
                 onComplete={handleStep1Complete}
+                iconVariant={iconVariant}
               />
             )}
 
@@ -125,14 +170,32 @@ export default function Page() {
           </div>
 
           {state.step === 1 && (
-            <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
-              <TrustItem icon="shield" label="Veilig en vertrouwelijk" />
-              <TrustItem icon="clock" label="Prijsindicatie binnen 2 minuten" />
-              <TrustItem icon="star" label="Gratis en vrijblijvend" />
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/peter-visser.jpg"
+                  alt="Peter Visser"
+                  className="h-12 w-12 flex-shrink-0 rounded-full object-cover object-center"
+                />
+                <div>
+                  <div className="text-sm font-medium text-slate-900">Persoonlijk begeleid</div>
+                  <div className="text-xs text-slate-400">door Peter Visser</div>
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+                <TrustItem icon="shield" label="Veilig en vertrouwelijk" />
+                <TrustItem icon="clock" label="Prijsindicatie binnen 2 minuten" />
+              </div>
             </div>
           )}
         </div>
       </main>
+
+      {/* Review-carousel, zelfde als op de homepage */}
+      <div className="border-t border-slate-100">
+        <ReviewTicker />
+      </div>
 
       {/* Footer */}
       <footer className="border-t border-slate-100 bg-white">

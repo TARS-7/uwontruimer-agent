@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { leesAttributie } from "@/lib/attributie";
 
 export default function TerugbelForm({
   gemeente = "",
@@ -21,7 +22,7 @@ export default function TerugbelForm({
       const res = await fetch("/api/terugbel", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ naam, telefoon, gemeente }),
+        body: JSON.stringify({ naam, telefoon, gemeente, ...leesAttributie() }),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {

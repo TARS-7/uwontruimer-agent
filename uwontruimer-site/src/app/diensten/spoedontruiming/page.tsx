@@ -3,10 +3,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Spoedontruiming woning bij u in de buurt",
-  description: "Moet een ontruiming binnen 24 geregeld zijn? Wij staan direct voor u klaar! Bel naar 085-303 58 94 of vul het contactformulier in.",
+  title: "Spoedontruiming: binnen 24 uur leeg en bezemschoon",
+  description: "Spoedontruiming nodig? Uw Ontruimer start binnen 24 uur: woning, zorgkamer of bedrijfspand leeg en bezemschoon opgeleverd. Vaste prijs, offerte binnen het uur, 15+ jaar ervaring. Bel 085-303 58 94.",
   alternates: { canonical: "/diensten/spoedontruiming/" },
 };
 
@@ -17,6 +18,30 @@ const checkIcon = (
     </svg>
   </span>
 );
+
+const FAQ = [
+  { v: "Hoe snel kan een spoedontruiming starten?", a: "Binnen 24 uur na uw akkoord, in de regio Amsterdam, Haarlem, Den Haag, Leiden en Utrecht vaak nog dezelfde dag. Bel 085-303 58 94; wij beoordelen de situatie direct en sturen binnen het uur een vaste prijs." },
+  { v: "Wat kost een spoedontruiming?", a: "Dezelfde richtprijzen als een reguliere ontruiming (zorgkamer vanaf €350, appartement vanaf €450, eengezinswoning vanaf €750) plus een spoedtoeslag voor inzet buiten de planning. U krijgt vooraf één vaste prijs; die staat ook achteraf vast." },
+  { v: "Is een inspectie ter plaatse nodig?", a: "Nee. Op basis van foto's via de AI-wizard of een korte beschrijving aan de telefoon maken wij direct een vaste offerte. Zo verliezen we geen dag aan een bezoek vooraf." },
+  { v: "Kunnen jullie een zorgkamer binnen 24 uur leeghalen?", a: "Ja. Zorginstellingen hanteren na een overlijden vaak een termijn van 24 tot 72 uur. Wij halen de kamer leeg, zetten persoonlijke spullen apart voor de familie en leveren bezemschoon op aan de instelling." },
+  { v: "Werken jullie ook voor deurwaarders, verhuurders en curatoren?", a: "Ja. Bij gerechtelijke ontruimingen, faillissementen en opleveringen met een harde deadline werken wij met een vast aanspreekpunt, fotorapportage en opslag van inboedel als dat vereist is." },
+  { v: "Wat gebeurt er met waardevolle spullen bij spoed?", a: "Ook bij spoed sorteren wij eerst: waardevolle stukken en persoonlijke documenten gaan apart en worden na afloop met u afgestemd. De opbrengst van wat wij opkopen of veilen gaat van de factuur af." },
+];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map(({ v, a }) => ({ "@type": "Question", name: v, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Spoedontruiming",
+  serviceType: "Spoedontruiming",
+  provider: { "@type": "LocalBusiness", name: "Uw Ontruimer", telephone: "+31853035894", url: "https://www.uwontruimer.nl/" },
+  areaServed: ["Noord-Holland", "Zuid-Holland", "Utrecht"],
+  url: "https://www.uwontruimer.nl/diensten/spoedontruiming/",
+  description: "Ontruiming van woning, zorgkamer of bedrijfspand binnen 24 uur, met vaste prijs en bezemschone oplevering.",
+};
 
 const CtaBox = () => (
   <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
@@ -41,9 +66,14 @@ const CtaBox = () => (
   </div>
 );
 
+const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.uwontruimer.nl/"}, {"@type": "ListItem", "position": 2, "name": "Woningontruiming", "item": "https://www.uwontruimer.nl/diensten/woningontruiming/"}, {"@type": "ListItem", "position": 3, "name": "Spoedontruiming", "item": "https://www.uwontruimer.nl/diensten/spoedontruiming/"}]};
+
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <main className="mt-16">
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
@@ -52,7 +82,7 @@ export default function Page() {
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">
               <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
-                Spoedontruiming nodig?<br />Binnen 24 uur ter plaatse
+                Spoedontruiming:<br />binnen 24 uur leeg en bezemschoon
               </h1>
             </div>
           </div>
@@ -92,7 +122,7 @@ export default function Page() {
                 "Gerechtelijke ontruiming op last van rechter of deurwaarder",
                 "Faillissement: bedrijfspand direct ontruimen en opleveren",
                 "Verhuurder die woning direct nodig heeft na vertrek huurder",
-                "Calamiteiten: brand- of waterscade waarbij pand snel leeg moet",
+                "Calamiteiten: brand- of waterschade waarbij pand snel leeg moet",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
               ))}
@@ -136,6 +166,24 @@ export default function Page() {
                 <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
               ))}
             </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat kost een spoedontruiming?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Een spoedontruiming kost de reguliere prijs van de ontruiming plus een spoedtoeslag voor inzet buiten de planning. Als richtlijn: zorgkamer vanaf €350, appartement vanaf €450, eengezinswoning vanaf €750, exclusief toeslag. Waardevolle inboedel verrekenen wij ook bij spoed met de factuur. U ontvangt vooraf één vaste prijs. Alles over onze reguliere aanpak en tarieven leest u op <Link href="/diensten/woningontruiming/" className="text-blue-600 hover:underline">woningontruiming</Link>; gaat het om een overlijden, lees dan <Link href="/huis-ontruimen-na-overlijden/" className="text-blue-600 hover:underline">huis ontruimen na overlijden</Link>.
+            </p>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Veelgestelde vragen over spoedontruiming</h2>
+            <div className="divide-y divide-slate-100 mb-10">
+              {FAQ.map(({ v, a }) => (
+                <details key={v} className="group py-3">
+                  <summary className="cursor-pointer font-medium text-slate-800 list-none flex justify-between items-center gap-4">
+                    {v}
+                    <span className="text-slate-400 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+                  </summary>
+                  <p className="text-slate-500 font-light leading-relaxed mt-2 text-sm">{a}</p>
+                </details>
+              ))}
+            </div>
 
             <CtaBox />
           </div>

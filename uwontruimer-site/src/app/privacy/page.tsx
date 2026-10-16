@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacybeleid | UwOntruimer.nl",
+  title: "Privacybeleid",
   description: "Lees het privacybeleid van UwOntruimer.nl. Wij gaan zorgvuldig om met uw persoonsgegevens.",
   alternates: { canonical: "/privacy/" },
 };

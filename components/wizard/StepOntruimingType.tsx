@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import type { IconVariant } from '@/lib/abIconen'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -11,9 +12,19 @@ export interface StepOntruimingTypeResult {
 interface Props {
   initialData: { ontruimingType: string | null }
   onComplete: (result: StepOntruimingTypeResult) => void
+  /** A/B-test: 'emoji' = huidige situatie (A), 'iconen' = strakke lijn-iconen (B). */
+  iconVariant?: IconVariant
 }
 
 // ─── Opties ───────────────────────────────────────────────────────────────────
+
+// Lijn-iconen (variant B): zelfde stijl als het logo — 24px, stroke 2, blauw.
+const ICOON_PADS: Record<string, string> = {
+  'Hele woning':      'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+  'Deel van woning':  'M4 21h16M6 21V5a2 2 0 012-2h8a2 2 0 012 2v16M14.5 12h.01',
+  'Kelder of zolder': 'M4 8h16M4 8l2-4h12l2 4M4 8v11a1 1 0 001 1h14a1 1 0 001-1V8M10 12h4',
+  'Spoedontruiming':  'M13 3L4 14h6l-1 7 9-11h-6l1-7z',
+}
 
 const OPTIES = [
   { label: 'Hele woning',     emoji: '🏠' },
@@ -24,7 +35,7 @@ const OPTIES = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function StepOntruimingType({ initialData, onComplete }: Props) {
+export default function StepOntruimingType({ initialData, onComplete, iconVariant = 'emoji' }: Props) {
   const [selected, setSelected] = useState<string | null>(initialData.ontruimingType)
 
   function handleSelect(label: string) {
@@ -65,7 +76,13 @@ export default function StepOntruimingType({ initialData, onComplete }: Props) {
                   </svg>
                 </span>
               )}
-              <span className="text-4xl leading-none" role="img" aria-hidden="true">{emoji}</span>
+              {iconVariant === 'iconen' ? (
+                <svg className="h-9 w-9 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d={ICOON_PADS[label]} />
+                </svg>
+              ) : (
+                <span className="text-4xl leading-none" role="img" aria-hidden="true">{emoji}</span>
+              )}
               <span className="text-sm font-medium leading-snug">{label}</span>
             </button>
           )

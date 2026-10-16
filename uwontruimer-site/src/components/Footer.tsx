@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Diensten</h4>
             <ul className="space-y-2">
-              {[["Woningontruiming","/diensten/woningontruiming"],["Bedrijfsontruiming","/diensten/bedrijfsontruiming"],["Spoedontruiming","/diensten/spoedontruiming"],["Vloerverwijdering","/diensten/vloerverwijdering"],["Opkopen inboedel","/diensten/opkopen-inboedel"],["Taxatie","/diensten/taxatie"],["Inboedel laten taxeren","https://takaros.com"],["Verhuizen","/diensten/verhuizen"]].map(([label,href])=>(
+              {[["Woningontruiming","/diensten/woningontruiming/"],["Bedrijfsontruiming","/diensten/bedrijfsontruiming/"],["Spoedontruiming","/diensten/spoedontruiming/"],["Vloerverwijdering","/diensten/vloerverwijdering/"],["Opkopen inboedel","/diensten/opkopen-inboedel/"],["Taxatie","/diensten/taxatie/"],["Inboedel laten taxeren","https://takaros.com"],["Verhuizen","/diensten/verhuizen/"],["Ontruiming na overlijden","/huis-ontruimen-na-overlijden/"],["Vervuilde woning ontruimen","/vervuilde-woning-ontruimen/"],["Kosten woningontruiming","/kosten-woningontruiming/"]].map(([label,href])=>(
                 <li key={href}>{href.startsWith("http") ? (
                   <a href={href} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</a>
                 ) : (
@@ -30,7 +30,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Zakelijk</h4>
             <ul className="space-y-2">
-              {[["Voor notarissen","/notaris"],["Voor makelaars","/makelaar"],["Bewindvoerders","/bewindvoerder"],["Woningcorporaties","/woningbouwvereniging"]].map(([label,href])=>(
+              {[["Voor notarissen","/notaris/"],["Voor makelaars","/makelaar/"],["Bewindvoerders","/bewindvoerder/"],["Woningcorporaties","/woningbouwvereniging/"]].map(([label,href])=>(
                 <li key={href}><Link href={href} className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</Link></li>
               ))}
             </ul>
@@ -38,8 +38,12 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Over ons</h4>
             <ul className="space-y-2">
-              {[["Over ons","/over-ons"],["Werkwijze","/werkwijze"],["Opleveringsgarantie","/opleveringsgarantie"],["Duurzaam","/duurzaam"],["FAQ","/faq"],["Blog","/blog"],["Contact","/contact"]].map(([label,href])=>(
-                <li key={href}><Link href={href} className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</Link></li>
+              {[["Over ons","/over-ons/"],["Werkwijze","/werkwijze/"],["Werken bij","/werken-bij/"],["Opleveringsgarantie","/opleveringsgarantie/"],["Duurzaam","/duurzaam/"],["FAQ","/faq/"],["Blog","/blog/"],["Contact","/contact/"]].map(([label,href])=>(
+                <li key={href}>{href.startsWith("http") ? (
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</a>
+                ) : (
+                  <Link href={href} className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</Link>
+                )}</li>
               ))}
             </ul>
           </div>

@@ -5,7 +5,7 @@ import TrustBar from "@/components/TrustBar";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Vacatures | UwOntruimer.nl",
+  title: "Vacatures",
   description: "Werken bij Uw Ontruimer? Bekijk onze vacatures of stuur een open sollicitatie. We zijn altijd op zoek naar enthousiaste ontruimers.",
   alternates: { canonical: "/vacatures/" },
 };
@@ -26,6 +26,11 @@ export default function Page() {
                 <a href="mailto:info@uwontruimer.nl" className="text-blue-600 font-medium">info@uwontruimer.nl</a>.
               </p>
             </div>
+            <a href="/werken-bij" className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors mb-4">
+              Direct aanmelden
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <p className="text-xs text-slate-400 font-light mb-10">Aanmeldformulier beschikbaar in het Nederlands, Engels, Spaans, Pools, Oekraïens en Arabisch.</p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">Wil jij deel uitmaken van een klein enthousiast team? Steek je graag de handen uit de mouwen en houd je van fysiek werk? Wie weet ben jij dan de ontruimer die wij zoeken!  Uw Ontruimer is en een erkend ontruimingsbedrijf  met meer dan 10 jaar ervaring in regio Noord- en Zuid-Holland. Wij ontruimen dagelijks zowel woningen als bedrijfspanden. Er komt veel kijken bij een ontruiming en dat kan een behoorlijke impact hebben op onze klanten. Wij begrijpen dat en we weten wat er  voor nodig is om ze te ontzorgen.  Tevreden klanten, daar doen we het voor!</p>
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Hoe ziet je werkdag eruit?</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">Als ontruimer is geen dag hetzelfde! Je rijdt heel Nederland door en voornamelijk in Noord- en Zuid-Holland. De ene dag ben je aan het werk in het centrum van Amsterdam en de andere dag ben je aan het werk in een winkel of bedrijfspand ver daarbuiten!</p>

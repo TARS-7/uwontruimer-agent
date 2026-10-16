@@ -5,7 +5,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Uitgebreide zakelijke dienstverlening van Uw Ontruimer | UwOntruimer.nl",
+  title: "Uitgebreide zakelijke dienstverlening van Uw Ontruimer",
   description: "Uw Ontruimer is een professionele partner op het gebied van ontruimen. Wij hebben namelijk al ruim 10 jaar ervaring in deze branche en een uitgebreide dien",
   alternates: { canonical: "/zakelijk/" },
 };
@@ -84,7 +84,7 @@ export default function Page() {
 
             <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Uw vaste partner voor professionele ontruimingen</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Uw Ontruimer is een professionele partner op het gebied van ontruimen met ruim 15 jaar ervaring. Wij bieden een uitgebreide zakelijke dienstverlening: van woningontruiming en bedrijfsontruiming tot spoedontruiming, vloerverwijdering en boedelbeheer. Alle werkzaamheden worden bezemschoon en gedocumenteerd opgeleverd — met schriftelijke opleveringsgarantie.
+              Uw Ontruimer is een professionele partner op het gebied van ontruimen met ruim 15 jaar ervaring. Wij bieden een uitgebreide zakelijke dienstverlening: van woningontruiming en <a href="/diensten/bedrijfsontruiming/" className="text-blue-600 hover:underline">bedrijfsontruiming</a> tot spoedontruiming, vloerverwijdering en boedelbeheer. Alle werkzaamheden worden bezemschoon en gedocumenteerd opgeleverd — met schriftelijke opleveringsgarantie.
             </p>
             <ul className="space-y-3 mb-8">
               {[

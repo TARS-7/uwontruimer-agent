@@ -5,7 +5,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Opleveringsgarantie | UwOntruimer.nl",
+  title: "Opleveringsgarantie",
   description: "Uw Ontruimer is sinds 2010 een vooraanstaand dienstverlener van het leeghalen van woningen en bedrijfspanden. Het streven van de onderneming is het ontzorg",
   alternates: { canonical: "/opleveringsgarantie/" },
 };

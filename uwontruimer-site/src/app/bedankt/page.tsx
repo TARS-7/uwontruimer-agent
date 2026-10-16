@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Bedankt | UwOntruimer.nl",
+  title: "Bedankt",
   description: "Bedankt voor uw bericht. We nemen zo spoedig mogelijk contact met u op.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/bedankt/" },

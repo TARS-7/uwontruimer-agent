@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useId } from 'react'
+import { useState, useCallback, useEffect, useId } from 'react'
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
 import type { AddressData } from '@/lib/types'
@@ -96,6 +96,18 @@ export default function StepAdresContact({ initialData, onComplete, onBack }: Pr
       setAdresLoading(false)
     }
   }, [postcode, huisnummer, toevoeging, validateAdres])
+
+  // Auto-lookup: zodra postcode én huisnummer compleet zijn, zoeken we het
+  // adres zelf op (na een korte pauze tegen zoeken-tijdens-typen). Scheelt een
+  // tik op het spannendste moment van de flow; de knop blijft als fallback.
+  useEffect(() => {
+    if (handmatig || gevondenAdres || adresLoading) return
+    const pc = postcode.replace(/\s/g, '')
+    if (!/^\d{4}[A-Z]{2}$/i.test(pc) || !huisnummer || isNaN(Number(huisnummer))) return
+    const timer = setTimeout(() => { void handleSearch() }, 600)
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postcode, huisnummer, toevoeging, handmatig])
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -212,7 +224,7 @@ export default function StepAdresContact({ initialData, onComplete, onBack }: Pr
               value={postcode}
               error={errors.postcode}
               className="col-span-2 sm:col-span-1"
-              onChange={(e) => setPostcode(formatPostcode(e.target.value))}
+              onChange={(e) => { setPostcode(formatPostcode(e.target.value)); setGevondenAdres(null) }}
               onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleSearch() } }}
               maxLength={7}
               autoComplete="postal-code"
@@ -223,7 +235,7 @@ export default function StepAdresContact({ initialData, onComplete, onBack }: Pr
               value={huisnummer}
               error={errors.huisnummer}
               inputMode="numeric"
-              onChange={(e) => setHuisnummer(e.target.value.replace(/\D/g, ''))}
+              onChange={(e) => { setHuisnummer(e.target.value.replace(/\D/g, '')); setGevondenAdres(null) }}
               onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleSearch() } }}
               maxLength={5}
             />

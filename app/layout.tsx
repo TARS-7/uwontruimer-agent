@@ -51,6 +51,38 @@ const consentDefault = `
   })();
 `;
 
+// Closed-loop marketing-attributie (Laag 2): legt de Google-klik-ID's (gclid/
+// gbraid/wbraid) en UTM-parameters uit de landings-URL vast in de first-party
+// cookie uo_attr op .uwontruimer.nl (90 dagen). Gedeeld met de hoofdsite; bij
+// conversie leest de wizard de cookie en slaat de velden op de Opdracht op.
+// Last-click: overschrijft alleen bij een nieuwe klik met parameters.
+// Herkomst-meting (first-touch, gedeeld met de hoofdsite): legt bij het
+// állereerste bezoek de verwijzer + landingspagina vast in uo_bron (90 dagen,
+// .uwontruimer.nl) en wordt daarna nooit overschreven — zo is ook organisch/
+// direct verkeer herleidbaar wanneer iemand rechtstreeks op de wizard landt.
+const herkomstCapture = `
+  (function(){try{
+    if(document.cookie.indexOf("uo_bron=")>-1)return;
+    var b={ref:(document.referrer||"").slice(0,300),landing:location.pathname,ts:new Date().toISOString()};
+    var d=location.hostname.indexOf("uwontruimer.nl")>-1?"; domain=.uwontruimer.nl":"";
+    document.cookie="uo_bron="+encodeURIComponent(JSON.stringify(b))+"; path=/"+d+"; max-age=7776000; SameSite=Lax";
+  }catch(e){}})();
+`;
+
+const attributieCapture = `
+  (function(){try{
+    var q=new URLSearchParams(location.search);
+    var keys=["gclid","gbraid","wbraid","utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+    var found={},hit=false;
+    keys.forEach(function(k){var v=q.get(k);if(v){found[k]=v.slice(0,200);hit=true;}});
+    if(!hit)return;
+    found.landing=location.pathname;
+    found.ts=new Date().toISOString();
+    var d=location.hostname.indexOf("uwontruimer.nl")>-1?"; domain=.uwontruimer.nl":"";
+    document.cookie="uo_attr="+encodeURIComponent(JSON.stringify(found))+"; path=/"+d+"; max-age=7776000; SameSite=Lax";
+  }catch(e){}})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,11 +93,17 @@ export default function RootLayout({
       <head>
         {/* Consent Mode v2 default — moet vóór GTM script staan */}
         <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
+        <script dangerouslySetInnerHTML={{ __html: attributieCapture }} />
+        <script dangerouslySetInnerHTML={{ __html: herkomstCapture }} />
         {/* Directe Google-tag voor Google Ads (AW-748902533) — verhelpt "Google-tag
             ontbreekt", legt de gclid vast en laat Consent Mode conversies modelleren.
             consentDefault hierboven definieert al window.dataLayer + gtag(). */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-748902533" />
-        <script dangerouslySetInnerHTML={{ __html: `gtag('js', new Date());gtag('config', 'AW-748902533');` }} />
+        {/* GA4 (zelfde property als uwontruimer.nl, G-FK7P241P9Z): tot 21 sep 2026 mat de
+            wizard NIETS in GA4 — alleen de Ads-tag laadde en de GTM-container (GTM-MKHKSZP5)
+            geeft een 404. Zelfde meet-ID op beide subdomeinen = één bezoeker over site én
+            wizard. Consent Mode (consentDefault hierboven) blijft leidend. */}
+        <script dangerouslySetInnerHTML={{ __html: `gtag('js', new Date());gtag('config', 'AW-748902533');gtag('config', 'G-FK7P241P9Z');` }} />
         <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

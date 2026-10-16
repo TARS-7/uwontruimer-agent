@@ -10,7 +10,7 @@ import Link from "next/link";
 import WerkgebiedSearch from "@/components/WerkgebiedSearch";
 import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
 import { blogPosts } from "@/data/blog-posts";
-import { Zap } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
 import TakarosHomepageBlock from "@/components/TakarosHomepageBlock";
 
@@ -184,10 +184,10 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
-              { href: "/diensten/woningontruiming", img: "/Verhuislift-diensten.jpg", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
-              { href: "/diensten/bedrijfsontruiming", img: "/bedrijfsontruiming.jpg", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
-              { href: "/diensten/spoedontruiming", img: "/hero-truck.jpg", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
-              { href: "/diensten/opkopen-inboedel", img: "/inboedel opkopen.jpg", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
+              { href: "/diensten/woningontruiming/", img: "/Verhuislift-diensten.jpg", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
+              { href: "/diensten/bedrijfsontruiming/", img: "/bedrijfsontruiming.jpg", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
+              { href: "/diensten/spoedontruiming/", img: "/hero-truck.jpg", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
+              { href: "/diensten/opkopen-inboedel/", img: "/inboedel opkopen.jpg", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
                 <div className="overflow-hidden h-32 foto-zoom relative"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
@@ -227,7 +227,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="bg-blue-50 border border-blue-100 rounded-xl px-6 py-5 flex items-start gap-4 max-w-2xl">
             <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Zap size={20} color="#2563eb" strokeWidth={1.5} />
+              <ShieldCheck size={22} className="fill-blue-600 text-white" strokeWidth={2} />
             </div>
             <div>
               <p className="text-sm font-semibold text-slate-800 mb-1">Waarom eerlijk geprijsd?</p>

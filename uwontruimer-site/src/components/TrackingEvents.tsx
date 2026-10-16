@@ -29,6 +29,14 @@ function abWaVariant(): string {
   return document.documentElement.getAttribute("data-ab-wa") ?? "A";
 }
 
+function abHeroVariant(): string {
+  return document.documentElement.getAttribute("data-ab-hero") ?? "A";
+}
+
+function abLisaVariant(): string {
+  return document.documentElement.getAttribute("data-ab-lisa") ?? "A";
+}
+
 /**
  * Vuur het A/B-exposure event pas wanneer analytics-consent is gegeven.
  * Vóór consent zijn GA4-events alleen anonieme pings (gcs=G100) die nooit
@@ -39,6 +47,8 @@ function fireExposureOnce() {
   window.__abExposureFired = true;
   window.gtag("event", "ab_cta_exposure", { ab_cta_variant: abVariant() });
   window.gtag("event", "ab_wa_exposure", { ab_wa_variant: abWaVariant() });
+  window.gtag("event", "ab_hero_exposure", { ab_hero_variant: abHeroVariant() });
+  window.gtag("event", "ab_lisa_exposure", { ab_lisa_variant: abLisaVariant() });
 }
 
 export default function TrackingEvents() {
@@ -59,6 +69,8 @@ export default function TrackingEvents() {
       const params = {
         ab_cta_variant: abVariant(),
         ab_wa_variant: abWaVariant(),
+        ab_hero_variant: abHeroVariant(),
+        ab_lisa_variant: abLisaVariant(),
         link_url: href,
         page_path: location.pathname,
       };
@@ -69,6 +81,8 @@ export default function TrackingEvents() {
         window.gtag("event", "conversion", { send_to: "AW-748902533/GaOgCO3s-uMcEIWxjeUC" });
       } else if (href.includes("wa.me") || href.includes("whatsapp")) window.gtag("event", "whatsapp_click", params);
       else if (href.startsWith("/offerte")) window.gtag("event", "wizard_click", params);
+      else if (href.includes("/vooropname-uploaden")) window.gtag("event", "vooropname_click", params);
+      else if (href.includes("/voorinspectie")) window.gtag("event", "voorinspectie_click", params);
     };
     document.addEventListener("click", onClick, true);
 

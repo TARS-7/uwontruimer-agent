@@ -6,7 +6,7 @@ import Image from "next/image";
 import { blogPosts } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
-  title: "Blog | Artikelen & tips over woningontruiming | UwOntruimer.nl",
+  title: "Blog | Artikelen & tips over woningontruiming",
   description: "Praktische informatie over woningontruiming, nalatenschappen, kosten en meer. Lees onze artikelen op het blog van UwOntruimer.nl.",
   alternates: { canonical: "/blog/" },
 };

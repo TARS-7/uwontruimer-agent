@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { leesAttributie, leesHerkomst } from "@/lib/attributie";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -138,6 +139,9 @@ export default function WerkenBijPage() {
           telefoon,
           website,
           notitie: taal === "nl" ? notitie : `[taal: ${taal.toUpperCase()}] ${notitie}`.trim(),
+          // Herkomst-meting: hoe kwam deze kandidaat oorspronkelijk op de site?
+          attributie: leesAttributie(),
+          herkomst: leesHerkomst(),
         }),
       });
       if (res.ok) setKlaar(true);

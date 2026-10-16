@@ -5,8 +5,8 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Vervuilde woning laten ontruimen | UwOntruimer.nl",
-  description: "Wilt u een (ernstig) vervuilde woning laten ontruimen? Laat dit dan over aan het team van Uw Ontruimer! Wij beschikken over jarenlange ervaring in het ontr",
+  title: "Vervuilde woning ontruimen en schoonmaken",
+  description: "Vervuilde woning laten ontruimen én schoonmaken? Eén team voor ontruiming, reiniging en desinfectie — ook bij hoarding en verzamelwoningen. Discreet, zonder oordeel en bezemschoon opgeleverd.",
   alternates: { canonical: "/vervuilde-woning-ontruimen/" },
 };
 
@@ -41,9 +41,12 @@ const CtaBox = () => (
   </div>
 );
 
+const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.uwontruimer.nl/"}, {"@type": "ListItem", "position": 2, "name": "Woningontruiming", "item": "https://www.uwontruimer.nl/diensten/woningontruiming/"}, {"@type": "ListItem", "position": 3, "name": "Vervuilde woning ontruimen", "item": "https://www.uwontruimer.nl/vervuilde-woning-ontruimen/"}]};
+
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <main className="mt-16">
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
@@ -88,7 +91,7 @@ export default function Page() {
             </p>
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
               {[
-                { titel: "Extreme vermesting", omschrijving: "Woningen vol opgehoopte spullen, afval of objecten — ook bij ernstige gevallen met smalle doorgangen." },
+                { titel: "Hoarding en verzamelwoningen", omschrijving: "Woningen vol opgehoopte spullen, afval of objecten (extreme vermesting) — ook bij ernstige gevallen met smalle doorgangen." },
                 { titel: "Verwaarloosde woning", omschrijving: "Verwaarlozing door ziekte, dementie of sociale omstandigheden. Wij werken altijd respectvol en zonder oordeel." },
                 { titel: "Ongedierte en schimmel", omschrijving: "Woning met kakkerlakken, ratten, schimmelvorming of andere gezondheidsrisico's — met de juiste bescherming." },
                 { titel: "Vervuiling na overlijden", omschrijving: "Woning reinigen en ontruimen na overlijden, ook bij gevallen waarbij enige tijd is verstreken." },
@@ -116,6 +119,16 @@ export default function Page() {
                 <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
               ))}
             </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Vervuilde woning schoonmaken en desinfecteren</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Ontruimen alleen is bij een sterk vervuilde woning zelden genoeg. Daarom regelen wij ook het schoonmaken van de vervuilde woning: dieptereiniging van vloeren, muren en sanitair, geurbehandeling en waar nodig desinfectie. U hoeft dus geen apart schoonmaakbedrijf te zoeken — één team, één afspraak, en de woning wordt leeg én schoon opgeleverd. Ook een zwaar vervuild huis laten schoonmaken na jaren verwaarlozing is voor ons dagelijks werk.
+            </p>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat kost een vervuilde woning ontruimen en schoonmaken?</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              De kosten hangen af van de grootte van de woning, de mate van vervuiling en of er naast ontruimen ook gereinigd en gedesinfecteerd moet worden. Daarom werken wij altijd met een vaste prijs vooraf — geen verrassingen achteraf. Via onze online AI-wizard ontvangt u binnen 2 minuten een vrijblijvende prijsindicatie, of bel ons voor een inschatting op basis van foto&apos;s.
+            </p>
 
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wie schakelt Uw Ontruimer in voor vervuilde woningen?</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">

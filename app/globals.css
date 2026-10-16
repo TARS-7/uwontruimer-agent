@@ -17,3 +17,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Review-carousel (zelfde als homepage) */
+@keyframes reviewScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.review-ticker-track {
+  animation: reviewScroll 40s linear infinite;
+  width: max-content;
+}
+.review-ticker-track:hover {
+  animation-play-state: paused;
+}

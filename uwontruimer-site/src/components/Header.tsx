@@ -7,6 +7,8 @@ import AbCtaText from "@/components/AbCtaText";
 
 const diensten = [
   { label: "Woningontruiming", href: "/diensten/woningontruiming" },
+  { label: "Voorinspectie huurwoning", href: "/voorinspectie/?van=menu" },
+  { label: "Vooropname uploaden", href: "/vooropname-uploaden/?van=menu" },
   { label: "Bedrijfsontruiming", href: "/diensten/bedrijfsontruiming" },
   { label: "Spoedontruiming", href: "/diensten/spoedontruiming" },
   { label: "Vloerverwijdering", href: "/diensten/vloerverwijdering" },
@@ -262,6 +264,7 @@ export default function Header() {
             <Link href="/werkwijze" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werkwijze</Link>
             <Dropdown label="Over ons" items={overOns} />
             <Link href="/faq" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">FAQ</Link>
+            <Link href="/werken-bij" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werken bij</Link>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -271,7 +274,7 @@ export default function Header() {
             </a>
             {/* Phone text — sm and up, incl. desktop (zichtbaar nummer voor Google-verificatie) */}
             <a href="tel:0853035894" className="phone-glow hidden sm:block text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors whitespace-nowrap">085-303 58 94</a>
-            <Link href="https://analyse.uwontruimer.nl" onClick={() => sendGAEvent("event", "cta_click", { ab_cta_variant: getAbCtaVariant(), cta_location: "menu" })} className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"><AbCtaText slot="menu" /></Link>
+            <Link href="https://analyse.uwontruimer.nl" onClick={() => sendGAEvent("event", "cta_click", { ab_cta_variant: getAbCtaVariant(), cta_location: "menu" })} className="block bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-medium px-2.5 sm:px-4 py-2 rounded-lg transition-colors whitespace-nowrap"><AbCtaText slot="menu" /></Link>
 
             {/* Hamburger — mobile only */}
             <button
@@ -306,6 +309,7 @@ export default function Header() {
                   { label: "Over ons", href: "/over-ons" },
                   { label: "Ons team", href: "/over-ons/team" },
                   { label: "FAQ", href: "/faq" },
+                  { label: "Werken bij", href: "/werken-bij" },
                 ],
               },
             ].map(({ heading, items }) => (
@@ -360,14 +364,6 @@ export default function Header() {
           </nav>
 
           <div className="px-6 py-6 border-t border-slate-100 space-y-3">
-            <a
-              href="tel:0853035894"
-              onClick={close}
-              className="flex items-center gap-2 text-slate-700 font-medium text-base"
-            >
-              <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-              085-303 58 94
-            </a>
             <Link
               href="https://analyse.uwontruimer.nl"
               onClick={() => {
@@ -378,6 +374,14 @@ export default function Header() {
             >
               <AbCtaText slot="menu" />
             </Link>
+            <a
+              href="tel:0853035894"
+              onClick={close}
+              className="flex items-center gap-2 text-slate-700 font-medium text-base"
+            >
+              <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              085-303 58 94
+            </a>
           </div>
         </div>
       )}

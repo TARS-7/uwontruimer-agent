@@ -5,7 +5,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Verhuizen van groot naar klein of seniorenverhuizing | UwOntruimer.nl",
+  title: "Verhuizen van groot naar klein of seniorenverhuizing",
   description: "Bij een seniorenverhuizing kunnen meestal niet alle spullen mee naar de nieuwe locatie of woning. Wij kunnen dan de gewenste goederen naar de nieuwe bestem",
   alternates: { canonical: "/diensten/verhuizen/" },
 };

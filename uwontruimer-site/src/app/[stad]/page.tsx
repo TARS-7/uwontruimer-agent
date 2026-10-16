@@ -7,188 +7,188 @@ import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
 import Link from "next/link";
 import seoData from "@/data/seo-metadata.json";
-import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, Zap } from "lucide-react";
+import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, ShieldCheck } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
 import TakarosBlock from "@/components/TakarosBlock";
 import AbHeroCta from "@/components/AbHeroCta";
 
 const steden = [
   // === Oorspronkelijke 20 steden ===
-  { slug: "amsterdam",              name: "Amsterdam",              title: "Woningontruiming Amsterdam | UwOntruimer.nl",                                   desc: "Bel Uw Ontruimer op 085-303 58 94 voor een bedrijfsontruiming, spoedontruiming of woningontruiming in Amsterdam. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "amsterdam",              name: "Amsterdam",              title: "Woningontruiming Amsterdam",                                   desc: "Bel Uw Ontruimer op 085-303 58 94 voor een bedrijfsontruiming, spoedontruiming of woningontruiming in Amsterdam. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
   { slug: "amstelveen",             name: "Amstelveen",             title: "Woningontruiming Amstelveen | Bel vandaag UwOntruimer.nl",                      desc: "Woningontruiming Amstelveen? Bel vandaag Uw Ontruimer voor een snelle, duurzame en discrete ontruiming van uw huis of appartement." },
   { slug: "haarlem",                name: "Haarlem",                title: "Woningontruiming Haarlem - UwOntruimer.nl | Bel vandaag",                      desc: "Uw woningontruiming in Haarlem uitbesteden aan een professioneel ontruimingsbedrijf? Bel Uw Ontruimer via 085-303 58 94. ✓15+ jaar ervaring ✓Duurzaam" },
   { slug: "rotterdam",              name: "Rotterdam",              title: "Woningontruiming Rotterdam | Uw Ontruimer voor iedere klus",                    desc: "Woningontruiming in Rotterdam nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming ✓Bedrijfsontruiming" },
   { slug: "utrecht",                name: "Utrecht",                title: "Woningontruiming Utrecht - Uw ontruimer voor iedere klus",                      desc: "Heeft u professionele woningontruiming in Utrecht nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "den-haag",               name: "Den Haag",               title: "Woningontruiming Den Haag | UwOntruimer.nl",                                    desc: "Voor woningontruiming in Den Haag belt u de specialisten van Uw Ontruimer via 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "leiden",                 name: "Leiden",                 title: "Woningontruiming Leiden | UwOntruimer.nl",                                      desc: "Bel Uw Ontruimer via 085-303 58 94 voor professionele woningontruiming in Leiden. Ook voor bedrijfsontruiming of een spoedontruiming. ✓15+ jaar ervaring" },
-  { slug: "hoofddorp",              name: "Hoofddorp",              title: "Woningontruiming Hoofddorp | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Hoofddorp en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "zaandam",                name: "Zaandam",                title: "Woningontruiming Zaandam | UwOntruimer.nl",                                    desc: "Huis laten leegruimen in Zaandam? Neem contact op om de mogelijkheden te bespreken. Geen klus is te gek. Bel 085-303 58 94." },
-  { slug: "purmerend",              name: "Purmerend",              title: "Woningontruiming Purmerend | UwOntruimer.nl",                                   desc: "Voor een bedrijfsontruiming, spoedontruiming of woningontruiming in Purmerend belt u Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "alkmaar",                name: "Alkmaar",                title: "Woningontruiming Alkmaar | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Alkmaar en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "hoorn",                  name: "Hoorn",                  title: "Woningontruiming Hoorn | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Hoorn en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "hilversum",              name: "Hilversum",              title: "Woningontruiming Hilversum | UwOntruimer.nl",                                   desc: "Woningontruiming in Hilversum nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming ✓Bedrijfsontruiming!" },
-  { slug: "amersfoort",             name: "Amersfoort",             title: "Woningontruiming Amersfoort | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Amersfoort. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "zoetermeer",             name: "Zoetermeer",             title: "Woningontruiming Zoetermeer | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Zoetermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "delft",                  name: "Delft",                  title: "Woningontruiming Delft | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Delft. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
-  { slug: "gouda",                  name: "Gouda",                  title: "Woningontruiming Gouda | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Gouda. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "den-haag",               name: "Den Haag",               title: "Woningontruiming Den Haag",                                    desc: "Voor woningontruiming in Den Haag belt u de specialisten van Uw Ontruimer via 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "leiden",                 name: "Leiden",                 title: "Woningontruiming Leiden",                                      desc: "Bel Uw Ontruimer via 085-303 58 94 voor professionele woningontruiming in Leiden. Ook voor bedrijfsontruiming of een spoedontruiming. ✓15+ jaar ervaring" },
+  { slug: "hoofddorp",              name: "Hoofddorp",              title: "Woningontruiming Hoofddorp",                                   desc: "Professionele woningontruiming in Hoofddorp en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "zaandam",                name: "Zaandam",                title: "Woningontruiming Zaandam",                                    desc: "Huis laten leegruimen in Zaandam? Neem contact op om de mogelijkheden te bespreken. Geen klus is te gek. Bel 085-303 58 94." },
+  { slug: "purmerend",              name: "Purmerend",              title: "Woningontruiming Purmerend",                                   desc: "Voor een bedrijfsontruiming, spoedontruiming of woningontruiming in Purmerend belt u Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "alkmaar",                name: "Alkmaar",                title: "Woningontruiming Alkmaar",                                    desc: "Professionele woningontruiming in Alkmaar en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "hoorn",                  name: "Hoorn",                  title: "Woningontruiming Hoorn",                                      desc: "Professionele woningontruiming in Hoorn en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "hilversum",              name: "Hilversum",              title: "Woningontruiming Hilversum",                                   desc: "Woningontruiming in Hilversum nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming ✓Bedrijfsontruiming!" },
+  { slug: "amersfoort",             name: "Amersfoort",             title: "Woningontruiming Amersfoort",                                  desc: "Professionele woningontruiming in Amersfoort. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "zoetermeer",             name: "Zoetermeer",             title: "Woningontruiming Zoetermeer",                                  desc: "Professionele woningontruiming in Zoetermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "delft",                  name: "Delft",                  title: "Woningontruiming Delft",                                      desc: "Professionele woningontruiming in Delft. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
+  { slug: "gouda",                  name: "Gouda",                  title: "Woningontruiming Gouda",                                      desc: "Professionele woningontruiming in Gouda. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming" },
   { slug: "schiedam",               name: "Schiedam",               title: "Woningontruiming Schiedam | Uw Ontruimer",                                     desc: "Woningontruiming in Schiedam? Uw Ontruimer regelt het snel, discreet en professioneel. Vraag vrijblijvend een offerte aan of plan direct een afspraak." },
   { slug: "vlaardingen",            name: "Vlaardingen",            title: "Woningontruiming Vlaardingen | Uw Ontruimer",                                   desc: "Woningontruiming in Vlaardingen? Uw Ontruimer regelt het snel, discreet en professioneel. Vraag vrijblijvend een offerte aan of maak direct een afspraak." },
   { slug: "capelle-aan-den-ijssel", name: "Capelle aan den IJssel", title: "Woningontruiming Capelle aan den IJssel | Uw Ontruimer",                        desc: "Woningontruiming in Capelle aan den IJssel? Uw Ontruimer regelt het snel, discreet en professioneel. Vraag nu uw offerte aan of maak een afspraak." },
 
   // === Aanvullende steden (uit WordPress) ===
-  { slug: "aalsmeer",               name: "Aalsmeer",               title: "Woningontruiming Aalsmeer | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Aalsmeer en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "aerdenhout",             name: "Aerdenhout",             title: "Woningontruiming Aerdenhout | UwOntruimer.nl",                                  desc: "Woningontruiming van A tot Z door ervaren vakmensen in Aerdenhout. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld." },
-  { slug: "alphen-aan-den-rijn",    name: "Alphen aan den Rijn",    title: "Woningontruiming Alphen aan den Rijn | UwOntruimer.nl",                         desc: "Professionele woningontruiming in Alphen aan den Rijn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "baarn",                  name: "Baarn",                  title: "Woningontruiming Baarn | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Baarn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "badhoevedorp",           name: "Badhoevedorp",           title: "Woningontruiming Badhoevedorp | UwOntruimer.nl",                                desc: "Professionele woningontruiming in Badhoevedorp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "aalsmeer",               name: "Aalsmeer",               title: "Woningontruiming Aalsmeer",                                   desc: "Professionele woningontruiming in Aalsmeer en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "aerdenhout",             name: "Aerdenhout",             title: "Woningontruiming Aerdenhout",                                  desc: "Woningontruiming van A tot Z door ervaren vakmensen in Aerdenhout. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld." },
+  { slug: "alphen-aan-den-rijn",    name: "Alphen aan den Rijn",    title: "Woningontruiming Alphen aan den Rijn",                         desc: "Professionele woningontruiming in Alphen aan den Rijn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "baarn",                  name: "Baarn",                  title: "Woningontruiming Baarn",                                      desc: "Professionele woningontruiming in Baarn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "badhoevedorp",           name: "Badhoevedorp",           title: "Woningontruiming Badhoevedorp",                                desc: "Professionele woningontruiming in Badhoevedorp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "barendrecht",            name: "Barendrecht",            title: "Woningontruiming Barendrecht | Uw Ontruimer",                                   desc: "Is bij u een woningontruiming in Barendrecht nodig? Uw Ontruimer regelt het snel, discreet en professioneel. Vraag vrijblijvend een offerte aan." },
-  { slug: "bergen",                 name: "Bergen",                 title: "Woningontruiming Bergen | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Bergen (NH). Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "beverwijk",              name: "Beverwijk",              title: "Woningontruiming Beverwijk | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Beverwijk en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "blaricum",               name: "Blaricum",               title: "Woningontruiming Blaricum | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Blaricum. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "bloemendaal",            name: "Bloemendaal",            title: "Woningontruiming Bloemendaal | UwOntruimer.nl",                                 desc: "Professionele woningontruiming in Bloemendaal. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "bodegraven",             name: "Bodegraven",             title: "Woningontruiming Bodegraven | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Bodegraven. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "bergen",                 name: "Bergen",                 title: "Woningontruiming Bergen",                                     desc: "Professionele woningontruiming in Bergen (NH). Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "beverwijk",              name: "Beverwijk",              title: "Woningontruiming Beverwijk",                                   desc: "Professionele woningontruiming in Beverwijk en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "blaricum",               name: "Blaricum",               title: "Woningontruiming Blaricum",                                   desc: "Professionele woningontruiming in Blaricum. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "bloemendaal",            name: "Bloemendaal",            title: "Woningontruiming Bloemendaal",                                 desc: "Professionele woningontruiming in Bloemendaal. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "bodegraven",             name: "Bodegraven",             title: "Woningontruiming Bodegraven",                                  desc: "Professionele woningontruiming in Bodegraven. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "bunnik",                 name: "Bunnik",                 title: "Woningontruiming Bunnik | Uw Ontruimer",                                       desc: "Wilt u een woningontruiming in Bunnik laten doen? Uw Ontruimer regelt het snel, discreet en met respect. Vraag vrijblijvend een offerte aan." },
-  { slug: "bussum",                 name: "Bussum",                 title: "Woningontruiming Bussum | UwOntruimer.nl",                                     desc: "Laat u volledig ontzorgen en bel Uw Ontruimer via 085-303 58 94 voor woningontruiming in Bussum. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "castricum",              name: "Castricum",              title: "Woningontruiming Castricum | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Castricum. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "culemborg",              name: "Culemborg",              title: "Woningontruiming Culemborg | UwOntruimer.nl",                                   desc: "Voor een woningontruiming in Culemborg schakelt u Uw Ontruimer in. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "den-helder",             name: "Den Helder",             title: "Woningontruiming Den Helder | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Den Helder. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "diemen",                 name: "Diemen",                 title: "Woningontruiming Diemen | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Diemen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "drechterland",           name: "Drechterland",           title: "Woningontruiming Drechterland | UwOntruimer.nl",                                desc: "Professionele woningontruiming in Drechterland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "edam-volendam",          name: "Edam-Volendam",          title: "Woningontruiming Edam-Volendam | UwOntruimer.nl",                               desc: "Professionele woningontruiming in Edam-Volendam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "eemnes",                 name: "Eemnes",                 title: "Woningontruiming Eemnes | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Eemnes. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "enkhuizen",              name: "Enkhuizen",              title: "Woningontruiming Enkhuizen | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Enkhuizen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "bussum",                 name: "Bussum",                 title: "Woningontruiming Bussum",                                     desc: "Laat u volledig ontzorgen en bel Uw Ontruimer via 085-303 58 94 voor woningontruiming in Bussum. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "castricum",              name: "Castricum",              title: "Woningontruiming Castricum",                                   desc: "Professionele woningontruiming in Castricum. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "culemborg",              name: "Culemborg",              title: "Woningontruiming Culemborg",                                   desc: "Voor een woningontruiming in Culemborg schakelt u Uw Ontruimer in. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "den-helder",             name: "Den Helder",             title: "Woningontruiming Den Helder",                                  desc: "Professionele woningontruiming in Den Helder. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "diemen",                 name: "Diemen",                 title: "Woningontruiming Diemen",                                     desc: "Professionele woningontruiming in Diemen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "drechterland",           name: "Drechterland",           title: "Woningontruiming Drechterland",                                desc: "Professionele woningontruiming in Drechterland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "edam-volendam",          name: "Edam-Volendam",          title: "Woningontruiming Edam-Volendam",                               desc: "Professionele woningontruiming in Edam-Volendam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "eemnes",                 name: "Eemnes",                 title: "Woningontruiming Eemnes",                                     desc: "Professionele woningontruiming in Eemnes. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "enkhuizen",              name: "Enkhuizen",              title: "Woningontruiming Enkhuizen",                                   desc: "Professionele woningontruiming in Enkhuizen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "gooi-en-vechtstreek",    name: "Gooi- en Vechtstreek",   title: "Woningontruiming Gooi- en Vechtstreek | Uw Ontruimer",                         desc: "In Gooi- en Vechtstreek een woningontruiming nodig? Uw Ontruimer regelt het snel, discreet en professioneel. Vraag vrijblijvend een offerte aan." },
-  { slug: "gooise-meren",           name: "Gooise Meren",           title: "Woningontruiming Gooise Meren | UwOntruimer.nl",                                desc: "Professionele woningontruiming in Gooise Meren. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "graft-de-rijp",          name: "Graft-De Rijp",          title: "Woningontruiming Graft-De Rijp | UwOntruimer.nl",                               desc: "Professionele woningontruiming in Graft-De Rijp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "haarlemmerliede",        name: "Haarlemmerliede",        title: "Woningontruiming Haarlemmerliede | UwOntruimer.nl",                             desc: "Professionele woningontruiming in Haarlemmerliede. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "haarlemmermeer",         name: "Haarlemmermeer",         title: "Woningontruiming Haarlemmermeer | UwOntruimer.nl",                              desc: "Professionele woningontruiming in Haarlemmermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "heemskerk",              name: "Heemskerk",              title: "Woningontruiming Heemskerk | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Heemskerk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "heemstede",              name: "Heemstede",              title: "Woningontruiming Heemstede | UwOntruimer.nl",                                   desc: "Woningontruiming in Heemstede. Schakel nu een ervaren woningontruimer in. Wij hebben meer dan 15 jaar ervaring. Bel 085-303 58 94." },
-  { slug: "heiloo",                 name: "Heiloo",                 title: "Woningontruiming Heiloo | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Heiloo. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "hillegom",               name: "Hillegom",               title: "Woningontruiming Hillegom | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Hillegom. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "hollands-kroon",         name: "Hollands Kroon",         title: "Woningontruiming Hollands Kroon | UwOntruimer.nl",                              desc: "Professionele woningontruiming in Hollands Kroon. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "houten",                 name: "Houten",                 title: "Woningontruiming Houten | UwOntruimer.nl",                                     desc: "Woningontruiming in Houten nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "huizen",                 name: "Huizen",                 title: "Woningontruiming Huizen | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Huizen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "gooise-meren",           name: "Gooise Meren",           title: "Woningontruiming Gooise Meren",                                desc: "Professionele woningontruiming in Gooise Meren. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "graft-de-rijp",          name: "Graft-De Rijp",          title: "Woningontruiming Graft-De Rijp",                               desc: "Professionele woningontruiming in Graft-De Rijp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "haarlemmerliede",        name: "Haarlemmerliede",        title: "Woningontruiming Haarlemmerliede",                             desc: "Professionele woningontruiming in Haarlemmerliede. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "haarlemmermeer",         name: "Haarlemmermeer",         title: "Woningontruiming Haarlemmermeer",                              desc: "Professionele woningontruiming in Haarlemmermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "heemskerk",              name: "Heemskerk",              title: "Woningontruiming Heemskerk",                                   desc: "Professionele woningontruiming in Heemskerk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "heemstede",              name: "Heemstede",              title: "Woningontruiming Heemstede",                                   desc: "Woningontruiming in Heemstede. Schakel nu een ervaren woningontruimer in. Wij hebben meer dan 15 jaar ervaring. Bel 085-303 58 94." },
+  { slug: "heiloo",                 name: "Heiloo",                 title: "Woningontruiming Heiloo",                                     desc: "Professionele woningontruiming in Heiloo. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "hillegom",               name: "Hillegom",               title: "Woningontruiming Hillegom",                                   desc: "Professionele woningontruiming in Hillegom. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "hollands-kroon",         name: "Hollands Kroon",         title: "Woningontruiming Hollands Kroon",                              desc: "Professionele woningontruiming in Hollands Kroon. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "houten",                 name: "Houten",                 title: "Woningontruiming Houten",                                     desc: "Woningontruiming in Houten nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "huizen",                 name: "Huizen",                 title: "Woningontruiming Huizen",                                     desc: "Professionele woningontruiming in Huizen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "ijsselstein",            name: "IJsselstein",            title: "Woningontruiming IJsselstein | Uw Ontruimer",                                   desc: "Woningontruiming in IJsselstein nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "katwijk",                name: "Katwijk",                title: "Woningontruiming Katwijk | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Katwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "landsmeer",              name: "Landsmeer",              title: "Woningontruiming Landsmeer | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Landsmeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "laren",                  name: "Laren",                  title: "Woningontruiming Laren | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Laren. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "leiderdorp",             name: "Leiderdorp",             title: "Woningontruiming Leiderdorp | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Leiderdorp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "leidschendam",           name: "Leidschendam",           title: "Woningontruiming Leidschendam | UwOntruimer.nl",                                desc: "Woningontruiming nodig in Leidschendam? Uw Ontruimer regelt een complete, respectvolle en snelle ontruiming. Bel 085-303 58 94." },
+  { slug: "katwijk",                name: "Katwijk",                title: "Woningontruiming Katwijk",                                    desc: "Professionele woningontruiming in Katwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "landsmeer",              name: "Landsmeer",              title: "Woningontruiming Landsmeer",                                   desc: "Professionele woningontruiming in Landsmeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "laren",                  name: "Laren",                  title: "Woningontruiming Laren",                                      desc: "Professionele woningontruiming in Laren. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "leiderdorp",             name: "Leiderdorp",             title: "Woningontruiming Leiderdorp",                                  desc: "Professionele woningontruiming in Leiderdorp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "leidschendam",           name: "Leidschendam",           title: "Woningontruiming Leidschendam",                                desc: "Woningontruiming nodig in Leidschendam? Uw Ontruimer regelt een complete, respectvolle en snelle ontruiming. Bel 085-303 58 94." },
   { slug: "leusden",                name: "Leusden",                title: "Woningontruiming Leusden | Uw Ontruimer",                                      desc: "Is er een woningontruiming in Leusden nodig? Uw Ontruimer helpt u snel, netjes en met respect. Vraag vrijblijvend een offerte aan." },
-  { slug: "lisse",                  name: "Lisse",                  title: "Woningontruiming Lisse | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Lisse. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "lisse",                  name: "Lisse",                  title: "Woningontruiming Lisse",                                      desc: "Professionele woningontruiming in Lisse. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "maassluis",              name: "Maassluis",              title: "Woningontruiming Maassluis | Uw Ontruimer",                                    desc: "Woningontruiming in Maassluis? Uw Ontruimer regelt het snel, discreet en professioneel. Vraag vrijblijvend een offerte aan of maak een afspraak." },
-  { slug: "naarden",                name: "Naarden",                title: "Woningontruiming Naarden | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Naarden. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "weesp",                  name: "Weesp",                  title: "Woningontruiming Weesp | UwOntruimer.nl",                                      desc: "Professionele woningontruiming in Weesp. Grenzend aan Amsterdam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "nieuw-vennep",           name: "Nieuw-Vennep",           title: "Woningontruiming Nieuw-Vennep | UwOntruimer.nl",                                desc: "Woningontruimer in omgeving Nieuw-Vennep. Met meer dan 15 jaar ervaring kunnen wij iedere klus aan. Bel 085-303 58 94." },
-  { slug: "nieuwegein",             name: "Nieuwegein",             title: "Woningontruiming Nieuwegein | UwOntruimer.nl",                                  desc: "Woningontruiming in Nieuwegein nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "noord-holland",          name: "Noord-Holland",          title: "Woningontruiming Noord-Holland | UwOntruimer.nl",                               desc: "Voor professionele woningontruiming in Noord-Holland belt u Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "noordwijk",              name: "Noordwijk",              title: "Woningontruiming Noordwijk | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Noordwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "nootdorp",               name: "Nootdorp",               title: "Woningontruiming Nootdorp | UwOntruimer.nl",                                   desc: "Woningontruiming in Nootdorp? Uw Ontruimer regelt een respectvolle, snelle en volledige ontruiming. Bel 085-303 58 94." },
-  { slug: "oegstgeest",             name: "Oegstgeest",             title: "Woningontruiming Oegstgeest | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Oegstgeest. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "pijnacker",              name: "Pijnacker",              title: "Woningontruiming Pijnacker | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Pijnacker. Snel, discreet en volledig bezemschoon opgeleverd. Bel Uw Ontruimer op 085-303 58 94." },
+  { slug: "naarden",                name: "Naarden",                title: "Woningontruiming Naarden",                                    desc: "Professionele woningontruiming in Naarden. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "weesp",                  name: "Weesp",                  title: "Woningontruiming Weesp",                                      desc: "Professionele woningontruiming in Weesp. Grenzend aan Amsterdam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "nieuw-vennep",           name: "Nieuw-Vennep",           title: "Woningontruiming Nieuw-Vennep",                                desc: "Woningontruimer in omgeving Nieuw-Vennep. Met meer dan 15 jaar ervaring kunnen wij iedere klus aan. Bel 085-303 58 94." },
+  { slug: "nieuwegein",             name: "Nieuwegein",             title: "Woningontruiming Nieuwegein",                                  desc: "Woningontruiming in Nieuwegein nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "noord-holland",          name: "Noord-Holland",          title: "Woningontruiming Noord-Holland",                               desc: "Voor professionele woningontruiming in Noord-Holland belt u Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "noordwijk",              name: "Noordwijk",              title: "Woningontruiming Noordwijk",                                   desc: "Professionele woningontruiming in Noordwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "nootdorp",               name: "Nootdorp",               title: "Woningontruiming Nootdorp",                                   desc: "Woningontruiming in Nootdorp? Uw Ontruimer regelt een respectvolle, snelle en volledige ontruiming. Bel 085-303 58 94." },
+  { slug: "oegstgeest",             name: "Oegstgeest",             title: "Woningontruiming Oegstgeest",                                  desc: "Professionele woningontruiming in Oegstgeest. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "pijnacker",              name: "Pijnacker",              title: "Woningontruiming Pijnacker",                                   desc: "Professionele woningontruiming in Pijnacker. Snel, discreet en volledig bezemschoon opgeleverd. Bel Uw Ontruimer op 085-303 58 94." },
   { slug: "ridderkerk",             name: "Ridderkerk",             title: "Woningontruiming Ridderkerk | Uw Ontruimer",                                   desc: "Woningontruiming in Ridderkerk nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "rijswijk",               name: "Rijswijk",               title: "Woningontruiming Rijswijk | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Rijswijk. Grenzend aan Den Haag. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "roelofarendsveen",       name: "Roelofarendsveen",       title: "Woningontruiming Roelofarendsveen | UwOntruimer.nl",                            desc: "Professionele woningontruiming in Roelofarendsveen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "rijswijk",               name: "Rijswijk",               title: "Woningontruiming Rijswijk",                                    desc: "Professionele woningontruiming in Rijswijk. Grenzend aan Den Haag. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "roelofarendsveen",       name: "Roelofarendsveen",       title: "Woningontruiming Roelofarendsveen",                            desc: "Professionele woningontruiming in Roelofarendsveen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
   { slug: "schagen",                name: "Schagen",                title: "Woningontruiming Schagen | Uw Ontruimer",                                      desc: "Professionele woningontruiming in Schagen? Uw Ontruimer helpt discreet, snel en vakkundig bij een woningontruiming. Vraag een offerte aan." },
   { slug: "soest",                  name: "Soest",                  title: "Woningontruiming Soest | Uw Ontruimer",                                        desc: "Woningontruiming in Soest nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "stichtse-vecht",         name: "Stichtse Vecht",         title: "Woningontruiming Stichtse Vecht | UwOntruimer.nl",                              desc: "Woningontruiming in Stichtse Vecht nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "uithoorn",               name: "Uithoorn",               title: "Woningontruiming Uithoorn | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Uithoorn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "veenendaal",             name: "Veenendaal",             title: "Woningontruiming Veenendaal | UwOntruimer.nl",                                  desc: "Woningontruiming in Veenendaal nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "vianen",                 name: "Vianen",                 title: "Woningontruiming Vianen | UwOntruimer.nl",                                     desc: "Uw Ontruimer zorgt voor professionele woningontruiming in Vianen. Bel 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "vijfheerenlanden",       name: "Vijfheerenlanden",       title: "Woningontruiming Vijfheerenlanden | UwOntruimer.nl",                            desc: "Woningontruiming in Vijfheerenlanden nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "voorburg",               name: "Voorburg",               title: "Woningontruiming Voorburg | UwOntruimer.nl",                                   desc: "Woningontruiming in Voorburg? Uw Ontruimer regelt een zorgeloze, discrete en complete ontruiming. Bel 085-303 58 94." },
-  { slug: "voorschoten",            name: "Voorschoten",            title: "Woningontruiming Voorschoten | UwOntruimer.nl",                                 desc: "Professionele woningontruiming in Voorschoten. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "wassenaar",              name: "Wassenaar",              title: "Woningontruiming Wassenaar | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Wassenaar. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "woerden",                name: "Woerden",                title: "Woningontruiming Woerden | Snel geholpen | UwOntruimer.nl",                     desc: "Woningontruiming in Woerden nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "zaanstad",               name: "Zaanstad",               title: "Woningontruiming Zaanstad - 15+ jaar ervaring | UwOntruimer.nl",                desc: "Woningontruiming Zaanstad. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld ✓ Heel Nederland." },
-  { slug: "zeist",                  name: "Zeist",                  title: "Woningontruiming Zeist | UwOntruimer.nl",                                      desc: "Woningontruiming in Zeist nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "zuid-holland",           name: "Zuid-Holland",           title: "Woningontruiming Zuid-Holland | UwOntruimer.nl",                                desc: "Bel Uw Ontruimer via 085-303 58 94 en laat uw woningontruiming in Zuid-Holland over aan een professioneel ontruimingsbedrijf. ✓15+ jaar ervaring." },
+  { slug: "stichtse-vecht",         name: "Stichtse Vecht",         title: "Woningontruiming Stichtse Vecht",                              desc: "Woningontruiming in Stichtse Vecht nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "uithoorn",               name: "Uithoorn",               title: "Woningontruiming Uithoorn",                                   desc: "Professionele woningontruiming in Uithoorn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "veenendaal",             name: "Veenendaal",             title: "Woningontruiming Veenendaal",                                  desc: "Woningontruiming in Veenendaal nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "vianen",                 name: "Vianen",                 title: "Woningontruiming Vianen",                                     desc: "Uw Ontruimer zorgt voor professionele woningontruiming in Vianen. Bel 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "vijfheerenlanden",       name: "Vijfheerenlanden",       title: "Woningontruiming Vijfheerenlanden",                            desc: "Woningontruiming in Vijfheerenlanden nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "voorburg",               name: "Voorburg",               title: "Woningontruiming Voorburg",                                   desc: "Woningontruiming in Voorburg? Uw Ontruimer regelt een zorgeloze, discrete en complete ontruiming. Bel 085-303 58 94." },
+  { slug: "voorschoten",            name: "Voorschoten",            title: "Woningontruiming Voorschoten",                                 desc: "Professionele woningontruiming in Voorschoten. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "wassenaar",              name: "Wassenaar",              title: "Woningontruiming Wassenaar",                                   desc: "Professionele woningontruiming in Wassenaar. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "woerden",                name: "Woerden",                title: "Woningontruiming Woerden | Snel geholpen",                     desc: "Woningontruiming in Woerden nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "zaanstad",               name: "Zaanstad",               title: "Woningontruiming Zaanstad - 15+ jaar ervaring",                desc: "Woningontruiming Zaanstad. ✓ Kwaliteit & Zekerheid ✓ Offerte mét Oplevergarantie ✓ Snel geregeld ✓ Heel Nederland." },
+  { slug: "zeist",                  name: "Zeist",                  title: "Woningontruiming Zeist",                                      desc: "Woningontruiming in Zeist nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "zuid-holland",           name: "Zuid-Holland",           title: "Woningontruiming Zuid-Holland",                                desc: "Bel Uw Ontruimer via 085-303 58 94 en laat uw woningontruiming in Zuid-Holland over aan een professioneel ontruimingsbedrijf. ✓15+ jaar ervaring." },
 
   // === Flevoland ===
-  { slug: "almere",                 name: "Almere",                 title: "Woningontruiming Almere | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Almere. Spoedontruiming mogelijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "lelystad",               name: "Lelystad",               title: "Woningontruiming Lelystad | UwOntruimer.nl",                                   desc: "Woningontruiming in Lelystad na overlijden of seniorenverhuizing? Bel Uw Ontruimer op 085-303 58 94. ✓Discreet ✓Opleveringsgarantie." },
+  { slug: "almere",                 name: "Almere",                 title: "Woningontruiming Almere",                                     desc: "Professionele woningontruiming in Almere. Spoedontruiming mogelijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "lelystad",               name: "Lelystad",               title: "Woningontruiming Lelystad",                                   desc: "Woningontruiming in Lelystad na overlijden of seniorenverhuizing? Bel Uw Ontruimer op 085-303 58 94. ✓Discreet ✓Opleveringsgarantie." },
 
   // === Gelderland ===
-  { slug: "arnhem",                 name: "Arnhem",                 title: "Woningontruiming Arnhem | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Arnhem. Spoedontruiming, na overlijden of oplevering aan Portaal. Bel Uw Ontruimer op 085-303 58 94. ✓Opleveringsgarantie." },
-  { slug: "apeldoorn",              name: "Apeldoorn",              title: "Woningontruiming Apeldoorn | UwOntruimer.nl",                                   desc: "Woningontruiming in Apeldoorn? Seniorenverhuizing, huis leeghalen of oplevering aan Ons Huis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
+  { slug: "arnhem",                 name: "Arnhem",                 title: "Woningontruiming Arnhem",                                     desc: "Professionele woningontruiming in Arnhem. Spoedontruiming, na overlijden of oplevering aan Portaal. Bel Uw Ontruimer op 085-303 58 94. ✓Opleveringsgarantie." },
+  { slug: "apeldoorn",              name: "Apeldoorn",              title: "Woningontruiming Apeldoorn",                                   desc: "Woningontruiming in Apeldoorn? Seniorenverhuizing, huis leeghalen of oplevering aan Ons Huis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
 
   // === Noord-Brabant & Dordrecht ===
-  { slug: "dordrecht",              name: "Dordrecht",              title: "Woningontruiming Dordrecht | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Dordrecht. Actief in Crabbehof, Sterrenburg en Wielwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "breda",                  name: "Breda",                  title: "Woningontruiming Breda | UwOntruimer.nl",                                      desc: "Woningontruiming in Breda? Actief in Haagse Beemden, Prinsenbeek en Bavel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "tilburg",                name: "Tilburg",                title: "Woningontruiming Tilburg | UwOntruimer.nl",                                    desc: "Professionele woningontruiming in Tilburg. Actief in Reeshof, Broekhoven en Noord. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Spoedontruiming." },
-  { slug: "den-bosch",              name: "Den Bosch",              title: "Woningontruiming Den Bosch | UwOntruimer.nl",                                  desc: "Woningontruiming in Den Bosch? Actief in Rosmalen, Empel en Graafsepoort. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "eindhoven",              name: "Eindhoven",              title: "Woningontruiming Eindhoven | UwOntruimer.nl",                                  desc: "Professionele woningontruiming in Eindhoven. Actief in Woensel, Stratum en Gestel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "dordrecht",              name: "Dordrecht",              title: "Woningontruiming Dordrecht",                                   desc: "Professionele woningontruiming in Dordrecht. Actief in Crabbehof, Sterrenburg en Wielwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "breda",                  name: "Breda",                  title: "Woningontruiming Breda",                                      desc: "Woningontruiming in Breda? Actief in Haagse Beemden, Prinsenbeek en Bavel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "tilburg",                name: "Tilburg",                title: "Woningontruiming Tilburg",                                    desc: "Professionele woningontruiming in Tilburg. Actief in Reeshof, Broekhoven en Noord. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Spoedontruiming." },
+  { slug: "den-bosch",              name: "Den Bosch",              title: "Woningontruiming Den Bosch",                                  desc: "Woningontruiming in Den Bosch? Actief in Rosmalen, Empel en Graafsepoort. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "eindhoven",              name: "Eindhoven",              title: "Woningontruiming Eindhoven",                                  desc: "Professionele woningontruiming in Eindhoven. Actief in Woensel, Stratum en Gestel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
 
   // === Zaanstreek-Waterland aanvulling ===
-  { slug: "oostzaan",               name: "Oostzaan",               title: "Woningontruiming Oostzaan | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in Oostzaan. Actief in de Dorpsstraat, Zuideinde en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "wormerland",             name: "Wormerland",             title: "Woningontruiming Wormerland | UwOntruimer.nl",                                  desc: "Woningontruiming in Wormerland? Actief in Wormer, Jisp, Neck en Wijdewormer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "waterland",              name: "Waterland",              title: "Woningontruiming Waterland | UwOntruimer.nl",                                   desc: "Woningontruiming in Waterland? Actief in Monnickendam, Broek in Waterland en Marken. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "beemster",               name: "Beemster",               title: "Woningontruiming Beemster | UwOntruimer.nl",                                   desc: "Professionele woningontruiming in de Beemsterpolder (UNESCO). Actief in Middenbeemster en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
+  { slug: "oostzaan",               name: "Oostzaan",               title: "Woningontruiming Oostzaan",                                   desc: "Professionele woningontruiming in Oostzaan. Actief in de Dorpsstraat, Zuideinde en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "wormerland",             name: "Wormerland",             title: "Woningontruiming Wormerland",                                  desc: "Woningontruiming in Wormerland? Actief in Wormer, Jisp, Neck en Wijdewormer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "waterland",              name: "Waterland",              title: "Woningontruiming Waterland",                                   desc: "Woningontruiming in Waterland? Actief in Monnickendam, Broek in Waterland en Marken. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "beemster",               name: "Beemster",               title: "Woningontruiming Beemster",                                   desc: "Professionele woningontruiming in de Beemsterpolder (UNESCO). Actief in Middenbeemster en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
 
   // === Amstelregio ===
-  { slug: "ouder-amstel",           name: "Ouder-Amstel",           title: "Woningontruiming Ouder-Amstel | UwOntruimer.nl",                                desc: "Woningontruiming in Ouder-Amstel? Actief in Ouderkerk a/d Amstel, Duivendrecht en Abcoude. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
-  { slug: "muiden",                 name: "Muiden",                 title: "Woningontruiming Muiden | UwOntruimer.nl",                                     desc: "Professionele woningontruiming in Muiden en Muiderberg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "ouder-amstel",           name: "Ouder-Amstel",           title: "Woningontruiming Ouder-Amstel",                                desc: "Woningontruiming in Ouder-Amstel? Actief in Ouderkerk a/d Amstel, Duivendrecht en Abcoude. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring." },
+  { slug: "muiden",                 name: "Muiden",                 title: "Woningontruiming Muiden",                                     desc: "Professionele woningontruiming in Muiden en Muiderberg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
 
   // === Utrecht aanvulling ===
-  { slug: "de-ronde-venen",         name: "De Ronde Venen",         title: "Woningontruiming De Ronde Venen | UwOntruimer.nl",                             desc: "Woningontruiming in De Ronde Venen? Actief in Mijdrecht, Vinkeveen en Wilnis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "de-ronde-venen",         name: "De Ronde Venen",         title: "Woningontruiming De Ronde Venen",                             desc: "Woningontruiming in De Ronde Venen? Actief in Mijdrecht, Vinkeveen en Wilnis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
 
   // === Nieuwe steden ===
-  { slug: "velsen",                 name: "Velsen",                 title: "Woningontruiming Velsen | UwOntruimer.nl",                                     desc: "Woningontruiming in Velsen? Actief in IJmuiden, Velserbroek en Driehuis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
-  { slug: "wijdemeren",             name: "Wijdemeren",             title: "Woningontruiming Wijdemeren | UwOntruimer.nl",                                  desc: "Woningontruiming in Wijdemeren? Actief in Loosdrecht en Nederhorst den Berg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "spijkenisse",            name: "Spijkenisse",            title: "Woningontruiming Spijkenisse | UwOntruimer.nl",                                 desc: "Woningontruiming in Spijkenisse (Nissewaard)? Actief in De Akkers, Maaswijk en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "amsterdam-noord",        name: "Amsterdam-Noord",        title: "Woningontruiming Amsterdam-Noord | UwOntruimer.nl",                             desc: "Woningontruiming in Amsterdam-Noord? Actief bij de NDSM-werf, Noorderpark en Buikslotermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "velsen",                 name: "Velsen",                 title: "Woningontruiming Velsen",                                     desc: "Woningontruiming in Velsen? Actief in IJmuiden, Velserbroek en Driehuis. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Spoedontruiming." },
+  { slug: "wijdemeren",             name: "Wijdemeren",             title: "Woningontruiming Wijdemeren",                                  desc: "Woningontruiming in Wijdemeren? Actief in Loosdrecht en Nederhorst den Berg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "spijkenisse",            name: "Spijkenisse",            title: "Woningontruiming Spijkenisse",                                 desc: "Woningontruiming in Spijkenisse (Nissewaard)? Actief in De Akkers, Maaswijk en omgeving. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "amsterdam-noord",        name: "Amsterdam-Noord",        title: "Woningontruiming Amsterdam-Noord",                             desc: "Woningontruiming in Amsterdam-Noord? Actief bij de NDSM-werf, Noorderpark en Buikslotermeer. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
 
   // === Overijssel, Gelderland (Nijmegen) & Groningen ===
-  { slug: "zwolle",                 name: "Zwolle",                 title: "Woningontruiming Zwolle | UwOntruimer.nl",                                     desc: "Woningontruiming in Zwolle? Actief in Holtenbroek, Aa-landen, Assendorp en Stadshagen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "deventer",               name: "Deventer",               title: "Woningontruiming Deventer | UwOntruimer.nl",                                   desc: "Woningontruiming in Deventer? Actief in Colmschate, Keizerslanden, Borgele en de Rivierenwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "nijmegen",               name: "Nijmegen",               title: "Woningontruiming Nijmegen | UwOntruimer.nl",                                   desc: "Woningontruiming in Nijmegen? Actief in Dukenburg, Lindenholt, Hatert en de Waalsprong. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
-  { slug: "groningen",              name: "Groningen",              title: "Woningontruiming Groningen | UwOntruimer.nl",                                  desc: "Woningontruiming in Groningen? Actief in Beijum, Lewenborg, Paddepoel en Vinkhuizen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "zwolle",                 name: "Zwolle",                 title: "Woningontruiming Zwolle",                                     desc: "Woningontruiming in Zwolle? Actief in Holtenbroek, Aa-landen, Assendorp en Stadshagen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "deventer",               name: "Deventer",               title: "Woningontruiming Deventer",                                   desc: "Woningontruiming in Deventer? Actief in Colmschate, Keizerslanden, Borgele en de Rivierenwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "nijmegen",               name: "Nijmegen",               title: "Woningontruiming Nijmegen",                                   desc: "Woningontruiming in Nijmegen? Actief in Dukenburg, Lindenholt, Hatert en de Waalsprong. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
+  { slug: "groningen",              name: "Groningen",              title: "Woningontruiming Groningen",                                  desc: "Woningontruiming in Groningen? Actief in Beijum, Lewenborg, Paddepoel en Vinkhuizen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie." },
   // === Volledige dekking NH/ZH/UT/FL ===
-  { slug: "heerhugowaard",           name: "Heerhugowaard",           title: "Woningontruiming Heerhugowaard | UwOntruimer.nl",  desc: "Woningontruiming in Heerhugowaard, Broek op Langedijk en Stad van de Zon. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "zandvoort",               name: "Zandvoort",               title: "Woningontruiming Zandvoort | UwOntruimer.nl",  desc: "Woningontruiming in Zandvoort, Bentveld en Nieuw Noord. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "medemblik",               name: "Medemblik",               title: "Woningontruiming Medemblik | UwOntruimer.nl",  desc: "Woningontruiming in Medemblik, Wognum en Abbekerk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "uitgeest",                name: "Uitgeest",                title: "Woningontruiming Uitgeest | UwOntruimer.nl",  desc: "Woningontruiming in Uitgeest, De Kleis, De Koog en Waldijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "stede-broec",             name: "Stede Broec",             title: "Woningontruiming Stede Broec | UwOntruimer.nl",  desc: "Woningontruiming in Bovenkarspel, Grootebroek en Lutjebroek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "koggenland",              name: "Koggenland",              title: "Woningontruiming Koggenland | UwOntruimer.nl",  desc: "Woningontruiming in De Goorn, Avenhorn en Obdam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "opmeer",                  name: "Opmeer",                  title: "Woningontruiming Opmeer | UwOntruimer.nl",  desc: "Woningontruiming in Opmeer, Spanbroek en Hoogwoud. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "texel",                   name: "Texel",                   title: "Woningontruiming Texel | UwOntruimer.nl",  desc: "Woningontruiming op Texel: Den Burg, De Koog en Oudeschild. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "de-bilt",                 name: "De Bilt",                 title: "Woningontruiming De Bilt | UwOntruimer.nl",  desc: "Woningontruiming in De Bilt, Bilthoven en Maartensdijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "utrechtse-heuvelrug",     name: "Utrechtse Heuvelrug",     title: "Woningontruiming Utrechtse Heuvelrug | UwOntruimer.nl",  desc: "Woningontruiming in Driebergen, Doorn, Leersum en Amerongen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "bunschoten",              name: "Bunschoten",              title: "Woningontruiming Bunschoten | UwOntruimer.nl",  desc: "Woningontruiming in Bunschoten-Spakenburg en Eemdijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "wijk-bij-duurstede",      name: "Wijk bij Duurstede",      title: "Woningontruiming Wijk bij Duurstede | UwOntruimer.nl",  desc: "Woningontruiming in Wijk bij Duurstede, Cothen en Langbroek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "rhenen",                  name: "Rhenen",                  title: "Woningontruiming Rhenen | UwOntruimer.nl",  desc: "Woningontruiming in Rhenen, Elst en Achterberg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "montfoort",               name: "Montfoort",               title: "Woningontruiming Montfoort | UwOntruimer.nl",  desc: "Woningontruiming in Montfoort en Linschoten. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "lopik",                   name: "Lopik",                   title: "Woningontruiming Lopik | UwOntruimer.nl",  desc: "Woningontruiming in Lopik, Benschop en Polsbroek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "oudewater",               name: "Oudewater",               title: "Woningontruiming Oudewater | UwOntruimer.nl",  desc: "Woningontruiming in Oudewater, Snelrewaard en Hekendorp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "woudenberg",              name: "Woudenberg",              title: "Woningontruiming Woudenberg | UwOntruimer.nl",  desc: "Woningontruiming in Woudenberg en omgeving, bij de Utrechtse Heuvelrug. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "renswoude",               name: "Renswoude",               title: "Woningontruiming Renswoude | UwOntruimer.nl",  desc: "Woningontruiming in Renswoude en de Gelderse Vallei. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "dronten",                 name: "Dronten",                 title: "Woningontruiming Dronten | UwOntruimer.nl",  desc: "Woningontruiming in Dronten, Biddinghuizen en Swifterbant. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "emmeloord",               name: "Emmeloord",               title: "Woningontruiming Emmeloord | UwOntruimer.nl",  desc: "Woningontruiming in Emmeloord, Ens en Marknesse. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "urk",                     name: "Urk",                     title: "Woningontruiming Urk | UwOntruimer.nl",  desc: "Woningontruiming op Urk, van het oude dorp tot de Zeewijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "zeewolde",                name: "Zeewolde",                title: "Woningontruiming Zeewolde | UwOntruimer.nl",  desc: "Woningontruiming in Zeewolde, van Horsterveld tot Polderwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "westland",                name: "Westland",                title: "Woningontruiming Westland | UwOntruimer.nl",  desc: "Woningontruiming Westland: Naaldwijk, 's-Gravenzande & Monster. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "zwijndrecht",             name: "Zwijndrecht",             title: "Woningontruiming Zwijndrecht | UwOntruimer.nl",  desc: "Woningontruiming Zwijndrecht: Walburg, Kort Ambacht & Heerjansdam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "papendrecht",             name: "Papendrecht",             title: "Woningontruiming Papendrecht | UwOntruimer.nl",  desc: "Woningontruiming Papendrecht: Westpolder, Molenvliet & Kraaihoek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "sliedrecht",              name: "Sliedrecht",              title: "Woningontruiming Sliedrecht | UwOntruimer.nl",  desc: "Woningontruiming Sliedrecht: Centrum, Baanhoek & Sliedrecht-Oost. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "alblasserdam",            name: "Alblasserdam",            title: "Woningontruiming Alblasserdam | UwOntruimer.nl",  desc: "Woningontruiming Alblasserdam, nabij Kinderdijk en aan de A15. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "hendrik-ido-ambacht",     name: "Hendrik-Ido-Ambacht",     title: "Woningontruiming Hendrik-Ido-Ambacht | UwOntruimer.nl",  desc: "Woningontruiming Hendrik-Ido-Ambacht: De Volgerlanden & Oostendam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "hardinxveld-giessendam",  name: "Hardinxveld-Giessendam",  title: "Woningontruiming Hardinxveld-Giessendam | UwOntruimer.nl",  desc: "Woningontruiming Hardinxveld-Giessendam, Boven- en Beneden-Hardinxveld. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "gorinchem",               name: "Gorinchem",               title: "Woningontruiming Gorinchem | UwOntruimer.nl",  desc: "Woningontruiming Gorinchem: binnenstad, Lingewijk & Hoog Dalem. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "molenlanden",             name: "Molenlanden",             title: "Woningontruiming Molenlanden | UwOntruimer.nl",  desc: "Woningontruiming Molenlanden: Kinderdijk, Nieuw-Lekkerland & Groot-Ammers. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "krimpenerwaard",          name: "Krimpenerwaard",          title: "Woningontruiming Krimpenerwaard | UwOntruimer.nl",  desc: "Woningontruiming Krimpenerwaard: Schoonhoven, Bergambacht & Lekkerkerk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "krimpen-aan-den-ijssel",  name: "Krimpen aan den IJssel",  title: "Woningontruiming Krimpen aan den IJssel | UwOntruimer.nl",  desc: "Woningontruiming Krimpen aan den IJssel: Kortland & Langeland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "lansingerland",           name: "Lansingerland",           title: "Woningontruiming Lansingerland | UwOntruimer.nl",  desc: "Woningontruiming in Lansingerland: Bergschenhoek, Berkel en Rodenrijs, Bleiswijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "teylingen",               name: "Teylingen",               title: "Woningontruiming Teylingen | UwOntruimer.nl",  desc: "Woningontruiming in Teylingen: Sassenheim, Voorhout en Warmond. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "waddinxveen",             name: "Waddinxveen",             title: "Woningontruiming Waddinxveen | UwOntruimer.nl",  desc: "Woningontruiming in Waddinxveen: Groenswaard, Zuidplas-wijk en Triangel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "zuidplas",                name: "Zuidplas",                title: "Woningontruiming Zuidplas | UwOntruimer.nl",  desc: "Woningontruiming in Zuidplas: Nieuwerkerk aan den IJssel, Zevenhuizen, Moordrecht. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "hoeksche-waard",          name: "Hoeksche Waard",          title: "Woningontruiming Hoeksche Waard | UwOntruimer.nl",  desc: "Woningontruiming in de Hoeksche Waard: Oud-Beijerland, Numansdorp, 's-Gravendeel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "hellevoetsluis",          name: "Hellevoetsluis",          title: "Woningontruiming Hellevoetsluis | UwOntruimer.nl",  desc: "Woningontruiming in Hellevoetsluis en heel Voorne aan Zee, incl. Brielle. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "nieuwkoop",               name: "Nieuwkoop",               title: "Woningontruiming Nieuwkoop | UwOntruimer.nl",  desc: "Woningontruiming in Nieuwkoop, Ter Aar en Zevenhoven in het Groene Hart. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "midden-delfland",         name: "Midden-Delfland",         title: "Woningontruiming Midden-Delfland | UwOntruimer.nl",  desc: "Woningontruiming in Midden-Delfland: Maasland, Schipluiden en Den Hoorn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "goeree-overflakkee",      name: "Goeree-Overflakkee",      title: "Woningontruiming Goeree-Overflakkee | UwOntruimer.nl",  desc: "Woningontruiming op Goeree-Overflakkee: Middelharnis, Ouddorp, Dirksland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "zoeterwoude",             name: "Zoeterwoude",             title: "Woningontruiming Zoeterwoude | UwOntruimer.nl",  desc: "Woningontruiming in Zoeterwoude-Dorp en Zoeterwoude-Rijndijk, nabij Leiden. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
-  { slug: "albrandswaard",           name: "Albrandswaard",           title: "Woningontruiming Albrandswaard | UwOntruimer.nl",  desc: "Woningontruiming in Albrandswaard: Rhoon, Poortugaal en Portland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "heerhugowaard",           name: "Heerhugowaard",           title: "Woningontruiming Heerhugowaard",  desc: "Woningontruiming in Heerhugowaard, Broek op Langedijk en Stad van de Zon. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "zandvoort",               name: "Zandvoort",               title: "Woningontruiming Zandvoort",  desc: "Woningontruiming in Zandvoort, Bentveld en Nieuw Noord. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "medemblik",               name: "Medemblik",               title: "Woningontruiming Medemblik",  desc: "Woningontruiming in Medemblik, Wognum en Abbekerk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "uitgeest",                name: "Uitgeest",                title: "Woningontruiming Uitgeest",  desc: "Woningontruiming in Uitgeest, De Kleis, De Koog en Waldijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "stede-broec",             name: "Stede Broec",             title: "Woningontruiming Stede Broec",  desc: "Woningontruiming in Bovenkarspel, Grootebroek en Lutjebroek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "koggenland",              name: "Koggenland",              title: "Woningontruiming Koggenland",  desc: "Woningontruiming in De Goorn, Avenhorn en Obdam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "opmeer",                  name: "Opmeer",                  title: "Woningontruiming Opmeer",  desc: "Woningontruiming in Opmeer, Spanbroek en Hoogwoud. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "texel",                   name: "Texel",                   title: "Woningontruiming Texel",  desc: "Woningontruiming op Texel: Den Burg, De Koog en Oudeschild. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "de-bilt",                 name: "De Bilt",                 title: "Woningontruiming De Bilt",  desc: "Woningontruiming in De Bilt, Bilthoven en Maartensdijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "utrechtse-heuvelrug",     name: "Utrechtse Heuvelrug",     title: "Woningontruiming Utrechtse Heuvelrug",  desc: "Woningontruiming in Driebergen, Doorn, Leersum en Amerongen. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "bunschoten",              name: "Bunschoten",              title: "Woningontruiming Bunschoten",  desc: "Woningontruiming in Bunschoten-Spakenburg en Eemdijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "wijk-bij-duurstede",      name: "Wijk bij Duurstede",      title: "Woningontruiming Wijk bij Duurstede",  desc: "Woningontruiming in Wijk bij Duurstede, Cothen en Langbroek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "rhenen",                  name: "Rhenen",                  title: "Woningontruiming Rhenen",  desc: "Woningontruiming in Rhenen, Elst en Achterberg. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "montfoort",               name: "Montfoort",               title: "Woningontruiming Montfoort",  desc: "Woningontruiming in Montfoort en Linschoten. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "lopik",                   name: "Lopik",                   title: "Woningontruiming Lopik",  desc: "Woningontruiming in Lopik, Benschop en Polsbroek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "oudewater",               name: "Oudewater",               title: "Woningontruiming Oudewater",  desc: "Woningontruiming in Oudewater, Snelrewaard en Hekendorp. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "woudenberg",              name: "Woudenberg",              title: "Woningontruiming Woudenberg",  desc: "Woningontruiming in Woudenberg en omgeving, bij de Utrechtse Heuvelrug. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "renswoude",               name: "Renswoude",               title: "Woningontruiming Renswoude",  desc: "Woningontruiming in Renswoude en de Gelderse Vallei. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "dronten",                 name: "Dronten",                 title: "Woningontruiming Dronten",  desc: "Woningontruiming in Dronten, Biddinghuizen en Swifterbant. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "emmeloord",               name: "Emmeloord",               title: "Woningontruiming Emmeloord",  desc: "Woningontruiming in Emmeloord, Ens en Marknesse. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "urk",                     name: "Urk",                     title: "Woningontruiming Urk",  desc: "Woningontruiming op Urk, van het oude dorp tot de Zeewijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "zeewolde",                name: "Zeewolde",                title: "Woningontruiming Zeewolde",  desc: "Woningontruiming in Zeewolde, van Horsterveld tot Polderwijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "westland",                name: "Westland",                title: "Woningontruiming Westland",  desc: "Woningontruiming Westland: Naaldwijk, 's-Gravenzande & Monster. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "zwijndrecht",             name: "Zwijndrecht",             title: "Woningontruiming Zwijndrecht",  desc: "Woningontruiming Zwijndrecht: Walburg, Kort Ambacht & Heerjansdam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "papendrecht",             name: "Papendrecht",             title: "Woningontruiming Papendrecht",  desc: "Woningontruiming Papendrecht: Westpolder, Molenvliet & Kraaihoek. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "sliedrecht",              name: "Sliedrecht",              title: "Woningontruiming Sliedrecht",  desc: "Woningontruiming Sliedrecht: Centrum, Baanhoek & Sliedrecht-Oost. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "alblasserdam",            name: "Alblasserdam",            title: "Woningontruiming Alblasserdam",  desc: "Woningontruiming Alblasserdam, nabij Kinderdijk en aan de A15. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "hendrik-ido-ambacht",     name: "Hendrik-Ido-Ambacht",     title: "Woningontruiming Hendrik-Ido-Ambacht",  desc: "Woningontruiming Hendrik-Ido-Ambacht: De Volgerlanden & Oostendam. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "hardinxveld-giessendam",  name: "Hardinxveld-Giessendam",  title: "Woningontruiming Hardinxveld-Giessendam",  desc: "Woningontruiming Hardinxveld-Giessendam, Boven- en Beneden-Hardinxveld. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "gorinchem",               name: "Gorinchem",               title: "Woningontruiming Gorinchem",  desc: "Woningontruiming Gorinchem: binnenstad, Lingewijk & Hoog Dalem. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "molenlanden",             name: "Molenlanden",             title: "Woningontruiming Molenlanden",  desc: "Woningontruiming Molenlanden: Kinderdijk, Nieuw-Lekkerland & Groot-Ammers. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "krimpenerwaard",          name: "Krimpenerwaard",          title: "Woningontruiming Krimpenerwaard",  desc: "Woningontruiming Krimpenerwaard: Schoonhoven, Bergambacht & Lekkerkerk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "krimpen-aan-den-ijssel",  name: "Krimpen aan den IJssel",  title: "Woningontruiming Krimpen aan den IJssel",  desc: "Woningontruiming Krimpen aan den IJssel: Kortland & Langeland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "lansingerland",           name: "Lansingerland",           title: "Woningontruiming Lansingerland",  desc: "Woningontruiming in Lansingerland: Bergschenhoek, Berkel en Rodenrijs, Bleiswijk. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "teylingen",               name: "Teylingen",               title: "Woningontruiming Teylingen",  desc: "Woningontruiming in Teylingen: Sassenheim, Voorhout en Warmond. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "waddinxveen",             name: "Waddinxveen",             title: "Woningontruiming Waddinxveen",  desc: "Woningontruiming in Waddinxveen: Groenswaard, Zuidplas-wijk en Triangel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "zuidplas",                name: "Zuidplas",                title: "Woningontruiming Zuidplas",  desc: "Woningontruiming in Zuidplas: Nieuwerkerk aan den IJssel, Zevenhuizen, Moordrecht. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "hoeksche-waard",          name: "Hoeksche Waard",          title: "Woningontruiming Hoeksche Waard",  desc: "Woningontruiming in de Hoeksche Waard: Oud-Beijerland, Numansdorp, 's-Gravendeel. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "hellevoetsluis",          name: "Hellevoetsluis",          title: "Woningontruiming Hellevoetsluis",  desc: "Woningontruiming in Hellevoetsluis en heel Voorne aan Zee, incl. Brielle. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "nieuwkoop",               name: "Nieuwkoop",               title: "Woningontruiming Nieuwkoop",  desc: "Woningontruiming in Nieuwkoop, Ter Aar en Zevenhoven in het Groene Hart. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "midden-delfland",         name: "Midden-Delfland",         title: "Woningontruiming Midden-Delfland",  desc: "Woningontruiming in Midden-Delfland: Maasland, Schipluiden en Den Hoorn. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "goeree-overflakkee",      name: "Goeree-Overflakkee",      title: "Woningontruiming Goeree-Overflakkee",  desc: "Woningontruiming op Goeree-Overflakkee: Middelharnis, Ouddorp, Dirksland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "zoeterwoude",             name: "Zoeterwoude",             title: "Woningontruiming Zoeterwoude",  desc: "Woningontruiming in Zoeterwoude-Dorp en Zoeterwoude-Rijndijk, nabij Leiden. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
+  { slug: "albrandswaard",           name: "Albrandswaard",           title: "Woningontruiming Albrandswaard",  desc: "Woningontruiming in Albrandswaard: Rhoon, Poortugaal en Portland. Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie" },
 ];
 
 // Provincie-indeling voor "Ook actief in" sectie (sluit provinciesidepagina's uit)
@@ -246,6 +246,14 @@ function getNabijgelegenSteden(currentSlug: string): Array<{ slug: string; name:
   });
 }
 
+const PIJLER_LINKS = [
+  { href: "/diensten/woningontruiming/", label: "Woningontruiming", sub: "Vaste prijs, bezemschoon opgeleverd" },
+  { href: "/huis-ontruimen-na-overlijden/", label: "Huis ontruimen na overlijden", sub: "Stappenplan, kosten en wie regelt wat" },
+  { href: "/diensten/spoedontruiming/", label: "Spoedontruiming", sub: "Binnen 24 uur leeg" },
+  { href: "/vervuilde-woning-ontruimen/", label: "Vervuilde woning ontruimen", sub: "Ontruimen en schoonmaken in één hand" },
+  { href: "/kosten-woningontruiming/", label: "Kosten woningontruiming", sub: "Richtprijzen en wat de prijs bepaalt" },
+];
+
 export function generateStaticParams() {
   return steden.map((s) => ({ stad: s.slug }));
 }
@@ -255,10 +263,20 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
   const stad = rawStad.replace(/^woningontruiming-/, "");
   const city = steden.find((s) => s.slug === stad);
   const name = city?.name ?? stad;
-  const key = `woningontruiming-${stad}` as keyof typeof seoData;
-  const seo = seoData[key];
-  const title = seo?.title || `Woningontruiming ${name} | Uw Ontruimer`;
-  const description = seo?.description || `Woningontruiming in ${name} nodig? Bel Uw Ontruimer op 085-303 58 94. ✓15+ jaar ervaring ✓Opleveringsgarantie ✓Snel ter plaatse`;
+  // SEO-split-test titelformules (16 sep 2026): elke stad zit deterministisch
+  // in groep A of B (som van tekencodes van de slug, even/oneven). Groep A test
+  // "vaste prijs & bezemschoon", groep B "binnen 24 uur, gratis offerte".
+  // Meting: GSC-CTR per groep via /api/seo/overzicht; beslissen ~medio okt 2026.
+  // Niet tussentijds herformuleren — dan is de meting waardeloos. De oude
+  // per-stad titels uit seo-metadata.json hadden bovendien dubbel merk in de
+  // <title> (eigen "- UwOntruimer.nl" + layout-template) — hier bewust schoon.
+  const groepB = [...stad].reduce((a, c) => a + c.charCodeAt(0), 0) % 2 === 1;
+  const title = groepB
+    ? `Woningontruiming ${name} — binnen 24 uur, gratis offerte`
+    : `Woningontruiming ${name} — vaste prijs & bezemschoon`;
+  const description = groepB
+    ? `Woningontruiming in ${name} nodig? Binnen 24 uur mogelijk, 15+ jaar ervaring, discreet en met schriftelijke opleveringsgarantie. Ontvang direct online een gratis prijsindicatie.`
+    : `Woning ontruimen in ${name}? Vaste prijs vooraf, bezemschoon opgeleverd met schriftelijke opleveringsgarantie. Vraag gratis een prijsindicatie aan — binnen 2 minuten online.`;
   return {
     title,
     description,
@@ -299,6 +317,15 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     ? `Medewerkers van Uw Ontruimer laden verhuisdozen in de bedrijfsbus tijdens een woningontruiming in ${city.name}`
     : "Medewerkers van Uw Ontruimer laden verhuisdozen in de bedrijfsbus tijdens een woningontruiming";
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.uwontruimer.nl/" },
+      { "@type": "ListItem", position: 2, name: "Woningontruiming", item: "https://www.uwontruimer.nl/diensten/woningontruiming/" },
+      { "@type": "ListItem", position: 3, name: `Woningontruiming ${name}`, item: `https://www.uwontruimer.nl/woningontruiming-${stad}/` },
+    ],
+  };
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -387,7 +414,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
       <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
         <a
           href="tel:0853035894"
-          className={`phone-glow-alt order-1 sm:order-2 inline-flex items-center justify-center gap-2.5 font-semibold px-5 py-3.5 rounded-xl transition-colors text-base border-2 bg-blue-600 text-white border-blue-600 hover:opacity-90 ${dark ? "sm:bg-transparent sm:border-white sm:hover:bg-white/10" : "sm:bg-white sm:text-blue-600 sm:border-blue-600 sm:hover:bg-blue-50 sm:hover:opacity-100"}`}
+          className={`phone-glow-alt order-2 inline-flex items-center justify-center gap-2.5 font-semibold px-5 py-3.5 rounded-xl transition-colors text-base border-2 ${dark ? "bg-transparent text-white border-white hover:bg-white/10" : "bg-white text-blue-600 border-blue-600 hover:bg-blue-50"}`}
         >
           <Image
             src="/peter-visser2.jpg"
@@ -398,7 +425,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
           />
           Bel Peter — 085-303 58 94
         </a>
-        <div className="order-2 sm:order-1 flex flex-col gap-1.5">
+        <div className="order-1 flex flex-col gap-1.5">
           <AbHeroCta location={location} />
           <div className="flex flex-wrap gap-x-4 gap-y-1 px-1">
             {checkItems.map((item) => (
@@ -419,6 +446,10 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
@@ -428,9 +459,11 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
       <Header />
       <main className="mt-16">
 
-        {/* Hero afbeelding */}
+        {/* Hero afbeelding — A/B-test: verhuisbus (A) vs handdruk/homepage (B).
+            Beide gerenderd; globals.css toont de juiste op basis van data-ab-hero. */}
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
-          <Image src="/hero-verhuisdozen-bus.jpg" alt={heroAlt} fill sizes="100vw" className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <Image src="/hero-verhuisdozen-bus.jpg" alt={heroAlt} fill sizes="100vw" className="ab-hero-a w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <Image src="/hero-handdruk-oplevering.jpg" alt={heroAlt} fill sizes="100vw" className="ab-hero-b w-full h-full object-cover" style={{ objectPosition: "center 62%" }} priority />
           <div className="absolute inset-0 bg-slate-900/30" />
         </div>
 
@@ -442,8 +475,8 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             <p className="text-lg text-slate-500 font-light mb-8">Snel, discreet en met schriftelijke opleveringsgarantie</p>
             {ctaButtons(false)}
 
-            {/* Beschikbaarheidsstrip */}
-            <div className="mt-6 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+            {/* Beschikbaarheidsstrip — A/B-test positie: variant A toont deze (boven) */}
+            <div className="ab-lisa-boven mt-6 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
               <Image
                 src="/team-Lisa.jpg"
                 alt="Lisa — Planning"
@@ -463,7 +496,6 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </div>
             </div>
 
-            <TerugbelForm gemeente={name} />
           </div>
         </div>
 
@@ -525,7 +557,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
             {/* USP blok — Waarom eerlijk geprijsd? */}
             <div className="mt-6 bg-blue-50 border border-blue-100 rounded-xl px-6 py-5 flex items-start gap-4">
               <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Zap size={20} color="#2563eb" strokeWidth={1.5} />
+                <ShieldCheck size={22} className="fill-blue-600 text-white" strokeWidth={2} />
               </div>
               <div>
                 <p className="text-sm font-semibold text-slate-800 mb-1">Waarom eerlijk geprijsd?</p>
@@ -542,13 +574,13 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </h2>
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                 {[
-                  { href: "/diensten/raambekleding-verwijderen", Icon: Frame,             label: "Raambekleding verwijderen" },
-                  { href: "/diensten/behang-verwijderen",        Icon: Paintbrush,        label: "Behang verwijderen" },
-                  { href: "/diensten/keuken-verwijderen",        Icon: UtensilsCrossed,   label: "Keuken verwijderen" },
-                  { href: "/diensten/zonnescherm-verwijderen",   Icon: Sun,               label: "Zonnescherm verwijderen" },
-                  { href: "/diensten/constructies-verwijderen",  Icon: Hammer,            label: "Constructies verwijderen" },
-                  { href: "/diensten/gaatjes-dichten",           Icon: Wrench,            label: "Gaatjes dichten" },
-                  { href: "/diensten/tuin-snoeien-opschonen",    Icon: Leaf,              label: "Tuin snoeien & opschonen" },
+                  { href: "/diensten/raambekleding-verwijderen/", Icon: Frame,             label: "Raambekleding verwijderen" },
+                  { href: "/diensten/behang-verwijderen/",        Icon: Paintbrush,        label: "Behang verwijderen" },
+                  { href: "/diensten/keuken-verwijderen/",        Icon: UtensilsCrossed,   label: "Keuken verwijderen" },
+                  { href: "/diensten/zonnescherm-verwijderen/",   Icon: Sun,               label: "Zonnescherm verwijderen" },
+                  { href: "/diensten/constructies-verwijderen/",  Icon: Hammer,            label: "Constructies verwijderen" },
+                  { href: "/diensten/gaatjes-dichten/",           Icon: Wrench,            label: "Gaatjes dichten" },
+                  { href: "/diensten/tuin-snoeien-opschonen/",    Icon: Leaf,              label: "Tuin snoeien & opschonen" },
                 ].map(({ href, Icon, label }) => (
                   <Link
                     key={href}
@@ -571,8 +603,8 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               <p className="text-slate-500 font-light leading-relaxed mb-6">Neem contact op via <a href="tel:0853035894" className="text-blue-600 font-medium">085-303 58 94</a> of vraag direct een gratis offerte aan.</p>
             )}
 
-            {/* Lisa beschikbaarheidskaart — middenin pagina */}
-            <div className="mt-8 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+            {/* Lisa beschikbaarheidskaart — A/B-test positie: variant B toont deze (middenin) */}
+            <div className="ab-lisa-onder mt-8 items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
               <Image
                 src="/team-Lisa.jpg"
                 alt="Lisa — Planning"
@@ -658,6 +690,25 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
                 Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie.
               </p>
               {ctaButtons(false, "bottom")}
+              {/* Terugbelformulier — verplaatst naar onderen (17 sep 2026): boven de
+                  vouw leverde het kanaal 7 leads / 0 gewonnen; hier dient het als
+                  vangnet voor wie onderaan nog twijfelt. */}
+              <TerugbelForm gemeente={name} />
+            </div>
+
+            {/* Pijlerpagina's — interne links met exacte ankertekst (SEO fase 2) */}
+            <div className="mt-14 border-t border-slate-100 pt-10">
+              <h2 className="text-xl font-semibold text-slate-900 tracking-tight mb-5">
+                Onze ontruimingsdiensten in {name}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {PIJLER_LINKS.map(({ href, label, sub }) => (
+                  <Link key={href} href={href} className="group rounded-xl border border-slate-100 bg-white px-4 py-3 hover:border-blue-200 hover:shadow-sm transition-all">
+                    <p className="text-sm font-medium text-slate-800 group-hover:text-blue-700">{label}</p>
+                    <p className="text-xs text-slate-400 mt-0.5">{sub}</p>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Ook actief in */}
@@ -670,7 +721,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
                   {nabijgelegenSteden.map((naburig) => (
                     <Link
                       key={naburig.slug}
-                      href={`/woningontruiming-${naburig.slug}`}
+                      href={`/woningontruiming-${naburig.slug}/`}
                       className="inline-flex items-center px-4 py-2 rounded-full border border-slate-200 bg-slate-50 text-sm font-medium text-slate-600 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-150"
                     >
                       Woningontruiming {naburig.name}

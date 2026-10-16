@@ -6,7 +6,7 @@ import CTASection from "@/components/CTASection";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Veelgestelde vragen | UwOntruimer.nl",
+  title: "Veelgestelde vragen",
   description: "Antwoorden op veelgestelde vragen over woningontruiming, kosten, werkwijze en meer. UwOntruimer.nl",
   alternates: { canonical: "/faq/" },
 };
