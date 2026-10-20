@@ -43,3 +43,6 @@ next-env.d.ts
 # lokale overdrachtsarchieven (geheugen) nooit committen
 overdracht/*.tgz
 *.pdf
+
+# dashboard is een eigen repo (~/work/uw-ontruimer/uwontruimer-dashboard), geen submodule meer (T1)
+/uwontruimer-dashboard
