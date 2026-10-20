@@ -53,6 +53,10 @@ body {
   }
 }
 
+/* M1 (20-10-2026): bij betaald verkeer zet het head-script in layout.tsx
+   data-betaald op <html>; "Werken bij" in menu en footer verdwijnt dan. */
+html[data-betaald] .verberg-betaald { display: none; }
+
 /* A/B-test CTA-teksten — head-script in layout.tsx zet data-ab-cta op <html>.
    Zonder JS (of vóór toewijzing) is variant A zichtbaar. */
 .ab-cta-b { display: none; }

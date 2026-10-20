@@ -264,7 +264,7 @@ export default function Header() {
             <Link href="/werkwijze" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werkwijze</Link>
             <Dropdown label="Over ons" items={overOns} />
             <Link href="/faq" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">FAQ</Link>
-            <Link href="/werken-bij" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werken bij</Link>
+            <Link href="/werken-bij" className="verberg-betaald text-sm text-slate-500 hover:text-slate-900 transition-colors">Werken bij</Link>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -321,7 +321,7 @@ export default function Header() {
                       key={item.href}
                       href={item.href}
                       onClick={close}
-                      className="flex items-center py-3 text-[15px] text-slate-800 hover:text-blue-600 transition-colors"
+                      className={`${item.href === "/werken-bij" ? "verberg-betaald " : ""}flex items-center py-3 text-[15px] text-slate-800 hover:text-blue-600 transition-colors`}
                     >
                       {item.label}
                     </Link>

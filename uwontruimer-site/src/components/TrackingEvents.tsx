@@ -83,6 +83,16 @@ export default function TrackingEvents() {
       else if (href.startsWith("/offerte")) window.gtag("event", "wizard_click", params);
       else if (href.includes("/vooropname-uploaden")) window.gtag("event", "vooropname_click", params);
       else if (href.includes("/voorinspectie")) window.gtag("event", "voorinspectie_click", params);
+      // M1 (20-10-2026): klikken op "Werken bij" in menu en footer (de links die
+      // bij betaald verkeer verborgen zijn). betaald=ja zou niet mogen voorkomen
+      // en is daarmee meteen de controle dat het verbergen werkt.
+      else if (href.startsWith("/werken-bij") && a.closest(".verberg-betaald")) {
+        window.gtag("event", "nav_werken_bij_klik", {
+          betaald: document.documentElement.hasAttribute("data-betaald") ? "ja" : "nee",
+          link_url: href,
+          page_path: location.pathname,
+        });
+      }
     };
     document.addEventListener("click", onClick, true);
 

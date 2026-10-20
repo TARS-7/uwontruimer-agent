@@ -39,7 +39,7 @@ export default function Footer() {
             <h4 className="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Over ons</h4>
             <ul className="space-y-2">
               {[["Over ons","/over-ons/"],["Werkwijze","/werkwijze/"],["Werken bij","/werken-bij/"],["Opleveringsgarantie","/opleveringsgarantie/"],["Duurzaam","/duurzaam/"],["FAQ","/faq/"],["Blog","/blog/"],["Contact","/contact/"]].map(([label,href])=>(
-                <li key={href}>{href.startsWith("http") ? (
+                <li key={href} className={href === "/werken-bij/" ? "verberg-betaald" : undefined}>{href.startsWith("http") ? (
                   <a href={href} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</a>
                 ) : (
                   <Link href={href} className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</Link>
