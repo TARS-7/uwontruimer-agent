@@ -71,12 +71,21 @@ const abCtaAssign = `
 // cookie uo_attr op .uwontruimer.nl (90 dagen). Zo reist de attributie mee naar
 // de wizard op analyse.uwontruimer.nl en wordt ze bij conversie op de Opdracht
 // opgeslagen. Last-click: overschrijft alleen bij een nieuwe klik met parameters.
+// M1 (20-10-2026): hetzelfde script markeert betaald verkeer vóór render met
+// data-betaald="1" op <html>, zodat elementen met klasse verberg-betaald (o.a.
+// "Werken bij" in menu en footer) verborgen blijven. Betaald = gclid/gbraid/
+// wbraid of utm_medium=cpc, in de URL óf in de bestaande uo_attr-cookie
+// (latere pagina's in hetzelfde bezoek).
 const attributieCapture = `
   (function(){try{
     var q=new URLSearchParams(location.search);
     var keys=["gclid","gbraid","wbraid","utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
     var found={},hit=false;
     keys.forEach(function(k){var v=q.get(k);if(v){found[k]=v.slice(0,200);hit=true;}});
+    function isBetaald(o){return !!(o&&(o.gclid||o.gbraid||o.wbraid||String(o.utm_medium||"").toLowerCase()==="cpc"));}
+    var betaald=isBetaald(found);
+    if(!betaald){var m=document.cookie.match(/(?:^|; )uo_attr=([^;]*)/);if(m){try{betaald=isBetaald(JSON.parse(decodeURIComponent(m[1])));}catch(e){}}}
+    if(betaald)document.documentElement.setAttribute("data-betaald","1");
     if(!hit)return;
     found.landing=location.pathname;
     found.ts=new Date().toISOString();
