@@ -263,20 +263,15 @@ export async function generateMetadata({ params }: { params: Promise<{ stad: str
   const stad = rawStad.replace(/^woningontruiming-/, "");
   const city = steden.find((s) => s.slug === stad);
   const name = city?.name ?? stad;
-  // SEO-split-test titelformules (16 sep 2026): elke stad zit deterministisch
-  // in groep A of B (som van tekencodes van de slug, even/oneven). Groep A test
-  // "vaste prijs & bezemschoon", groep B "binnen 24 uur, gratis offerte".
-  // Meting: GSC-CTR per groep via /api/seo/overzicht; beslissen ~medio okt 2026.
-  // Niet tussentijds herformuleren — dan is de meting waardeloos. De oude
-  // per-stad titels uit seo-metadata.json hadden bovendien dubbel merk in de
+  // Titelformule: uitkomst van de split-test 16 sep – 19 okt 2026 (GSC, 28 dagen):
+  // "vaste prijs & bezemschoon" haalde 0,56% CTR (71 klikken / 12.590 vert.)
+  // tegen 0,29% (36 / 12.325) voor "binnen 24 uur, gratis offerte", bij een
+  // iets slechtere positie. Sinds 27 okt 2026 daarom op alle steden de
+  // winnende formule; nu één title per stad, meting CTR Leiden/Den Haag 10 nov.
+  // De oude per-stad titels uit seo-metadata.json hadden dubbel merk in de
   // <title> (eigen "- UwOntruimer.nl" + layout-template) — hier bewust schoon.
-  const groepB = [...stad].reduce((a, c) => a + c.charCodeAt(0), 0) % 2 === 1;
-  const title = groepB
-    ? `Woningontruiming ${name} — binnen 24 uur, gratis offerte`
-    : `Woningontruiming ${name} — vaste prijs & bezemschoon`;
-  const description = groepB
-    ? `Woningontruiming in ${name} nodig? Binnen 24 uur mogelijk, 15+ jaar ervaring, discreet en met schriftelijke opleveringsgarantie. Ontvang direct online een gratis prijsindicatie.`
-    : `Woning ontruimen in ${name}? Vaste prijs vooraf, bezemschoon opgeleverd met schriftelijke opleveringsgarantie. Vraag gratis een prijsindicatie aan — binnen 2 minuten online.`;
+  const title = `Woningontruiming ${name} — vaste prijs & bezemschoon`;
+  const description = `Woning ontruimen in ${name}? Vaste prijs vooraf, bezemschoon opgeleverd met schriftelijke opleveringsgarantie. Vraag gratis een prijsindicatie aan — binnen 2 minuten online.`;
   return {
     title,
     description,
