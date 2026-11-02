@@ -38,7 +38,7 @@ const FAQ = [
   { v: "Wanneer mag ik beginnen met ontruimen na een overlijden?", a: "Zodra duidelijk is wie de erfgenamen zijn en zij het eens zijn, meestal na de verklaring van erfrecht van de notaris. Heeft u de nalatenschap nog niet aanvaard of beneficiair aanvaard, overleg dan eerst met de notaris voordat u spullen verkoopt of weggooit. Persoonlijke documenten, post en administratie houden wij altijd apart." },
   { v: "Hoe snel moet een huurwoning na overlijden leeg zijn?", a: "De huur loopt door tot de woning is opgezegd en opgeleverd. De meeste corporaties hanteren één maand opzegtermijn, soms met wat coulance voor nabestaanden. Daarna moet de woning leeg en in de afgesproken staat zijn. Wij plannen de ontruiming op de opleverdatum en kunnen binnen 24 uur starten als het moet." },
   { v: "Wat kost een huis ontruimen na overlijden?", a: "In 2026 meestal tussen € 600 en € 2.000. Als richtlijn: een zorgkamer € 350 tot € 600, een studio € 350 tot € 750, een appartement € 600 tot € 1.400, een rijtjeshuis € 900 tot € 2.000 en een vrijstaande woning € 1.500 tot € 4.000, inclusief btw. Waardevolle inboedel verrekenen wij met de factuur, waardoor het bedrag vaak lager uitvalt. De kosten komen ten laste van de nalatenschap en gelden als schuld van de boedel bij de erfbelasting." },
-  { v: "Wat gebeurt er met de persoonlijke spullen en waardevolle stukken?", a: "Foto's, documenten, sieraden en herinneringen zetten wij apart en overhandigen wij aan de nabestaanden. Antiek, kunst en verzamelingen laten wij taxeren; wij kopen op of brengen het naar een veilinghuis en de opbrengst gaat van de factuur af. Bruikbare meubels gaan naar kringloop en goede doelen." },
+  { v: "Wat gebeurt er met de persoonlijke spullen en waardevolle stukken?", a: "Foto's, documenten, sieraden en herinneringen zetten wij apart en overhandigen wij aan de nabestaanden. Op antiek, kunst en verzamelingen doen wij een bod als onderdeel van de complete inboedel; dat bedrag gaat van de factuur af en bij een waardevolle inboedel betalen wij u uit. Bruikbare meubels gaan naar kringloop en goede doelen." },
   { v: "Moet ik erbij zijn tijdens de ontruiming?", a: "Nee. Veel nabestaanden wonen ver weg of willen de woning liever niet meer leeg zien. Wij regelen de sleutels, wonen de eindinspectie met de verhuurder bij en sturen een fotorapportage. U bepaalt vooraf wat bewaard moet blijven; de rest doen wij." },
   { v: "Kunnen jullie ook de oplevering met de woningcorporatie regelen?", a: "Ja. Wij zijn aanwezig bij de vooropname en de eindinspectie, voeren de punten uit het inspectierapport uit (vloeren, gaatjes, bezemschoon) en leveren op. Heeft u het rapport van de corporatie al, dan zetten wij onze prijs er post voor post naast." },
   { v: "Werken jullie samen met notarissen en executeurs?", a: "Dagelijks. Wij leveren een inventarisatie, taxatie van waardevolle stukken, een fotorapportage en een factuur op naam van de boedel, zodat de afwikkeling van de nalatenschap compleet is." },
@@ -199,8 +199,8 @@ export default function Page() {
             </P>
             <Lijst items={[
               "Persoonlijke documenten, foto's, post en herinneringen worden apart gezet en aan u overhandigd",
-              "Antiek, kunst, sieraden en verzamelingen laten wij taxeren door erkende taxateurs",
-              "Waardevolle stukken kopen wij op of brengen wij naar een veilinghuis — de opbrengst gaat van de factuur af",
+              "Antiek, kunst, sieraden en verzamelingen nemen wij over als onderdeel van de complete inboedel",
+              "Het bod op de inboedel gaat van de factuur af; bij een waardevolle inboedel betalen wij u uit",
               "Bruikbare meubels, kleding en apparaten gaan naar kringloop en goede doelen",
               "Wat niet herbruikbaar is, wordt gescheiden en verantwoord afgevoerd",
             ]} />
