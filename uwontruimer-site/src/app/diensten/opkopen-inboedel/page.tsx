@@ -189,6 +189,11 @@ export default function Page() {
               ))}
             </div>
 
+            <H2>Complete inboedel verkopen aan één opkoper</H2>
+            <P>
+              Wie een complete inboedel wil verkopen, heeft twee opties: stuk voor stuk via advertenties en handelaren, of alles in één keer laten opkopen door één opkoper die ook de woning leeg oplevert. Het eerste levert soms per stuk iets meer op, maar kost weken, veel afspraken met onbekenden en een restant waar niemand op zit te wachten. Het tweede is in een paar dagen klaar. Uw Ontruimer is die ene opkoper: wij kopen meubels, antiek, kunst en huisraad als geheel, halen alles op en leveren bezemschoon op. Inboedel laten opkopen door een particuliere opkoper of handelaar kan natuurlijk ook, maar dan blijft het leeghalen van de woning alsnog voor uw rekening.
+            </P>
+
             <H2>Inboedel opkopen én woning ontruimen</H2>
             <P>
               Meestal gaan inboedel opkopen en een <Link href="/diensten/woningontruiming/" className="text-blue-600 underline underline-offset-2">woningontruiming</Link> samen. De woning moet leeg naar de verhuurder, de makelaar of de nieuwe bewoner, en de inboedel moet weg. Wij doen dan één bod waarin alles zit: de waarde van de inboedel, het leeghalen, het afvoeren en het bezemschoon opleveren. Is de inboedel meer waard dan het werk kost, dan ontvangt u het verschil. Is het andersom, dan betaalt u alleen het verschil, en nooit meer dan de vaste prijs die wij vooraf afspreken. Zo weet u altijd waar u aan toe bent. Wat een ontruiming zonder inboedelwaarde kost, leest u op de pagina over de <Link href="/kosten-woningontruiming/" className="text-blue-600 underline underline-offset-2">kosten van een woningontruiming</Link>.
