@@ -12,11 +12,49 @@ export const metadata: Metadata = {
   alternates: { canonical: "/over-ons/" },
 };
 
+
+// Entiteitsgegevens voor zoekmachines en AI-assistenten (2 nov 2026): wie zit er achter
+// de handelsnaam, waar, sinds wanneer, en welke externe profielen horen bij dit bedrijf.
+// sameAs aanvullen zodra de profielen op Sirelo, Trustpilot en Trustoo bestaan.
+const organisatieSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: "https://www.uwontruimer.nl/over-ons/",
+  mainEntity: {
+    "@type": "LocalBusiness",
+    "@id": "https://www.uwontruimer.nl/#organisatie",
+    name: "Uw Ontruimer",
+    legalName: "Inboedels B.V.",
+    alternateName: "UwOntruimer.nl",
+    url: "https://www.uwontruimer.nl",
+    telephone: "+31853035894",
+    foundingDate: "2010",
+    taxID: "NL863451159B01",
+    identifier: { "@type": "PropertyValue", propertyID: "KVK", value: "84981393" },
+    address: { "@type": "PostalAddress", streetAddress: "Welnastraat 175", postalCode: "1096GJ", addressLocality: "Amsterdam", addressCountry: "NL" },
+    areaServed: ["Amsterdam", "Amstelveen", "Haarlem", "Hoofddorp", "Utrecht", "Den Haag", "Leiden"].map((n) => ({ "@type": "City", name: n })),
+    sameAs: ["https://www.google.com/maps?cid=2439916917779067451"],
+    knowsAbout: ["Woningontruiming", "Ontruiming na overlijden", "Spoedontruiming", "Bezemschoon opleveren", "Inboedel opkopen", "Bedrijfsontruiming"],
+  },
+};
+
+const BEDRIJFSGEGEVENS = [
+  ["Handelsnaam", "Uw Ontruimer"],
+  ["Rechtspersoon", "Inboedels B.V."],
+  ["KVK-nummer", "84981393"],
+  ["Btw-nummer", "NL863451159B01"],
+  ["Vestigingsadres", "Welnastraat 175, 1096 GJ Amsterdam"],
+  ["Telefoon", "085-303 58 94"],
+  ["Actief sinds", "2010"],
+  ["Werkgebied", "Amsterdam, Amstelveen, Haarlem, Hoofddorp, Utrecht, Den Haag, Leiden en omgeving"],
+];
+
 const usps = ["Discreet", "Duurzaam", "Opleveringsgarantie", "15+ jaar ervaring", "Ontzorgt"];
 
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organisatieSchema) }} />
       <Header />
       <main className="mt-16">
         <div className="bg-white py-20 px-6">
@@ -70,7 +108,7 @@ export default function Page() {
               "Tijdens mijn werk voor diverse stichtingen, die zich richten op ontruimingen en verhuizingen, merkte ik dat er een behoefte is aan een betrouwbare en professionele organisatie die u daarbij kan helpen."
             </p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Dankzij de ervaring van Uw Ontruimer in kringloopwinkels, veilingen en internetverkopen kunnen wij u vertellen wat uw inboedel voor waarde heeft en kunnen wij u er een eerlijke prijs voor verstrekken of voor u laten veilen.
+              Dankzij die jaren in de handel in gebruikte inboedels weten wij wat een inboedel waard is. Daarom kunnen wij één bod doen op de complete inboedel en dat verrekenen met de ontruiming, of u uitbetalen als de inboedel meer waard is dan het werk kost.
             </p>
 
             <h3 className="text-lg font-semibold text-slate-800 mb-3">Duurzaam</h3>
@@ -123,6 +161,23 @@ export default function Page() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                 </svg>
               </Link>
+            </div>
+
+            {/* Bedrijfsgegevens: controleerbare feiten voor klanten, zoekmachines en AI-assistenten */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-slate-900 tracking-tight mb-2">Bedrijfsgegevens</h2>
+              <p className="text-slate-500 font-light leading-relaxed mb-6">
+                Controleer ons gerust bij de Kamer van Koophandel voordat u de sleutels overhandigt. Waar u verder op let bij het kiezen van een ontruimer leest u op de pagina{" "}
+                <Link href="/woningontruimer-kiezen/" className="text-blue-600 underline underline-offset-2">een goede woningontruimer kiezen</Link>.
+              </p>
+              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 bg-slate-50 border border-slate-100 rounded-xl p-6">
+                {BEDRIJFSGEGEVENS.map(([k, v]) => (
+                  <div key={k} className="flex flex-col">
+                    <dt className="text-xs text-slate-400 uppercase tracking-wide">{k}</dt>
+                    <dd className="text-sm text-slate-800">{v}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
             {/* Stats */}

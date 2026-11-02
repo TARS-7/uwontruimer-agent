@@ -76,6 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/makelaar/`,                          lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/bewindvoerder/`,                     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/woningbouwvereniging/`,              lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/woningontruimer-kiezen/`,            lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/over-ons/`,                          lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/over-ons/team/`,                     lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/werkwijze/`,                         lastModified: now, changeFrequency: "monthly", priority: 0.6 },

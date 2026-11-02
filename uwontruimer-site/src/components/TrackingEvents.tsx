@@ -109,8 +109,11 @@ export default function TrackingEvents() {
     // Opkoop-pagina: openen van een veelgestelde vraag.
     const onToggle = (e: Event) => {
       const d = e.target as HTMLDetailsElement | null;
-      if (!d || !d.hasAttribute?.("data-opkoop-faq") || !d.open || typeof window.gtag !== "function") return;
-      window.gtag("event", "opkoop_faq_open", { vraag: d.querySelector("summary")?.textContent?.trim().replace(/\+$/, "").trim() ?? "", page_path: location.pathname });
+      if (!d || !d.open || typeof window.gtag !== "function") return;
+      const vraag = d.querySelector("summary")?.textContent?.trim().replace(/\+$/, "").trim() ?? "";
+      if (d.hasAttribute?.("data-opkoop-faq")) window.gtag("event", "opkoop_faq_open", { vraag, page_path: location.pathname });
+      // Generiek (2 nov 2026): elke <details data-faq> op de site, o.a. /woningontruimer-kiezen/.
+      else if (d.hasAttribute?.("data-faq")) window.gtag("event", "faq_open", { vraag, page_path: location.pathname });
     };
     document.addEventListener("toggle", onToggle, true);
 
