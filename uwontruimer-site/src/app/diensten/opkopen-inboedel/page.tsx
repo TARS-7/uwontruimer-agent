@@ -5,6 +5,12 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 import Link from "next/link";
 
+// Foto's gaan rechtstreeks naar de zakelijke WhatsApp (085-303 58 94, dashboard-inbox),
+// niet via de wizard: bij een complete inboedel wil Jurriën de foto's zelf direct zien.
+const WHATSAPP_URL =
+  "https://wa.me/31853035894?text=" +
+  encodeURIComponent("Hallo, ik wil graag een bod op een complete inboedel. Hierbij stuur ik foto's van de woning.");
+
 export const metadata: Metadata = {
   title: "Inboedel overnemen en woning leeg opleveren | Uw Ontruimer",
   description:
@@ -63,8 +69,8 @@ const CtaBox = () => (
     <h2 className="text-xl font-semibold mb-2" style={{ color: "#1e3a5f" }}>Stuur foto&apos;s en hoor wat wij bieden</h2>
     <p className="text-slate-500 font-light mb-6">Een paar overzichtsfoto&apos;s per kamer is genoeg. U hoort meestal binnen 48 uur van ons.</p>
     <div className="flex flex-col sm:flex-row gap-3 justify-center">
-      <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
-        Foto&apos;s sturen via de AI-wizard →
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
+        Foto&apos;s sturen via WhatsApp →
       </a>
       <a href="tel:0853035894" className="inline-flex items-center justify-center gap-2 border border-slate-200 text-slate-700 font-semibold px-7 py-4 rounded-xl bg-white hover:bg-slate-50 transition-colors text-base">
         Bel 085-303 58 94
@@ -115,14 +121,14 @@ export default function Page() {
             </p>
 
             <div className="mb-10">
-              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>Foto&apos;s sturen via de AI-wizard →</a>
-              <p className="text-xs text-slate-400 mt-2">Stuur foto&apos;s, u hoort snel wat wij bieden · Geen verplichtingen</p>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>Foto&apos;s sturen via WhatsApp →</a>
+              <p className="text-xs text-slate-400 mt-2">085-303 58 94 · U hoort snel wat wij bieden · Geen verplichtingen</p>
             </div>
 
             <H2>Hoe het werkt</H2>
             <ol className="space-y-4 mb-8">
               {[
-                { stap: "1", titel: "Foto's sturen", tekst: "Via de wizard of WhatsApp. Een paar overzichtsfoto's per kamer en de stukken die u zelf het meest waard vindt." },
+                { stap: "1", titel: "Foto's sturen via WhatsApp", tekst: "Een paar overzichtsfoto's per kamer en de stukken die u zelf het meest waard vindt, naar 085-303 58 94. Liever bellen? Dat kan ook." },
                 { stap: "2", titel: "Eén bod op het geheel", tekst: "Meestal binnen 48 uur. Bij een grote of bijzondere inboedel komen wij langs. Het bod geldt voor alles wat in de woning staat, inclusief leeg opleveren." },
                 { stap: "3", titel: "Akkoord en datum", tekst: "Wij plannen de dag in, vaak binnen een week. Persoonlijke papieren, foto's en wat u wilt houden zetten wij apart." },
                 { stap: "4", titel: "Leeg opgeleverd", tekst: "U krijgt het opleveringsbewijs voor de verhuurder of makelaar. Is het bod hoger dan de kosten, dan staat het verschil binnen enkele dagen op uw rekening." },
