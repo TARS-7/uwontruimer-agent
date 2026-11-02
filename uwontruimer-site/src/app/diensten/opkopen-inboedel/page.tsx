@@ -12,7 +12,7 @@ const WHATSAPP_URL =
   encodeURIComponent("Hallo, ik wil graag een bod op een complete inboedel. Hierbij stuur ik foto's van de woning.");
 
 export const metadata: Metadata = {
-  title: "Inboedel opkopen: complete inboedel overnemen en woning leeg opleveren | Uw Ontruimer",
+  title: "Inboedel opkopen: complete inboedel overnemen en woning leeg opleveren",
   description:
     "Inboedel opkopen door Uw Ontruimer: wij doen één bod op de complete inboedel, inclusief antiek, kunst, vintage design en sieraden, en leveren de woning leeg op. Vaak binnen 48 uur. Amsterdam, Amstelveen, Haarlem, 't Gooi en Utrecht.",
   alternates: { canonical: "/diensten/opkopen-inboedel/" },
