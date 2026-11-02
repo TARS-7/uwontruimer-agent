@@ -12,13 +12,22 @@ const WHATSAPP_URL =
   encodeURIComponent("Hallo, ik wil graag een bod op een complete inboedel. Hierbij stuur ik foto's van de woning.");
 
 export const metadata: Metadata = {
-  title: "Inboedel overnemen en woning leeg opleveren | Uw Ontruimer",
+  title: "Inboedel opkopen: complete inboedel overnemen en woning leeg opleveren | Uw Ontruimer",
   description:
-    "Wij nemen de complete inboedel over en leveren de woning leeg op. Eén bod, vaak binnen 48 uur. Bij een waardevolle inboedel betalen wij u. Amsterdam, Amstelveen, 't Gooi, Haarlem, Utrecht.",
+    "Inboedel opkopen door Uw Ontruimer: wij doen één bod op de complete inboedel, inclusief antiek, kunst, vintage design en sieraden, en leveren de woning leeg op. Vaak binnen 48 uur. Amsterdam, Amstelveen, Haarlem, 't Gooi en Utrecht.",
   alternates: { canonical: "/diensten/opkopen-inboedel/" },
+  keywords: ["inboedel opkopen", "inboedel verkopen", "inboedel opkoper", "waardevolle inboedel", "inboedel overnemen", "antiek opkopen", "kunst opkopen", "inboedel opkopen Amsterdam", "inboedel opkopen na overlijden"],
 };
 
 const FAQ = [
+  {
+    v: "Wat betekent inboedel opkopen precies?",
+    a: "Bij inboedel opkopen neemt Uw Ontruimer de volledige inhoud van een woning over tegen één afgesproken bedrag. Meubels, antiek, kunst, boeken, servies, kleding en alles wat verder in de woning staat. Wij halen alles op en leveren de woning leeg en bezemschoon op. U verkoopt dus niet stuk voor stuk, maar de inboedel als geheel.",
+  },
+  {
+    v: "Wat is mijn inboedel waard?",
+    a: "Dat hangt af van wat er staat. Een gemiddelde inboedel dekt een deel van de ontruimingskosten. Een inboedel met antiek, kunst, vintage design, zilver, sieraden of een goede bibliotheek kan meer opleveren dan de ontruiming kost. Stuur foto's via WhatsApp, dan hoort u meestal binnen 48 uur wat wij bieden.",
+  },
   {
     v: "Hoe snel kan het?",
     a: "Het bod volgt meestal binnen 48 uur nadat wij uw foto's hebben ontvangen. De uitvoering plannen wij vaak binnen een week. Spoed is mogelijk, ook in het weekend.",
@@ -28,20 +37,24 @@ const FAQ = [
     a: "Nee. U zegt wat u wilt houden, de rest nemen wij over. Persoonlijke papieren, foto's en herinneringen leggen wij tijdens het werk apart en geven wij aan u terug.",
   },
   {
-    v: "Wat als er stukken zijn die ik zelf wil houden?",
-    a: "Dat is geen probleem. U geeft vooraf aan welke stukken u houdt en wij verwerken dat in het bod. Op de dag zelf zetten wij ze apart of brengen wij ze op een adres in de buurt.",
+    v: "Kopen jullie ook een gedeelte van de inboedel?",
+    a: "Ja. Wilt u alleen de waardevolle inboedel verkopen, zoals antiek, kunst of designmeubels, en de rest zelf regelen? Dan doen wij een bod op dat deel. Het voordeligst is meestal de combinatie: inboedel opkopen én de woning leeg opleveren, in één afspraak.",
+  },
+  {
+    v: "Wat gebeurt er met de spullen die geen waarde hebben?",
+    a: "Die nemen wij ook mee. Bruikbare meubels en huisraad gaan naar kringloop en hergebruik, de rest voeren wij gescheiden af. U hoeft niets apart te regelen of weg te brengen.",
   },
   {
     v: "Hoe weet ik dat het bod eerlijk is?",
-    a: "Het bod is vrijblijvend en staat op papier. U beslist pas daarna. Wij nemen al meer dan vijftien jaar inboedels over en leven van terugkerende families en verwijzingen, niet van één enkele afspraak.",
+    a: "Het bod is vrijblijvend en staat op papier. U beslist pas daarna. Wij kopen al meer dan vijftien jaar inboedels op en leven van terugkerende families en verwijzingen, niet van één enkele afspraak.",
   },
   {
     v: "Werkt u ook voor huurwoningen met een opleverdatum?",
     a: "Juist. Wij leveren op volgens de eisen van de verhuurder of beheerder en u ontvangt een opleveringsbewijs. Zo kunt u de sleutels op tijd inleveren.",
   },
   {
-    v: "Komt u ook buiten uw werkgebied?",
-    a: "Voor grote of bijzondere inboedels komen wij in overleg ook verder weg. Stuur foto's mee, dan hoort u snel of dat kan.",
+    v: "In welke regio kopen jullie inboedels op?",
+    a: "Wij kopen inboedels op in Amsterdam, Amstelveen, Haarlem, Hoofddorp, 't Gooi, Utrecht en omgeving. Voor grote of bijzondere inboedels komen wij in overleg ook verder weg.",
   },
 ];
 
@@ -49,6 +62,18 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: FAQ.map(({ v, a }) => ({ "@type": "Question", name: v, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Inboedel opkopen",
+  serviceType: "Inboedel opkopen en woning leeg opleveren",
+  description: "Uw Ontruimer koopt complete inboedels op, inclusief antiek, kunst, vintage design en sieraden, en levert de woning leeg en bezemschoon op. Eén bod op het geheel, vaak binnen 48 uur.",
+  url: "https://www.uwontruimer.nl/diensten/opkopen-inboedel/",
+  provider: { "@type": "LocalBusiness", name: "Uw Ontruimer", telephone: "+31853035894", url: "https://www.uwontruimer.nl" },
+  areaServed: ["Amsterdam", "Amstelveen", "Haarlem", "Hoofddorp", "Hilversum", "Bussum", "Utrecht"].map((n) => ({ "@type": "City", name: n })),
+  offers: { "@type": "Offer", description: "Vrijblijvend bod op de complete inboedel, verrekend met de ontruiming of uitbetaald." },
 };
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
@@ -88,15 +113,16 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <Header />
       <main className="mt-16">
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
-          <Image src="/inboedel opkopen.jpg" alt="Complete inboedel overnemen en woning leeg opleveren" fill className="w-full h-full object-cover" style={{ objectPosition: "bottom center" }} priority />
+          <Image src="/inboedel opkopen.jpg" alt="Inboedel opkopen: complete inboedel overnemen en woning leeg opleveren" fill className="w-full h-full object-cover" style={{ objectPosition: "bottom center" }} priority />
           <div className="absolute inset-0 bg-slate-900/40" />
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">
               <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
-                Wij nemen de complete inboedel over<br />en leveren de woning leeg op
+                Inboedel opkopen: wij nemen de complete inboedel over<br />en leveren de woning leeg op
               </h1>
             </div>
           </div>
@@ -114,11 +140,14 @@ export default function Page() {
 
         <div className="bg-white py-14 px-6">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Inboedel overnemen</p>
+            <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Inboedel opkopen</p>
 
             <p className="text-lg text-slate-700 font-light leading-relaxed mb-6">
-              Moet een woning leeg worden opgeleverd en staat er een volledige inboedel in? Uw Ontruimer doet <strong className="font-medium">één bod op de complete inboedel</strong> en levert de woning bezemschoon op. U hoeft niets uit te zoeken, niets te verkopen en niemand anders over de vloer te halen. Bij een waardevolle inboedel is het bod hoger dan de ontruimingskosten en betalen wij u het verschil uit.
+              Wilt u uw inboedel verkopen omdat een woning leeg moet worden opgeleverd? Uw Ontruimer koopt de <strong className="font-medium">complete inboedel</strong> op met één bod en levert de woning bezemschoon op. Antiek, kunst, vintage design, sieraden, boeken en gewone huisraad: alles in één keer. U hoeft niets uit te zoeken, niets los te verkopen en niemand anders over de vloer te halen. Bij een waardevolle inboedel is het bod hoger dan de ontruimingskosten en betalen wij u het verschil uit.
             </p>
+            <P>
+              Inboedel opkopen doen wij al meer dan vijftien jaar, in Amsterdam, Amstelveen, Haarlem, Hoofddorp, &apos;t Gooi, Utrecht en omgeving. Wij zijn geen tussenpersoon maar de koper zelf: het bod komt van ons, de ophaaldag is met ons en de woning leveren wij zelf op. Daardoor is inboedel verkopen bij Uw Ontruimer in één afspraak geregeld.
+            </P>
 
             <div className="mb-10">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>Foto&apos;s sturen via WhatsApp →</a>
@@ -139,6 +168,36 @@ export default function Page() {
                 </li>
               ))}
             </ol>
+
+            <H2>Wat kopen wij op?</H2>
+            <P>
+              Wij kopen de hele inboedel, maar het zijn deze categorieën die bepalen hoe hoog het bod uitvalt. Stuur hier dus altijd foto&apos;s van mee.
+            </P>
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {[
+                { titel: "Antiek en curiosa", tekst: "Antieke meubels, klokken, porselein, zilver, koper en andere objecten van vóór 1940." },
+                { titel: "Vintage en design", tekst: "Designmeubels, lampen en accessoires uit de twintigste eeuw, van Deens teak tot Italiaans design." },
+                { titel: "Kunst en schilderijen", tekst: "Olieverf, aquarellen, grafiek, sculpturen en fotografie, van bekende en minder bekende kunstenaars." },
+                { titel: "Sieraden en edelmetalen", tekst: "Goud, zilver, horloges, diamant en edelstenen. Wij bieden op basis van de actuele marktwaarde." },
+                { titel: "Boeken en verzamelingen", tekst: "Bibliotheken, munten, postzegels, militaria, platen en bijzondere verzamelobjecten." },
+                { titel: "Complete inboedels", tekst: "Alles wat verder in de woning staat: meubels, huisraad, apparatuur, kleding en linnengoed. Ook dat nemen wij mee." },
+              ].map(({ titel, tekst }) => (
+                <div key={titel} className="rounded-xl border border-slate-100 bg-white p-5">
+                  <p className="font-medium text-slate-800 mb-1">{titel}</p>
+                  <p className="text-slate-500 font-light text-sm leading-relaxed">{tekst}</p>
+                </div>
+              ))}
+            </div>
+
+            <H2>Inboedel opkopen én woning ontruimen</H2>
+            <P>
+              Meestal gaan inboedel opkopen en een <Link href="/diensten/woningontruiming/" className="text-blue-600 underline underline-offset-2">woningontruiming</Link> samen. De woning moet leeg naar de verhuurder, de makelaar of de nieuwe bewoner, en de inboedel moet weg. Wij doen dan één bod waarin alles zit: de waarde van de inboedel, het leeghalen, het afvoeren en het bezemschoon opleveren. Is de inboedel meer waard dan het werk kost, dan ontvangt u het verschil. Is het andersom, dan betaalt u alleen het verschil, en nooit meer dan de vaste prijs die wij vooraf afspreken. Zo weet u altijd waar u aan toe bent. Wat een ontruiming zonder inboedelwaarde kost, leest u op de pagina over de <Link href="/kosten-woningontruiming/" className="text-blue-600 underline underline-offset-2">kosten van een woningontruiming</Link>.
+            </P>
+
+            <H2>Inboedel opkopen na overlijden</H2>
+            <P>
+              De meeste inboedels die wij opkopen komen uit een nalatenschap. Erfgenamen of de executeur moeten de woning van een overleden ouder of familielid leeg opleveren, vaak binnen de opzegtermijn van de huur, en wonen zelf elders. Dan is één partij die de inboedel overneemt én de woning oplevert het meest rustige pad. Wij werken discreet, leggen persoonlijke zaken apart en u krijgt een opleveringsbewijs voor de verhuurder. Meer over de stappen leest u op <Link href="/huis-ontruimen-na-overlijden/" className="text-blue-600 underline underline-offset-2">huis ontruimen na overlijden</Link>.
+            </P>
 
             <H2>Waarom één bod beter werkt dan zelf verkopen</H2>
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -168,7 +227,12 @@ export default function Page() {
               Erfgenamen en executeurs die een woning leeg moeten opleveren, bewindvoerders, en beheerders van seniorenresidenties en serviceflats die een woning snel en netjes terug willen. Ons werkgebied is Amsterdam, Amstelveen, Haarlem, Hoofddorp, &apos;t Gooi, Utrecht en omgeving. Voor grote of bijzondere inboedels komen wij in overleg verder.
             </P>
             <P>
-              Moet er meer gebeuren dan alleen leeg opleveren, zoals vloeren verwijderen of gaatjes dichten? Kijk dan ook bij <Link href="/diensten/woningontruiming/" className="text-blue-600 underline underline-offset-2">woningontruiming</Link> of lees wat een <Link href="/kosten-woningontruiming/" className="text-blue-600 underline underline-offset-2">woningontruiming kost</Link>.
+              Moet er meer gebeuren dan alleen leeg opleveren, zoals vloeren verwijderen, gaatjes dichten of een voorinspectie met de verhuurder? Ook dat nemen wij mee in dezelfde afspraak.
+            </P>
+
+            <H2>Inboedel opkopen in Amsterdam, Amstelveen, Haarlem, &apos;t Gooi en Utrecht</H2>
+            <P>
+              Wij kopen inboedels op in heel Amsterdam en Amstelveen, in Haarlem en Hoofddorp, in &apos;t Gooi (Hilversum, Bussum, Laren, Blaricum) en in Utrecht en omgeving. In Amsterdam-Zuid, Amstelveen en &apos;t Gooi komen wij veel in seniorenresidenties en serviceflats, waar een appartement snel en netjes terug moet naar de beheerder. Voor grote of bijzondere inboedels komen wij ook buiten dit gebied. Bekijk onze pagina&apos;s voor <Link href="/amsterdam/" className="text-blue-600 underline underline-offset-2">Amsterdam</Link>, <Link href="/amstelveen/" className="text-blue-600 underline underline-offset-2">Amstelveen</Link>, <Link href="/haarlem/" className="text-blue-600 underline underline-offset-2">Haarlem</Link> en <Link href="/utrecht/" className="text-blue-600 underline underline-offset-2">Utrecht</Link>.
             </P>
 
             <H2>Veelgestelde vragen</H2>
