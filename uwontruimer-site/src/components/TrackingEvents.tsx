@@ -49,7 +49,11 @@ function fireExposureOnce() {
   window.gtag("event", "ab_wa_exposure", { ab_wa_variant: abWaVariant() });
   window.gtag("event", "ab_hero_exposure", { ab_hero_variant: abHeroVariant() });
   window.gtag("event", "ab_lisa_exposure", { ab_lisa_variant: abLisaVariant() });
+  // Opkoop-pagina (2 nov 2026): paginaweergave apart meten, alleen na consent.
+  if (location.pathname.startsWith(OPKOOP_PAD)) window.gtag("event", "opkoop_pagina_bekeken", { page_path: location.pathname });
 }
+
+const OPKOOP_PAD = "/diensten/opkopen-inboedel";
 
 export default function TrackingEvents() {
   useEffect(() => {
@@ -74,6 +78,12 @@ export default function TrackingEvents() {
         link_url: href,
         page_path: location.pathname,
       };
+      // Opkoop-pagina: eigen events naast de site-brede, zodat de pagina apart te beoordelen is.
+      if (location.pathname.startsWith(OPKOOP_PAD)) {
+        if (href.startsWith("tel:")) window.gtag("event", "opkoop_bel_klik", params);
+        else if (href.includes("analyse.uwontruimer.nl")) window.gtag("event", "opkoop_wizard_klik", params);
+        else if (href.includes("wa.me")) window.gtag("event", "opkoop_whatsapp_klik", params);
+      }
       if (href.startsWith("tel:")) {
         window.gtag("event", "tel_click", params);
         // Google Ads-conversie: telefoonklik = lead. Rechtstreeks afvuren via de Ads-tag
@@ -96,9 +106,18 @@ export default function TrackingEvents() {
     };
     document.addEventListener("click", onClick, true);
 
+    // Opkoop-pagina: openen van een veelgestelde vraag.
+    const onToggle = (e: Event) => {
+      const d = e.target as HTMLDetailsElement | null;
+      if (!d || !d.hasAttribute?.("data-opkoop-faq") || !d.open || typeof window.gtag !== "function") return;
+      window.gtag("event", "opkoop_faq_open", { vraag: d.querySelector("summary")?.textContent?.trim().replace(/\+$/, "").trim() ?? "", page_path: location.pathname });
+    };
+    document.addEventListener("toggle", onToggle, true);
+
     return () => {
       window.removeEventListener("uo:consent", onConsent);
       document.removeEventListener("click", onClick, true);
+      document.removeEventListener("toggle", onToggle, true);
     };
   }, []);
 

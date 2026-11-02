@@ -9,7 +9,6 @@ import Link from "next/link";
 import seoData from "@/data/seo-metadata.json";
 import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, ShieldCheck } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
-import TakarosBlock from "@/components/TakarosBlock";
 import AbHeroCta from "@/components/AbHeroCta";
 
 const steden = [
@@ -674,8 +673,6 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </a>
             </div>
 
-            {/* Takaros blok — op alle regiopagina's */}
-            <TakarosBlock />
 
             {/* Onderste CTA blok */}
             <div className="mt-14 rounded-2xl border border-slate-200 px-8 py-10 sm:px-10" style={{ backgroundColor: "#f8fafc" }}>

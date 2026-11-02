@@ -12,7 +12,6 @@ import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
 import { blogPosts } from "@/data/blog-posts";
 import { ShieldCheck } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
-import TakarosHomepageBlock from "@/components/TakarosHomepageBlock";
 
 export const metadata: Metadata = {
   title: "Professionele Woningontruiming | Uw Ontruimer",
@@ -200,12 +199,12 @@ export default function HomePage() {
             </div>
             <Link href="/diensten/" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">Alle diensten <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { href: "/diensten/woningontruiming/", img: "/Verhuislift-diensten.jpg", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
               { href: "/diensten/bedrijfsontruiming/", img: "/bedrijfsontruiming.jpg", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
               { href: "/diensten/spoedontruiming/", img: "/hero-truck.jpg", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
-              { href: "/diensten/opkopen-inboedel/", img: "/inboedel opkopen.jpg", title: "Opkopen inboedel", desc: "Waardevolle spullen verrekend met de kosten." },
+              { href: "/diensten/opkopen-inboedel/", img: "/inboedel opkopen.jpg", title: "Inboedel overnemen", desc: "Wij kopen de complete inboedel en leveren leeg op." },
             ].map((s) => (
               <Link key={s.href} href={s.href} className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
                 <div className="overflow-hidden h-32 foto-zoom relative"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
@@ -219,26 +218,9 @@ export default function HomePage() {
               </Link>
             ))}
 
-            {/* Takaros kaart */}
-            <a href="https://takaros.com" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300 relative">
-              <div className="overflow-hidden h-32 foto-zoom relative">
-                <Image src="/waardevolle.spullen.jpg" fill className="object-cover" alt="Waardevolle objecten" />
-              </div>
-              <div className="p-4">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: "#f0ebe0" }}>
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 2L2 7l10 5 10-5-10-5z"/><path strokeLinecap="round" strokeLinejoin="round" d="M2 17l10 5 10-5"/><path strokeLinecap="round" strokeLinejoin="round" d="M2 12l10 5 10-5"/></svg>
-                </div>
-                <div className="text-sm font-medium text-slate-900 mb-1">Waardevolle objecten</div>
-                <div className="text-xs text-slate-400 font-light leading-relaxed mb-3">Antiek, sieraden of kunst? Via Takaros krijgt u gratis een waardeoordeel van gespecialiseerde veilinghuizen.</div>
-                <span className="text-xs font-medium inline-flex items-center gap-1" style={{ color: "#C9A227" }}>Meer informatie op takaros.com →</span>
-              </div>
-            </a>
           </div>
         </div>
       </section>
-
-      {/* 6a. TAKAROS — ZUSTERPLATFORM */}
-      <TakarosHomepageBlock />
 
       {/* 6b. USP — WAAROM EERLIJK GEPRIJSD */}
       <section className="bg-white py-10 px-6 border-t border-slate-100">

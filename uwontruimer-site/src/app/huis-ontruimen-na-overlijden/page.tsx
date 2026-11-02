@@ -131,6 +131,12 @@ export default function Page() {
               <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
             </div>
 
+            <div className="rounded-xl border border-slate-100 bg-slate-50 p-5 mb-10">
+              <p className="text-slate-700 font-light leading-relaxed">
+                Staat er een volledige inboedel in de woning? Dan doen wij één bod op het geheel en leveren wij leeg op. Bij een waardevolle inboedel betalen wij u. <Link href="/diensten/opkopen-inboedel/" className="text-blue-600 underline underline-offset-2">Lees hoe inboedel overnemen werkt</Link>.
+              </p>
+            </div>
+
             <H2>Wat moet u regelen na een overlijden?</H2>
             <P>Een praktisch overzicht van de zaken die met de woning te maken hebben. De uitvaart, de bank en de verzekeringen laten we hier buiten beschouwing.</P>
             <ol className="space-y-4 mb-8">

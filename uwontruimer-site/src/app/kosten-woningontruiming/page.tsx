@@ -40,7 +40,7 @@ const factoren = [
   { titel: "Hoeveelheid inboedel", tekst: "De belangrijkste factor. Een volgestouwde woning kost meer tijd en meer ritten dan een half lege." },
   { titel: "Bereikbaarheid", tekst: "Een lift of een parkeerplek voor de deur scheelt uren. Een derde verdieping zonder lift met een smalle trap juist niet." },
   { titel: "Verdieping en woningtype", tekst: "Vierkante meters en het aantal kamers bepalen mede hoeveel mankracht er nodig is." },
-  { titel: "Waardevolle spullen", tekst: "Antiek, design, sieraden of elektronica kopen wij op of veilen wij — dat wordt verrekend en verlaagt uw eindbedrag." },
+  { titel: "Waardevolle spullen", tekst: "Wij doen een bod op de complete inboedel en verrekenen dat met de kosten. Bij een waardevolle inboedel betalen wij u uit." },
   { titel: "Spoed", tekst: "Binnen 24 uur ontruimen kan altijd, maar brengt een toeslag met zich mee. Vroeg plannen is goedkoper." },
   { titel: "Extra werkzaamheden", tekst: "Vloeren eruit, muren herstellen of een diepe schoonmaak worden apart geoffreerd." },
 ];
@@ -59,7 +59,7 @@ const faqItems = [
   {
     vraag: "Kan een woningontruiming gratis zijn?",
     antwoord:
-      "Zelden. Alleen als de inboedel genoeg waarde vertegenwoordigt om de kosten te dekken, kan de rekening naar nul. Wij taxeren waardevolle spullen en verrekenen die met de ontruimingskosten, waardoor het eindbedrag flink lager kan uitvallen.",
+      "Zelden. Alleen als de inboedel genoeg waarde vertegenwoordigt om de kosten te dekken, kan de rekening naar nul. Wij doen een bod op de complete inboedel en verrekenen dat met de ontruimingskosten. Bij een waardevolle inboedel ligt het bod boven de kosten en betalen wij u uit.",
   },
   {
     vraag: "Wie betaalt de ontruiming bij een overlijden?",
@@ -223,7 +223,7 @@ export default function Page() {
 
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Zo houdt u de kosten laag</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Drie dingen maken in de praktijk het meeste verschil. Leg waardevolle spullen apart: antiek, design, sieraden en goede elektronica kopen wij op of veilen wij voor u, en dat bedrag gaat van de rekening af. Plan daarnaast op tijd — spoed kan altijd, maar kost een toeslag. En bepaal vooraf welke extra&apos;s u echt nodig heeft: moet de vloer er werkelijk uit, of volstaat bezemschoon?
+              Drie dingen maken in de praktijk het meeste verschil. Laat ons een bod doen op de complete inboedel: antiek, design, sieraden en goede elektronica nemen wij over en dat bedrag gaat van de rekening af. Plan daarnaast op tijd — spoed kan altijd, maar kost een toeslag. En bepaal vooraf welke extra&apos;s u echt nodig heeft: moet de vloer er werkelijk uit, of volstaat bezemschoon?
             </p>
             <p className="text-slate-500 font-light leading-relaxed mb-10">
               Meer lezen? In onze kennisbank staan{" "}
