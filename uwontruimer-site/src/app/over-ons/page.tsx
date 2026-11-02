@@ -130,7 +130,7 @@ export default function Page() {
               {[
                 { stat: "1.200+", label: "Families geholpen" },
                 { stat: "15+", label: "Jaar ervaring" },
-                { stat: "4,9 ★", label: "Google beoordeling" },
+                { stat: "4,8 ★", label: "Google beoordeling" },
                 { stat: "100%", label: "Opleveringsgarantie" },
               ].map((s) => (
                 <div key={s.label} className="bg-slate-50 border border-slate-100 rounded-xl p-4 text-center">

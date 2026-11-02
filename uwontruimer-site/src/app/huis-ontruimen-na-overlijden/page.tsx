@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
+import { prijzen, euro, PRIJSJAAR } from "@/data/prijzen";
 
 export const metadata: Metadata = {
   title: "Huis ontruimen na overlijden: stappenplan, kosten en wie regelt wat",
@@ -36,7 +37,7 @@ const FAQ = [
   { v: "Wie is verantwoordelijk voor het ontruimen van een huis na overlijden?", a: "De erfgenamen, of de executeur als die in het testament is benoemd. Bij een huurwoning loopt de huurovereenkomst na het overlijden door op naam van de erfgenamen; zij moeten opzeggen en de woning leeg opleveren. Bij een koopwoning moet de woning leeg zijn bij de overdracht. Een bewindvoerder of mentor stopt bij overlijden; die regelt de ontruiming niet meer." },
   { v: "Wanneer mag ik beginnen met ontruimen na een overlijden?", a: "Zodra duidelijk is wie de erfgenamen zijn en zij het eens zijn, meestal na de verklaring van erfrecht van de notaris. Heeft u de nalatenschap nog niet aanvaard of beneficiair aanvaard, overleg dan eerst met de notaris voordat u spullen verkoopt of weggooit. Persoonlijke documenten, post en administratie houden wij altijd apart." },
   { v: "Hoe snel moet een huurwoning na overlijden leeg zijn?", a: "De huur loopt door tot de woning is opgezegd en opgeleverd. De meeste corporaties hanteren één maand opzegtermijn, soms met wat coulance voor nabestaanden. Daarna moet de woning leeg en in de afgesproken staat zijn. Wij plannen de ontruiming op de opleverdatum en kunnen binnen 24 uur starten als het moet." },
-  { v: "Wat kost een huis ontruimen na overlijden?", a: "Als richtlijn: een zorgkamer of studio vanaf €350, een appartement vanaf €450 en een eengezinswoning vanaf €750. Waardevolle inboedel verrekenen wij met de factuur, waardoor het bedrag vaak lager uitvalt. De kosten komen ten laste van de nalatenschap en zijn aftrekbaar voor de erfbelasting als schuld van de boedel." },
+  { v: "Wat kost een huis ontruimen na overlijden?", a: "In 2026 meestal tussen € 600 en € 2.000. Als richtlijn: een zorgkamer € 350 tot € 600, een studio € 350 tot € 750, een appartement € 600 tot € 1.400, een rijtjeshuis € 900 tot € 2.000 en een vrijstaande woning € 1.500 tot € 4.000, inclusief btw. Waardevolle inboedel verrekenen wij met de factuur, waardoor het bedrag vaak lager uitvalt. De kosten komen ten laste van de nalatenschap en gelden als schuld van de boedel bij de erfbelasting." },
   { v: "Wat gebeurt er met de persoonlijke spullen en waardevolle stukken?", a: "Foto's, documenten, sieraden en herinneringen zetten wij apart en overhandigen wij aan de nabestaanden. Antiek, kunst en verzamelingen laten wij taxeren; wij kopen op of brengen het naar een veilinghuis en de opbrengst gaat van de factuur af. Bruikbare meubels gaan naar kringloop en goede doelen." },
   { v: "Moet ik erbij zijn tijdens de ontruiming?", a: "Nee. Veel nabestaanden wonen ver weg of willen de woning liever niet meer leeg zien. Wij regelen de sleutels, wonen de eindinspectie met de verhuurder bij en sturen een fotorapportage. U bepaalt vooraf wat bewaard moet blijven; de rest doen wij." },
   { v: "Kunnen jullie ook de oplevering met de woningcorporatie regelen?", a: "Ja. Wij zijn aanwezig bij de vooropname en de eindinspectie, voeren de punten uit het inspectierapport uit (vloeren, gaatjes, bezemschoon) en leveren op. Heeft u het rapport van de corporatie al, dan zetten wij onze prijs er post voor post naast." },
@@ -116,6 +117,10 @@ export default function Page() {
         <div className="bg-white py-14 px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Ontruiming na overlijden</p>
+
+            <p className="text-lg text-slate-700 font-light leading-relaxed mb-6">
+              Een huis ontruimen na overlijden kost in {PRIJSJAAR} meestal tussen <strong className="font-medium">€ 600 en € 2.000</strong>, afhankelijk van de grootte van de woning en de hoeveelheid inboedel. De erfgenamen of de executeur geven opdracht; de kosten komen ten laste van de nalatenschap. Uw Ontruimer werkt met een vaste prijs vooraf en schriftelijke opleveringsgarantie, in Amsterdam, Amstelveen, Haarlem, Hoofddorp, Utrecht en omgeving.
+            </p>
 
             <P>
               Na het overlijden van een ouder, partner of familielid komt er veel tegelijk op u af. Naast het verdriet moet de woning worden leeggemaakt, de inboedel verdeeld en het huis opgeleverd aan de verhuurder of klaargemaakt voor verkoop. Vaak met een opleverdatum die niet wacht. Op deze pagina leest u wat u moet regelen, wie waarvoor verantwoordelijk is, wanneer u mag beginnen en wat het kost. En hoe Uw Ontruimer het u uit handen neemt: discreet, met een vaste prijs en een schriftelijke opleveringsgarantie.
@@ -198,22 +203,30 @@ export default function Page() {
             </P>
 
             <H2>Wat kost een huis ontruimen na overlijden?</H2>
-            <P>De kosten hangen af van de grootte van de woning, de hoeveelheid inboedel en de bereikbaarheid. Als richtlijn:</P>
-            <ul className="space-y-2 mb-6 text-sm">
-              {[
-                { type: "Zorgkamer of studio", prijs: "vanaf €350" },
-                { type: "Appartement (1–2 slaapkamers)", prijs: "vanaf €450" },
-                { type: "Eengezinswoning (3–4 slaapkamers)", prijs: "vanaf €750" },
-                { type: "Vrijstaande woning of villa", prijs: "op maat, na opname" },
-              ].map(({ type, prijs }) => (
-                <li key={type} className="flex justify-between items-center border-b border-slate-100 pb-2">
-                  <span className="text-slate-600 font-light">{type}</span>
-                  <span className="font-medium text-slate-800">{prijs}</span>
-                </li>
-              ))}
-            </ul>
+            <P>De kosten hangen af van de grootte van de woning, de hoeveelheid inboedel en de bereikbaarheid. Dit zijn onze richtprijzen voor {PRIJSJAAR}, inclusief btw:</P>
+            <div className="overflow-hidden rounded-2xl border border-slate-200 mb-6">
+              <table className="w-full text-left">
+                <thead style={{ backgroundColor: "#f8fafc" }}>
+                  <tr>
+                    <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">Woning</th>
+                    <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500 text-right whitespace-nowrap">Indicatie</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {prijzen.map(({ type, detail, van, tot }) => (
+                    <tr key={type} className="border-t border-slate-100">
+                      <td className="px-5 py-3">
+                        <span className="block font-medium text-slate-800">{type}</span>
+                        <span className="block text-sm text-slate-400 font-light">{detail}</span>
+                      </td>
+                      <td className="px-5 py-3 text-right font-medium text-slate-800 whitespace-nowrap">{euro(van)} – {euro(tot)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
             <P>
-              Waardevolle inboedel verrekenen wij met de factuur; daardoor valt het bedrag vaak lager uit. De kosten van de ontruiming komen ten laste van de nalatenschap en gelden als schuld van de boedel bij de erfbelasting. Meer over tarieven en wie betaalt leest u in <Link href="/blog/ontruiming-na-overlijden-kosten/" className="text-blue-600 hover:underline">ontruiming na overlijden: kosten en wie betaalt</Link>.
+              Waardevolle inboedel verrekenen wij met de factuur; daardoor valt het bedrag vaak lager uit. De kosten van de ontruiming komen ten laste van de nalatenschap en gelden als schuld van de boedel bij de erfbelasting. Uw definitieve prijs staat vast na een vrijblijvende opname, met schriftelijke opleveringsgarantie. Meer over tarieven en wie betaalt leest u op onze <Link href="/kosten-woningontruiming/" className="text-blue-600 hover:underline">kostenpagina</Link>.
             </P>
 
             <H2>Zo verloopt de ontruiming bij Uw Ontruimer</H2>

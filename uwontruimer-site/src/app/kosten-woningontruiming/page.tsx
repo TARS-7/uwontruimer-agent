@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Link from "next/link";
+import { prijzen, euro, PRIJSJAAR } from "@/data/prijzen";
 
 // Prijspagina (18 sep 2026). Doel: landingspagina voor de kosten-zoekopdrachten
 // uit Google Ads ("wat kost woningontruiming", "kosten huis ontruimen" — 60-75%
@@ -18,13 +19,6 @@ export const metadata: Metadata = {
     "Direct duidelijkheid: een woningontruiming kost tussen € 350 en € 4.000, afhankelijk van woningtype en inboedel. Bekijk de bandbreedtes per woning en bereken gratis uw eigen prijs.",
   alternates: { canonical: "/kosten-woningontruiming/" },
 };
-
-const prijzen = [
-  { type: "Studio of kleine woning", detail: "1–2 kamers", van: 350, tot: 750 },
-  { type: "Appartement", detail: "2–3 kamers", van: 600, tot: 1400 },
-  { type: "Rijtjeshuis of tussenwoning", detail: "3–4 kamers", van: 900, tot: 2000 },
-  { type: "Vrijstaande woning of villa", detail: "4+ kamers", van: 1500, tot: 4000 },
-];
 
 const inbegrepen = [
   "Arbeidskosten van het volledige ontruimingsteam",
@@ -55,7 +49,7 @@ const faqItems = [
   {
     vraag: "Wat kost een woningontruiming gemiddeld?",
     antwoord:
-      "Reken op € 350 tot € 750 voor een studio, € 600 tot € 1.400 voor een appartement, € 900 tot € 2.000 voor een rijtjeshuis en € 1.500 tot € 4.000 voor een vrijstaande woning. De uiteindelijke prijs hangt af van de hoeveelheid inboedel, de bereikbaarheid en eventuele extra werkzaamheden.",
+      "Reken in 2026 op € 350 tot € 600 voor een zorgkamer, € 350 tot € 750 voor een studio, € 600 tot € 1.400 voor een appartement, € 900 tot € 2.000 voor een rijtjeshuis en € 1.500 tot € 4.000 voor een vrijstaande woning. De uiteindelijke prijs hangt af van de hoeveelheid inboedel, de bereikbaarheid en eventuele extra werkzaamheden.",
   },
   {
     vraag: "Krijg ik een vaste prijs of een uurtarief?",
@@ -89,7 +83,6 @@ const faqJsonLd = {
   })),
 };
 
-const euro = (n: number) => `€ ${n.toLocaleString("nl-NL")}`;
 
 const checkIcon = (
   <span className="mt-0.5 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
@@ -181,7 +174,7 @@ export default function Page() {
             </div>
 
             <p className="text-sm text-slate-400 font-light mb-8">
-              Bedragen zijn inclusief btw en bedoeld als richtlijn. Uw definitieve prijs staat vast na een vrijblijvende inspectie — met schriftelijke opleveringsgarantie, zodat u achteraf niet voor verrassingen komt te staan.
+              Prijzen gelden voor {PRIJSJAAR} in ons hele werkgebied (Amsterdam, Amstelveen, Haarlem, Hoofddorp, Utrecht en omgeving), inclusief btw en bedoeld als richtlijn. Waardevolle inboedel verrekenen wij met de factuur. Uw definitieve prijs staat vast na een vrijblijvende inspectie — met schriftelijke opleveringsgarantie, zodat u achteraf niet voor verrassingen komt te staan.
             </p>
 
             <WizardCta />

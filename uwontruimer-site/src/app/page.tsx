@@ -62,9 +62,27 @@ const localBusinessSchema = {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "08:00",
-      closes: "18:00",
+      closes: "21:30",
     },
   ],
+  // Weekend: alleen spoedontruimingen op afspraak (geen vaste openingstijden).
+  sameAs: ["https://www.google.com/maps?cid=2439916917779067451"],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "105",
+    bestRating: "5",
+  },
+  areaServed: [
+    { "@type": "City", name: "Amsterdam" },
+    { "@type": "City", name: "Amstelveen" },
+    { "@type": "City", name: "Haarlem" },
+    { "@type": "City", name: "Hoofddorp" },
+    { "@type": "City", name: "Utrecht" },
+    { "@type": "City", name: "Den Haag" },
+    { "@type": "City", name: "Leiden" },
+  ],
+  knowsAbout: ["Woningontruiming", "Ontruiming na overlijden", "Spoedontruiming", "Bezemschoon opleveren", "Inboedel opkopen"],
 };
 
 export default function HomePage() {
@@ -136,7 +154,7 @@ export default function HomePage() {
             {/* TRUST STATS */}
             <div className="fade-5 flex flex-wrap items-center gap-8 pt-8 border-t border-white/20 lg:border-slate-100">
               <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">1.200+</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Families geholpen</div></div>
-              <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">4,9 ★</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Google beoordeling</div></div>
+              <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">4,8 ★</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Google beoordeling</div></div>
               <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">24u</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Spoedservice</div></div>
               <div><div className="text-xl font-semibold text-white lg:text-slate-900 leading-none mb-1">100%</div><div className="text-xs text-white/60 lg:text-slate-400 uppercase tracking-wide">Opleveringsgarantie</div></div>
             </div>
@@ -438,11 +456,11 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
             <div>
               <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat klanten zeggen</p>
-              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight">Beoordeeld met 4,9 sterren</h2>
+              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight">Beoordeeld met 4,8 sterren</h2>
             </div>
             <div className="text-right">
               <div className="text-yellow-400 text-lg tracking-widest mb-1">★★★★★</div>
-              <div className="text-xs text-slate-400">4,9 op Google Reviews</div>
+              <div className="text-xs text-slate-400">4,8 op Google Reviews (105 beoordelingen)</div>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
