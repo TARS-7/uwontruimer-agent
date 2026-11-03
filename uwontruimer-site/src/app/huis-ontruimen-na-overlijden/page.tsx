@@ -205,7 +205,7 @@ export default function Page() {
               "Wat niet herbruikbaar is, wordt gescheiden en verantwoord afgevoerd",
             ]} />
             <P>
-              Lees ook: <Link href="/blog/waardevolle-spullen-nalatenschap/" className="text-blue-600 hover:underline">wat te doen met waardevolle spullen uit een nalatenschap</Link>.
+              Lees ook: <Link href="/blog/inboedel-verkopen-na-overlijden/" className="text-blue-600 hover:underline">inboedel verkopen na overlijden, wat erfgenamen vooraf moeten weten</Link>, <Link href="/blog/wat-is-mijn-inboedel-waard/" className="text-blue-600 hover:underline">wat is mijn inboedel waard</Link> en <Link href="/blog/waardevolle-spullen-nalatenschap/" className="text-blue-600 hover:underline">wat te doen met waardevolle spullen uit een nalatenschap</Link>.
             </P>
 
             <H2>Wat kost een huis ontruimen na overlijden?</H2>

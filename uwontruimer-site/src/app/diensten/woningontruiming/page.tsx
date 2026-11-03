@@ -183,7 +183,7 @@ export default function Page() {
 
             <H2>Woningontruiming na overlijden</H2>
             <P>
-              De meeste ontruimingen die wij doen, zijn na een overlijden. Dan komt er veel tegelijk op nabestaanden af: de nalatenschap, de notaris, een opleverdatum en een huis vol herinneringen. Wij werken daarom met rust en respect, houden persoonlijke documenten, foto's en waardevolle stukken apart en stemmen af met de executeur of notaris. Lees meer over <Link href="/huis-ontruimen-na-overlijden/" className="text-blue-600 hover:underline">een huis ontruimen na overlijden</Link>: wie is verantwoordelijk, wat mag u weggooien en hoe gaat het met de nalatenschap.
+              De meeste ontruimingen die wij doen, zijn na een overlijden. Dan komt er veel tegelijk op nabestaanden af: de nalatenschap, de notaris, een opleverdatum en een huis vol herinneringen. Wij werken daarom met rust en respect, houden persoonlijke documenten, foto's en waardevolle stukken apart en stemmen af met de executeur of notaris. Lees meer over <Link href="/huis-ontruimen-na-overlijden/" className="text-blue-600 hover:underline">een huis ontruimen na overlijden</Link>: wie is verantwoordelijk, wat mag u weggooien en hoe gaat het met de nalatenschap. Moet ook de inboedel worden verkocht? Lees dan <Link href="/blog/inboedel-verkopen-na-overlijden/" className="text-blue-600 hover:underline">wat erfgenamen vooraf moeten weten over inboedel verkopen na overlijden</Link>.
             </P>
 
             <H2>Huurwoning opleveren aan verhuurder of corporatie</H2>
@@ -221,6 +221,9 @@ export default function Page() {
               "Duurzaam: hergebruik via kringloop en goede doelen, gescheiden afvoer",
               "Vast aanspreekpunt voor notarissen, makelaars, bewindvoerders en corporaties",
             ]} />
+            <P>
+              Vergelijkt u nog bedrijven? Lees <Link href="/woningontruimer-kiezen/" className="text-blue-600 hover:underline">waar u op let bij het kiezen van een woningontruimer</Link>, met zeven controlepunten en de vragen die u moet stellen. En bekijk <Link href="/blog/wat-kost-woningontruiming-2026-cijfers/" className="text-blue-600 hover:underline">onze echte prijzen uit 87 offertes van 2026</Link>.
+            </P>
 
             <H2>Woningontruiming in uw regio</H2>
             <P>

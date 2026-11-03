@@ -226,7 +226,11 @@ export default function Page() {
               Drie dingen maken in de praktijk het meeste verschil. Laat ons een bod doen op de complete inboedel: antiek, design, sieraden en goede elektronica nemen wij over en dat bedrag gaat van de rekening af. Plan daarnaast op tijd — spoed kan altijd, maar kost een toeslag. En bepaal vooraf welke extra&apos;s u echt nodig heeft: moet de vloer er werkelijk uit, of volstaat bezemschoon?
             </p>
             <p className="text-slate-500 font-light leading-relaxed mb-10">
-              Meer lezen? In onze kennisbank staan{" "}
+              Benieuwd wat uw inboedel waard is? Lees{" "}
+              <Link href="/blog/wat-is-mijn-inboedel-waard/" className="text-blue-600 hover:underline font-medium">
+                hoe een bod op een complete inboedel tot stand komt
+              </Link>
+              . Meer lezen? In onze kennisbank staan{" "}
               <Link href="/blog/kosten-woningontruiming-verminderen/" className="text-blue-600 hover:underline font-medium">
                 praktische manieren om de kosten te verminderen
               </Link>{" "}

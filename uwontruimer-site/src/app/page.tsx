@@ -474,7 +474,7 @@ export default function HomePage() {
         <div className="max-w-xl mx-auto">
           <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-4">Aan de slag</p>
           <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-4">Klaar voor de volgende stap?</h2>
-          <p className="text-slate-500 font-light text-sm leading-relaxed mb-10">Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie.</p>
+          <p className="text-slate-500 font-light text-sm leading-relaxed mb-10">Vraag vandaag nog een gratis offerte aan of gebruik onze analysetool voor een directe prijsindicatie. Nog aan het vergelijken? <Link href="/woningontruimer-kiezen/" className="text-blue-600 hover:underline">Lees waar u op let bij het kiezen van een woningontruimer</Link>.</p>
           {/* Peter Visser + knoppen */}
           <div className="flex flex-row items-center justify-center gap-6 mb-6">
             <div className="flex items-center gap-3 flex-shrink-0">
