@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { leesAttributie, leesHerkomst } from "@/lib/attributie";
 
 declare global {
   interface Window {
@@ -86,6 +87,29 @@ export default function TrackingEvents() {
       }
       if (href.startsWith("tel:")) {
         window.gtag("event", "tel_click", params);
+        // Telefoonklik mét herkomst naar het dashboard (3 nov 2026): wordt daar
+        // op tijd gekoppeld aan het Voys-gesprek en aan de opdracht. Geen
+        // persoonsgegevens; keepalive zodat het verzoek de paginawissel overleeft.
+        try {
+          const attr = leesAttributie();
+          const herkomst = leesHerkomst();
+          fetch("/api/telefoonklik", {
+            method: "POST",
+            keepalive: true,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              pagina: location.pathname,
+              gclid: attr.gclid, gbraid: attr.gbraid, wbraid: attr.wbraid,
+              utmSource: attr.utmSource, utmMedium: attr.utmMedium, utmCampaign: attr.utmCampaign,
+              utmTerm: attr.utmTerm, utmContent: attr.utmContent,
+              landingsPagina: attr.landingsPagina, klikVastgelegdOp: attr.klikVastgelegdOp,
+              verwijzer: herkomst.verwijzer, eersteLanding: herkomst.eersteLanding,
+              betaald: document.documentElement.hasAttribute("data-betaald"),
+              abVarianten: `cta=${abVariant()};wa=${abWaVariant()};hero=${abHeroVariant()};lisa=${abLisaVariant()}`,
+              apparaat: /Mobi|Android/i.test(navigator.userAgent) ? "mobiel" : "desktop",
+            }),
+          }).catch(() => {});
+        } catch { /* meting mag de klik nooit hinderen */ }
         // Google Ads-conversie: telefoonklik = lead. Rechtstreeks afvuren via de Ads-tag
         // (AW-748902533) omdat de GA4→Ads-import van tel_click niet doorkwam.
         window.gtag("event", "conversion", { send_to: "AW-748902533/GaOgCO3s-uMcEIWxjeUC" });
