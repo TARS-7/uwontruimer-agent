@@ -5,9 +5,23 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Vloerverwijdering | Snel uw vloer laten verwijderen? - Uw Ontruimer",
-  description: "Wij verwijderen uw vloer op een professionele manier. ✓ Vloerverwijdering specialist ✓ Ruim 10 jaar ervaring ✓ Duurzaam ✓ Actief in héél NL.",
+  title: "Vloerverwijdering: vloer laten verwijderen, kosten per m²",
+  description: "Tapijt, laminaat, tegels of gelijmd parket laten verwijderen? Vaste prijs per m²: tapijt en laminaat vanaf €4, parket vanaf €7, tegels vanaf €8. Ook los van een ontruiming, bezemschoon opgeleverd.",
   alternates: { canonical: "/diensten/vloerverwijdering/" },
+};
+
+const FAQ = [
+  { v: "Wat kost een tegelvloer verwijderen per m²?", a: "Vanaf €8 per m². De prijs hangt af van de lijm- of specielaag onder de tegels en of de ondervloer vlak moet blijven voor de nieuwe vloer. Bij meerdere lagen geven wij vooraf een vaste prijs op basis van foto's of een opname." },
+  { v: "Wat kost laminaat of tapijt verwijderen?", a: "Vanaf €4 per m². Zwevend laminaat gaat snel; gelijmd tapijt of tapijt met lijmresten kost meer werk en prijzen wij vooraf vast, zodat u niet voor verrassingen komt te staan." },
+  { v: "Kunnen jullie een gelijmde vloer verwijderen?", a: "Ja. Gelijmd parket, gelijmde pvc en gelijmd tapijt halen wij machinaal weg, inclusief de lijmresten, tot een vlakke ondervloer. Gelijmd parket vanaf €7 per m²." },
+  { v: "Kan ik alleen de vloer laten verwijderen, zonder ontruiming?", a: "Ja. Vloerverwijdering doen wij ook als losse klus, bijvoorbeeld vóór een renovatie of bij de oplevering van een huurwoning. U krijgt vooraf een vaste prijs en wij leveren bezemschoon op." },
+  { v: "Hoe snel kan de vloer eruit?", a: "Meestal binnen een week, bij spoed vaak binnen 24 tot 48 uur. Een gemiddelde woning is in één dag klaar." },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map(({ v, a }) => ({ "@type": "Question", name: v, acceptedAnswer: { "@type": "Answer", text: a } })),
 };
 
 const checkIcon = (
@@ -142,10 +156,21 @@ export default function Page() {
               ))}
             </ul>
 
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Veelgestelde vragen over vloer verwijderen</h2>
+            <div className="divide-y divide-slate-200 mb-10">
+              {FAQ.map(({ v, a }) => (
+                <details key={v} data-faq className="group py-3">
+                  <summary className="cursor-pointer list-none flex justify-between items-center text-slate-800 font-medium">{v}<span className="text-slate-400 group-open:rotate-45 transition-transform">+</span></summary>
+                  <p className="text-slate-500 font-light leading-relaxed mt-2 text-sm">{a}</p>
+                </details>
+              ))}
+            </div>
+
             <CtaBox />
           </div>
         </div>
       </main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Footer />
     </>
   );
