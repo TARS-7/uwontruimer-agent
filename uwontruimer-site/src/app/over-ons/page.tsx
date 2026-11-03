@@ -33,7 +33,7 @@ const organisatieSchema = {
     identifier: { "@type": "PropertyValue", propertyID: "KVK", value: "84981393" },
     address: { "@type": "PostalAddress", streetAddress: "Welnastraat 175", postalCode: "1096GJ", addressLocality: "Amsterdam", addressCountry: "NL" },
     areaServed: ["Amsterdam", "Amstelveen", "Haarlem", "Hoofddorp", "Utrecht", "Den Haag", "Leiden"].map((n) => ({ "@type": "City", name: n })),
-    sameAs: ["https://www.google.com/maps?cid=2439916917779067451"],
+    sameAs: ["https://www.google.com/maps?cid=2439916917779067451", "https://nl.trustpilot.com/review/uwontruimer.nl"],
     knowsAbout: ["Woningontruiming", "Ontruiming na overlijden", "Spoedontruiming", "Bezemschoon opleveren", "Inboedel opkopen", "Bedrijfsontruiming"],
   },
 };

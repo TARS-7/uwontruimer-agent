@@ -65,7 +65,7 @@ const localBusinessSchema = {
     },
   ],
   // Weekend: alleen spoedontruimingen op afspraak (geen vaste openingstijden).
-  sameAs: ["https://www.google.com/maps?cid=2439916917779067451"],
+  sameAs: ["https://www.google.com/maps?cid=2439916917779067451", "https://nl.trustpilot.com/review/uwontruimer.nl"],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",
