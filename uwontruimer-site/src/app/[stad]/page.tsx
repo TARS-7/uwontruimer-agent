@@ -353,7 +353,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
         name: `Wat gebeurt er met de inboedel bij een ontruiming in ${name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Waardevolle spullen worden getaxeerd en kunnen worden afgekocht of verrekend met de ontruimingskosten. Herbruikbare goederen gaan naar de kringloopwinkel, de rest wordt op verantwoorde wijze afgevoerd en gesorteerd. Wij werken duurzaam en houden zo veel mogelijk materiaal uit de verbrandingsoven.`,
+          text: `Op de complete inboedel doen wij één bod; dat bod gaat van de ontruimingskosten af en bij een waardevolle inboedel betalen wij u uit. Herbruikbare goederen gaan naar de kringloopwinkel, de rest wordt op verantwoorde wijze afgevoerd en gesorteerd. Wij werken duurzaam en houden zo veel mogelijk materiaal uit de verbrandingsoven.`,
         },
       },
     ],
@@ -391,7 +391,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
     },
     {
       q: `Wat gebeurt er met de inboedel bij een ontruiming in ${name}?`,
-      a: `Waardevolle spullen worden getaxeerd en kunnen worden afgekocht of verrekend met de ontruimingskosten. Herbruikbare goederen gaan naar de kringloopwinkel, de rest wordt op verantwoorde wijze afgevoerd en gesorteerd. Wij werken duurzaam en houden zo veel mogelijk materiaal uit de verbrandingsoven.`,
+      a: `Op de complete inboedel doen wij één bod; dat bod gaat van de ontruimingskosten af en bij een waardevolle inboedel betalen wij u uit. Herbruikbare goederen gaan naar de kringloopwinkel, de rest wordt op verantwoorde wijze afgevoerd en gesorteerd. Wij werken duurzaam en houden zo veel mogelijk materiaal uit de verbrandingsoven.`,
     },
   ];
 
