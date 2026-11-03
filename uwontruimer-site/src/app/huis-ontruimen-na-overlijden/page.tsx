@@ -42,7 +42,7 @@ const FAQ = [
   { v: "Wat gebeurt er met de persoonlijke spullen en waardevolle stukken?", a: "Foto's, documenten, sieraden en herinneringen zetten wij apart en overhandigen wij aan de nabestaanden. Op antiek, kunst en verzamelingen doen wij een bod als onderdeel van de complete inboedel; dat bedrag gaat van de factuur af en bij een waardevolle inboedel betalen wij u uit. Bruikbare meubels gaan naar kringloop en goede doelen." },
   { v: "Moet ik erbij zijn tijdens de ontruiming?", a: "Nee. Veel nabestaanden wonen ver weg of willen de woning liever niet meer leeg zien. Wij regelen de sleutels, wonen de eindinspectie met de verhuurder bij en sturen een fotorapportage. U bepaalt vooraf wat bewaard moet blijven; de rest doen wij." },
   { v: "Kunnen jullie ook de oplevering met de woningcorporatie regelen?", a: "Ja. Wij zijn aanwezig bij de vooropname en de eindinspectie, voeren de punten uit het inspectierapport uit (vloeren, gaatjes, bezemschoon) en leveren op. Heeft u het rapport van de corporatie al, dan zetten wij onze prijs er post voor post naast." },
-  { v: "Werken jullie samen met notarissen en executeurs?", a: "Dagelijks. Wij leveren een inventarisatie, taxatie van waardevolle stukken, een fotorapportage en een factuur op naam van de boedel, zodat de afwikkeling van de nalatenschap compleet is." },
+  { v: "Werken jullie samen met notarissen en executeurs?", a: "Dagelijks. Wij leveren een foto-inventarisatie, één schriftelijk bod op de inboedel, een fotorapportage en een factuur op naam van de boedel, zodat de afwikkeling van de nalatenschap compleet is." },
 ];
 
 const faqSchema = {
@@ -58,7 +58,7 @@ const serviceSchema = {
   provider: { "@type": "LocalBusiness", name: "Uw Ontruimer", telephone: "+31853035894", url: "https://www.uwontruimer.nl/" },
   areaServed: ["Noord-Holland", "Zuid-Holland", "Utrecht"],
   url: "https://www.uwontruimer.nl/huis-ontruimen-na-overlijden/",
-  description: "Discrete ontruiming van de woning van een overledene, met inventarisatie, taxatie, bezemschone oplevering en afstemming met erfgenamen, executeur en notaris.",
+  description: "Discrete ontruiming van de woning van een overledene, met foto-inventarisatie, één bod op de inboedel, bezemschone oplevering en afstemming met erfgenamen, executeur en notaris.",
 };
 
 const CtaBox = () => (
@@ -145,7 +145,7 @@ export default function Page() {
                 { stap: "1", titel: "Verklaring van erfrecht aanvragen", tekst: "De notaris stelt vast wie de erfgenamen zijn en of er een executeur is. Veel instanties, waaronder verhuurders en banken, vragen hiernaar voordat zij iets voor u doen." },
                 { stap: "2", titel: "Huur opzeggen of verkoop voorbereiden", tekst: "Bij een huurwoning zegt u als erfgenaam de huur op; de huur loopt door tot de oplevering. Bij een koopwoning bepaalt u samen met de erfgenamen en de makelaar wanneer de woning leeg moet zijn." },
                 { stap: "3", titel: "Persoonlijke zaken veiligstellen", tekst: "Documenten, administratie, post, sieraden, foto's en herinneringen. Zet dit apart vóór de ontruiming, of laat het ons doen: wij inventariseren eerst en voeren pas daarna af." },
-                { stap: "4", titel: "Inboedel verdelen en waardevolle stukken laten taxeren", tekst: "Spreek met de erfgenamen af wie wat krijgt. Antiek, kunst, verzamelingen en sieraden laat u taxeren; de opbrengst komt ten goede aan de nalatenschap." },
+                { stap: "4", titel: "Inboedel verdelen en waardevolle stukken laten beoordelen", tekst: "Spreek met de erfgenamen af wie wat krijgt. Antiek, kunst, verzamelingen en sieraden laat u taxeren; de opbrengst komt ten goede aan de nalatenschap." },
                 { stap: "5", titel: "De woning laten ontruimen en opleveren", tekst: "Wij halen de woning leeg, voeren af, leveren bezemschoon op en regelen op verzoek de eindinspectie met de verhuurder of de sleuteloverdracht bij de notaris." },
               ].map(({ stap, titel, tekst }) => (
                 <li key={stap} className="flex gap-4">
@@ -240,7 +240,7 @@ export default function Page() {
             <ol className="space-y-4 mb-8">
               {[
                 { stap: "1", titel: "Rustig eerste contact", tekst: "Via de AI-wizard met een paar foto's, of telefonisch. U vertelt de situatie; wij sturen een vaste prijs met schriftelijke opleveringsgarantie." },
-                { stap: "2", titel: "Afstemming met de nabestaanden", tekst: "We spreken af wat naar familie gaat, wat getaxeerd en verkocht wordt en wat afgevoerd mag worden. Twijfelt u, dan bewaren we het." },
+                { stap: "2", titel: "Afstemming met de nabestaanden", tekst: "We spreken af wat naar familie gaat, wat in het bod meegaat en wat afgevoerd mag worden. Twijfelt u, dan bewaren we het." },
                 { stap: "3", titel: "Inventarisatie en ontruiming", tekst: "Ons eigen team maakt eerst een foto-inventarisatie, zet persoonlijke zaken apart en haalt daarna de woning leeg. Meestal in één dag, discreet voor de buurt." },
                 { stap: "4", titel: "Bezemschone oplevering", tekst: "Wij leveren op aan verhuurder, corporatie, makelaar of notaris, inclusief fotorapportage. U hoeft er niet bij te zijn." },
               ].map(({ stap, titel, tekst }) => (
@@ -253,7 +253,7 @@ export default function Page() {
 
             <H2>Voor notarissen, executeurs en bewindvoerders</H2>
             <P>
-              Wikkelt u een nalatenschap af, dan heeft u behoefte aan een partij die zelfstandig werkt en alles vastlegt. Wij leveren een foto-inventarisatie, taxatie van waardevolle stukken, een fotorapportage van de opgeleverde woning en een factuur op naam van de boedel. Eén aanspreekpunt, vaste prijs, en wij regelen de sleutels. Meer over onze samenwerking leest u op de pagina voor <Link href="/notaris/" className="text-blue-600 hover:underline">notarissen</Link>.
+              Wikkelt u een nalatenschap af, dan heeft u behoefte aan een partij die zelfstandig werkt en alles vastlegt. Wij leveren een foto-inventarisatie, één schriftelijk bod op de inboedel, een overdrachtsbewijs voor persoonlijke zaken, een fotorapportage van de opgeleverde woning en een factuur op naam van de boedel. Eén aanspreekpunt, vaste prijs, en wij regelen de sleutels. Bent u executeur? Lees wat u mag vóór de verklaring van erfrecht en hoe u zuivere aanvaarding voorkomt op de pagina <Link href="/executeur/" className="text-blue-600 hover:underline">voor executeurs</Link>. Meer over onze samenwerking leest u op de pagina voor <Link href="/notaris/" className="text-blue-600 hover:underline">notarissen</Link>.
             </P>
 
             <H2>Waarom nabestaanden voor Uw Ontruimer kiezen</H2>

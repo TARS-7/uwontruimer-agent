@@ -30,7 +30,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-medium text-slate-900 uppercase tracking-widest mb-4">Zakelijk</h4>
             <ul className="space-y-2">
-              {[["Voor notarissen","/notaris/"],["Voor makelaars","/makelaar/"],["Bewindvoerders","/bewindvoerder/"],["Woningcorporaties","/woningbouwvereniging/"]].map(([label,href])=>(
+              {[["Voor notarissen","/notaris/"],["Voor executeurs","/executeur/"],["Voor makelaars","/makelaar/"],["Bewindvoerders","/bewindvoerder/"],["Woningcorporaties","/woningbouwvereniging/"]].map(([label,href])=>(
                 <li key={href}><Link href={href} className="text-xs text-slate-400 hover:text-slate-900 transition-colors font-light">{label}</Link></li>
               ))}
             </ul>

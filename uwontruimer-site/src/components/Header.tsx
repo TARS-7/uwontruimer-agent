@@ -25,6 +25,7 @@ const overOns = [
 
 const zakelijk = [
   { label: "Voor notarissen", href: "/notaris" },
+  { label: "Voor executeurs", href: "/executeur" },
   { label: "Voor makelaars", href: "/makelaar" },
   { label: "Bewindvoerders", href: "/bewindvoerder" },
   { label: "Woningcorporaties", href: "/woningbouwvereniging" },

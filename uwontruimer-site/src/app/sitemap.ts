@@ -73,6 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/boedelbeheer/`,                      lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/zakelijk/`,                          lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/notaris/`,                           lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/executeur/`,                         lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/makelaar/`,                          lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/bewindvoerder/`,                     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/woningbouwvereniging/`,              lastModified: now, changeFrequency: "monthly", priority: 0.7 },

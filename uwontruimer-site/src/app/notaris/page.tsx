@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
@@ -90,7 +91,7 @@ export default function Page() {
               {[
                 "Boedelontruiming na overlijden — discreet en met respect voor nabestaanden",
                 "Volledige inventarisatie en documentatie van de inboedel",
-                "Taxatie van waardevolle objecten door erkende taxateurs",
+                "Eén schriftelijk bod op waardevolle objecten en de complete inboedel",
                 "Waardevolle spullen verkocht, geveild of overgedragen aan erfgenamen",
                 "Resterende inboedel duurzaam verwerkt via kringloop en recycling",
                 "Woning bezemschoon opgeleverd met schriftelijke opleveringsgarantie",
@@ -123,9 +124,9 @@ export default function Page() {
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat Uw Ontruimer voor u regelt</h2>
             <ol className="space-y-4 mb-10">
               {[
-                { stap: "1", titel: "Inventarisatie en taxatie", tekst: "Wij brengen de volledige inboedel in kaart. Waardevolle objecten worden getaxeerd door erkende taxateurs." },
+                { stap: "1", titel: "Foto-inventarisatie en bod", tekst: "Wij brengen de volledige inboedel per ruimte in beeld en doen één schriftelijk bod op het geheel, bruikbaar voor de boedelbeschrijving." },
                 { stap: "2", titel: "Afstemming met erfgenamen", tekst: "In overleg met erfgenamen of uw kantoor bepalen wij wat meegaat, wordt verkocht of wordt afgevoerd." },
-                { stap: "3", titel: "Ontruiming en afvoer", tekst: "Wij voeren de ontruiming uit en verwerken de inboedel duurzaam — via kringloop, veiling of recycling." },
+                { stap: "3", titel: "Ontruiming en afvoer", tekst: "Wij voeren de ontruiming uit en verwerken de inboedel duurzaam — via hergebruik, kringloop of recycling." },
                 { stap: "4", titel: "Oplevering en documentatie", tekst: "De woning wordt bezemschoon opgeleverd. U ontvangt een schriftelijk opleveringsrapport." },
               ].map(({ stap, titel, tekst }) => (
                 <li key={stap} className="flex gap-4">
@@ -137,14 +138,12 @@ export default function Page() {
 
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Waardevolle objecten uit de nalatenschap</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Tijdens een ontruiming signaleren wij objecten die mogelijk waardevol zijn — antiek, sieraden, kunst of verzamelobjecten. Via ons zusterplatform <a href="https://takaros.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">Takaros</a> kunnen nabestaanden hier gratis een vrijblijvend waardeoordeel voor aanvragen bij gespecialiseerde veilinghuizen.
+              Staat er antiek, kunst, design of een verzameling in de woning, dan nemen wij die mee in één bod op de complete inboedel. Dat bod leggen wij schriftelijk vast vóór de ontruiming, verrekenen wij met de ontruimingsprijs en betalen wij bij een waardevolle inboedel uit aan de boedel. Zo heeft uw kantoor één document voor de boedelbeschrijving en één factuur op naam van de nalatenschap.
             </p>
             <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Voor notarissen betekent dit dat u uw cliënten een complete ontzorging kunt aanbieden: van de ontruiming van de woning tot een onafhankelijk oordeel over de waarde van de inboedel. Wij nemen dit proces uit handen — zonder extra kosten voor de nabestaanden.
+              Treedt u op als executeur of begeleidt u er een? Op de pagina <Link href="/executeur/" className="text-blue-600 hover:underline">voor executeurs</Link> staat wat vóór de verklaring van erfrecht mag, hoe zuivere aanvaarding wordt voorkomen en wat wij per nalatenschap vastleggen.
             </p>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Wilt u weten hoe dit werkt in de praktijk? Neem contact op voor een korte toelichting.
-            </p>
+
 
             <CtaBox />
           </div>
