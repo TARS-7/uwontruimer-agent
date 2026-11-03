@@ -314,6 +314,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Is er nog waardevolle inboedel aanwezig? Dan kunnen wij deze voor u verkopen. Dit doen we transparant, eerlijk en altijd in overleg. De opbrengst kan worden ingezet om een deel van de ontruimingskosten te compenseren. Zo bespaart u tijd en geld, terwijl u zeker weet dat waardevolle spullen op een goede plek terechtkomen." },
       { type: "h2", text: "Bezemschoon opleveren zonder zorgen" },
       { type: "p", text: "Zodra we alle stappen hebben gezet, zoals schoonmaak, afvoer, recycling en eventuele verkoop, leveren we de woning bezemschoon op. Dat betekent: leeg, netjes en klaar voor een overdracht. Bij de oplevering lopen we samen met u de woning door, zodat u precies weet dat alles volgens afspraak is gedaan. Laat uw woning verantwoord ontruimen door Uw Ontruimer." },
+      { type: "link", text: "Lees ook: woningontruiming — werkwijze, vaste prijs en opleveringsgarantie", href: "/diensten/woningontruiming/" },
     ],
   },
   {
@@ -353,6 +354,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Door te kiezen voor een ervaren ontruimingsbedrijf weet u zeker dat de woning netjes en volgens de eisen van verhuurder, makelaar of zorginstelling wordt opgeleverd." },
       { type: "h2", text: "Twijfelt u of woningontruiming nodig is?" },
       { type: "p", text: "Weet u niet zeker of een volledige ontruiming noodzakelijk is of dat u zelf al voldoende kunt doen? Wij denken graag met u mee. Onze specialisten komen indien gewenst langs voor een korte inspectie. Zo weet u meteen wat nodig is, wat u zelf kunt oppakken en welke werkzaamheden wij voor u kunnen uitvoeren. Laat ons beoordelen of ontruiming nodig is." },
+      { type: "link", text: "Lees ook: woningontruiming — werkwijze, vaste prijs en opleveringsgarantie", href: "/diensten/woningontruiming/" },
     ],
   },
   {
@@ -378,6 +380,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Zodra de woning leeg is, is het tijd voor de schoonmaak. Een schone en opgeruimde woning maakt een goede indruk op de verhuurder, makelaar of nieuwe bewoners. Kleine herstelwerkzaamheden, zoals het dichten van gaten of het verwijderen van bevestigingen, dragen bij aan een nette oplevering." },
       { type: "h2", text: "Laat uw woning professioneel ontruimen" },
       { type: "p", text: "Een woningontruiming kan fysiek en emotioneel zwaar zijn, vooral als u alles zelf probeert te regelen. Door de hulp van professionals in te schakelen, wordt alles snel, effici\u00ebnt en zorgvuldig uitgevoerd. Wilt u ontzorgd worden en verzekerd zijn van een correcte oplevering? Kies dan voor uw woning laten ontruimen door de specialisten van Uw Ontruimer. Wij nemen alle taken uit handen en zorgen dat uw woning netjes, veilig en volledig leeg wordt opgeleverd. Wilt u meer weten over woningontruiming? Neem dan gerust contact met ons op voor advies of een vrijblijvende offerte. Bel naar 085-303 58 94 of vul het contactformulier in. U ontvangt dan van ons een vrijblijvende offerte." },
+      { type: "link", text: "Lees ook: woningontruiming — werkwijze, vaste prijs en opleveringsgarantie", href: "/diensten/woningontruiming/" },
     ],
   },
   {
@@ -433,6 +436,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "De laatste stap van het stappenplan is de oplevering. Wij zorgen dat de woning volledig bezemschoon is en nemen samen met u de laatste details door. Zo bent u verzekerd van een nette, opgeruimde woning die direct klaar is voor overdracht." },
       { type: "h2", text: "Contact met ons opnemen" },
       { type: "p", text: "Wilt u weten hoe wij u kunnen helpen met een woningontruiming? Neem gerust contact op met Uw Ontruimer voor meer informatie of vraag een vrijblijvende offerte aan. Met ons duidelijke stappenplan weet u precies waar u aan toe bent, van begin tot eind. Wilt u meer weten over een woningontruiming? Neem dan gerust contact met ons op voor advies of een vrijblijvende offerte. Bel naar 085-303 58 94 of vul het contactformulier in. U ontvangt dan van ons een vrijblijvende offerte." },
+      { type: "link", text: "Lees ook: woningontruiming — werkwijze, vaste prijs en opleveringsgarantie", href: "/diensten/woningontruiming/" },
     ],
   },
   {
@@ -461,6 +465,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Mocht een volledige ontruiming niet in uw budget passen, dan zijn er een aantal dingen die u zelf kunt oppakken. Eerder hebben we de verschillende werkzaamheden toegelicht die samen de prijs op de factuur opbouwen. Door bijvoorbeeld zelf al (een deel van) de inboedel te ontruimen of kleine reparaties uit te voeren kunt u kosten besparen. Mocht u hierin ge\u00efnteresseerd zijn, bekijk dan ons stappenplan en de bijbehorende tips om uw huis leeg te maken. Het nadeel hiervan is dat u niet het gemak ervaart om volledig door Uw Ontruimer ontzorgt te worden." },
       { type: "h2", text: "Tarieven woningontruiming" },
       { type: "p", text: "Door te kiezen voor een ervaren partij als Uw Ontruimer bent u verzekerd van een snelle, nette en zorgvuldige woningontruiming. Mocht u nieuwsgierig zijn naar onze prijsopbouw, vraag dan kosteloos een offerte aan via het contactformulier onderaan de pagina. Ook kunt u vrijblijvend een afspraak met ons maken waarbij we graag komen toelichten hoe we te werk gaan, u graag volledig willen ontzorgen en onze facturen opbouwen. Wilt u direct hulp bij een ontruiming? Bel dan naar 085-303 58 94." },
+      { type: "link", text: "Lees ook: woningontruiming — werkwijze, vaste prijs en opleveringsgarantie", href: "/diensten/woningontruiming/" },
     ],
   },
   {
@@ -727,6 +732,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Is een woningontruiming aftrekbaar van de belasting? In bepaalde situaties, zoals bij het leeghalen van een woning uit een nalatenschap, kunnen de kosten onderdeel zijn van de erfenis en de bijbehorende aangifte. Raadpleeg uw belastingadviseur of notaris voor specifiek advies over uw situatie." },
       { type: "link", text: "Bekijk ook: Woningontruiming checklist – waar moet u op letten?", href: "/blog/woningontruiming-checklist" },
       { type: "link", text: "Meer weten over het verschil tussen ontruimen en verhuizen?", href: "/blog/woningontruiming-vs-verhuizen" },
+      { type: "link", text: "Lees ook: woningontruiming — werkwijze, vaste prijs en opleveringsgarantie", href: "/diensten/woningontruiming/" },
     ],
   },
   {
@@ -797,6 +803,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Na een succesvolle eindinspectie worden de sleutels overgedragen en is de ontruiming officieel afgerond. Gefeliciteerd: de woning is netjes opgeleverd en u kunt verder met de volgende stap." },
       { type: "link", text: "Wat kost een woningontruiming? Bekijk onze prijzengids", href: "/blog/wat-kost-een-woningontruiming" },
       { type: "link", text: "Hoe werkt een opleveringsgarantie?", href: "/blog/hoe-werkt-opleveringsgarantie" },
+      { type: "link", text: "Lees ook: woningontruiming — werkwijze, vaste prijs en opleveringsgarantie", href: "/diensten/woningontruiming/" },
     ],
   },
   {
