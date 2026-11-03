@@ -14,11 +14,11 @@ import { ShieldCheck } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
 
 export const metadata: Metadata = {
-  title: "Professionele Woningontruiming | Uw Ontruimer",
+  title: "Uw Ontruimer | Woningontruiming met vaste prijs en opleveringsgarantie",
   description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Professionele Woningontruiming | Uw Ontruimer",
+    title: "Uw Ontruimer | Woningontruiming met vaste prijs en opleveringsgarantie",
     description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
     url: "https://www.uwontruimer.nl/",
     siteName: "UwOntruimer.nl",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Professionele Woningontruiming | Uw Ontruimer",
+    title: "Uw Ontruimer | Woningontruiming met vaste prijs en opleveringsgarantie",
     description: "Meer dan 15 jaar ervaring in woningontruiming. Snel, discreet en met schriftelijke opleveringsgarantie. Vraag vandaag een gratis offerte aan.",
     images: ["https://www.uwontruimer.nl/hero-truck.jpg"],
   },
@@ -112,7 +112,7 @@ export default function HomePage() {
               Woning leeghalen na overlijden of verhuizing? Wij ontzorgen u volledig.
             </h1>
             <p className="fade-3 text-white/80 lg:text-slate-500 text-base font-light leading-relaxed max-w-md mb-10">
-              Discreet, respectvol en met een vaste prijs — schriftelijk vastgelegd. Geen verrassingen achteraf.
+              Discreet, respectvol en met een vaste prijs — schriftelijk vastgelegd. Geen verrassingen achteraf. Lees hoe onze <Link href="/diensten/woningontruiming/" className="underline underline-offset-2 decoration-white/50 lg:decoration-slate-400 hover:text-white lg:hover:text-slate-700">woningontruiming</Link> werkt.
             </p>
             <HeroTunnels />
             {/* Lisa beschikbaarheidsstrip */}
