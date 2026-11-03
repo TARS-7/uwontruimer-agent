@@ -93,7 +93,7 @@ export default function TrackingEvents() {
         try {
           const attr = leesAttributie();
           const herkomst = leesHerkomst();
-          fetch("/api/telefoonklik", {
+          fetch("/api/telefoonklik/", {
             method: "POST",
             keepalive: true,
             headers: { "Content-Type": "application/json" },
