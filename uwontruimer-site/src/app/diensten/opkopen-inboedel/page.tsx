@@ -149,6 +149,10 @@ export default function Page() {
               Inboedel opkopen doen wij al meer dan vijftien jaar, in Amsterdam, Amstelveen, Haarlem, Hoofddorp, &apos;t Gooi, Utrecht en omgeving. Wij zijn geen tussenpersoon maar de koper zelf: het bod komt van ons, de ophaaldag is met ons en de woning leveren wij zelf op. Daardoor is inboedel verkopen bij Uw Ontruimer in één afspraak geregeld.
             </P>
 
+            <div className="rounded-xl border border-slate-100 bg-slate-50 p-5 mb-8" data-kort-antwoord>
+              <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-2">In het kort</p>
+              <p className="text-slate-700 font-light leading-relaxed">Uw Ontruimer koopt complete inboedels op in Amsterdam, Amstelveen, Haarlem, Hoofddorp, 't Gooi, Utrecht en omgeving. Stuur foto's via WhatsApp en u ontvangt binnen 48 uur één bod op het geheel; wij halen op en leveren de woning leeg op. Het bod wordt verrekend met de ontruiming; is het hoger dan de kosten, dan betalen wij het verschil uit.</p>
+            </div>
             <div className="mb-10">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>Foto&apos;s sturen via WhatsApp →</a>
               <p className="text-xs text-slate-400 mt-2">085-303 58 94 · U hoort snel wat wij bieden · Geen verplichtingen</p>

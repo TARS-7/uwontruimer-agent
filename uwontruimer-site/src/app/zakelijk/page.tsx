@@ -92,8 +92,8 @@ export default function Page() {
                 "Bedrijfsontruiming inclusief kantoorinventaris en archief",
                 "Archiefvernietiging van vertrouwelijke dossiers en digitale data",
                 "Inboedel opkopen — opbrengst verrekend met de factuur",
-                "Waardevolle objecten naar veilinghuis — wij regelen het hele traject",
-                "Boedelbeheer en taxatie voor notaris of bewindvoerder",
+                "Waardevolle objecten nemen wij over met één bod op het geheel",
+                "Boedelbeheer en foto-inventarisatie voor notaris of bewindvoerder",
                 "Schriftelijke opleveringsgarantie op alle werkzaamheden",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
@@ -107,7 +107,7 @@ export default function Page() {
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
               {[
                 { titel: "Makelaar", omschrijving: "Woning snel verkoopklaar. Wij leveren bezemschoon op binnen uw termijn — en verwijzen klanten terug zonder courtage." },
-                { titel: "Notaris & bewindvoerder", omschrijving: "Inventarisatie, taxatie en gedocumenteerde oplevering. Wij stellen een boedellijst op die direct bruikbaar is als bijlage." },
+                { titel: "Notaris & bewindvoerder", omschrijving: "Foto-inventarisatie, één bod op de inboedel en gedocumenteerde oplevering. Wij stellen een boedellijst op die direct bruikbaar is als bijlage." },
                 { titel: "Woningbouwvereniging", omschrijving: "Huurwoningen snel verhuurklaar. Wij kennen de opleveringseisen en zorgen voor een snelle doorlooptijd." },
                 { titel: "Zorgcentrum & uitvaart", omschrijving: "Discrete en respectvolle werkwijze bij gevoelige situaties. Altijd één aanspreekpunt gedurende het hele traject." },
               ].map(({ titel, omschrijving }) => (

@@ -102,6 +102,10 @@ export default function Page() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Diensten</p>
 
+            <div className="rounded-xl border border-slate-100 bg-slate-50 p-5 mb-8" data-kort-antwoord>
+              <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-2">In het kort</p>
+              <p className="text-slate-700 font-light leading-relaxed">Uw Ontruimer (Inboedels B.V., Amsterdam, sinds 2010) ontruimt kantoren, winkels, magazijnen en bedrijfspanden in Noord-Holland, Zuid-Holland, Utrecht en Flevoland. Vaste prijs vooraf, bezemschoon opgeleverd met schriftelijke garantie en fotorapportage, binnen 24 uur mogelijk. Inventaris met restwaarde nemen wij over met één bod dat van de prijs afgaat; archief wordt vernietigd conform de AVG.</p>
+            </div>
             {/* Amber CTA */}
             <div className="mb-10">
               <a
@@ -124,7 +128,7 @@ export default function Page() {
                 "Volledige of gedeeltelijke ontruiming op maat",
                 "Ook bij spoedgevallen binnen 24 uur ter plaatse",
                 "Archiefvernietiging conform AVG-wetgeving",
-                "Bruikbare inventaris naar gewenste locatie of veiling",
+                "Bruikbare inventaris naar gewenste locatie of hergebruik",
                 "Bezemschone oplevering inclusief foto-rapportage",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -144,7 +148,7 @@ export default function Page() {
                 { titel: "Klus- en sloopwerkzaamheden", omschrijving: "Tussenmuurtjes, kastenwanden, plafondplaten — volledig slopen en afvoeren." },
                 { titel: "Archiefvernietiging", omschrijving: "Veilige vernietiging van dossiers en digitale dragers conform AVG, inclusief certificaat." },
                 { titel: "Schoonmaakwerkzaamheden", omschrijving: "Eindreiniging van vloeren, wanden en sanitaire ruimten na de ontruiming." },
-                { titel: "Opkoop en veiling inventaris", omschrijving: "Waardevolle bedrijfsinventaris wordt opgekocht of geveild — dit verlaagt uw ontruimingskosten." },
+                { titel: "Opkoop inventaris", omschrijving: "Bedrijfsinventaris met restwaarde nemen wij over met één bod op het geheel — dat verlaagt uw ontruimingskosten." },
                 { titel: "Herstelwerkzaamheden", omschrijving: "Kleine reparaties zoals spackling, sauswerk of het wegwerken van bevestigingspunten." },
               ].map(({ titel, omschrijving }) => (
                 <div key={titel} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
@@ -159,7 +163,7 @@ export default function Page() {
               {[
                 { stap: "1", titel: "Telefonische intake", tekst: "Bel 085-303 58 94 of start de AI-wizard. Wij nemen uw gegevens op en stellen gerichte vragen over de omvang, bijzonderheden en gewenste opleverdatum." },
                 { stap: "2", titel: "Offerte op maat", tekst: "U ontvangt een gedetailleerde vaste-prijs offerte met schriftelijke opleveringsgarantie. Geen verborgen kosten." },
-                { stap: "3", titel: "Ontruiming op afgesproken datum", tekst: "Ons team start precies op tijd. Waardevolle inventaris wordt geïnventariseerd voor opkoop of veiling en verrekend met de offerte." },
+                { stap: "3", titel: "Ontruiming op afgesproken datum", tekst: "Ons team start precies op tijd. Inventaris met restwaarde wordt geïnventariseerd, in één bod opgenomen en verrekend met de offerte." },
                 { stap: "4", titel: "Bezemschone oplevering", tekst: "Het pand wordt volledig leeggemaakt, schoongemaakt en indien gewenst hersteld tot oorspronkelijke staat. U ontvangt een foto-rapportage." },
                 { stap: "5", titel: "Sleuteloverdracht", tekst: "U hoeft niet aanwezig te zijn. Een medewerker, receptionist of contactpersoon kan ons toegang verschaffen. Na oplevering regelen wij de sleuteloverdracht aan verhuurder of notaris." },
               ].map(({ stap, titel, tekst }) => (
@@ -180,7 +184,7 @@ export default function Page() {
             <ul className="space-y-3 mb-8">
               {[
                 "Samenwerking met regionale kringlooporganisaties en goede doelen",
-                "Waardevolle inventaris gaat naar opkoop, veiling of hergebruik",
+                "Inventaris met restwaarde nemen wij over; de rest gaat naar hergebruik",
                 "Gescheiden afvalinzameling voor maximale recycling",
                 "Archiefvernietiging met certificaat conform AVG",
                 "CO₂-bewuste planning — zo min mogelijk ritten",

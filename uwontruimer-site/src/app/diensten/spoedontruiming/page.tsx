@@ -105,6 +105,10 @@ export default function Page() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Diensten</p>
 
+            <div className="rounded-xl border border-slate-100 bg-slate-50 p-5 mb-8" data-kort-antwoord>
+              <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-2">In het kort</p>
+              <p className="text-slate-700 font-light leading-relaxed">Uw Ontruimer (Amsterdam) start een spoedontruiming binnen 24 uur in Noord-Holland, Zuid-Holland, Utrecht en Flevoland: woning, zorgkamer of bedrijfspand. Offerte binnen het uur op basis van foto's, vaste prijs, bezemschoon opgeleverd met schriftelijke opleveringsgarantie. Bereikbaar op 085-303 58 94.</p>
+            </div>
             <div className="mb-10">
               <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
                 Start de AI-wizard →

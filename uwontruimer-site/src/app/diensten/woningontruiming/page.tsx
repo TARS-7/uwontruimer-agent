@@ -113,6 +113,10 @@ export default function Page() {
               Een woning ontruimen is zelden alleen een praktische klus. Vaak komt het na een overlijden, bij een verhuizing naar een zorgwoning of omdat een huurwoning op een vaste datum leeg moet zijn. Uw Ontruimer neemt het hele traject uit handen: van een vaste prijs vooraf tot een bezemschone woning en de sleuteloverdracht. Discreet, snel en met een schriftelijke opleveringsgarantie.
             </P>
 
+            <div className="rounded-xl border border-slate-100 bg-slate-50 p-5 mb-8" data-kort-antwoord>
+              <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-2">In het kort</p>
+              <p className="text-slate-700 font-light leading-relaxed">Uw Ontruimer (Inboedels B.V., Amsterdam, sinds 2010) ontruimt woningen in Noord-Holland, Zuid-Holland, Utrecht en Flevoland. Vaste prijs vooraf, schriftelijke opleveringsgarantie, bezemschoon opgeleverd, meestal in één dag; starten binnen 24 uur is mogelijk. Een volledige inboedel nemen wij over met één bod op het geheel, dat van de ontruimingsprijs afgaat.</p>
+            </div>
             <div className="mb-10">
               <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
                 Start de AI-wizard →
@@ -209,6 +213,11 @@ export default function Page() {
             <H2>Eigen team, eigen materieel</H2>
             <P>
               Wij werken niet met losse onderaannemers. Ons eigen team komt met eigen bussen, een verhuislift voor hogere verdiepingen zonder lift, steekwagens, dekens en gereedschap om keukens, vloeren en kasten te demonteren. Dat maakt ons snel, voorspelbaar en zorgvuldig met het pand en het trappenhuis.
+            </P>
+
+            <H2>Een erkend ontruimingsbedrijf: wie zijn wij</H2>
+            <P>
+              Uw Ontruimer is de handelsnaam van Inboedels B.V. (KVK 84981393), gevestigd aan de Welnastraat 175 in Amsterdam, en ontruimt sinds 2010 woningen en bedrijfspanden. U krijgt een schriftelijke offerte en opleveringsgarantie van een besloten vennootschap, een factuur met btw en een vast aanspreekpunt. Ons team is in eigen dienst, de bussen en het materieel zijn van onszelf. Op Google staan wij op 4,8 van 5 na ruim honderd beoordelingen. Hoe u een ontruimingsbedrijf beoordeelt, en welke vragen u elke aanbieder zou moeten stellen, leest u in onze <Link href="/woningontruimer-kiezen/" className="text-blue-600 hover:underline">controlelijst voor het kiezen van een woningontruimer</Link>; meer over het bedrijf op <Link href="/over-ons/" className="text-blue-600 hover:underline">over ons</Link>.
             </P>
 
             <H2>Waarom Uw Ontruimer</H2>
