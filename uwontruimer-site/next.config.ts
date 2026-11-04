@@ -33,6 +33,28 @@ const nextConfig: NextConfig = {
         destination: "https://www.uwontruimer.nl/:path*",
         permanent: true,
       },
+      // Kringloopsecondhand.nl (oude kringloopsite van Stichting Werk Helpt, hosting opgezegd nov 2026):
+      // elke stadspagina gaat naar de bijpassende stadspagina hier; de rest naar de homepage.
+      ...(() => {
+        const host = [{ type: "host" as const, value: "(www\\.)?kringloopsecondhand\\.nl" }];
+        const naar = (source: string, destination: string) => ({ source, has: host, destination: `https://www.uwontruimer.nl${destination}`, permanent: true });
+        return [
+          naar("/kringloop-alphen-a-d-rijn/", "/woningontruiming-alphen-aan-den-rijn/"),
+          naar("/kringloop-amsterdam-oost/", "/woningontruiming-amsterdam/"),
+          naar("/kringloop-amsterdam-zuid/", "/woningontruiming-amsterdam/"),
+          naar("/kringloop-bennebroek/", "/woningontruiming-bloemendaal/"),
+          naar("/kringloop-hollandse-kroon/", "/woningontruiming-hollands-kroon/"),
+          naar("/kringloop-langedijk/", "/woningontruiming-heerhugowaard/"),
+          naar("/kringloop-noordwijkerhout/", "/woningontruiming-noordwijk/"),
+          naar("/kringloop-sassenheim/", "/woningontruiming-teylingen/"),
+          naar("/kringloop-schermer/", "/woningontruiming-alkmaar/"),
+          naar("/kringloop-warmond/", "/woningontruiming-teylingen/"),
+          naar("/kringloopwinkel-hillegom/", "/woningontruiming-hillegom/"),
+          naar("/woningontruiming/", "/diensten/woningontruiming/"),
+          naar("/kringloop-:stad/", "/woningontruiming-:stad/"),
+          naar("/:path*", "/"),
+        ];
+      })(),
       { source: "/categorie/nieuws/", destination: "/blog/", permanent: true },
       // SEO fase 1 (15 okt 2026): drie dubbelgangers van de pijlerpagina woningontruiming.
       { source: "/huisontruiming", destination: "/diensten/woningontruiming/", permanent: true },
