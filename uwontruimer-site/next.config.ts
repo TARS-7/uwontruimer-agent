@@ -55,6 +55,18 @@ const nextConfig: NextConfig = {
           naar("/:path*", "/"),
         ];
       })(),
+      // Kiesontruimer.nl (oud vergelijkingsplatform, hosting bij Sales Wizard beëindigd nov 2026):
+      // alles gaat naar de offertepagina; voorwaarden en privacy naar de eigen pagina's hier.
+      ...(() => {
+        const host = [{ type: "host" as const, value: "(www\\.)?kiesontruimer\\.nl" }];
+        const naar = (source: string, destination: string) => ({ source, has: host, destination: `https://www.uwontruimer.nl${destination}`, permanent: true });
+        return [
+          naar("/algemene-voorwaarden/", "/algemene-voorwaarden/"),
+          naar("/privacy-verklaring/", "/privacy/"),
+          naar("/privacybeleid/", "/privacy/"),
+          naar("/:path*", "/offerte/"),
+        ];
+      })(),
       { source: "/categorie/nieuws/", destination: "/blog/", permanent: true },
       // SEO fase 1 (15 okt 2026): drie dubbelgangers van de pijlerpagina woningontruiming.
       { source: "/huisontruiming", destination: "/diensten/woningontruiming/", permanent: true },
