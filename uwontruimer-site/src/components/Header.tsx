@@ -19,6 +19,12 @@ const diensten = [
   { label: "Verhuizen", href: "/diensten/verhuizen" },
 ];
 
+const werkwijze = [
+  { label: "Werkwijze", href: "/werkwijze" },
+  { label: "Opleveringsgarantie", href: "/opleveringsgarantie" },
+  { label: "Duurzaam ontruimen", href: "/duurzaam" },
+];
+
 const overOns = [
   { label: "Over ons", href: "/over-ons" },
   { label: "Ons team", href: "/over-ons/team" },
@@ -263,7 +269,7 @@ export default function Header() {
             <Dropdown label="Diensten" items={diensten} />
             <Dropdown label="Zakelijk" items={zakelijk} />
             <WerkgebiedDropdown />
-            <Link href="/werkwijze" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Werkwijze</Link>
+            <Dropdown label="Werkwijze" items={werkwijze} />
             <Dropdown label="Over ons" items={overOns} />
             <Link href="/faq" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">FAQ</Link>
             <Link href="/werken-bij" className="verberg-betaald text-sm text-slate-500 hover:text-slate-900 transition-colors">Werken bij</Link>
@@ -308,6 +314,8 @@ export default function Header() {
                 heading: "Informatie",
                 items: [
                   { label: "Werkwijze", href: "/werkwijze" },
+                  { label: "Opleveringsgarantie", href: "/opleveringsgarantie" },
+                  { label: "Duurzaam ontruimen", href: "/duurzaam" },
                   { label: "Over ons", href: "/over-ons" },
                   { label: "Ons team", href: "/over-ons/team" },
                   { label: "FAQ", href: "/faq" },
