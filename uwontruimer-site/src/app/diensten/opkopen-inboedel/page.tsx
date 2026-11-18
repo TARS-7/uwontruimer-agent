@@ -231,6 +231,14 @@ export default function Page() {
               Stuur daarom altijd foto&apos;s mee van de stukken waarvan u denkt dat ze waarde hebben. Dat bepaalt of ik zelf kom kijken. Bij een bijzondere inboedel kom ik persoonlijk langs, zodat het bod recht doet aan wat er staat.
             </P>
 
+            <H2>Liever eerst weten wat er staat? De BSW</H2>
+            <P>
+              Twijfelt u of u de inboedel in één keer wilt verkopen? Dan doen wij eerst een <strong className="font-medium">BSW, Boedel Sorteer Waardering</strong>: wij zoeken de hele inboedel met u uit op wat nog waarde heeft, aan de hand van onze lijst met spullen die nog geld opbrengen. U krijgt een overzicht met foto, richtprijs en advies per stuk: houden, laten veilen, verkopen of verrekenen. Daarna beslist u pas over ons bod.
+            </P>
+            <P>
+              De BSW kost € 75 per uur per medewerker, met twee medewerkers en minimaal twee uur. Gaat u daarna met ons door, dan trekken wij dit bedrag van ons bod of van de ontruiming af; u ziet beide bedragen apart. Het overzicht is een waarde-indicatie op basis van marktprijzen, geen taxatie.
+            </P>
+
             <H2>Voor wie</H2>
             <P>
               Erfgenamen en executeurs die een woning leeg moeten opleveren, bewindvoerders, en beheerders van seniorenresidenties en serviceflats die een woning snel en netjes terug willen. Ons werkgebied is Amsterdam, Amstelveen, Haarlem, Hoofddorp, &apos;t Gooi, Utrecht en omgeving. Voor grote of bijzondere inboedels komen wij in overleg verder.

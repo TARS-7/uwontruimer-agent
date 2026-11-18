@@ -209,6 +209,14 @@ export default function Page() {
               Lees ook: <Link href="/blog/inboedel-verkopen-na-overlijden/" className="text-blue-600 hover:underline">inboedel verkopen na overlijden, wat erfgenamen vooraf moeten weten</Link>, <Link href="/blog/wat-is-mijn-inboedel-waard/" className="text-blue-600 hover:underline">wat is mijn inboedel waard</Link> en <Link href="/blog/waardevolle-spullen-nalatenschap/" className="text-blue-600 hover:underline">wat te doen met waardevolle spullen uit een nalatenschap</Link>.
             </P>
 
+            <H2>Eerst uitzoeken wat waarde heeft: de BSW</H2>
+            <P>
+              Wilt u zeker weten dat er niets weggaat wat geld waard is, nog voordat u over een ontruiming beslist? Dan doen wij een <strong className="font-medium">BSW, Boedel Sorteer Waardering</strong>: wij nemen de hele inboedel met u door aan de hand van onze lijst met spullen die nog waarde hebben, van sieraden en edelmetaal tot design, verzamelingen, gereedschap, audio en boeken. U krijgt een overzicht met foto, richtprijs en advies per stuk: houden, laten veilen, verkopen of verrekenen.
+            </P>
+            <P>
+              De BSW kost € 75 per uur per medewerker, met twee medewerkers en minimaal twee uur. Gaat u daarna met ons door, dan verrekenen wij dit bedrag met de ontruiming of met ons bod op de inboedel. Zo verdienen wij aan zorgvuldigheid, niet aan een lage inschatting. Het overzicht is een waarde-indicatie op basis van marktprijzen, geen taxatie; voor de aangifte erfbelasting heeft u een beëdigd taxateur nodig, wij verwijzen u desgewenst door.
+            </P>
+
             <H2>Wat kost een huis ontruimen na overlijden?</H2>
             <P>De kosten hangen af van de grootte van de woning, de hoeveelheid inboedel en de bereikbaarheid. Dit zijn onze richtprijzen voor {PRIJSJAAR}, inclusief btw:</P>
             <div className="overflow-hidden rounded-2xl border border-slate-200 mb-6">
