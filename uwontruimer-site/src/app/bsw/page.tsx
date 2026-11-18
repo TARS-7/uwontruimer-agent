@@ -59,6 +59,79 @@ const faqItems = [
   },
 ];
 
+// De lijst waarmee wij de woning doorlopen, in publieke vorm: per categorie wat
+// vaak nog waarde heeft en wat meestal niets opbrengt. Bron: werklijst
+// waardevolle spullen (uwontruimer-agent/docs/waardevolle-spullen-uit-inboedels.md,
+// herzien 17 nov 2026 op vijf onderzoeksrapporten). Interne drempels, afnemers
+// en tarieven staan hier bewust niet.
+const lijst: { titel: string; wel: string; niet: string; let?: string }[] = [
+  {
+    titel: "Vintage en design",
+    wel: "Teakhouten kasten en tafels uit de jaren 50 tot 70, designstoelen en fauteuils (Gispen, Artifort, Pastoe, Cassina, Thonet, Eames), Italiaans design, marmeren tafels, lampen van Anvia, Raak, Louis Poulsen of Artemide, West Germany-keramiek, bakeliet en chroom. Ook met kapotte bekleding.",
+    niet: "Degelijke, duur gekochte meubels zonder ontwerpers- of fabriekslabel uit de jaren 70 tot 90.",
+  },
+  {
+    titel: "Sieraden, horloges en edelmetaal",
+    wel: "Goud (stempel 585 of 750), zilveren bestek en corpuswerk met keurteken, elk mechanisch horloge ook als het stilstaat, Omega, Seiko, Rolex, Longines, losse diamanten en edelstenen, zegelringen, manchetknopen, gouden brilmonturen. Vaak verstopt in naaidozen, kistjes, jaszakken en brilkokers.",
+    niet: "Doublé, verguld, verzilverd (EPNS, Gero, Keltum, 90 of 100) en modesieraden zonder ontwerper.",
+  },
+  {
+    titel: "Antiek, kunst en verzamelwaar",
+    wel: "Gesigneerde schilderijen, grafiek met potloodsignatuur en oplagenummer, Chinees en Japans porselein, brons en kristal met signatuur, handgeknoopte tapijten, Delfts blauw van De Porceleyne Fles en plateel, munten en bankbiljetten (zilveren guldens tot 1967, Gouden Tientjes), postzegels van vóór 1940, oud speelgoed (Dinky Toys, Märklin, Lego met doos), barometers, tin en koper met meesterteken.",
+    niet: "Gewone eiken en mahonie meubels, naoorlogse Friese klokken, naamloze schilderijen in zware lijsten, souvenir-Delfts, postzegelalbums van na 1960.",
+  },
+  {
+    titel: "Audio, muziek en beeld",
+    wel: "Versterkers, receivers, platenspelers en cassettedecks van vóór 2000 (Marantz, Pioneer, Technics, Thorens, Revox, Bang & Olufsen), luidsprekers per paar, platencollecties met rock, jazz, soul en Nederpop, muziekinstrumenten, camera's en lenzen (Leica, Nikon, Hasselblad, Rolleiflex), oude radio's en typemachines, retro-gaming (Game Boy, Nintendo 64, Commodore 64) en vroege Apple-computers.",
+    niet: "Losse cd's, lichte kunststof audiotorens uit de jaren 80 en 90, klassieke en opera-platen, piano's en pianino's, tv's en spelers van vóór 2015.",
+  },
+  {
+    titel: "Fietsen en mobiliteit",
+    wel: "Elektrische fietsen met accu en lader, racefietsen en oude stalen frames (Koga, Gazelle Champion Mondial), scootmobielen en rolstoelen in eigen bezit, trapliften jonger dan tien jaar, scooters, brommers (Zündapp, Kreidler, Puch), auto's, motoren en boten met papieren.",
+    niet: "Hulpmiddelen met een sticker van de gemeente, WMO of Medipoint: die zijn eigendom van de leverancier en gaan terug.",
+    let: "Bij een voertuig op kenteken kijken wij eerst naar de verzekering en de tenaamstelling; overschrijven kan gevolgen hebben voor de nalatenschap.",
+  },
+  {
+    titel: "Witgoed en apparatuur",
+    wel: "Wasmachines, drogers, vaatwassers en koelkasten jonger dan acht jaar (Miele, Bosch, Siemens, AEG, Liebherr), inductieplaten en koffiemachines (Jura, Siemens EQ), KitchenAid, Thermomix, Bamix, de draagbare Singer Featherweight-naaimachine.",
+    niet: "Defecte of ingebouwde apparaten, Samsung en LG ouder dan twee jaar, gietijzeren trapnaaimachines.",
+    let: "Strijkijzers, kachels, föhns en broodroosters van vóór 1994 kunnen asbest bevatten; die openen wij niet en voeren wij apart af.",
+  },
+  {
+    titel: "Gereedschap, tuin en werkplaats",
+    wel: "Elektrisch gereedschap met accu's (Makita, Bosch blauw, DeWalt, Festool, Hilti), oud zwaar handgereedschap (Stanley, Record, Nooitgedagt), draaibanken met toebehoren, koper, messing en lood, tuinmachines (Stihl, Husqvarna), teakhouten tuinmeubelen, Weber-barbecues, verweerde tuinbeelden en smeedwerk, antieke bouwmaterialen zoals marmeren schouwen, glas-in-lood en ensuite-deuren.",
+    niet: "Moderne resttegels, laminaat, kunststof tuinmeubelen, roestig ijzer in kleine hoeveelheden.",
+  },
+  {
+    titel: "Kleding, textiel en lederwaren",
+    wel: "Luxe tassen en koffers (Hermès, Chanel, Louis Vuitton, Delvaux, Rimowa) met stempel en datumcode, merkkleding, vintage uit de jaren 60 tot 90 (Levi's, Adidas, leren jassen, Barbour), hutkoffers, zijden sjaals, klederdracht en streeksieraden, ongebruikt damast en linnengoed.",
+    niet: "Gewone kleding en huishoudtextiel (alleen als bulk per kilo), bont zonder couturelabel, dekbedden, kussens en zware gordijnen.",
+    let: "Krokodillen- en slangenleer, schildpad en bepaalde bontsoorten vallen onder CITES en mogen zonder papieren niet verkocht worden.",
+  },
+  {
+    titel: "Boeken, papier en media",
+    wel: "Boeken van vóór 1850, leren en perkamenten banden, atlassen en oude kaarten, eerste drukken met opdracht, vroege Kuifje- en Suske en Wiske-albums, kunst- en fotoboeken, manuscripten, brieven, ansichtkaarten, fotoalbums en glasnegatieven van vóór 1945.",
+    niet: "Gewone romans, encyclopedieën, Reader's Digest, familiebijbels van na 1880, herdrukte stripalbums.",
+    let: "Familiefoto's en administratie geven wij altijd aan u terug; die worden nooit verkocht.",
+  },
+  {
+    titel: "Huisraad en servies",
+    wel: "Leerdam Unica en Serica, Royal Copenhagen Flora Danica, Meissen, Herend, Sèvres, gesigneerd kristal (Iittala, Orrefors, Kosta Boda), koperen Mauviel-pannen, Le Creuset en gietijzer, Japanse en Duitse koksmessen, compacte demontabele meubels zonder schade.",
+    niet: "Complete standaardserviezen (Villeroy & Boch, Wedgwood, Royal Albert), matrassen en boxsprings, zware donkere eiken wandmeubels, grote driezitsbanken met slijtage.",
+  },
+  {
+    titel: "Aziatisch, etnografisch, religieus en drank",
+    wel: "Zwaar gegoten bronzen boeddha's met gesloten bodem en gegraveerde tekens, gesigneerde netsuke en lakwerk, Afrikaanse en Oceanische maskers met gebruikspatina, iconen op paneel, kerkzilver, verzegelde flessen wijn, port, whisky en cognac met intact vulniveau.",
+    niet: "Hars- en souvenirbeelden, aangebroken flessen, supermarktwijn.",
+    let: "Ivoor en voorwerpen met ivoor (netsuke, pianotoetsen, kastknoppen) leggen wij apart; zonder certificaat is verkoop strafbaar.",
+  },
+  {
+    titel: "Wat wij altijd apart zetten en teruggeven",
+    wel: "Contant geld (met twee personen geteld en op kwitantie), spaarbankboekjes, sleutels, obligaties, guldenbiljetten (door particulieren inwisselbaar tot 2032), paspoorten en documenten, computers, telefoons, harde schijven en ordners met administratie, dichte kluisjes.",
+    niet: "Niets hiervan wordt verkocht of verrekend. Wapens, munitie en medicijnen melden wij aan u of aan de politie.",
+  },
+];
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -194,6 +267,33 @@ export default function Page() {
                 </li>
               ))}
             </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-2 tracking-tight">De lijst waarmee wij de woning doorlopen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-6">
+              Dit is de lijst die onze medewerkers bij een BSW gebruiken, in twaalf categorieën. Per categorie staat wat in de praktijk
+              nog waarde heeft en wat meestal niets meer opbrengt. De lijst is in november 2026 herzien op actuele markt- en
+              veilingprijzen en wordt bijgehouden.
+            </p>
+            <div className="space-y-4 mb-12">
+              {lijst.map((c) => (
+                <div key={c.titel} className="rounded-xl border border-slate-100 p-5">
+                  <h3 className="font-medium text-slate-800 mb-3">{c.titel}</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-1">Heeft vaak waarde</p>
+                      <p className="text-slate-600 font-light text-sm leading-relaxed">{c.wel}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-slate-400 uppercase tracking-widest mb-1">Brengt meestal niets op</p>
+                      <p className="text-slate-500 font-light text-sm leading-relaxed">{c.niet}</p>
+                    </div>
+                  </div>
+                  {c.let && (
+                    <p className="mt-3 pt-3 border-t border-slate-100 text-slate-500 font-light text-sm leading-relaxed">{c.let}</p>
+                  )}
+                </div>
+              ))}
+            </div>
 
             <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Zo gaat het in zijn werk</h2>
             <ol className="space-y-4 mb-12">
