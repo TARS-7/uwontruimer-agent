@@ -6,6 +6,7 @@ import ReviewTicker from "@/components/ReviewTicker";
 import WizardUSP from "@/components/WizardUSP";
 import HeroTunnels from "@/components/HeroTunnels";
 import Image from "next/image";
+import DuurzaamFilm from "@/components/DuurzaamFilm";
 import Link from "next/link";
 import WerkgebiedSearch from "@/components/WerkgebiedSearch";
 import GoogleReviewsBadge from "@/components/GoogleReviewsBadge";
@@ -327,18 +328,10 @@ export default function HomePage() {
           <p className="text-slate-500 font-light text-sm max-w-lg leading-relaxed mb-8">
             Bij Uw Ontruimer gaat zo weinig mogelijk naar de verbrandingsoven. Meubels, kleding en huisraad die nog bruikbaar zijn, doneren wij aan de kringloopwinkel. Wat niet hergebruikt kan worden, wordt gesorteerd afgevoerd via gecertificeerde milieustraten.
           </p>
-          <div className="grid grid-cols-2 gap-4 mb-6 max-w-2xl">
-            <div className="relative overflow-hidden rounded-xl h-52">
-              <Image src="/milieustraat.jpg" alt="Milieustraat — verantwoord afvoeren" fill className="object-cover" />
-              <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
-                <p className="text-white text-xs font-medium">Verantwoord afvoeren</p>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-xl h-52">
-              <Image src="/kringloop.jpg" alt="Kringloopwinkel — hergebruik van inboedel" fill className="object-cover" />
-              <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
-                <p className="text-white text-xs font-medium">Hergebruik via kringloop</p>
-              </div>
+          <div className="relative overflow-hidden rounded-xl mb-6 max-w-2xl aspect-video bg-slate-100">
+            <DuurzaamFilm plek="homepage" className="absolute inset-0 w-full h-full object-cover" bijschrift="Hergebruik via kringloop, de rest verantwoord afgevoerd" />
+            <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
+              <p className="text-white text-xs font-medium">Hergebruik via kringloop, de rest verantwoord afgevoerd</p>
             </div>
           </div>
           <Link href="/duurzaam/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">

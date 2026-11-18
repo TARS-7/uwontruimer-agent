@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
-import Image from "next/image";
+import DuurzaamFilm from "@/components/DuurzaamFilm";
 
 export const metadata: Metadata = {
   title: "Uw Ontruimer werkt mee aan een duurzame toekomst",
@@ -47,7 +47,7 @@ export default function Page() {
       <Header />
       <main className="mt-16">
         <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
-          <Image src="/kringloop.jpg" alt="Duurzame ontruiming — hergebruik van inboedel" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
+          <DuurzaamFilm plek="duurzaam-hero" className="absolute inset-0 w-full h-full object-cover" bijschrift="Duurzame ontruiming: hergebruik van inboedel via kringloop en sorteercentrum" />
           <div className="absolute inset-0 bg-slate-900/40" />
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">
