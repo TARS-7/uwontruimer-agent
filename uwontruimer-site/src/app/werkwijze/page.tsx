@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
-import Image from "next/image";
 import Link from "next/link";
 import DuurzaamFilm from "@/components/DuurzaamFilm";
+import Film from "@/components/Film";
 
 export const metadata: Metadata = {
   title: "Werkwijze: zo verloopt een woningontruiming bij Uw Ontruimer, in vijf stappen",
@@ -104,14 +104,26 @@ export default function Page() {
     <>
       <Header />
       <main className="mt-16">
-        <div className="relative w-full overflow-hidden" style={{ height: "400px" }}>
-          <Image src="/hero-verhuisdozen-bus.jpg" alt="Werkwijze Uw Ontruimer — van offerte tot oplevering" fill className="w-full h-full object-cover" style={{ objectPosition: "center center" }} priority />
-          <div className="absolute inset-0 bg-slate-900/40" />
+        {/* Header: de BSW-film (liggend) over de volle breedte, tekst eroverheen */}
+        <div className="relative w-full overflow-hidden bg-slate-900" style={{ height: "420px" }}>
+          <Film
+            naam="bsw"
+            src="/bsw-breed.mp4"
+            poster="/bsw-breed-poster.jpg"
+            plek="werkwijze-hero"
+            className="absolute inset-0 w-full h-full object-cover"
+            label="Medewerker neemt de kledingkast, een schilderij en de boekenkast door tijdens een BSW"
+          />
+          <div className="absolute inset-0 bg-slate-900/45" />
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">
+              <p className="text-white/85 font-medium text-sm uppercase tracking-widest mb-2">Werkwijze</p>
               <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
                 Zo verloopt een woningontruiming bij ons
               </h1>
+              <p className="text-white/85 font-light mt-3 text-base sm:text-lg">
+                Eerst kijken wat waarde heeft, dan één bod, dan de ontruiming met vaste prijs en een oplevering met garantie.
+              </p>
             </div>
           </div>
         </div>

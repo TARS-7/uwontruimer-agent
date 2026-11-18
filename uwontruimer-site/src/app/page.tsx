@@ -189,36 +189,48 @@ export default function HomePage() {
       {/* 5. REVIEWS CAROUSEL */}
       <ReviewTicker />
 
-      {/* 6. DIENSTEN */}
+      {/* 6. KLANTREIS: zo verloopt een woningontruiming bij ons (zie /werkwijze/) */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat wij doen</p>
-              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Onze diensten</h2>
-              <p className="text-slate-500 font-light text-sm max-w-md leading-relaxed">Van volledige woningontruiming tot spoedopdrachten — wij regelen het voor u.</p>
+              <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Zo verloopt een woningontruiming bij ons</h2>
+              <p className="text-slate-500 font-light text-sm max-w-xl leading-relaxed">
+                Woningontruiming is ons vak. Eerst kijken wat waarde heeft, dan één bod op de inboedel, dan de ontruiming met een vaste prijs
+                en een oplevering met garantie. En door alles heen: zo weinig mogelijk naar de verbrandingsoven.
+              </p>
             </div>
-            <Link href="/diensten/" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">Alle diensten <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
+            <Link href="/werkwijze/" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">De hele werkwijze <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { href: "/diensten/woningontruiming/", img: "/Verhuislift-diensten.jpg", title: "Woningontruiming", desc: "Complete ontruiming van woningen en appartementen." },
-              { href: "/diensten/bedrijfsontruiming/", img: "/bedrijfsontruiming.jpg", title: "Bedrijfsontruiming", desc: "Kantoren, winkels en magazijnen. Minimale overlast." },
-              { href: "/diensten/spoedontruiming/", img: "/hero-truck.jpg", title: "Spoedontruiming", desc: "Urgente ontruiming binnen 24 uur, 7 dagen per week." },
-              { href: "/diensten/opkopen-inboedel/", img: "/inboedel opkopen.jpg", title: "Inboedel overnemen", desc: "Wij kopen de complete inboedel en leveren leeg op." },
+              { n: "1", t: "Weten wat er staat", d: "De BSW: de hele inboedel uitgezocht op waarde, per stuk foto, richtprijs en advies. Optioneel.", g: "Niets wat waarde heeft, gaat de container in.", href: "/bsw/?van=home" },
+              { n: "2", t: "Eén bod op de inboedel", d: "Meestal binnen 48 uur. Het bod gaat van de ontruimingskosten af; bij een waardevolle inboedel betalen wij u uit.", g: "Wat wij kopen, krijgt een tweede leven.", href: "/diensten/opkopen-inboedel/" },
+              { n: "3", t: "Ontruiming, vaste prijs", d: "Eén offerte met alles erin. Bij een huurwoning regelen wij de voorinspectie met de corporatie.", g: "Gescheiden geladen: bruikbaar apart van hout, metaal en rest.", href: "/diensten/woningontruiming/" },
+              { n: "4", t: "Opleveren met garantie", d: "Bezemschoon, fotorapportage, aanwezig bij de eindinspectie. Opmerking achteraf? Wij komen terug.", g: "Documenten en foto's gaan in een gesloten doos naar u terug.", href: "/opleveringsgarantie/" },
+              { n: "5", t: "Waar de inboedel heen gaat", d: "Bruikbaar naar de kringloop en goede doelen, de rest gescheiden naar hout, metaal en papier.", g: "Zo weinig mogelijk naar de verbrandingsoven.", href: "/duurzaam/" },
             ].map((s) => (
-              <Link key={s.href} href={s.href} className="rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md hover:border-transparent transition-all duration-300">
-                <div className="overflow-hidden h-32 foto-zoom relative"><Image src={s.img} fill className="object-cover" alt={s.title} /></div>
-                <div className="p-4">
-                  <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mb-3">
-                    <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                  </div>
-                  <div className="text-sm font-medium text-slate-900 mb-1">{s.title}</div>
-                  <div className="text-xs text-slate-400 font-light leading-relaxed">{s.desc}</div>
-                </div>
+              <Link key={s.n} href={s.href} className="group relative pt-6 border-t-2 border-slate-100 hover:border-blue-200 transition-colors">
+                <div className="absolute top-[-2px] left-0 w-10 h-[3px] bg-blue-600 rounded-full"></div>
+                <div className="text-4xl font-semibold text-slate-200 leading-none mb-4">{s.n}</div>
+                <div className="text-sm font-medium text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{s.t}</div>
+                <div className="text-xs text-slate-500 font-light leading-relaxed mb-3">{s.d}</div>
+                <div className="text-xs text-slate-400 font-light leading-relaxed"><span className="font-medium text-slate-500">Duurzaam: </span>{s.g}</div>
               </Link>
             ))}
-
+          </div>
+          <div className="mt-12 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-widest mr-2">Ook mogelijk</span>
+            {[
+              { label: "Spoedontruiming", href: "/diensten/spoedontruiming/" },
+              { label: "Bedrijfsontruiming", href: "/diensten/bedrijfsontruiming/" },
+              { label: "Vervuilde woning", href: "/vervuilde-woning-ontruimen/" },
+              { label: "Verhuizen", href: "/diensten/verhuizen/" },
+              { label: "Alle diensten", href: "/diensten/" },
+            ].map(({ label, href }) => (
+              <Link key={href} href={href} className="inline-block rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm text-slate-600 hover:border-blue-300 hover:text-blue-700 transition-colors">{label}</Link>
+            ))}
           </div>
         </div>
       </section>
@@ -293,29 +305,6 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. WERKWIJZE */}
-      <section className="bg-slate-50 py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Hoe het werkt</p>
-          <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-14">Werkwijze in 4 stappen</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {[
-              { n: "01", t: "Gratis offerte", d: "U vraagt een offerte aan. Wij plannen een bezichtiging op uw moment." },
-              { n: "02", t: "Helder voorstel", d: "Vaste prijs, geen verborgen kosten. Na goedkeuring plannen we de datum." },
-              { n: "03", t: "Ontruiming", d: "Ons team voert de ontruiming professioneel en zorgvuldig uit." },
-              { n: "04", t: "Oplevering", d: "Schoon en leeg opgeleverd, met schriftelijke opleveringsgarantie." },
-            ].map((s) => (
-              <div key={s.n} className="relative pt-6 border-t-2 border-slate-100">
-                <div className="absolute top-[-2px] left-0 w-10 h-[3px] bg-blue-600 rounded-full"></div>
-                <div className="text-4xl font-semibold text-slate-200 leading-none mb-4">{s.n}</div>
-                <div className="text-sm font-medium text-slate-900 mb-2">{s.t}</div>
-                <div className="text-xs text-slate-400 font-light leading-relaxed">{s.d}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

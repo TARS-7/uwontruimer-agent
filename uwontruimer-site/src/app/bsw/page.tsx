@@ -162,10 +162,19 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <Header />
       <main className="mt-16">
-        {/* Hero: tekst links, de BSW-film (staand) rechts op volle hoogte */}
-        <div className="bg-slate-900 px-6">
-          <div className="max-w-5xl mx-auto grid sm:grid-cols-[1fr_300px] gap-8 items-center py-10 sm:py-0">
-            <div className="sm:py-14">
+        {/* Header: de BSW-film (liggend) over de volle breedte, tekst eroverheen */}
+        <div className="relative w-full overflow-hidden bg-slate-900" style={{ height: "420px" }}>
+          <Film
+            naam="bsw"
+            src="/bsw-breed.mp4"
+            poster="/bsw-breed-poster.jpg"
+            plek="bsw-hero"
+            className="absolute inset-0 w-full h-full object-cover"
+            label="Medewerker neemt de kledingkast, een schilderij en de boekenkast door tijdens een BSW"
+          />
+          <div className="absolute inset-0 bg-slate-900/45" />
+          <div className="absolute inset-0 flex items-end pb-10 px-6">
+            <div className="max-w-3xl mx-auto w-full">
               <p className="text-white/85 font-medium text-sm uppercase tracking-widest mb-2">BSW, Boedel Sorteer Waardering</p>
               <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
                 Eerst uitzoeken wat waarde heeft,<br />dan pas beslissen
@@ -173,16 +182,6 @@ export default function Page() {
               <p className="text-white/85 font-light mt-3 text-base sm:text-lg">
                 De hele inboedel doorgenomen, per stuk een foto, richtprijs en advies.
               </p>
-            </div>
-            <div className="relative overflow-hidden bg-slate-800 aspect-[9/16] w-full max-w-[300px] mx-auto sm:max-w-none sm:h-[480px] sm:aspect-auto rounded-xl sm:rounded-none">
-              <Film
-                naam="bsw"
-                src="/bsw.mp4"
-                poster="/bsw-poster.jpg"
-                plek="bsw-hero"
-                className="absolute inset-0 w-full h-full object-cover"
-                label="Medewerker neemt de kledingkast, een schilderij en de boekenkast door tijdens een BSW"
-              />
             </div>
           </div>
         </div>
