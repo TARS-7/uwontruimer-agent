@@ -236,7 +236,7 @@ export default function Page() {
               Twijfelt u of u de inboedel in één keer wilt verkopen? Dan doen wij eerst een <strong className="font-medium">BSW, Boedel Sorteer Waardering</strong>: wij zoeken de hele inboedel met u uit op wat nog waarde heeft, aan de hand van onze lijst met spullen die nog geld opbrengen. U krijgt een overzicht met foto, richtprijs en advies per stuk: houden, laten veilen, verkopen of verrekenen. Daarna beslist u pas over ons bod.
             </P>
             <P>
-              De BSW kost € 75 per uur per medewerker, met twee medewerkers en minimaal twee uur. Gaat u daarna met ons door, dan trekken wij dit bedrag van ons bod of van de ontruiming af; u ziet beide bedragen apart. Het overzicht is een waarde-indicatie op basis van marktprijzen, geen taxatie.
+              De BSW kost € 75 per uur per medewerker, met twee medewerkers en minimaal twee uur. Neemt u daarna ons bod op de inboedel aan, dan trekken wij dit bedrag van het bod af; u ziet beide bedragen apart. Een ontruiming is een aparte dienst en wordt niet verrekend. Het overzicht is een waarde-indicatie op basis van marktprijzen, geen taxatie.
             </P>
 
             <H2>Voor wie</H2>

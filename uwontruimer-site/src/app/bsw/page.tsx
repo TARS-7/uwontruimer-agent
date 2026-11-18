@@ -14,7 +14,7 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 export const metadata: Metadata = {
   title: "BSW, Boedel Sorteer Waardering: de hele inboedel uitgezocht op waarde",
   description:
-    "Wij zoeken de hele inboedel met u uit op wat nog waarde heeft en leveren een overzicht met foto, richtprijs en advies per stuk. € 75 per uur per medewerker, verrekend met de ontruiming of met ons bod.",
+    "Wij zoeken de hele inboedel met u uit op wat nog waarde heeft en leveren een overzicht met foto, richtprijs en advies per stuk. € 75 per uur per medewerker, verrekend als wij de inboedel kopen.",
   alternates: { canonical: "/bsw/" },
 };
 
@@ -35,7 +35,7 @@ const faqItems = [
   {
     vraag: "Wordt het bedrag verrekend?",
     antwoord:
-      "Ja. Gaat u binnen drie maanden met ons door, dan trekken wij het volledige bedrag af van de ontruimingsofferte of van ons bod op de inboedel. U ziet beide bedragen apart op de offerte. Doet u niets met ons, dan betaalt u alleen de BSW en houdt u het overzicht.",
+      "Ja, als wij de inboedel kopen. Neemt u binnen drie maanden ons bod op de inboedel aan, dan trekken wij het volledige bedrag van de BSW van dat bod af; de uren die wij in het uitzoeken hebben gestoken, zitten dan in de koop. U ziet beide bedragen apart. Een ontruiming is een aparte dienst waarvoor u gewoon betaalt; daar wordt de BSW niet mee verrekend. Doet u niets met ons, dan betaalt u alleen de BSW en houdt u het overzicht.",
   },
   {
     vraag: "Is dit een taxatie?",
@@ -50,7 +50,7 @@ const faqItems = [
   {
     vraag: "Wat gebeurt er met wat wij vinden?",
     antwoord:
-      "Niets zonder uw akkoord. Per stuk staat in het overzicht wat wij adviseren: houden, laten veilen via een gespecialiseerd veilinghuis, verkopen aan een afnemer, of verrekenen met de ontruiming. Geld, documenten, medicijnen en gegevensdragers zetten wij apart en overhandigen wij aan u; die worden nooit verrekend.",
+      "Niets zonder uw akkoord. Per stuk staat in het overzicht wat wij adviseren: houden, laten veilen via een gespecialiseerd veilinghuis, verkopen aan een afnemer, of aan ons verkopen. Geld, documenten, medicijnen en gegevensdragers zetten wij apart en overhandigen wij aan u; die worden nooit verrekend.",
   },
   {
     vraag: "Mag een BSW al vóór de verklaring van erfrecht?",
@@ -77,8 +77,8 @@ const serviceJsonLd = {
   provider: { "@type": "LocalBusiness", name: "Uw Ontruimer", telephone: "+31853035894", url: "https://www.uwontruimer.nl" },
   areaServed: "Nederland",
   description:
-    "De hele inboedel uitgezocht op wat nog waarde heeft, met een overzicht per stuk (foto, richtprijs, advies). € 75 per uur per medewerker, verrekend met de ontruiming of met ons bod.",
-  offers: { "@type": "Offer", price: "75", priceCurrency: "EUR", description: "Per uur per medewerker, twee medewerkers, minimaal twee uur. Verrekend bij ontruiming of bod." },
+    "De hele inboedel uitgezocht op wat nog waarde heeft, met een overzicht per stuk (foto, richtprijs, advies). € 75 per uur per medewerker, verrekend als wij de inboedel kopen.",
+  offers: { "@type": "Offer", price: "75", priceCurrency: "EUR", description: "Per uur per medewerker, twee medewerkers, minimaal twee uur. Verrekend als wij de inboedel kopen." },
 };
 
 export default function Page() {
@@ -117,7 +117,7 @@ export default function Page() {
           <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
             {[
               "Uurtarief, dus geen belang bij een laag bod",
-              "Verrekend met ontruiming of bod",
+              "Verrekend als wij de inboedel kopen",
               "Overzicht met foto per stuk",
             ].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
@@ -146,7 +146,7 @@ export default function Page() {
               Bij een BSW, Boedel Sorteer Waardering, nemen wij de hele inboedel met u door aan de hand van onze lijst met spullen
               die nog waarde hebben: sieraden en edelmetaal, design en antiek, verzamelingen, boeken, audio, gereedschap, kleding en
               wat men meestal vergeet. U krijgt een overzicht met per stuk een foto, een richtprijs en een advies: houden, laten
-              veilen, verkopen of verrekenen. Daarna beslist u.
+              veilen, verkopen of aan ons verkopen. Daarna beslist u.
             </p>
 
             {/* Prijsblok */}
@@ -159,8 +159,8 @@ export default function Page() {
                 Twee medewerkers, minimaal twee uur. Een gewone woning kost twee tot vier manuur. Vooraf krijgt u een schatting.
               </p>
               <p className="text-slate-600 font-light text-sm leading-relaxed mb-6">
-                Gaat u binnen drie maanden met ons door, dan trekken wij het volledige bedrag af van de ontruiming of van ons bod
-                op de inboedel. U ziet beide bedragen apart.
+                Neemt u binnen drie maanden ons bod op de inboedel aan, dan trekken wij het volledige bedrag van dat bod af.
+                U ziet beide bedragen apart. Een ontruiming is een aparte dienst en wordt niet verrekend.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -184,7 +184,7 @@ export default function Page() {
                 "Wij lopen elke ruimte door in een vaste volgorde, ook zolder, kelder, schuur en de naaidoos",
                 "Alles wat waarde kan hebben zetten wij apart en fotograferen wij",
                 "Per stuk noteren wij een richtprijs op basis van actuele markt- en veilingprijzen",
-                "U krijgt per stuk een advies: houden, laten veilen, verkopen aan een afnemer, of verrekenen",
+                "U krijgt per stuk een advies: houden, laten veilen, verkopen aan een afnemer, of aan ons verkopen",
                 "Geld, documenten, medicijnen en gegevensdragers gaan apart en worden aan u overhandigd",
                 "Het overzicht ontvangt u per e-mail, bruikbaar voor de erfgenamen of de boedelbeschrijving",
               ].map((item) => (
@@ -201,7 +201,7 @@ export default function Page() {
                 { stap: "1", titel: "U vraagt de BSW aan", tekst: "Telefonisch of via de offerteaanvraag. Wij schatten vooraf het aantal uren aan de hand van de grootte van de woning." },
                 { stap: "2", titel: "Wij komen met twee medewerkers", tekst: "Op een moment dat u, of iemand namens u, erbij kunt zijn. Er gaat die dag niets de deur uit." },
                 { stap: "3", titel: "U ontvangt het overzicht", tekst: "Binnen twee werkdagen, met foto, richtprijs en advies per stuk, en de gewerkte uren." },
-                { stap: "4", titel: "U beslist", tekst: "Houden, laten veilen, verkopen of verrekenen. Kiest u voor een ontruiming of ons bod, dan gaat de BSW van dat bedrag af." },
+                { stap: "4", titel: "U beslist", tekst: "Houden, laten veilen, verkopen of aan ons verkopen. Neemt u ons bod op de inboedel aan, dan gaat de BSW van dat bod af." },
               ].map(({ stap, titel, tekst }) => (
                 <li key={stap} className="flex gap-4">
                   <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5">{stap}</span>

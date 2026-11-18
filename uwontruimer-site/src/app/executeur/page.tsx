@@ -182,10 +182,10 @@ export default function Page() {
 
             <H2>Verantwoorden wat er was: de BSW</H2>
             <P>
-              Moet u richting erfgenamen of rechter kunnen laten zien dat de inboedel zorgvuldig is beoordeeld voordat er iets is weggegaan? Daarvoor is de <strong className="font-medium">BSW, Boedel Sorteer Waardering</strong>: wij zoeken de hele inboedel uit aan de hand van onze lijst met spullen die nog waarde hebben en leggen per stuk vast wat het is, wat het ongeveer opbrengt en wat ermee gebeurt: houden, laten veilen, verkopen of verrekenen. Het overzicht komt met foto's op naam van de boedel.
+              Moet u richting erfgenamen of rechter kunnen laten zien dat de inboedel zorgvuldig is beoordeeld voordat er iets is weggegaan? Daarvoor is de <strong className="font-medium">BSW, Boedel Sorteer Waardering</strong>: wij zoeken de hele inboedel uit aan de hand van onze lijst met spullen die nog waarde hebben en leggen per stuk vast wat het is, wat het ongeveer opbrengt en wat ermee gebeurt: houden, laten veilen, verkopen of aan ons verkopen. Het overzicht komt met foto's op naam van de boedel.
             </P>
             <P>
-              De BSW is een dienst op uurtarief: € 75 per uur per medewerker, twee medewerkers, minimaal twee uur. Volgt er een ontruiming of een bod, dan verrekenen wij het bedrag daarmee. Omdat wij aan de uren verdienen en niet aan een laag bod, staat de BSW los van ons eigen belang bij de inboedel. Het overzicht is een waarde-indicatie, geen taxatie; voor de aangifte erfbelasting verwijzen wij naar een beëdigd taxateur.
+              De BSW is een dienst op uurtarief: € 75 per uur per medewerker, twee medewerkers, minimaal twee uur. Neemt de boedel ons bod op de inboedel aan, dan trekken wij het bedrag van dat bod af; een ontruiming is een aparte dienst en wordt niet verrekend. Omdat wij aan de uren verdienen en niet aan een laag bod, staat de BSW los van ons eigen belang bij de inboedel. Het overzicht is een waarde-indicatie, geen taxatie; voor de aangifte erfbelasting verwijzen wij naar een beëdigd taxateur.
             </P>
 
             <H2>Wat kost het, en wie betaalt?</H2>

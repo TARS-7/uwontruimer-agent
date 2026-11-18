@@ -91,7 +91,7 @@ export default function Page() {
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  { href: "/bsw/?van=diensten", title: "BSW, Boedel Sorteer Waardering", desc: "De hele inboedel uitgezocht op wat nog waarde heeft, per stuk foto, richtprijs en advies. Verrekend met ontruiming of bod." },
+                  { href: "/bsw/?van=diensten", title: "BSW, Boedel Sorteer Waardering", desc: "De hele inboedel uitgezocht op wat nog waarde heeft, per stuk foto, richtprijs en advies. Verrekend als wij de inboedel kopen." },
                   { href: "/diensten/raambekleding-verwijderen", title: "Raambekleding verwijderen", desc: "Gordijnen, rolgordijnen, screens en jaloezieën vakkundig gedemonteerd." },
                   { href: "/diensten/behang-verwijderen", title: "Behang verwijderen", desc: "Alle soorten behang gestript, muren intact en schilderklaar opgeleverd." },
                   { href: "/diensten/keuken-verwijderen", title: "Keuken verwijderen", desc: "Complete keukensloping inclusief veilige afkoppeling van gas, water en elektra." },

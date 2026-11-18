@@ -211,10 +211,10 @@ export default function Page() {
 
             <H2>Eerst uitzoeken wat waarde heeft: de BSW</H2>
             <P>
-              Wilt u zeker weten dat er niets weggaat wat geld waard is, nog voordat u over een ontruiming beslist? Dan doen wij een <strong className="font-medium">BSW, Boedel Sorteer Waardering</strong>: wij nemen de hele inboedel met u door aan de hand van onze lijst met spullen die nog waarde hebben, van sieraden en edelmetaal tot design, verzamelingen, gereedschap, audio en boeken. U krijgt een overzicht met foto, richtprijs en advies per stuk: houden, laten veilen, verkopen of verrekenen.
+              Wilt u zeker weten dat er niets weggaat wat geld waard is, nog voordat u over een ontruiming beslist? Dan doen wij een <strong className="font-medium">BSW, Boedel Sorteer Waardering</strong>: wij nemen de hele inboedel met u door aan de hand van onze lijst met spullen die nog waarde hebben, van sieraden en edelmetaal tot design, verzamelingen, gereedschap, audio en boeken. U krijgt een overzicht met foto, richtprijs en advies per stuk: houden, laten veilen, verkopen of aan ons verkopen.
             </P>
             <P>
-              De BSW kost € 75 per uur per medewerker, met twee medewerkers en minimaal twee uur. Gaat u daarna met ons door, dan verrekenen wij dit bedrag met de ontruiming of met ons bod op de inboedel. Zo verdienen wij aan zorgvuldigheid, niet aan een lage inschatting. Het overzicht is een waarde-indicatie op basis van marktprijzen, geen taxatie; voor de aangifte erfbelasting heeft u een beëdigd taxateur nodig, wij verwijzen u desgewenst door.
+              De BSW kost € 75 per uur per medewerker, met twee medewerkers en minimaal twee uur. Kopen wij daarna de inboedel, dan trekken wij dit bedrag van ons bod af; een ontruiming is een aparte dienst en wordt niet verrekend. Zo verdienen wij aan zorgvuldigheid, niet aan een lage inschatting. Het overzicht is een waarde-indicatie op basis van marktprijzen, geen taxatie; voor de aangifte erfbelasting heeft u een beëdigd taxateur nodig, wij verwijzen u desgewenst door.
             </P>
 
             <H2>Wat kost een huis ontruimen na overlijden?</H2>
