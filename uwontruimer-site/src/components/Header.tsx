@@ -7,16 +7,13 @@ import AbCtaText from "@/components/AbCtaText";
 
 const diensten = [
   { label: "Woningontruiming", href: "/diensten/woningontruiming" },
-  { label: "Voorinspectie huurwoning", href: "/voorinspectie/?van=menu" },
   { label: "BSW, Boedel Sorteer Waardering", href: "/bsw/?van=menu" },
-  { label: "Vooropname uploaden", href: "/vooropname-uploaden/?van=menu" },
-  { label: "Bedrijfsontruiming", href: "/diensten/bedrijfsontruiming" },
+  { label: "Inboedel opkopen", href: "/diensten/opkopen-inboedel" },
+  { label: "Voorinspectie huurwoning", href: "/voorinspectie/?van=menu" },
   { label: "Spoedontruiming", href: "/diensten/spoedontruiming" },
-  { label: "Vloerverwijdering", href: "/diensten/vloerverwijdering" },
-  { label: "Opkopen inboedel", href: "/diensten/opkopen-inboedel" },
-  { label: "Taxatie", href: "/diensten/taxatie" },
-  { label: "Inboedel veilen", href: "/diensten/inboedel-veilen" },
+  { label: "Bedrijfsontruiming", href: "/diensten/bedrijfsontruiming" },
   { label: "Verhuizen", href: "/diensten/verhuizen" },
+  { label: "Aanvullende services", href: "/diensten/" },
 ];
 
 const werkwijze = [

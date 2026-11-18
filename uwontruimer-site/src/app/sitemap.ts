@@ -54,8 +54,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/diensten/spoedontruiming/`,          lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/diensten/vloerverwijdering/`,        lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/diensten/opkopen-inboedel/`,         lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/diensten/taxatie/`,                  lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/diensten/inboedel-veilen/`,          lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/diensten/verhuizen/`,                lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/diensten/traplift-verwijderen/`,     lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/diensten/raambekleding-verwijderen/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

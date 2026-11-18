@@ -46,16 +46,6 @@ const diensten = [
     title: "Verhuizen",
     desc: "Verhuizing van groot naar klein of seniorenverhuizing.",
   },
-  {
-    href: "/diensten/taxatie",
-    title: "Taxatie",
-    desc: "Inboedel of waardevolle objecten laten taxeren door erkende experts.",
-  },
-  {
-    href: "/diensten/inboedel-veilen",
-    title: "Inboedel veilen",
-    desc: "Waardevolle objecten via gerenommeerde veilinghuizen laten veilen.",
-  },
 ];
 
 export default function Page() {

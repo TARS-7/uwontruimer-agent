@@ -68,6 +68,12 @@ const nextConfig: NextConfig = {
         ];
       })(),
       { source: "/categorie/nieuws/", destination: "/blog/", permanent: true },
+      // 18 nov 2026: Taxatie en Inboedel veilen zijn geen diensten meer; de klantreis
+      // begint met de BSW (waarde-indicatie) en het bod op de inboedel.
+      { source: "/diensten/taxatie", destination: "/bsw/", permanent: true },
+      { source: "/diensten/taxatie/", destination: "/bsw/", permanent: true },
+      { source: "/diensten/inboedel-veilen", destination: "/diensten/opkopen-inboedel/", permanent: true },
+      { source: "/diensten/inboedel-veilen/", destination: "/diensten/opkopen-inboedel/", permanent: true },
       // SEO fase 1 (15 okt 2026): drie dubbelgangers van de pijlerpagina woningontruiming.
       { source: "/huisontruiming", destination: "/diensten/woningontruiming/", permanent: true },
       { source: "/huisontruiming/", destination: "/diensten/woningontruiming/", permanent: true },
