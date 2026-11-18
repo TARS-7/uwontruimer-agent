@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
@@ -163,19 +162,10 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <Header />
       <main className="mt-16">
-        {/* Hero */}
-        <div className="relative w-full overflow-hidden" style={{ height: "380px" }}>
-          <Image
-            src="/hero-handdruk-oplevering.jpg"
-            alt="Medewerker van Uw Ontruimer neemt de inboedel door met de opdrachtgever"
-            fill
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "center 60%" }}
-            priority
-          />
-          <div className="absolute inset-0 bg-slate-900/45" />
-          <div className="absolute inset-0 flex items-end pb-10 px-6">
-            <div className="max-w-3xl mx-auto w-full">
+        {/* Hero: tekst links, de BSW-film (staand) rechts op volle hoogte */}
+        <div className="bg-slate-900 px-6">
+          <div className="max-w-5xl mx-auto grid sm:grid-cols-[1fr_300px] gap-8 items-center py-10 sm:py-0">
+            <div className="sm:py-14">
               <p className="text-white/85 font-medium text-sm uppercase tracking-widest mb-2">BSW, Boedel Sorteer Waardering</p>
               <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
                 Eerst uitzoeken wat waarde heeft,<br />dan pas beslissen
@@ -183,6 +173,16 @@ export default function Page() {
               <p className="text-white/85 font-light mt-3 text-base sm:text-lg">
                 De hele inboedel doorgenomen, per stuk een foto, richtprijs en advies.
               </p>
+            </div>
+            <div className="relative overflow-hidden bg-slate-800 aspect-[9/16] w-full max-w-[300px] mx-auto sm:max-w-none sm:h-[480px] sm:aspect-auto rounded-xl sm:rounded-none">
+              <Film
+                naam="bsw"
+                src="/bsw.mp4"
+                poster="/bsw-poster.jpg"
+                plek="bsw-hero"
+                className="absolute inset-0 w-full h-full object-cover"
+                label="Medewerker neemt de kledingkast, een schilderij en de boekenkast door tijdens een BSW"
+              />
             </div>
           </div>
         </div>
@@ -211,32 +211,18 @@ export default function Page() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat is een BSW?</p>
 
-            <div className="grid sm:grid-cols-[1fr_260px] gap-8 items-start mb-10">
-              <div>
-                <p className="text-slate-500 font-light leading-relaxed mb-6">
-                  In bijna elke inboedel zitten drie tot vijf stukken die los meer opbrengen dan de rest bij elkaar: een gouden ketting
-                  in een naaidoos, een designstoel op zolder, een verzameling in een kast, gereedschap in de schuur. Wie de woning snel
-                  leeg wil, ziet dat over het hoofd. Wie een bod op de hele inboedel vraagt, krijgt van de koper geen lijst van wat er
-                  precies in zat.
-                </p>
-                <p className="text-slate-500 font-light leading-relaxed">
-                  Bij een BSW, Boedel Sorteer Waardering, nemen wij de hele inboedel met u door aan de hand van onze lijst met spullen
-                  die nog waarde hebben: sieraden en edelmetaal, design en antiek, verzamelingen, boeken, audio, gereedschap, kleding en
-                  wat men meestal vergeet. U krijgt een overzicht met per stuk een foto, een richtprijs en een advies: houden, laten
-                  veilen, verkopen of aan ons verkopen. Daarna beslist u.
-                </p>
-              </div>
-              <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[9/16] max-w-[260px] mx-auto w-full">
-                <Film
-                  naam="bsw"
-                  src="/bsw.mp4"
-                  poster="/bsw-poster.jpg"
-                  plek="bsw-intro"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  label="Medewerker neemt de kledingkast, een schilderij en de boekenkast door tijdens een BSW"
-                />
-              </div>
-            </div>
+            <p className="text-slate-500 font-light leading-relaxed mb-6">
+              In bijna elke inboedel zitten drie tot vijf stukken die los meer opbrengen dan de rest bij elkaar: een gouden ketting
+              in een naaidoos, een designstoel op zolder, een verzameling in een kast, gereedschap in de schuur. Wie de woning snel
+              leeg wil, ziet dat over het hoofd. Wie een bod op de hele inboedel vraagt, krijgt van de koper geen lijst van wat er
+              precies in zat.
+            </p>
+            <p className="text-slate-500 font-light leading-relaxed mb-10">
+              Bij een BSW, Boedel Sorteer Waardering, nemen wij de hele inboedel met u door aan de hand van onze lijst met spullen
+              die nog waarde hebben: sieraden en edelmetaal, design en antiek, verzamelingen, boeken, audio, gereedschap, kleding en
+              wat men meestal vergeet. U krijgt een overzicht met per stuk een foto, een richtprijs en een advies: houden, laten
+              veilen, verkopen of aan ons verkopen. Daarna beslist u.
+            </p>
 
             {/* Prijsblok */}
             <div className="rounded-2xl border border-slate-200 p-6 sm:p-7 mb-12" style={{ backgroundColor: "#f8fafc" }}>
