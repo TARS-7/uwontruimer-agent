@@ -5,11 +5,10 @@ import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
 import Link from "next/link";
 import DuurzaamFilm from "@/components/DuurzaamFilm";
-import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Werkwijze | Zo brengen wij uw ontruiming tot een succes",
-  description: "Hoe werkt UwOntruimer? Van gratis offerte tot schone oplevering. Transparant, betrouwbaar en met opleveringsgarantie.",
+  title: "Werkwijze: zo verloopt een woningontruiming bij Uw Ontruimer, in vijf stappen",
+  description: "Eerst kijken wat waarde heeft, één bod op de inboedel, ontruiming met vaste prijs, oplevering met garantie, en zo weinig mogelijk naar de verbrandingsoven. Zo werkt een woningontruiming bij Uw Ontruimer.",
   alternates: { canonical: "/werkwijze/" },
 };
 
@@ -44,17 +43,60 @@ const CtaBox = () => (
   </div>
 );
 
-const stappen: ReactNode[] = [
-  <>Wilt u eerst weten wat er in de inboedel nog waarde heeft? Dan doen wij een <Link href="/bsw/?van=werkwijze" className="text-blue-600 hover:underline">BSW, Boedel Sorteer Waardering</Link>: wij zoeken de hele inboedel met u uit en u krijgt per stuk een foto, richtprijs en advies. Op uurtarief, verrekend als wij de inboedel kopen.</>,
-  <>Op de complete inboedel doen wij één bod; dat gaat van de ontruimingskosten af en bij een waardevolle inboedel betalen wij u uit. <Link href="/diensten/opkopen-inboedel/" className="text-blue-600 hover:underline">Zo werkt inboedel opkopen</Link>.</>,
-  <>Meubels, huisraad en kleding die nog bruikbaar zijn, gaan naar de <Link href="/duurzaam/" className="text-blue-600 hover:underline">kringloop en goede doelen</Link>; wat niet herbruikbaar is, voeren wij gescheiden af.</>,
-  "Eventuele inbouwkasten en andere constructies worden professioneel gedemonteerd en verwijderd.",
-  "Vloeren worden professioneel verwijderd en afgevoerd.",
-  "Lampen, spiegels, schilderijen en andere aangebrachte aanhangsels op muren en plafonds worden professioneel verwijderd.",
-  "Schroeven, spijkers, pluggen en overige bevestigingsmaterialen worden verwijderd en de gaatjes worden netjes gedicht.",
-  "Op loshangende draden van elektrapunten worden kroonsteentjes gemonteerd.",
-  "Kluswerkzaamheden die gedaan moeten worden voor de oplevering van de woning, zoals muren witten, stucwerk, deuren terugzetten en tuinwerkzaamheden.",
-  "De woning wordt netjes en schoon opgeleverd.",
+type Stap = { titel: string; intro: string; u: string; wij: string; kosten: string; duurzaam: string; href: string; knop: string; film?: boolean };
+
+const stappen: Stap[] = [
+  {
+    titel: "Weten wat er staat",
+    intro: "Wilt u zeker weten dat er niets weggaat wat geld waard is? Dan beginnen wij met een BSW, Boedel Sorteer Waardering: de hele inboedel uitgezocht met onze lijst van spullen die nog waarde hebben.",
+    u: "U bent erbij, of iemand namens u. U beslist per stuk: houden, laten veilen, verkopen of aan ons verkopen.",
+    wij: "Wij lopen elke ruimte in een vaste volgorde door, zetten apart wat waarde heeft en leveren een overzicht met foto, richtprijs en advies per stuk.",
+    kosten: "€ 75 per uur per medewerker, twee medewerkers, minimaal twee uur. Verrekend als wij de inboedel kopen. Optioneel.",
+    duurzaam: "Niets wat nog waarde heeft, gaat de container in. Dat is de eerste en grootste stap naar minder afval.",
+    href: "/bsw/?van=werkwijze",
+    knop: "Meer over de BSW",
+  },
+  {
+    titel: "Eén bod op de inboedel",
+    intro: "Op de complete inboedel doen wij één bod, meestal binnen 48 uur na uw foto's. Dat bod gaat van de ontruimingskosten af; bij een waardevolle inboedel betalen wij u uit.",
+    u: "U stuurt foto's via WhatsApp of laat ons langskomen. U beslist pas als het bod op papier staat.",
+    wij: "Wij beoordelen antiek, design, sieraden, boeken en gewone huisraad in één keer en zetten het bod schriftelijk vast.",
+    kosten: "Geen. Het bod wordt verrekend of uitbetaald; een eventuele BSW gaat van het bod af.",
+    duurzaam: "Wat wij kopen, krijgt een tweede leven via onze afnemers, veilinghuizen en vintage-handelaren in plaats van een nieuw gekocht exemplaar.",
+    href: "/diensten/opkopen-inboedel/",
+    knop: "Zo werkt inboedel opkopen",
+  },
+  {
+    titel: "De ontruiming, met vaste prijs",
+    intro: "U krijgt één offerte met alles erin: leeghalen, afvoeren, vloer of keuken eruit als dat nodig is, gaatjes dichten, schoon opleveren. Bij een huurwoning wonen wij de voorinspectie van de corporatie bij, zodat de herstellijst in dezelfde offerte zit.",
+    u: "U vult de AI-analyse in met foto's, of maakt een afspraak voor een opname aan huis. Op de klusdag hoeft u er niet te zijn.",
+    wij: "Wij halen leeg in één of twee dagen, demonteren wat vast zit en laden gescheiden: meubels en bruikbare spullen apart van hout, metaal en rest.",
+    kosten: "Vaste prijs uit de offerte. Voorinspectie huurwoning € 150, verrekend met de ontruiming.",
+    duurzaam: "Bruikbare meubels, kleding en huisraad gaan naar de kringloop en goede doelen. Hout, metaal en papier worden apart gewogen en verwerkt, niet als gemengd afval.",
+    href: "/offerte/?van=werkwijze",
+    knop: "Vraag een offerte aan",
+  },
+  {
+    titel: "Opleveren met garantie",
+    intro: "De woning gaat bezemschoon naar de verhuurder, de makelaar of de nieuwe bewoner. Wij zijn bij de eindinspectie en dragen de sleutels over.",
+    u: "U ontvangt de fotorapportage en het opleveringsbewijs. Is er een opmerking, dan belt u ons.",
+    wij: "Wij leggen de oplevering vast met foto's, wonen de eindinspectie bij en komen kosteloos terug als er iets niet in orde is.",
+    kosten: "Inbegrepen. De opleveringsgarantie staat schriftelijk in de offerte.",
+    duurzaam: "Persoonlijke documenten, foto's en gegevensdragers gaan in een gesloten overdrachtsdoos naar u terug. Niets daarvan belandt bij het oud papier.",
+    href: "/opleveringsgarantie/",
+    knop: "Lees de opleveringsgarantie",
+  },
+  {
+    titel: "Waar de inboedel heen gaat",
+    intro: "Twee weken na de ontruiming staat een groot deel van de inboedel in de kringloopwinkel. Dit is hoe dat eruitziet.",
+    u: "Niets. Als u wilt, vertellen wij u achteraf waar de spullen heen zijn gegaan.",
+    wij: "Wij werken met vaste kringlooporganisaties, goede doelen en gecertificeerde verwerkers, en houden bij wat er is hergebruikt en wat is afgevoerd.",
+    kosten: "Geen. Hergebruik maakt de ontruiming juist goedkoper: wat niet de container in gaat, hoeft niet gestort te worden.",
+    duurzaam: "Zo weinig mogelijk naar de verbrandingsoven. Hergebruik eerst, dan kringloop, dan gescheiden afvoer.",
+    href: "/duurzaam/",
+    knop: "Meer over onze duurzame aanpak",
+    film: true,
+  },
 ];
 
 export default function Page() {
@@ -68,7 +110,7 @@ export default function Page() {
           <div className="absolute inset-0 flex items-end pb-10 px-6">
             <div className="max-w-3xl mx-auto w-full">
               <h1 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight leading-snug">
-                Onze werkwijze: Transparant van offerte tot oplevering
+                Zo verloopt een woningontruiming bij ons
               </h1>
             </div>
           </div>
@@ -76,7 +118,7 @@ export default function Page() {
 
         <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
           <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
-            {["Geen verborgen kosten", "Vaste contactpersoon", "Schriftelijke opleveringsgarantie"].map((item) => (
+            {["Vaste prijs vooraf", "Schriftelijke opleveringsgarantie", "Zo weinig mogelijk naar de verbrandingsoven"].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-slate-600">
                 <svg className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 {item}
@@ -91,55 +133,67 @@ export default function Page() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkwijze</p>
 
-            <div className="mb-10">
-              <a href="https://analyse.uwontruimer.nl" className="inline-flex items-center gap-2 text-white font-semibold px-7 py-4 rounded-xl shadow-md transition-opacity hover:opacity-90 text-base" style={{ backgroundColor: "#d97706" }}>
-                Start de AI-wizard →
-              </a>
-              <p className="text-xs text-slate-400 mt-2">Gratis prijsindicatie in 2 minuten · Geen verplichtingen</p>
-            </div>
-
-            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Van het eerste contact tot de schone oplevering</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-8">
-              Wij begeleiden u door het gehele ontruimingsproces. Geen verrassingen, geen verborgen kosten. Uw vaste contactpersoon houdt u op de hoogte van elke stap — van de gratis inventarisatie tot de definitieve oplevering.
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wij doen één ding: woningen ontruimen</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-4">
+              Een woning die leeg moet, na een overlijden, een verhuizing naar een zorginstelling of een verkoop. Dat is ons werk, al meer dan
+              vijftien jaar. Alles wat u op deze site tegenkomt is een onderdeel van hoe wij dat doen: eerst kijken wat waarde heeft, dan
+              één bod op de inboedel, dan de ontruiming met een vaste prijs, en een oplevering met garantie.
+            </p>
+            <p className="text-slate-500 font-light leading-relaxed mb-10">
+              En door alles heen: zo weinig mogelijk naar de verbrandingsoven. Wat waarde heeft, krijgt een nieuwe eigenaar. Wat bruikbaar is,
+              gaat naar de kringloop en goede doelen. Wat overblijft, wordt gescheiden afgevoerd. Dat is geen extra dienst; het is de manier
+              waarop wij elke woning leeghalen.
             </p>
 
-            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Stap voor stap door het ontruimingsproces</h2>
+            <h2 className="text-2xl font-semibold text-slate-900 mb-6 tracking-tight">Zo verloopt het, in vijf stappen</h2>
             <ol className="space-y-5 mb-12">
               {stappen.map((stap, i) => (
-                <li key={i} className="flex gap-5 items-start">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold flex items-center justify-center">
-                    {i + 1}
-                  </span>
-                  <div className="text-slate-500 font-light leading-relaxed pt-1">{stap}</div>
+                <li key={stap.titel} className="rounded-2xl border border-slate-200 p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-blue-600 text-white text-sm font-semibold flex items-center justify-center">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-900 tracking-tight">{stap.titel}</h3>
+                      <p className="text-slate-500 font-light text-sm leading-relaxed mt-1">{stap.intro}</p>
+                    </div>
+                  </div>
+                  <div className="grid sm:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <p className="text-xs font-medium text-slate-400 uppercase tracking-widest mb-1">U doet</p>
+                      <p className="text-slate-600 font-light leading-relaxed">{stap.u}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-slate-400 uppercase tracking-widest mb-1">Wij doen</p>
+                      <p className="text-slate-600 font-light leading-relaxed">{stap.wij}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-slate-400 uppercase tracking-widest mb-1">Kosten</p>
+                      <p className="text-slate-600 font-light leading-relaxed">{stap.kosten}</p>
+                    </div>
+                  </div>
+                  <p className="mt-4 pt-4 border-t border-slate-100 text-sm text-slate-600 font-light leading-relaxed">
+                    <span className="font-medium text-slate-700">Duurzaam: </span>{stap.duurzaam}
+                  </p>
+                  {stap.film && (
+                    <div className="relative overflow-hidden rounded-xl mt-4 aspect-video bg-slate-100">
+                      <DuurzaamFilm plek="werkwijze" className="absolute inset-0 w-full h-full object-cover" bijschrift="Hergebruik via kringloop, de rest verantwoord afgevoerd" />
+                    </div>
+                  )}
+                  <p className="mt-4">
+                    <Link href={stap.href} className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">{stap.knop} →</Link>
+                  </p>
                 </li>
               ))}
             </ol>
 
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-3 tracking-tight">Waar de inboedel heen gaat</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Bij ons gaat zo weinig mogelijk naar de verbrandingsoven. Wat nog bruikbaar is, komt via het sorteercentrum van de kringloop opnieuw in een huis terecht; de rest gaat gescheiden naar hout, metaal en papier. Dit is waar een inboedel twee weken na de ontruiming staat.
-            </p>
-            <div className="relative overflow-hidden rounded-xl mb-5 aspect-video bg-slate-100">
-              <DuurzaamFilm plek="werkwijze" className="absolute inset-0 w-full h-full object-cover" bijschrift="Hergebruik via kringloop, de rest verantwoord afgevoerd" />
-              <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
-                <p className="text-white text-xs font-medium">Hergebruik via kringloop, de rest verantwoord afgevoerd</p>
-              </div>
-            </div>
-            <p className="mb-10">
-              <Link href="/duurzaam/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">Meer over onze duurzame aanpak →</Link>
-            </p>
-
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat u van ons mag verwachten</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Uw Ontruimer werkt altijd met een vaste werkwijze die transparantie en kwaliteit centraal stelt. U weet vooraf wat wij gaan doen, wat het kost en wanneer het klaar is.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wat u van ons mag verwachten</h2>
+            <div className="grid sm:grid-cols-2 gap-4 mb-12">
               {[
-                { titel: "Gratis inventarisatie", omschrijving: "Wij komen vrijblijvend langs om de situatie op te nemen. Op basis hiervan stellen wij een heldere offerte op." },
-                { titel: "Vaste contactpersoon", omschrijving: "U heeft één aanspreekpunt gedurende het hele traject. Geen wisselende gezichten, altijd dezelfde lijn." },
-                { titel: "Opleveringsgarantie", omschrijving: "Zijn er opmerkingen na oplevering? Dan komen wij kosteloos terug om dit te herstellen — schriftelijk vastgelegd." },
-                { titel: "Duurzame verwerking", omschrijving: "Wij hergebruiken zoveel mogelijk van de inboedel via kringloop en goede doelen. Zo min mogelijk restafval, zo veel mogelijk waarde." },
-                { titel: "BSW, Boedel Sorteer Waardering", omschrijving: "Eerst uitzoeken wat waarde heeft, dan pas beslissen. Op uurtarief, verrekend als wij de inboedel kopen." },
+                { titel: "Vaste prijs vooraf", omschrijving: "De offerte is het bedrag. Geen uren achteraf, geen verrassingen bij de eindinspectie." },
+                { titel: "Vaste contactpersoon", omschrijving: "Eén aanspreekpunt van het eerste gesprek tot de sleuteloverdracht." },
+                { titel: "Opleveringsgarantie", omschrijving: "Is er na oplevering een opmerking, dan komen wij kosteloos terug. Schriftelijk vastgelegd." },
+                { titel: "Zo weinig mogelijk afval", omschrijving: "Hergebruik eerst, dan kringloop en goede doelen, dan gescheiden afvoer. In die volgorde, bij elke woning." },
               ].map(({ titel, omschrijving }) => (
                 <div key={titel} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
                   <p className="font-medium text-slate-800 mb-1 text-sm">{titel}</p>
@@ -148,18 +202,23 @@ export default function Page() {
               ))}
             </div>
 
-            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Afspraak maken voor woning ontruimen</h2>
-            <p className="text-slate-500 font-light leading-relaxed mb-5">
-              Start direct met de AI-wizard voor een vrijblijvende prijsindicatie, of neem contact op via telefoon. Wij plannen in overleg — ook spoedontruimingen zijn mogelijk.
+            <h2 className="text-2xl font-semibold text-slate-900 mb-3 tracking-tight">Ook mogelijk</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-4">
+              Dezelfde werkwijze, dezelfde garantie, voor situaties die net anders zijn.
             </p>
-            <ul className="space-y-3 mb-10">
+            <ul className="flex flex-wrap gap-2 mb-12">
               {[
-                "Gratis prijsindicatie via onze AI-wizard in 2 minuten",
-                "Snelle reactietijd — u hoort binnen 24 uur van ons",
-                "Ook spoedontruimingen mogelijk — bel direct voor beschikbaarheid",
-                "Actief in Noord-Holland, Zuid-Holland en Utrecht",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">{checkIcon}<span className="text-slate-600 font-light">{item}</span></li>
+                { label: "Spoedontruiming", href: "/diensten/spoedontruiming/" },
+                { label: "Bedrijfsontruiming", href: "/diensten/bedrijfsontruiming/" },
+                { label: "Vervuilde woning", href: "/vervuilde-woning-ontruimen/" },
+                { label: "Verhuizen", href: "/diensten/verhuizen/" },
+                { label: "Vloer verwijderen", href: "/diensten/vloerverwijdering/" },
+                { label: "Keuken verwijderen", href: "/diensten/keuken-verwijderen/" },
+                { label: "Alle aanvullende services", href: "/diensten/" },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href} className="inline-block rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm text-slate-600 hover:border-blue-300 hover:text-blue-700 transition-colors">{label}</Link>
+                </li>
               ))}
             </ul>
 
