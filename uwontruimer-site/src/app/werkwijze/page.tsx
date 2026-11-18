@@ -3,6 +3,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import Image from "next/image";
+import Link from "next/link";
+import DuurzaamFilm from "@/components/DuurzaamFilm";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Werkwijze | Zo brengen wij uw ontruiming tot een succes",
@@ -41,9 +44,10 @@ const CtaBox = () => (
   </div>
 );
 
-const stappen = [
-  "De meubels, huisraad en overige inboedel die geschikt zijn voor hergebruik worden door Uw Ontruimer uit de woning verwijderd en krijgen een nieuwe bestemming.",
-  "Wilt u afstand doen van spullen of goederen van hoge waarde, dan kunt u ervoor kiezen gebruik te maken van onze ervaren taxateur.",
+const stappen: ReactNode[] = [
+  <>Wilt u eerst weten wat er in de inboedel nog waarde heeft? Dan doen wij een <Link href="/bsw/?van=werkwijze" className="text-blue-600 hover:underline">BSW, Boedel Sorteer Waardering</Link>: wij zoeken de hele inboedel met u uit en u krijgt per stuk een foto, richtprijs en advies. Op uurtarief, verrekend als wij de inboedel kopen.</>,
+  <>Op de complete inboedel doen wij één bod; dat gaat van de ontruimingskosten af en bij een waardevolle inboedel betalen wij u uit. <Link href="/diensten/opkopen-inboedel/" className="text-blue-600 hover:underline">Zo werkt inboedel opkopen</Link>.</>,
+  <>Meubels, huisraad en kleding die nog bruikbaar zijn, gaan naar de <Link href="/duurzaam/" className="text-blue-600 hover:underline">kringloop en goede doelen</Link>; wat niet herbruikbaar is, voeren wij gescheiden af.</>,
   "Eventuele inbouwkasten en andere constructies worden professioneel gedemonteerd en verwijderd.",
   "Vloeren worden professioneel verwijderd en afgevoerd.",
   "Lampen, spiegels, schilderijen en andere aangebrachte aanhangsels op muren en plafonds worden professioneel verwijderd.",
@@ -106,10 +110,24 @@ export default function Page() {
                   <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold flex items-center justify-center">
                     {i + 1}
                   </span>
-                  <p className="text-slate-500 font-light leading-relaxed pt-1">{stap}</p>
+                  <div className="text-slate-500 font-light leading-relaxed pt-1">{stap}</div>
                 </li>
               ))}
             </ol>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-3 tracking-tight">Waar de inboedel heen gaat</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Bij ons gaat zo weinig mogelijk naar de verbrandingsoven. Wat nog bruikbaar is, komt via het sorteercentrum van de kringloop opnieuw in een huis terecht; de rest gaat gescheiden naar hout, metaal en papier. Dit is waar een inboedel twee weken na de ontruiming staat.
+            </p>
+            <div className="relative overflow-hidden rounded-xl mb-5 aspect-video bg-slate-100">
+              <DuurzaamFilm plek="werkwijze" className="absolute inset-0 w-full h-full object-cover" bijschrift="Hergebruik via kringloop, de rest verantwoord afgevoerd" />
+              <div className="absolute bottom-0 left-0 right-0 bg-slate-900/60 px-3 py-2">
+                <p className="text-white text-xs font-medium">Hergebruik via kringloop, de rest verantwoord afgevoerd</p>
+              </div>
+            </div>
+            <p className="mb-10">
+              <Link href="/duurzaam/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">Meer over onze duurzame aanpak →</Link>
+            </p>
 
             <h2 className="text-2xl font-semibold text-slate-900 mt-10 mb-4 tracking-tight">Wat u van ons mag verwachten</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-5">
@@ -120,7 +138,8 @@ export default function Page() {
                 { titel: "Gratis inventarisatie", omschrijving: "Wij komen vrijblijvend langs om de situatie op te nemen. Op basis hiervan stellen wij een heldere offerte op." },
                 { titel: "Vaste contactpersoon", omschrijving: "U heeft één aanspreekpunt gedurende het hele traject. Geen wisselende gezichten, altijd dezelfde lijn." },
                 { titel: "Opleveringsgarantie", omschrijving: "Zijn er opmerkingen na oplevering? Dan komen wij kosteloos terug om dit te herstellen — schriftelijk vastgelegd." },
-                { titel: "Duurzame verwerking", omschrijving: "Wij hergebruiken zoveel mogelijk van de inboedel via kringloop. Zo min mogelijk restafval, zo veel mogelijk waarde." },
+                { titel: "Duurzame verwerking", omschrijving: "Wij hergebruiken zoveel mogelijk van de inboedel via kringloop en goede doelen. Zo min mogelijk restafval, zo veel mogelijk waarde." },
+                { titel: "BSW, Boedel Sorteer Waardering", omschrijving: "Eerst uitzoeken wat waarde heeft, dan pas beslissen. Op uurtarief, verrekend als wij de inboedel kopen." },
               ].map(({ titel, omschrijving }) => (
                 <div key={titel} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
                   <p className="font-medium text-slate-800 mb-1 text-sm">{titel}</p>
