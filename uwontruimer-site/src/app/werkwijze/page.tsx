@@ -133,11 +133,12 @@ export default function Page() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Werkwijze</p>
 
-            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wij doen één ding: woningen ontruimen</h2>
+            <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Woningontruiming is ons vak</h2>
             <p className="text-slate-500 font-light leading-relaxed mb-4">
-              Een woning die leeg moet, na een overlijden, een verhuizing naar een zorginstelling of een verkoop. Dat is ons werk, al meer dan
-              vijftien jaar. Alles wat u op deze site tegenkomt is een onderdeel van hoe wij dat doen: eerst kijken wat waarde heeft, dan
-              één bod op de inboedel, dan de ontruiming met een vaste prijs, en een oplevering met garantie.
+              Een woning die leeg moet, na een overlijden, een verhuizing naar een zorginstelling of een verkoop: dat doen wij al meer dan
+              vijftien jaar, en een bedrijfspand, een spoedklus of een verhuizing gaat op dezelfde manier. Alles wat u op deze site
+              tegenkomt is een onderdeel van die ene werkwijze: eerst kijken wat waarde heeft, dan één bod op de inboedel, dan de
+              ontruiming met een vaste prijs, en een oplevering met garantie.
             </p>
             <p className="text-slate-500 font-light leading-relaxed mb-10">
               En door alles heen: zo weinig mogelijk naar de verbrandingsoven. Wat waarde heeft, krijgt een nieuwe eigenaar. Wat bruikbaar is,
