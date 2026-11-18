@@ -8,6 +8,7 @@ import AbCtaText from "@/components/AbCtaText";
 const diensten = [
   { label: "Woningontruiming", href: "/diensten/woningontruiming" },
   { label: "Voorinspectie huurwoning", href: "/voorinspectie/?van=menu" },
+  { label: "BSW, Boedel Sorteer Waardering", href: "/bsw/?van=menu" },
   { label: "Vooropname uploaden", href: "/vooropname-uploaden/?van=menu" },
   { label: "Bedrijfsontruiming", href: "/diensten/bedrijfsontruiming" },
   { label: "Spoedontruiming", href: "/diensten/spoedontruiming" },

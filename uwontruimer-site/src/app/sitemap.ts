@@ -68,6 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/huis-ontruimen-na-overlijden/`,      lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/oplevering-huurwoning/`,             lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/voorinspectie/`,                     lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/bsw/`,                               lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/vooropname-uploaden/`,          lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/vervuilde-woning-ontruimen/`,        lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/boedelbeheer/`,                      lastModified: now, changeFrequency: "monthly", priority: 0.8 },

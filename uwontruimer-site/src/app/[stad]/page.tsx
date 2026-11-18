@@ -7,7 +7,7 @@ import { stadContent } from "@/data/stad-content";
 import Image from "next/image";
 import Link from "next/link";
 import seoData from "@/data/seo-metadata.json";
-import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, ShieldCheck } from "lucide-react";
+import { Frame, Paintbrush, UtensilsCrossed, Sun, Hammer, Wrench, Leaf, ShieldCheck, Gem } from "lucide-react";
 import TerugbelForm from "@/components/TerugbelForm";
 import AbHeroCta from "@/components/AbHeroCta";
 
@@ -568,6 +568,7 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </h2>
               <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                 {[
+                  { href: "/bsw/?van=stad",                        Icon: Gem,               label: "BSW, Boedel Sorteer Waardering" },
                   { href: "/diensten/raambekleding-verwijderen/", Icon: Frame,             label: "Raambekleding verwijderen" },
                   { href: "/diensten/behang-verwijderen/",        Icon: Paintbrush,        label: "Behang verwijderen" },
                   { href: "/diensten/keuken-verwijderen/",        Icon: UtensilsCrossed,   label: "Keuken verwijderen" },
