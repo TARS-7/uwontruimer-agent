@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
 import BswAanvraag from "@/components/BswAanvraag";
+import Film from "@/components/Film";
 
 // BSW, Boedel Sorteer Waardering. Nieuw begrip, bewust zonder zoekwoord: er
 // wordt niet op gezocht (Zoekwoordplanner 18 nov 2026). De pagina is voor
@@ -210,18 +211,32 @@ export default function Page() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat is een BSW?</p>
 
-            <p className="text-slate-500 font-light leading-relaxed mb-8">
-              In bijna elke inboedel zitten drie tot vijf stukken die los meer opbrengen dan de rest bij elkaar: een gouden ketting
-              in een naaidoos, een designstoel op zolder, een verzameling in een kast, gereedschap in de schuur. Wie de woning snel
-              leeg wil, ziet dat over het hoofd. Wie een bod op de hele inboedel vraagt, krijgt van de koper geen lijst van wat er
-              precies in zat.
-            </p>
-            <p className="text-slate-500 font-light leading-relaxed mb-10">
-              Bij een BSW, Boedel Sorteer Waardering, nemen wij de hele inboedel met u door aan de hand van onze lijst met spullen
-              die nog waarde hebben: sieraden en edelmetaal, design en antiek, verzamelingen, boeken, audio, gereedschap, kleding en
-              wat men meestal vergeet. U krijgt een overzicht met per stuk een foto, een richtprijs en een advies: houden, laten
-              veilen, verkopen of aan ons verkopen. Daarna beslist u.
-            </p>
+            <div className="grid sm:grid-cols-[1fr_260px] gap-8 items-start mb-10">
+              <div>
+                <p className="text-slate-500 font-light leading-relaxed mb-6">
+                  In bijna elke inboedel zitten drie tot vijf stukken die los meer opbrengen dan de rest bij elkaar: een gouden ketting
+                  in een naaidoos, een designstoel op zolder, een verzameling in een kast, gereedschap in de schuur. Wie de woning snel
+                  leeg wil, ziet dat over het hoofd. Wie een bod op de hele inboedel vraagt, krijgt van de koper geen lijst van wat er
+                  precies in zat.
+                </p>
+                <p className="text-slate-500 font-light leading-relaxed">
+                  Bij een BSW, Boedel Sorteer Waardering, nemen wij de hele inboedel met u door aan de hand van onze lijst met spullen
+                  die nog waarde hebben: sieraden en edelmetaal, design en antiek, verzamelingen, boeken, audio, gereedschap, kleding en
+                  wat men meestal vergeet. U krijgt een overzicht met per stuk een foto, een richtprijs en een advies: houden, laten
+                  veilen, verkopen of aan ons verkopen. Daarna beslist u.
+                </p>
+              </div>
+              <div className="relative overflow-hidden rounded-xl bg-slate-100 aspect-[9/16] max-w-[260px] mx-auto w-full">
+                <Film
+                  naam="bsw"
+                  src="/bsw.mp4"
+                  poster="/bsw-poster.jpg"
+                  plek="bsw-intro"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  label="Medewerker neemt de kledingkast, een schilderij en de boekenkast door tijdens een BSW"
+                />
+              </div>
+            </div>
 
             {/* Prijsblok */}
             <div className="rounded-2xl border border-slate-200 p-6 sm:p-7 mb-12" style={{ backgroundColor: "#f8fafc" }}>
