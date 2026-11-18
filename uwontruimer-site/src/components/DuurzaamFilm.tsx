@@ -56,7 +56,7 @@ export default function DuurzaamFilm({ plek, className = "", bijschrift }: Props
       ref={ref}
       className={className}
       src={inBeeld ? "/duurzaam.mp4" : undefined}
-      poster="/kringloop.jpg"
+      poster="/duurzaam-poster.jpg"
       muted
       loop
       playsInline
