@@ -4,6 +4,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleReviewsBar from "@/components/GoogleReviewsBar";
+import BswAanvraag from "@/components/BswAanvraag";
 
 // BSW, Boedel Sorteer Waardering. Nieuw begrip, bewust zonder zoekwoord: er
 // wordt niet op gezocht (Zoekwoordplanner 18 nov 2026). De pagina is voor
@@ -242,12 +243,7 @@ export default function Page() {
                 >
                   Bel 085-303 58 94 voor een BSW
                 </a>
-                <Link
-                  href="/offerte/?van=bsw"
-                  className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 hover:border-blue-400 hover:text-blue-700 transition-colors"
-                >
-                  Offerte aanvragen en de BSW erbij noemen
-                </Link>
+                <BswAanvraag label="BSW aanvragen" variant="secundair" plek="prijsblok" />
               </div>
             </div>
 
@@ -298,7 +294,7 @@ export default function Page() {
             <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Zo gaat het in zijn werk</h2>
             <ol className="space-y-4 mb-12">
               {[
-                { stap: "1", titel: "U vraagt de BSW aan", tekst: "Telefonisch of via de offerteaanvraag. Wij schatten vooraf het aantal uren aan de hand van de grootte van de woning." },
+                { stap: "1", titel: "U vraagt de BSW aan", tekst: "Via de knop op deze pagina of telefonisch. Wij schatten vooraf het aantal uren aan de hand van de grootte van de woning." },
                 { stap: "2", titel: "Wij komen met twee medewerkers", tekst: "Op een moment dat u, of iemand namens u, erbij kunt zijn. Er gaat die dag niets de deur uit." },
                 { stap: "3", titel: "U ontvangt het overzicht", tekst: "Binnen twee werkdagen, met foto, richtprijs en advies per stuk, en de gewerkte uren." },
                 { stap: "4", titel: "U beslist", tekst: "Houden, laten veilen, verkopen of aan ons verkopen. Neemt u ons bod op de inboedel aan, dan gaat de BSW van dat bod af." },
@@ -335,15 +331,10 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 p-6 sm:p-7" style={{ backgroundColor: "#f8fafc" }}>
               <h2 className="text-xl font-semibold text-slate-900 mb-2 tracking-tight">BSW aanvragen</h2>
               <p className="text-slate-500 font-light text-sm leading-relaxed mb-5">
-                Bel <a href="tel:0853035894" className="text-blue-600 hover:underline">085-303 58 94</a>, ook in het weekend, of
-                vraag een offerte aan en noem daarbij de BSW. Wij nemen binnen één werkdag contact op.
+                Laat uw gegevens achter, dan nemen wij binnen één werkdag contact op om de BSW in te plannen. Liever direct
+                iemand spreken? Bel <a href="tel:0853035894" className="text-blue-600 hover:underline">085-303 58 94</a>, ook in het weekend.
               </p>
-              <Link
-                href="/offerte/?van=bsw"
-                className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-              >
-                Offerte aanvragen
-              </Link>
+              <BswAanvraag label="BSW aanvragen" plek="onderaan" />
             </div>
           </div>
         </div>
