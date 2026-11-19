@@ -562,6 +562,36 @@ export default async function StadPage({ params }: { params: Promise<{ stad: str
               </div>
             </div>
 
+            {/* Klantreis: dezelfde vijf stappen als op de homepage en /werkwijze/ */}
+            <div className="mt-8 border-t border-slate-100 pt-8">
+              <h2 className="text-xl font-semibold text-slate-900 tracking-tight mb-2">
+                Zo verloopt een woningontruiming in {name}
+              </h2>
+              <p className="text-sm text-slate-500 font-light leading-relaxed mb-5">
+                Eerst kijken wat waarde heeft, dan één bod op de inboedel, dan de ontruiming met een vaste prijs en een oplevering met garantie. En door alles heen: zo weinig mogelijk naar de verbrandingsoven.
+              </p>
+              <ol className="space-y-3">
+                {[
+                  { t: "Weten wat er staat", d: "De BSW: de hele inboedel uitgezocht op waarde, per stuk foto, richtprijs en advies. Optioneel, op uurtarief.", href: "/bsw/?van=stad" },
+                  { t: "Eén bod op de inboedel", d: "Het bod gaat van de ontruimingskosten af; bij een waardevolle inboedel betalen wij u uit. Wat wij kopen, krijgt een tweede leven.", href: "/diensten/opkopen-inboedel/" },
+                  { t: "De ontruiming, met vaste prijs", d: "Eén offerte met alles erin. Gescheiden geladen: bruikbaar apart van hout, metaal en rest.", href: "/diensten/woningontruiming/" },
+                  { t: "Opleveren met garantie", d: "Bezemschoon, fotorapportage, aanwezig bij de eindinspectie. Documenten en foto's gaan in een gesloten doos naar u terug.", href: "/opleveringsgarantie/" },
+                  { t: "Waar de inboedel heen gaat", d: "Bruikbaar naar de kringloop en goede doelen, de rest gescheiden naar hout, metaal en papier.", href: "/duurzaam/" },
+                ].map((stap, i) => (
+                  <li key={stap.href} className="flex gap-4 items-start">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-semibold flex items-center justify-center mt-0.5">{i + 1}</span>
+                    <div>
+                      <Link href={stap.href} className="text-sm font-medium text-slate-900 hover:text-blue-600 transition-colors">{stap.t}</Link>
+                      <p className="text-sm text-slate-500 font-light leading-relaxed">{stap.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-4">
+                <Link href="/werkwijze/" className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">De hele werkwijze →</Link>
+              </p>
+            </div>
+
             {/* Aanvullende services — na tweede alinea */}
             <div className="mt-8 border-t border-slate-100 pt-8 mb-8">
               <h2 className="text-xl font-semibold text-slate-900 tracking-tight mb-5">
