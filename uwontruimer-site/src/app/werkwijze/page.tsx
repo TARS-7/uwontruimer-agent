@@ -7,7 +7,7 @@ import DuurzaamFilm from "@/components/DuurzaamFilm";
 import Film from "@/components/Film";
 
 export const metadata: Metadata = {
-  title: "Werkwijze: zo gaat een woningontruiming in zijn werk, stap voor stap",
+  title: "Werkwijze | Zo brengen wij uw ontruiming tot een succes",
   description: "Van het eerste telefoontje tot de sleuteloverdracht: gratis opname, offerte met vaste prijs, de klusdag en een bezemschone oplevering met garantie. Zo gaat een woningontruiming bij Uw Ontruimer in zijn werk.",
   alternates: { canonical: "/werkwijze/" },
 };
