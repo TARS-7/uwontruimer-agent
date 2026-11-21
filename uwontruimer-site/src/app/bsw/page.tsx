@@ -190,6 +190,7 @@ export default function Page() {
         <div className="py-3 px-6 border-b border-slate-100" style={{ backgroundColor: "#f8fafc" }}>
           <div className="max-w-3xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
             {[
+              "Extra dienst, alleen op uw verzoek",
               "Uurtarief, dus geen belang bij een laag bod",
               "Verrekend als wij de inboedel kopen",
               "Overzicht met foto per stuk",
@@ -208,6 +209,13 @@ export default function Page() {
 
         <div className="bg-white py-14 px-6">
           <div className="max-w-3xl mx-auto">
+            <div className="rounded-xl border border-blue-100 bg-blue-50 px-5 py-4 mb-8">
+              <p className="text-sm text-slate-700 leading-relaxed">
+                <span className="font-semibold">De BSW is een extra dienst, alleen op uw verzoek.</span> Voor een gewone ontruiming
+                is hij niet nodig: de opname, de AI-analyse en de offerte voor de ontruiming zijn altijd gratis.
+              </p>
+            </div>
+
             <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat is een BSW?</p>
 
             <p className="text-slate-500 font-light leading-relaxed mb-6">

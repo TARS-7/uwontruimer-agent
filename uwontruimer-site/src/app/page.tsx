@@ -197,19 +197,18 @@ export default function HomePage() {
               <p className="text-xs font-medium text-blue-600 uppercase tracking-widest mb-3">Wat wij doen</p>
               <h2 className="text-3xl font-semibold text-slate-900 tracking-tight mb-3">Zo verloopt een woningontruiming bij ons</h2>
               <p className="text-slate-500 font-light text-sm max-w-xl leading-relaxed">
-                Woningontruiming is ons vak. Eerst kijken wat waarde heeft, dan één bod op de inboedel, dan de ontruiming met een vaste prijs
+                Woningontruiming is ons vak. Een gratis offerte, één bod op de inboedel, de ontruiming met een vaste prijs
                 en een oplevering met garantie. En door alles heen: zo weinig mogelijk naar de verbrandingsoven.
               </p>
             </div>
             <Link href="/werkwijze/" className="inline-flex items-center gap-2 border border-slate-200 text-slate-600 hover:text-slate-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors bg-white w-fit">De hele werkwijze <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg></Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { n: "1", t: "Weten wat er staat", d: "De BSW: de hele inboedel uitgezocht op waarde, per stuk foto, richtprijs en advies. Optioneel.", g: "Niets wat waarde heeft, gaat de container in.", href: "/bsw/?van=home" },
-              { n: "2", t: "Eén bod op de inboedel", d: "Meestal binnen 48 uur. Het bod gaat van de ontruimingskosten af; bij een waardevolle inboedel betalen wij u uit.", g: "Wat wij kopen, krijgt een tweede leven.", href: "/diensten/opkopen-inboedel/" },
-              { n: "3", t: "Ontruiming, vaste prijs", d: "Eén offerte met alles erin. Bij een huurwoning regelen wij de voorinspectie met de corporatie.", g: "Gescheiden geladen: bruikbaar apart van hout, metaal en rest.", href: "/diensten/woningontruiming/" },
-              { n: "4", t: "Opleveren met garantie", d: "Bezemschoon, fotorapportage, aanwezig bij de eindinspectie. Opmerking achteraf? Wij komen terug.", g: "Documenten en foto's gaan in een gesloten doos naar u terug.", href: "/opleveringsgarantie/" },
-              { n: "5", t: "Waar de inboedel heen gaat", d: "Bruikbaar naar de kringloop en goede doelen, de rest gescheiden naar hout, metaal en papier.", g: "Zo weinig mogelijk naar de verbrandingsoven.", href: "/duurzaam/" },
+              { n: "1", t: "Eén bod op de inboedel", d: "Meestal binnen 48 uur. Het bod gaat van de ontruimingskosten af; bij een waardevolle inboedel betalen wij u uit.", g: "Wat wij kopen, krijgt een tweede leven.", href: "/diensten/opkopen-inboedel/" },
+              { n: "2", t: "Ontruiming, vaste prijs", d: "Gratis opname en offerte, met alles erin. Daarna betaalt u alleen de vaste prijs.", g: "Gescheiden geladen: bruikbaar apart van hout, metaal en rest.", href: "/diensten/woningontruiming/" },
+              { n: "3", t: "Opleveren met garantie", d: "Bezemschoon, fotorapportage, aanwezig bij de eindinspectie. Opmerking achteraf? Wij komen terug.", g: "Documenten en foto's gaan in een gesloten doos naar u terug.", href: "/opleveringsgarantie/" },
+              { n: "4", t: "Waar de inboedel heen gaat", d: "Bruikbaar naar de kringloop en goede doelen, de rest gescheiden naar hout, metaal en papier.", g: "Zo weinig mogelijk naar de verbrandingsoven.", href: "/duurzaam/" },
             ].map((s) => (
               <Link key={s.n} href={s.href} className="group relative pt-6 border-t-2 border-slate-100 hover:border-blue-200 transition-colors">
                 <div className="absolute top-[-2px] left-0 w-10 h-[3px] bg-blue-600 rounded-full"></div>
@@ -232,6 +231,11 @@ export default function HomePage() {
               <Link key={href} href={href} className="inline-block rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm text-slate-600 hover:border-blue-300 hover:text-blue-700 transition-colors">{label}</Link>
             ))}
           </div>
+          <p className="mt-6 text-sm text-slate-500 font-light leading-relaxed max-w-3xl">
+            <span className="font-medium text-slate-700">Extra, alleen op uw verzoek: </span>
+            <Link href="/bsw/?van=home" className="text-blue-600 hover:underline">BSW, Boedel Sorteer Waardering</Link> (€ 75 per uur per medewerker) en de{" "}
+            <Link href="/voorinspectie/?van=home" className="text-blue-600 hover:underline">voorinspectie huurwoning</Link> (€ 150, verrekend). Geen onderdeel van de standaard ontruiming; de offerte blijft gratis.
+          </p>
         </div>
       </section>
 

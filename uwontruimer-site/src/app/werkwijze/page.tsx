@@ -7,8 +7,8 @@ import DuurzaamFilm from "@/components/DuurzaamFilm";
 import Film from "@/components/Film";
 
 export const metadata: Metadata = {
-  title: "Werkwijze: zo verloopt een woningontruiming bij Uw Ontruimer, in vijf stappen",
-  description: "Eerst kijken wat waarde heeft, één bod op de inboedel, ontruiming met vaste prijs, oplevering met garantie, en zo weinig mogelijk naar de verbrandingsoven. Zo werkt een woningontruiming bij Uw Ontruimer.",
+  title: "Werkwijze: zo verloopt een woningontruiming bij Uw Ontruimer, in vier stappen",
+  description: "Gratis offerte, één bod op de inboedel, ontruiming met vaste prijs, oplevering met garantie, en zo weinig mogelijk naar de verbrandingsoven. Zo werkt een woningontruiming bij Uw Ontruimer.",
   alternates: { canonical: "/werkwijze/" },
 };
 
@@ -47,21 +47,11 @@ type Stap = { titel: string; intro: string; u: string; wij: string; kosten: stri
 
 const stappen: Stap[] = [
   {
-    titel: "Weten wat er staat",
-    intro: "Wilt u zeker weten dat er niets weggaat wat geld waard is? Dan beginnen wij met een BSW, Boedel Sorteer Waardering: de hele inboedel uitgezocht met onze lijst van spullen die nog waarde hebben.",
-    u: "U bent erbij, of iemand namens u. U beslist per stuk: houden, laten veilen, verkopen of aan ons verkopen.",
-    wij: "Wij lopen elke ruimte in een vaste volgorde door, zetten apart wat waarde heeft en leveren een overzicht met foto, richtprijs en advies per stuk.",
-    kosten: "€ 75 per uur per medewerker, twee medewerkers, minimaal twee uur. Verrekend als wij de inboedel kopen. Optioneel.",
-    duurzaam: "Niets wat nog waarde heeft, gaat de container in. Dat is de eerste en grootste stap naar minder afval.",
-    href: "/bsw/?van=werkwijze",
-    knop: "Meer over de BSW",
-  },
-  {
     titel: "Eén bod op de inboedel",
     intro: "Op de complete inboedel doen wij één bod, meestal binnen 48 uur na uw foto's. Dat bod gaat van de ontruimingskosten af; bij een waardevolle inboedel betalen wij u uit.",
     u: "U stuurt foto's via WhatsApp of laat ons langskomen. U beslist pas als het bod op papier staat.",
     wij: "Wij beoordelen antiek, design, sieraden, boeken en gewone huisraad in één keer en zetten het bod schriftelijk vast.",
-    kosten: "Geen. Het bod wordt verrekend of uitbetaald; een eventuele BSW gaat van het bod af.",
+    kosten: "Geen. Het bod wordt verrekend met de offerte of aan u uitbetaald.",
     duurzaam: "Wat wij kopen, krijgt een tweede leven via onze afnemers, veilinghuizen en vintage-handelaren in plaats van een nieuw gekocht exemplaar.",
     href: "/diensten/opkopen-inboedel/",
     knop: "Zo werkt inboedel opkopen",
@@ -71,7 +61,7 @@ const stappen: Stap[] = [
     intro: "U krijgt één offerte met alles erin: leeghalen, afvoeren, vloer of keuken eruit als dat nodig is, gaatjes dichten, schoon opleveren. Bij een huurwoning wonen wij de voorinspectie van de corporatie bij, zodat de herstellijst in dezelfde offerte zit.",
     u: "U vult de AI-analyse in met foto's, of maakt een afspraak voor een opname aan huis. Op de klusdag hoeft u er niet te zijn.",
     wij: "Wij halen leeg in één of twee dagen, demonteren wat vast zit en laden gescheiden: meubels en bruikbare spullen apart van hout, metaal en rest.",
-    kosten: "Vaste prijs uit de offerte. Voorinspectie huurwoning € 150, verrekend met de ontruiming.",
+    kosten: "Vaste prijs uit de offerte. De opname aan huis, de AI-analyse en de offerte zijn gratis.",
     duurzaam: "Bruikbare meubels, kleding en huisraad gaan naar de kringloop en goede doelen. Hout, metaal en papier worden apart gewogen en verwerkt, niet als gemengd afval.",
     href: "/offerte/?van=werkwijze",
     knop: "Vraag een offerte aan",
@@ -112,7 +102,7 @@ export default function Page() {
             poster="/bsw-breed-poster.jpg"
             plek="werkwijze-hero"
             className="absolute inset-0 w-full h-full object-cover"
-            label="Medewerker neemt de kledingkast, een schilderij en de boekenkast door tijdens een BSW"
+            label="Medewerker van Uw Ontruimer neemt een inboedel door"
           />
           <div className="absolute inset-0 bg-slate-900/45" />
           <div className="absolute inset-0 flex items-end pb-10 px-6">
@@ -122,7 +112,7 @@ export default function Page() {
                 Zo verloopt een woningontruiming bij ons
               </h1>
               <p className="text-white/85 font-light mt-3 text-base sm:text-lg">
-                Eerst kijken wat waarde heeft, dan één bod, dan de ontruiming met vaste prijs en een oplevering met garantie.
+                Een gratis offerte, één bod op de inboedel, de ontruiming met vaste prijs en een oplevering met garantie.
               </p>
             </div>
           </div>
@@ -149,8 +139,8 @@ export default function Page() {
             <p className="text-slate-500 font-light leading-relaxed mb-4">
               Een woning die leeg moet, na een overlijden, een verhuizing naar een zorginstelling of een verkoop: dat doen wij al meer dan
               vijftien jaar, en een bedrijfspand, een spoedklus of een verhuizing gaat op dezelfde manier. Alles wat u op deze site
-              tegenkomt is een onderdeel van die ene werkwijze: eerst kijken wat waarde heeft, dan één bod op de inboedel, dan de
-              ontruiming met een vaste prijs, en een oplevering met garantie.
+              tegenkomt is een onderdeel van die ene werkwijze: één bod op de inboedel, de ontruiming met een vaste prijs, en een
+              oplevering met garantie. De opname en de offerte kosten u niets.
             </p>
             <p className="text-slate-500 font-light leading-relaxed mb-10">
               En door alles heen: zo weinig mogelijk naar de verbrandingsoven. Wat waarde heeft, krijgt een nieuwe eigenaar. Wat bruikbaar is,
@@ -158,7 +148,7 @@ export default function Page() {
               waarop wij elke woning leeghalen.
             </p>
 
-            <h2 className="text-2xl font-semibold text-slate-900 mb-6 tracking-tight">Zo verloopt het, in vijf stappen</h2>
+            <h2 className="text-2xl font-semibold text-slate-900 mb-6 tracking-tight">Zo verloopt het, in vier stappen</h2>
             <ol className="space-y-5 mb-12">
               {stappen.map((stap, i) => (
                 <li key={stap.titel} className="rounded-2xl border border-slate-200 p-6">
@@ -199,6 +189,38 @@ export default function Page() {
                 </li>
               ))}
             </ol>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mb-2 tracking-tight">Extra, alleen op uw verzoek</h2>
+            <p className="text-slate-500 font-light leading-relaxed mb-5">
+              Deze diensten horen niet bij de standaard ontruiming. U betaalt ze alleen als u er zelf om vraagt.
+              De opname, de AI-analyse en de offerte blijven altijd gratis.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-12">
+              {[
+                {
+                  titel: "BSW, Boedel Sorteer Waardering",
+                  tekst: "Wilt u eerst precies weten wat er staat? Wij zoeken de hele inboedel uit op waarde, met per stuk een foto, richtprijs en advies.",
+                  prijs: "€ 75 per uur per medewerker. Gaat van ons bod af als wij de inboedel kopen.",
+                  href: "/bsw/?van=werkwijze",
+                  knop: "Meer over de BSW",
+                },
+                {
+                  titel: "Voorinspectie huurwoning",
+                  tekst: "Wij wonen de voorinspectie van de corporatie bij, zodat de herstellijst meteen in de offerte voor de ontruiming staat.",
+                  prijs: "€ 150, verrekend met de ontruiming.",
+                  href: "/voorinspectie/?van=werkwijze",
+                  knop: "Meer over de voorinspectie",
+                },
+              ].map((e) => (
+                <div key={e.titel} className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-xs font-medium text-slate-400 uppercase tracking-widest mb-1">Extra dienst</p>
+                  <p className="font-semibold text-slate-900 mb-2">{e.titel}</p>
+                  <p className="text-sm text-slate-500 font-light leading-relaxed mb-2">{e.tekst}</p>
+                  <p className="text-sm text-slate-700 leading-relaxed mb-3">{e.prijs}</p>
+                  <Link href={e.href} className="inline-flex items-center gap-1.5 text-blue-600 font-medium text-sm hover:underline">{e.knop} →</Link>
+                </div>
+              ))}
+            </div>
 
             <h2 className="text-2xl font-semibold text-slate-900 mb-4 tracking-tight">Wat u van ons mag verwachten</h2>
             <div className="grid sm:grid-cols-2 gap-4 mb-12">
